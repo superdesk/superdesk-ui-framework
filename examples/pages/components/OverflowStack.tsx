@@ -789,13 +789,17 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                 </p>
                 <ul>
                     <li>
-                        <strong>Simple (<code>type="simple"</code>):</strong> Use <code>items</code> prop for
-                        straightforward cases where items render the same everywhere
+                        <strong>
+                            Simple (<code>type="simple"</code>):
+                        </strong>{' '}
+                        Use <code>items</code> prop for straightforward cases where items render the same everywhere
                     </li>
                     <li>
-                        <strong>Data-Driven (<code>type="data"</code>):</strong> Use <code>itemsData</code> with{' '}
-                        <code>renderVisibleItem</code> and <code>renderHiddenItem</code> when you need different
-                        rendering in the stack vs popover
+                        <strong>
+                            Data-Driven (<code>type="data"</code>):
+                        </strong>{' '}
+                        Use <code>itemsData</code> with <code>renderVisibleItem</code> and <code>renderHiddenItem</code>{' '}
+                        when you need different rendering in the stack vs popover
                     </li>
                 </ul>
                 <PropsList>

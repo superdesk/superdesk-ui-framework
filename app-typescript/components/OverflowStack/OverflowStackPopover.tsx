@@ -18,9 +18,7 @@ export class OverflowStackPopover<T> extends React.Component<IPopoverContentProp
             return null;
         }
 
-        const itemsToShow = showOnlyHiddenInPopover
-            ? props.items.slice(max)
-            : props.items;
+        const itemsToShow = showOnlyHiddenInPopover ? props.items.slice(max) : props.items;
 
         if (props.type === 'data') {
             const renderFn = props.renderHiddenItem ?? props.renderVisibleItem;
@@ -29,10 +27,7 @@ export class OverflowStackPopover<T> extends React.Component<IPopoverContentProp
                 <div className="overflow-stack__popover">
                     {itemsToShow.map((data, index) => (
                         <div key={index} className="overflow-stack__popover-item">
-                            {renderFn(
-                                data as T,
-                                showOnlyHiddenInPopover ? index + max : index,
-                            )}
+                            {renderFn(data as T, showOnlyHiddenInPopover ? index + max : index)}
                         </div>
                     ))}
                 </div>
@@ -42,10 +37,7 @@ export class OverflowStackPopover<T> extends React.Component<IPopoverContentProp
 
             return (
                 <div className="overflow-stack__popover">
-                    {itemsToShow.map((item, index) => renderFn(
-                        item,
-                        showOnlyHiddenInPopover ? index + max : index,
-                    ))}
+                    {itemsToShow.map((item, index) => renderFn(item, showOnlyHiddenInPopover ? index + max : index))}
                 </div>
             );
         }

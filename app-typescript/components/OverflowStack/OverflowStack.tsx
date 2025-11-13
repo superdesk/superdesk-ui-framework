@@ -11,17 +11,19 @@ interface IPropsOverflowStackBase {
     /**
      * Default: {type: `fixed`, max: 4}
      */
-    overflow?: {
-        type: 'fixed';
+    overflow?:
+        | {
+              type: 'fixed';
 
-        /**
-         * Defaults to `4`
-         * Maximum number of items to show inline
-         */
-        max?: number | 'show-all';
-    } | {
-        type: 'auto';
-    };
+              /**
+               * Defaults to `4`
+               * Maximum number of items to show inline
+               */
+              max?: number | 'show-all';
+          }
+        | {
+              type: 'auto';
+          };
 
     /**
      * Defaults to `compact`
@@ -317,17 +319,13 @@ export class OverflowStack<T> extends React.PureComponent<IPropsOverflowStack<T>
             const {props} = this;
 
             if (props.type === 'data') {
-                const itemsToRender = overflow.type === 'auto'
-                    ? props.items
-                    : props.items.slice(0, max);
+                const itemsToRender = overflow.type === 'auto' ? props.items : props.items.slice(0, max);
 
                 return itemsToRender.map((data, index) =>
                     renderItemWrapper(props.renderVisibleItem(data, index), index),
                 );
             } else {
-                const itemsToRender = overflow.type === 'auto'
-                    ? props.items
-                    : props.items.slice(0, max);
+                const itemsToRender = overflow.type === 'auto' ? props.items : props.items.slice(0, max);
 
                 return itemsToRender.map((item, index) => renderItemWrapper(item, index));
             }
@@ -342,7 +340,7 @@ export class OverflowStack<T> extends React.PureComponent<IPropsOverflowStack<T>
                 e.stopPropagation();
 
                 if (onIndicatorClick == null) {
-                    onToggle(e.currentTarget)
+                    onToggle(e.currentTarget);
                 } else {
                     onIndicatorClick();
                 }
@@ -351,14 +349,7 @@ export class OverflowStack<T> extends React.PureComponent<IPropsOverflowStack<T>
             let indicator: React.ReactNode;
 
             if (indicatorStyle === 'dots') {
-                indicator = (
-                    <IconButton
-                        size="small"
-                        icon="dots"
-                        ariaValue={ariaLabel}
-                        onClick={handleClick}
-                    />
-                );
+                indicator = <IconButton size="small" icon="dots" ariaValue={ariaLabel} onClick={handleClick} />;
             } else {
                 const content = renderIndicator?.(itemsOverLimit) ?? defaultIndicator(itemsOverLimit);
 
@@ -380,7 +371,7 @@ export class OverflowStack<T> extends React.PureComponent<IPropsOverflowStack<T>
                     <div ref={this.indicatorRef} style={{display: 'inline-flex'}}>
                         {indicator}
                     </div>
-                )
+                );
             }
 
             return indicator;
