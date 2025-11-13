@@ -83,18 +83,15 @@ export const LoadMoreIndicator: React.FC<IProps> = ({
         .join(' ');
 
     return (
-        <li
-            className={containerClassName}
-            data-test-id={testId}
-            role="status"
-            aria-live="polite"
-            aria-busy="true"
-        >
+        <li className={containerClassName} data-test-id={testId} role="status" aria-live="polite" aria-busy="true">
             <div className="load-more-indicator">
                 <span className="load-more-indicator__text">
                     {loadingText}
                     {showProgress && currentCount != null && totalCount != null && (
-                        <> ({currentCount} of {totalCount})</>
+                        <>
+                            {' '}
+                            ({currentCount} of {totalCount})
+                        </>
                     )}
                 </span>
                 <div className={loaderClassName} />

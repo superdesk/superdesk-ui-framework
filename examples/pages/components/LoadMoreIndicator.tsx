@@ -49,11 +49,7 @@ export default class LoadMoreIndicatorDoc extends React.Component<{}, IState> {
                             <li className="sd-list-item">
                                 <div className="sd-list-item__column">Item 3</div>
                             </li>
-                            <LoadMoreIndicator
-                                loading={this.state.showExample1}
-                                currentCount={3}
-                                totalCount={10}
-                            />
+                            <LoadMoreIndicator loading={this.state.showExample1} currentCount={3} totalCount={10} />
                         </ul>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
@@ -235,13 +231,13 @@ export default class LoadMoreIndicatorDoc extends React.Component<{}, IState> {
                     The component includes proper ARIA attributes for screen readers:
                 </p>
                 <ul className="docs-page__unordered-list">
-                    <li className='py-0-5'>
+                    <li className="py-0-5">
                         <code>role="status"</code> - Indicates the element is a status message
                     </li>
-                    <li className='py-0-5'>
+                    <li className="py-0-5">
                         <code>aria-live="polite"</code> - Screen readers will announce updates when convenient
                     </li>
-                    <li className='py-0-5'>
+                    <li className="py-0-5">
                         <code>aria-busy="true"</code> - Indicates the section is being updated
                     </li>
                 </ul>
