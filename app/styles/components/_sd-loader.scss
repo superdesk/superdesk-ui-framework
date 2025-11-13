@@ -27,4 +27,13 @@
     inset-block-end: 0;
     inset-inline-start: 0;
     z-index: 99999;
+    &.sd-loader--small {
+        background-size: 30px;
+    }
+    &.sd-loader--medium {
+        background-size: 40px;
+    }
+    &.sd-loader--large {
+        background-size: 60px;
+    }
 }
