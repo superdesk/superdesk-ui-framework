@@ -66,7 +66,6 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
     };
 
     render() {
-        // Sample data for examples
         const labelItems = [
             <Label size="large" key="1" text="Breaking News" type="primary" />,
             <Label size="large" key="2" text="Sports" type="success" />,
@@ -141,13 +140,17 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
 
                 <Markup.ReactMarkupCodePreview>
                     {`
-                        <OverflowStack 
+                        <OverflowStack
+                            type="simple"
                             items={[
                                 <Label text="Item 1" type="primary" />,
                                 <Label text="Item 2" type="success" />,
                                 <Label text="Item 3" type="warning" />,
                             ]}
-                            max={2}
+                            overflow={{
+                                type: 'fixed',
+                                max: 2,
+                            }}
                         />
                     `}
                 </Markup.ReactMarkupCodePreview>
@@ -163,23 +166,46 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Badge Stack (max 3 items)</p>
                         <div className="docs-page__content-row">
-                            <OverflowStack items={labelItems} max={3} />
+                            <OverflowStack
+                                items={labelItems}
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 3,
+                                }}
+                                type="simple"
+                            />
                         </div>
 
                         <p className="docs-page__paragraph">// Tag Stack (max 4 items)</p>
                         <div className="docs-page__content-row">
-                            <OverflowStack items={tagItems} max={4} />
+                            <OverflowStack
+                                items={tagItems}
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 3,
+                                }}
+                                type="simple"
+                            />
                         </div>
 
                         <p className="docs-page__paragraph">// CheckButton Stack (show only hidden in popover)</p>
                         <div className="docs-page__content-row">
-                            <OverflowStack items={checkbuttonItems} showOnlyHiddenInPopover={true} max={4} />
+                            <OverflowStack
+                                type="simple"
+                                items={checkbuttonItems}
+                                showOnlyHiddenInPopover={true}
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 4,
+                                }}
+                            />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                         {`
                             // Badge Stack (max 3 items)
-                            <OverflowStack 
+                            <OverflowStack
+                                type="simple"
                                 items={[
                                     <Label size='large' key="1" text="Breaking News" type="primary" />,
                                     <Label size='large' key="2" text="Sports" type="success" />,
@@ -188,21 +214,31 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                                     <Label size='large' key="5" text="Technology" type="primary" />,
                                     <Label size='large' key="6" text="Health" type="success" />,
                                 ]}
-                                max={3}
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 3,
+                                }}
                             />
+
                             // Tag Stack (max 4 items)
                             <OverflowStack
+                                type="simple"
                                 items={[
                                     <Tag key="1" text="React" />,
                                     <Tag key="2" text="TypeScript" />,
-                                    <Tag key="3" text="JavaScript" />,           
+                                    <Tag key="3" text="JavaScript" />,
                                     <Tag key="4" text="HTML" />,
                                     <Tag key="5" text="CSS" />,
                                 ]}
-                                max={4}
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 3,
+                                }}
                             />
+
                             // CheckButton Stack (show only hidden in popover)
                             <OverflowStack
+                                type="simple"
                                 items={[
                                     <CheckboxButton key="1" label={{text: 'Text', icon: 'text', hidden: true}} checked={value1} onChange={(value) => setValue1(value)} />,
                                     <CheckboxButton key="2" label={{text: 'Photo', icon: 'photo', hidden: true}} checked={value2} onChange={(value) => setValue2(value)} />,
@@ -212,7 +248,10 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                                     <CheckboxButton key="6" label={{text: 'Composite', icon: 'composite'}} checked={value6} onChange={(value) => setValue6(value)} />,
                                 ]}
                                 showOnlyHiddenInPopover={true}
-                                max={4}
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 4,
+                                }}
                             />
                         `}
                     </Markup.ReactMarkupCode>
@@ -223,12 +262,28 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Compact (default)</p>
                         <div className="docs-page__content-row">
-                            <OverflowStack items={tagItems.slice(0, 4)} gap="compact" max="show-all" />
+                            <OverflowStack
+                                items={tagItems.slice(0, 4)}
+                                gap="compact"
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 'show-all',
+                                }}
+                                type="simple"
+                            />
                         </div>
 
                         <p className="docs-page__paragraph">// Loose</p>
                         <div className="docs-page__content-row">
-                            <OverflowStack items={tagItems.slice(0, 4)} gap="loose" max="show-all" />
+                            <OverflowStack
+                                items={tagItems.slice(0, 4)}
+                                gap="loose"
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 'show-all',
+                                }}
+                                type="simple"
+                            />
                         </div>
 
                         <p className="docs-page__paragraph">
@@ -236,19 +291,51 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                             spacing)
                         </p>
                         <div className="docs-page__content-row">
-                            <OverflowStack items={tagItems.slice(0, 4)} gap="none" max="show-all" />
+                            <OverflowStack
+                                items={tagItems.slice(0, 4)}
+                                gap="none"
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 'show-all',
+                                }}
+                                type="simple"
+                            />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                         {`
                             // Compact (default)
-                            <OverflowStack items={tagItems.slice(0, 4)} gap="compact" max="show-all" />
+                            <OverflowStack
+                                type="simple"
+                                items={tagItems.slice(0, 4)}
+                                gap="compact"
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 'show-all',
+                                }}
+                            />
 
                             // Loose
-                            <OverflowStack items={tagItems.slice(0, 4)} gap="loose" max="show-all" />
+                            <OverflowStack
+                                type="simple"
+                                items={tagItems.slice(0, 4)}
+                                gap="loose"
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 'show-all',
+                                }}
+                            />
 
                             // None (no gap; should only be used in rare cases where components have already have visual spacing)
-                            <OverflowStack items={tagItems.slice(0, 4)} gap="none" max="show-all" />
+                            <OverflowStack
+                                type="simple"
+                                items={tagItems.slice(0, 4)}
+                                gap="none"
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 'show-all',
+                                }}
+                            />
                         `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -258,12 +345,21 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Overlapping items - items move up on hover</p>
                         <div className="docs-page__content-row">
-                            <OverflowStack items={labelItems} max={4} overlap={true} />
+                            <OverflowStack
+                                items={labelItems}
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 4,
+                                }}
+                                type="simple"
+                                overlap={true}
+                            />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                         {`
-                            <OverflowStack 
+                            <OverflowStack
+                                type="simple"
                                 items={[
                                     <Label size='large' key="1" text="Breaking News" type="primary" />,
                                     <Label size='large' key="2" text="Sports" type="success" />,
@@ -272,7 +368,10 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                                     <Label size='large' key="5" text="Technology" type="primary" />,
                                     <Label size='large' key="6" text="Health" type="success" />,
                                 ]}
-                                max={4}
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 4,
+                                }}
                                 overlap={true}
                             />
                         `}
@@ -284,21 +383,53 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Show all items in popover (default)</p>
                         <div className="docs-page__content-row">
-                            <OverflowStack items={labelItems} max={3} showOnlyHiddenInPopover={false} />
+                            <OverflowStack
+                                items={labelItems}
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 4,
+                                }}
+                                type="simple"
+                                showOnlyHiddenInPopover={false}
+                            />
                         </div>
 
                         <p className="docs-page__paragraph">// Show only hidden items in popover</p>
                         <div className="docs-page__content-row">
-                            <OverflowStack items={labelItems} max={3} showOnlyHiddenInPopover />
+                            <OverflowStack
+                                items={labelItems}
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 3,
+                                }}
+                                type="simple"
+                                showOnlyHiddenInPopover
+                            />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                         {`
                             // Show all items in popover (default)
-                            <OverflowStack items={labelItems} max={3} showOnlyHiddenInPopover={false} />
+                            <OverflowStack
+                                type="simple"
+                                items={labelItems}
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 3,
+                                }}
+                                showOnlyHiddenInPopover={false}
+                            />
 
                             // Show only hidden items in popover
-                            <OverflowStack items={labelItems} max={3} showOnlyHiddenInPopover />
+                            <OverflowStack
+                                type="simple"
+                                items={labelItems}
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 3,
+                                }}
+                                showOnlyHiddenInPopover
+                            />
                         `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -314,9 +445,14 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                         <p className="docs-page__paragraph">// Show all items in popover (default)</p>
                         <ResizablePanels direction="horizontal" secondarySize={{default: 10}}>
                             <div className="left-panel py-3 ps-3 sd-border--medium radius-lg me-0-5">
-                                <OverflowStack items={labelItems} overflow="auto" indicatorStyle="dots" />
+                                <OverflowStack
+                                    items={labelItems}
+                                    overflow={{type: 'auto'}}
+                                    type="simple"
+                                    indicatorStyle="dots"
+                                />
                                 <br />
-                                <OverflowStack items={tagItems} overflow="auto" />
+                                <OverflowStack items={tagItems} overflow={{type: 'auto'}} type="simple" />
                             </div>
                             <div className="right-panel p-2"></div>
                         </ResizablePanels>
@@ -325,12 +461,18 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                             <div className="left-panel py-3 ps-3 sd-border--medium radius-lg me-0-5">
                                 <OverflowStack
                                     items={labelItems}
-                                    overflow="auto"
+                                    overflow={{type: 'auto'}}
+                                    type="simple"
                                     showOnlyHiddenInPopover={true}
                                     indicatorStyle="dots"
                                 />
                                 <br />
-                                <OverflowStack items={tagItems} overflow="auto" showOnlyHiddenInPopover={true} />
+                                <OverflowStack
+                                    items={tagItems}
+                                    overflow={{type: 'auto'}}
+                                    type="simple"
+                                    showOnlyHiddenInPopover={true}
+                                />
                             </div>
                             <div className="right-panel p-2"></div>
                         </ResizablePanels>
@@ -340,9 +482,18 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                             // Show all items in popover (default)
                             <ResizablePanels direction="horizontal" secondarySize={{default: 10}}>
                                 <div className="left-panel py-3 ps-3 sd-border--medium radius-lg me-0-5">
-                                    <OverflowStack items={labelItems} overflow="auto" indicatorStyle="dots" />
+                                    <OverflowStack
+                                        type="simple"
+                                        items={labelItems}
+                                        overflow={{type: 'auto'}}
+                                        indicatorStyle="dots"
+                                    />
                                     <br />
-                                    <OverflowStack items={tagItems} overflow="auto" />
+                                    <OverflowStack
+                                        type="simple"
+                                        items={tagItems}
+                                        overflow={{type: 'auto'}}
+                                    />
                                 </div>
                                 <div className="right-panel p-2"></div>
                             </ResizablePanels>
@@ -351,13 +502,19 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                             <ResizablePanels direction="horizontal" secondarySize={{default: 10}}>
                                 <div className="left-panel py-3 ps-3 sd-border--medium radius-lg me-0-5">
                                     <OverflowStack
+                                        type="simple"
                                         items={labelItems}
-                                        overflow="auto"
+                                        overflow={{type: 'auto'}}
                                         showOnlyHiddenInPopover={true}
                                         indicatorStyle="dots"
                                     />
                                     <br />
-                                    <OverflowStack items={tagItems} overflow="auto" showOnlyHiddenInPopover={true} />
+                                    <OverflowStack
+                                        type="simple"
+                                        items={tagItems}
+                                        overflow={{type: 'auto'}}
+                                        showOnlyHiddenInPopover={true}
+                                    />
                                 </div>
                                 <div className="right-panel p-2"></div>
                             </ResizablePanels>
@@ -370,27 +527,45 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Default: Show count "+N"</p>
                         <div className="docs-page__content-row">
-                            <OverflowStack items={labelItems} max={3} indicatorStyle="count" />
+                            <OverflowStack
+                                items={labelItems}
+                                overflow={{max: 3, type: 'fixed'}}
+                                type="simple"
+                                indicatorStyle="count"
+                            />
                         </div>
 
                         <p className="docs-page__paragraph">// Show dots icon instead of count</p>
                         <div className="docs-page__content-row">
-                            <OverflowStack items={labelItems} max={3} indicatorStyle="dots" />
+                            <OverflowStack
+                                items={labelItems}
+                                overflow={{max: 3, type: 'fixed'}}
+                                type="simple"
+                                indicatorStyle="dots"
+                            />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                         {`
                             // Default: Show count "+N"
                             <OverflowStack
+                                type="simple"
                                 items={labelItems}
-                                max={3}
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 3,
+                                }}
                                 indicatorStyle="count"
                             />
 
                             // Show dots icon instead of count
                             <OverflowStack
+                                type="simple"
                                 items={labelItems}
-                                max={3}
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 3,
+                                }}
                                 indicatorStyle="dots"
                             />
                         `}
@@ -404,7 +579,8 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                         <div className="docs-page__content-row">
                             <OverflowStack
                                 items={tagItems}
-                                max={3}
+                                overflow={{max: 3, type: 'fixed'}}
+                                type="simple"
                                 renderIndicator={(count) => <Tag text={`+${count} more`} />}
                             />
                         </div>
@@ -412,10 +588,14 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                     <Markup.ReactMarkupCode>
                         {`
                             <OverflowStack
+                                type="simple"
                                 items={tagItems}
-                                max={3}
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 3,
+                                }}
                                 renderIndicator={(count) => (
-                                    <Tag text={'+' + count + ' more'} />
+                                    <Tag text={'+ ' + count + ' more'} />
                                 )}
                             />
                         `}
@@ -429,7 +609,8 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                         <div className="docs-page__content-row">
                             <OverflowStack
                                 items={labelItems}
-                                max={3}
+                                overflow={{max: 3, type: 'fixed'}}
+                                type="simple"
                                 renderPopoverItem={(item, index) => (
                                     <div
                                         key={index}
@@ -449,8 +630,12 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                         {`
                             // Custom popover item rendering
                             <OverflowStack
+                                type="simple"
                                 items={labelItems}
-                                max={3}
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 3,
+                                }}
                                 renderPopoverItem={(item, index) => (
                                     <div
                                         key={index}
@@ -477,7 +662,8 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                         <div className="docs-page__content-row">
                             <OverflowStack
                                 items={labelItems}
-                                max={3}
+                                overflow={{max: 3, type: 'fixed'}}
+                                type="simple"
                                 onIndicatorClick={() => {
                                     this.setState((state) => ({
                                         customIndicatorCount: state.customIndicatorCount + 1,
@@ -495,8 +681,12 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                         {`
                             // Custom onClick handler (popover won't open automatically)
                             <OverflowStack
+                                type="simple"
                                 items={labelItems}
-                                max={3}
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 3,
+                                }}
                                 onIndicatorClick={() => {
                                     this.setState((state) => ({
                                         customIndicatorCount: state.customIndicatorCount + 1,
@@ -512,7 +702,7 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
-                <h3 className="docs-page__h3 docs-page__h3--small-top-m">Data-Driven API (Different Rendering)</h3>
+                <h3 className="docs-page__h3 docs-page__h3--small-top-m">Data-Driven API</h3>
                 <p className="docs-page__paragraph">
                     Use itemsData with renderVisibleItem and renderHiddenItem to render items differently in the stack
                     vs popover. Perfect for showing CheckboxButton in stack and Checkbox in popover while maintaining
@@ -521,10 +711,11 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className="docs-page__content-row">
-                            <OverflowStack<ContentTypeItem>
-                                itemsData={this.state.contentTypes}
-                                max={3}
+                            <OverflowStack
+                                type="data"
                                 indicatorStyle="dots"
+                                overflow={{max: 3, type: 'fixed'}}
+                                items={this.state.contentTypes}
                                 renderVisibleItem={(data) => (
                                     <CheckboxButton
                                         checked={data.checked}
@@ -559,15 +750,19 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                             ]);
 
                             const handleChange = (id: string, checked: boolean) => {
-                                setContentTypes(prev => 
+                                setContentTypes(prev =>
                                     prev.map(item => item.id === id ? { ...item, checked } : item)
                                 );
                             };
 
                             // Use the data-driven API
                             <OverflowStack<ContentTypeItem>
+                                type="data"
                                 itemsData={contentTypes}
-                                max={3}
+                                overflow={{
+                                    type: 'fixed',
+                                    max: 3,
+                                }}
                                 indicatorStyle="dots"
                                 renderVisibleItem={(data) => (
                                     <CheckboxButton
@@ -590,52 +785,61 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
 
                 <h3 className="docs-page__h3">Props</h3>
                 <p className="docs-page__paragraph">
-                    <strong>Note:</strong> OverflowStack supports two APIs: Simple (using <code>items</code>) and
-                    Data-Driven (using <code>itemsData</code>). Use the Simple API for straightforward cases. Use the
-                    Data-Driven API when you need different rendering in the stack vs popover.
+                    <strong>Note:</strong> OverflowStack supports two APIs via the <code>type</code> prop:
                 </p>
+                <ul>
+                    <li>
+                        <strong>Simple (<code>type="simple"</code>):</strong> Use <code>items</code> prop for
+                        straightforward cases where items render the same everywhere
+                    </li>
+                    <li>
+                        <strong>Data-Driven (<code>type="data"</code>):</strong> Use <code>itemsData</code> with{' '}
+                        <code>renderVisibleItem</code> and <code>renderHiddenItem</code> when you need different
+                        rendering in the stack vs popover
+                    </li>
+                </ul>
                 <PropsList>
+                    <Prop
+                        name="type"
+                        isRequired={true}
+                        type="'simple' | 'data'"
+                        default="/"
+                        description="API mode: 'simple' for using items prop, 'data' for using itemsData with render functions."
+                    />
                     <Prop
                         name="items"
                         isRequired={false}
                         type="Array<React.ReactNode>"
                         default="/"
-                        description="[Simple API] Array of items to display in the stack. Can be any React components. Use this OR itemsData, not both."
+                        description="[Simple API - type='simple'] Array of items to display in the stack. Can be any React components."
                     />
                     <Prop
                         name="itemsData"
                         isRequired={false}
                         type="Array<T>"
                         default="/"
-                        description="[Data-Driven API] Array of data objects to render. Use with renderVisibleItem and renderHiddenItem for different rendering in stack vs popover. Use this OR items, not both."
+                        description="[Data-Driven API - type='data'] Array of data objects to render. Use with renderVisibleItem and renderHiddenItem."
                     />
                     <Prop
                         name="renderVisibleItem"
                         isRequired={false}
                         type="(data: T, index: number) => React.ReactNode"
                         default="/"
-                        description="[Data-Driven API] Render function for items visible in the stack. Required when using itemsData."
+                        description="[Data-Driven API - type='data'] Render function for items visible in the stack. Required when type='data'."
                     />
                     <Prop
                         name="renderHiddenItem"
                         isRequired={false}
                         type="(data: T, index: number) => React.ReactNode"
                         default="/"
-                        description="[Data-Driven API] Render function for items in the popover. If not provided, renderVisibleItem will be used for both."
-                    />
-                    <Prop
-                        name="max"
-                        isRequired={false}
-                        type="number | 'show-all'"
-                        default="4"
-                        description="Maximum number of items to show inline. If exceeded, a '+N' indicator is shown. Use 'show-all' to display all items without an indicator. Only used when overflow='fixed'."
+                        description="[Data-Driven API - type='data'] Render function for items in the popover. If not provided, renderVisibleItem will be used for both."
                     />
                     <Prop
                         name="overflow"
                         isRequired={false}
-                        type="'fixed' | 'auto'"
-                        default="'fixed'"
-                        description="Overflow behavior. 'fixed' uses the max prop to determine visible items. 'auto' dynamically calculates how many items fit based on available container space."
+                        type="{ type: 'fixed', max?: number | 'show-all' } | { type: 'auto' }"
+                        default="{ type: 'fixed', max: 4 }"
+                        description="Overflow configuration. For 'fixed' type, max determines visible items (defaults to 4, use 'show-all' for no limit). For 'auto' type, dynamically calculates items based on available space."
                     />
                     <Prop
                         name="gap"
@@ -677,7 +881,7 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                         isRequired={false}
                         type="(item: React.ReactNode, index: number) => React.ReactNode"
                         default="/"
-                        description="[Simple API] Custom render function for items in the popover. If not provided, items will be rendered as-is. Only used with 'items' prop."
+                        description="[Simple API - type='simple'] Custom render function for items in the popover. If not provided, items will be rendered as-is."
                     />
                     <Prop
                         name="onIndicatorClick"
@@ -694,7 +898,7 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                         description="Border radius for the indicator button."
                     />
                     <Prop
-                        name="className"
+                        name="containerClassName"
                         isRequired={false}
                         type="string"
                         default="/"
