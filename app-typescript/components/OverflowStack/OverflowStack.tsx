@@ -14,11 +14,6 @@ interface IPropsOverflowStackBase {
     overflow?:
         | {
               type: 'fixed';
-
-              /**
-               * Defaults to `4`
-               * Maximum number of items to show inline
-               */
               max?: number | 'show-all';
           }
         | {
