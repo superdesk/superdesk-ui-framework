@@ -71,7 +71,7 @@ export default class SearchBarDoc extends React.Component<IProps, IState> {
                                     placeholder="Search for something..."
                                     onSubmit={(value) =>
                                         this.setState({
-                                            searchResult2: typeof value === 'string' ? value : String(value || ''),
+                                            searchResult2: value ?? '',
                                         })
                                     }
                                 />
@@ -91,7 +91,7 @@ export default class SearchBarDoc extends React.Component<IProps, IState> {
                                 placeholder="Search for something..."
                                 onSubmit={(value) =>
                                     this.setState({
-                                        searchResult1: typeof value === 'string' ? value : String(value || ''),
+                                        searchResult1: value ?? '',
                                     })
                                 }
                             />
@@ -110,17 +110,17 @@ export default class SearchBarDoc extends React.Component<IProps, IState> {
                                 <IconButton icon='filter-large' onClick={()=> false} ariaValue='Filter' />
                             </ButtonGroup>
                             <ContentDivider margin='none' orientation='vertical' border={true} />
-                            <SearchBar 
-                                placeholder='Search for something...' 
+                            <SearchBar
+                                placeholder='Search for something...'
                                 onSubmit={(value) => console.log('Search:', value)}
                             />
                             <CreateButton ariaValue='Create' onClick={()=> false} />
                         </SubNav>
 
                         // Boxed (for standalone use)
-                        <SearchBar 
-                            boxed 
-                            placeholder='Search for something...' 
+                        <SearchBar
+                            boxed
+                            placeholder='Search for something...'
                             onSubmit={(value) => console.log('Search:', value)}
                         />
                     `}
@@ -129,9 +129,8 @@ export default class SearchBarDoc extends React.Component<IProps, IState> {
 
                 <h3 className="docs-page__h3 docs-page__h3--small-top-m">External Triggering</h3>
                 <p className="docs-page__paragraph">
-                    The SearchBar can be triggered externally via ref methods. This is useful when you need to trigger
-                    the search from a different component, such as a button or a link. The internal search button is
-                    hidden when this is used.
+                    Useful when you need to trigger the search from a different component, such as a button or a link.
+                    You can also hide the internal search button is hidden when this is used.
                 </p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
@@ -141,7 +140,7 @@ export default class SearchBarDoc extends React.Component<IProps, IState> {
                                 placeholder="Search externally..."
                                 onSubmit={(value) =>
                                     this.setState({
-                                        searchResult: typeof value === 'string' ? value : String(value || ''),
+                                        searchResult: value ?? '',
                                     })
                                 }
                                 hideSearchButton
@@ -151,24 +150,14 @@ export default class SearchBarDoc extends React.Component<IProps, IState> {
                         <div className="docs-page__content-row">
                             <ButtonGroup align="start" className="mt-2">
                                 <Button
-                                    text="Trigger Search"
+                                    text="Search"
                                     type="primary"
-                                    onClick={() => this.searchBarRef.current?.triggerSearch()}
-                                />
-                                <Button
-                                    text="Clear Search"
-                                    type="tertiary"
-                                    onClick={() => this.searchBarRef.current?.clearSearch()}
+                                    onClick={() => this.searchBarRef.current?.search()}
                                 />
                                 <Button
                                     text="Focus Input"
-                                    type="tertiary"
+                                    type="primary"
                                     onClick={() => this.searchBarRef.current?.focus()}
-                                />
-                                <Button
-                                    text="Set Value"
-                                    type="tertiary"
-                                    onClick={() => this.searchBarRef.current?.setValue('Pre-filled text')}
                                 />
                             </ButtonGroup>
                         </div>
@@ -184,42 +173,31 @@ export default class SearchBarDoc extends React.Component<IProps, IState> {
                             constructor(props) {
                                 super(props);
                                 this.searchBarRef = React.createRef();
+                                this.state = { searchResult: '' };
                             }
 
                             render() {
                                 return (
                                     <>
-                                        <SearchBar 
-                                            ref={this.searchBarRef} 
-                                            placeholder='Search externally...' 
-                                            onSubmit={(value) => console.log('Search:', value)}
+                                        <SearchBar
+                                            ref={this.searchBarRef}
+                                            placeholder='Search externally...'
+                                            onSubmit={(value) => {
+                                                console.log('Search:', value);
+                                                this.setState({ searchResult: value ?? '' });
+                                            }}
                                             hideSearchButton  // Hide internal search button when using external trigger
                                             boxed
                                         />
                                         <ButtonGroup align='start' className='mt-2'>
-                                            <Button 
-                                                text="Trigger Search" 
+                                            <Button
+                                                text="Focus Input"
                                                 type="primary"
-                                                onClick={() => this.searchBarRef.current?.triggerSearch()} 
-                                            />
-                                            <Button 
-                                                text="Clear Search" 
-                                                type="tertiary"
-                                                onClick={() => this.searchBarRef.current?.clearSearch()} 
-                                            />
-                                            <Button 
-                                                text="Focus Input" 
-                                                type="tertiary"
-                                                onClick={() => this.searchBarRef.current?.focus()} 
-                                            />
-                                            <Button 
-                                                text="Set Value" 
-                                                type="tertiary"
-                                                onClick={() => this.searchBarRef.current?.setValue('Pre-filled text')} 
+                                                onClick={() => this.searchBarRef.current?.focus()}
                                             />
                                         </ButtonGroup>
-                                        {searchResult && (
-                                            <Tag text={searchResult} label="Searched for" />
+                                        {this.state.searchResult && (
+                                            <Tag text={this.state.searchResult} label="Searched for" />
                                         )}
                                     </>
                                 );
@@ -240,13 +218,14 @@ export default class SearchBarDoc extends React.Component<IProps, IState> {
                             <SearchBar
                                 boxed
                                 placeholder="Type at least 3 characters to search..."
-                                searchOnType
-                                searchDelay={500}
+                                searchOptions={{
+                                    searchOnType: true,
+                                    searchDelay: 500,
+                                }}
                                 onSubmit={(value) => {
-                                    const query = typeof value === 'string' ? value : String(value || '');
                                     this.setState({
-                                        searchResult3: query,
-                                        fruitSearchQuery: query,
+                                        searchResult3: value,
+                                        fruitSearchQuery: value,
                                     });
                                 }}
                             />
@@ -289,17 +268,18 @@ export default class SearchBarDoc extends React.Component<IProps, IState> {
                         {`
                         // Search while typing (debounced automatic search, requires min 3 characters)
                         const fruits = ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry', 'Fig', 'Grape', 'Honeydew'];
-                        
-                        <SearchBar 
-                            boxed 
-                            placeholder='Type at least 3 characters to search...' 
-                            searchOnType
-                            searchDelay={500}
+
+                        <SearchBar
+                            boxed
+                            placeholder='Type at least 3 characters to search...'
+                            searchOptions={{
+                                searchOnType: true,
+                                searchDelay: 500
+                            }}
                             onSubmit={(value) => {
-                                const query = typeof value === 'string' ? value : String(value || '');
                                 setState({
-                                    searchResult: query,
-                                    fruitSearchQuery: query
+                                    searchResult: value ?? '',
+                                    fruitSearchQuery: value ?? ''
                                 });
                             }}
                         />
@@ -321,7 +301,7 @@ export default class SearchBarDoc extends React.Component<IProps, IState> {
                                     <BoxedListItem key={index}>{fruit}</BoxedListItem>
                                 ))}
                         </BoxedList>
-                        
+
                         // The searchOnType prop enables automatic search while typing.
                         // Requires at least 3 characters before triggering search.
                         // The search button is automatically hidden when searchOnType is enabled.
@@ -345,7 +325,7 @@ export default class SearchBarDoc extends React.Component<IProps, IState> {
                         isRequired={false}
                         type="string"
                         default="/"
-                        description="Initial or controlled value for the search input."
+                        description="Initial value for the search input. The component manages its own state internally, so this prop is typically not needed."
                     />
                     <Prop
                         name="type"
@@ -377,10 +357,10 @@ export default class SearchBarDoc extends React.Component<IProps, IState> {
                     />
                     <Prop
                         name="onSubmit"
-                        isRequired={false}
-                        type="(value: string | number) => void"
+                        isRequired={true}
+                        type="(value?: string) => void"
                         default="/"
-                        description="Callback function triggered when search is submitted (Enter key, search button click, via triggerSearch() method, or automatically when searchOnType is enabled)."
+                        description="Callback function triggered when search is submitted (Enter key, search button click, via search() method, or automatically when searchOnType is enabled). Receives the current search value as a parameter."
                     />
                     <Prop
                         name="searchOnType"
@@ -401,32 +381,11 @@ export default class SearchBarDoc extends React.Component<IProps, IState> {
                 <h3 className="docs-page__h3">Public Methods (via Ref)</h3>
                 <PropsList>
                     <Prop
-                        name="triggerSearch()"
-                        isRequired={false}
-                        type="() => void"
-                        default="/"
-                        description="Programmatically triggers the search submission with the current input value."
-                    />
-                    <Prop
-                        name="clearSearch()"
-                        isRequired={false}
-                        type="() => void"
-                        default="/"
-                        description="Clears the search input and triggers onSubmit with an empty string."
-                    />
-                    <Prop
                         name="focus()"
                         isRequired={false}
                         type="() => void"
                         default="/"
                         description="Focuses the search input programmatically."
-                    />
-                    <Prop
-                        name="setValue(value: string)"
-                        isRequired={false}
-                        type="(value: string) => void"
-                        default="/"
-                        description="Sets the value of the search input programmatically."
                     />
                 </PropsList>
             </section>
