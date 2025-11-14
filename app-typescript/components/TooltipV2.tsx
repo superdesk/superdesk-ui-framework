@@ -40,10 +40,10 @@ export class TooltipV2 extends React.PureComponent<IPropsTooltipV2> {
             >
                 {(toggle) => {
                     const attributes: React.HTMLAttributes<HTMLElement> = {
-                        onMouseOver: (event) => {
+                        onMouseEnter: (event) => {
                             toggle(event.target as HTMLElement);
                         },
-                        onMouseOut: (event) => {
+                        onMouseLeave: (event) => {
                             toggle(event.target as HTMLElement);
                         },
                     };
