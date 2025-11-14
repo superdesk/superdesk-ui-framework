@@ -1,4 +1,11 @@
 import * as React from 'react';
+import classNames from 'classnames';
+
+const sizeClassMap: Record<'small' | 'medium' | 'large', string> = {
+    small: 'sd-loader--small',
+    medium: 'sd-loader--medium',
+    large: 'sd-loader--large',
+};
 
 interface IProps {
     /**
@@ -29,7 +36,7 @@ interface IProps {
 
     /**
      * Size of the loader
-     * @default 'small'
+     * @default 'medium'
      */
     size?: 'small' | 'medium' | 'large';
 
@@ -63,7 +70,7 @@ export const LoadMoreIndicator: React.FC<IProps> = ({
     totalCount,
     loadingText = 'Loading more...',
     showProgress = true,
-    size = 'small',
+    size = 'medium',
     className,
     'data-test-id': testId = 'load-more-indicator',
 }) => {
@@ -71,26 +78,13 @@ export const LoadMoreIndicator: React.FC<IProps> = ({
         return null;
     }
 
-    let loaderClassName = 'sd-loader';
-
-    if (size === 'small') {
-        loaderClassName = 'sd-loader sd-loader--small';
-    } else if (size === 'large') {
-        loaderClassName = 'sd-loader sd-loader--large';
-    }
+    const loaderClassName = `sd-loader ${sizeClassMap[size]}`;
+    const containerClassName = classNames('sd-list-item', 'sd-list-item--no-hover', 'px-1', 'items-center', className);
 
     return (
-        <li
-            className={`sd-list-item sd-list-item--no-hover ${className || ''}`.trim()}
-            style={{padding: '1rem', textAlign: 'center'}}
-            data-test-id={testId}
-            role="status"
-            aria-live="polite"
-            aria-busy="true"
-        >
-            <div className="sd-flex-no-grow sd-flex-v-center sd-flex-h-center sd-padding-x--1">
-                <div className={`${loaderClassName}`} />
-                <span className="sd-text__normal">
+        <li className={containerClassName} data-test-id={testId} role="status" aria-live="polite" aria-busy="true">
+            <div className="load-more-indicator">
+                <span className="load-more-indicator__text">
                     {loadingText}
                     {showProgress && currentCount != null && totalCount != null && (
                         <>
@@ -99,6 +93,7 @@ export const LoadMoreIndicator: React.FC<IProps> = ({
                         </>
                     )}
                 </span>
+                <div className={loaderClassName} />
             </div>
         </li>
     );

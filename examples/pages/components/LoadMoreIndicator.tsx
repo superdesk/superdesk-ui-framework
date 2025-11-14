@@ -39,20 +39,18 @@ export default class LoadMoreIndicatorDoc extends React.Component<{}, IState> {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Default with progress counter</p>
-                        <div style={{border: '1px solid var(--sd-colour-line--light)', borderRadius: '4px'}}>
-                            <ul className="sd-list-item-group">
-                                <li className="sd-list-item">
-                                    <div className="sd-list-item__column">Item 1</div>
-                                </li>
-                                <li className="sd-list-item">
-                                    <div className="sd-list-item__column">Item 2</div>
-                                </li>
-                                <li className="sd-list-item">
-                                    <div className="sd-list-item__column">Item 3</div>
-                                </li>
-                                <LoadMoreIndicator loading={this.state.showExample1} currentCount={3} totalCount={10} />
-                            </ul>
-                        </div>
+                        <ul className="sd-list-item-group sd-shadow--z1">
+                            <li className="sd-list-item">
+                                <div className="sd-list-item__column">Item 1</div>
+                            </li>
+                            <li className="sd-list-item">
+                                <div className="sd-list-item__column">Item 2</div>
+                            </li>
+                            <li className="sd-list-item">
+                                <div className="sd-list-item__column">Item 3</div>
+                            </li>
+                            <LoadMoreIndicator loading={this.state.showExample1} currentCount={3} totalCount={10} />
+                        </ul>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                         {`
@@ -72,23 +70,22 @@ export default class LoadMoreIndicatorDoc extends React.Component<{}, IState> {
 
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <p className="docs-page__paragraph">// Without progress counter</p>
-                        <div style={{border: '1px solid var(--sd-colour-line--light)', borderRadius: '4px'}}>
-                            <ul className="sd-list-item-group">
-                                <li className="sd-list-item">
-                                    <div className="sd-list-item__column">Item 1</div>
-                                </li>
-                                <li className="sd-list-item">
-                                    <div className="sd-list-item__column">Item 2</div>
-                                </li>
-                                <LoadMoreIndicator
-                                    loading={this.state.showExample2}
-                                    currentCount={2}
-                                    totalCount={10}
-                                    showProgress={false}
-                                />
-                            </ul>
-                        </div>
+                        <p className="docs-page__paragraph">// Without progress counter & loader size (small)</p>
+                        <ul className="sd-list-item-group sd-shadow--z1">
+                            <li className="sd-list-item">
+                                <div className="sd-list-item__column">Item 1</div>
+                            </li>
+                            <li className="sd-list-item">
+                                <div className="sd-list-item__column">Item 2</div>
+                            </li>
+                            <LoadMoreIndicator
+                                loading={this.state.showExample2}
+                                currentCount={2}
+                                totalCount={10}
+                                showProgress={false}
+                                size="small"
+                            />
+                        </ul>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                         {`
@@ -97,6 +94,7 @@ export default class LoadMoreIndicatorDoc extends React.Component<{}, IState> {
                             currentCount={2}
                             totalCount={10}
                             showProgress={false}
+                            size="small"
                         />
                     `}
                     </Markup.ReactMarkupCode>
@@ -104,21 +102,19 @@ export default class LoadMoreIndicatorDoc extends React.Component<{}, IState> {
 
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <p className="docs-page__paragraph">// Custom text and loader size</p>
-                        <div style={{border: '1px solid var(--sd-colour-line--light)', borderRadius: '4px'}}>
-                            <ul className="sd-list-item-group">
-                                <li className="sd-list-item">
-                                    <div className="sd-list-item__column">Item 1</div>
-                                </li>
-                                <LoadMoreIndicator
-                                    loading={this.state.showExample3}
-                                    currentCount={1}
-                                    totalCount={5}
-                                    loadingText="Fetching more items..."
-                                    size="medium"
-                                />
-                            </ul>
-                        </div>
+                        <p className="docs-page__paragraph">// Custom text & loader size (large)</p>
+                        <ul className="sd-list-item-group sd-shadow--z1">
+                            <li className="sd-list-item">
+                                <div className="sd-list-item__column">Item 1</div>
+                            </li>
+                            <LoadMoreIndicator
+                                loading={this.state.showExample3}
+                                currentCount={1}
+                                totalCount={5}
+                                loadingText="Fetching more items..."
+                                size="large"
+                            />
+                        </ul>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                         {`
@@ -127,7 +123,7 @@ export default class LoadMoreIndicatorDoc extends React.Component<{}, IState> {
                             currentCount={1}
                             totalCount={5}
                             loadingText="Fetching more items..."
-                            size="medium"
+                            size="large"
                         />
                     `}
                     </Markup.ReactMarkupCode>
@@ -174,7 +170,7 @@ export default class LoadMoreIndicatorDoc extends React.Component<{}, IState> {
                         name="size"
                         isRequired={false}
                         type="'small' | 'medium' | 'large'"
-                        default="'small'"
+                        default="'medium'"
                         description="Size of the loader spinner"
                     />
                     <Prop
@@ -234,14 +230,14 @@ export default class LoadMoreIndicatorDoc extends React.Component<{}, IState> {
                 <p className="docs-page__paragraph">
                     The component includes proper ARIA attributes for screen readers:
                 </p>
-                <ul className="docs-page__ul">
-                    <li>
+                <ul className="docs-page__unordered-list">
+                    <li className="py-0-5">
                         <code>role="status"</code> - Indicates the element is a status message
                     </li>
-                    <li>
+                    <li className="py-0-5">
                         <code>aria-live="polite"</code> - Screen readers will announce updates when convenient
                     </li>
-                    <li>
+                    <li className="py-0-5">
                         <code>aria-busy="true"</code> - Indicates the section is being updated
                     </li>
                 </ul>
