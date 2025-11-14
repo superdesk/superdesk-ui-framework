@@ -4,6 +4,8 @@ import debounce from 'lodash/debounce';
 import {Icon} from './Icon';
 
 interface IProps {
+    children?: React.ReactNode;
+
     /**
      * Defaults to `expanded`
      */

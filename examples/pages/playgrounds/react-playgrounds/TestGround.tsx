@@ -50,6 +50,7 @@ import {IAvatarInGroup} from '../../../../app-typescript/components/avatar/avata
 import * as Form from '../../../../app-typescript/components/Form';
 import {FormLabel} from '../../../../app-typescript/components/Form/FormLabel';
 import {CalendarWeekDayItem} from '../../../../app-typescript/components//Lists/CalendarWeekDayItem';
+import {noop} from 'lodash';
 
 interface IProps {
     children?: React.ReactNode;
@@ -3557,7 +3558,7 @@ export class TestGround extends React.Component<IProps, IState> {
                             }}
                         >
                             <div className="modal__sticky-header">
-                                <SearchBar placeholder="Search templates" boxed={true}>
+                                <SearchBar onSubmit={noop} placeholder="Search templates" boxed={true}>
                                     <Dropdown
                                         items={[
                                             {label: 'Features', onSelect: () => 1},
@@ -3594,7 +3595,7 @@ export class TestGround extends React.Component<IProps, IState> {
                         </Modal>
 
                         <h3 className="docs-page__h3 ">Planning Templates</h3>
-                        <SearchBar placeholder="Search" boxed={true}>
+                        <SearchBar onSubmit={noop} placeholder="Search" boxed={true}>
                             <Dropdown
                                 items={[
                                     {label: 'Action 1', onSelect: () => 1},
@@ -3606,7 +3607,7 @@ export class TestGround extends React.Component<IProps, IState> {
                             </Dropdown>
                         </SearchBar>
                         <hr />
-                        <SearchBar placeholder="Search" boxed={true}>
+                        <SearchBar onSubmit={noop} placeholder="Search" boxed={true}>
                             <TreeSelect
                                 kind={'synchronous'}
                                 value={this.state.treeSelectValue}
