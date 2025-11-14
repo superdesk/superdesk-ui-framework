@@ -1,4 +1,11 @@
 import * as React from 'react';
+import classNames from 'classnames';
+
+const sizeClassMap: Record<'small' | 'medium' | 'large', string> = {
+    small: 'sd-loader--small',
+    medium: 'sd-loader--medium',
+    large: 'sd-loader--large',
+};
 
 interface IProps {
     /**
@@ -71,16 +78,8 @@ export const LoadMoreIndicator: React.FC<IProps> = ({
         return null;
     }
 
-    const sizeClassMap: Record<'small' | 'medium' | 'large', string> = {
-        small: 'sd-loader--small',
-        medium: 'sd-loader--medium',
-        large: 'sd-loader--large',
-    };
-
     const loaderClassName = `sd-loader ${sizeClassMap[size]}`;
-    const containerClassName = ['sd-list-item', 'sd-list-item--no-hover', 'px-1', 'items-center', className]
-        .filter(Boolean)
-        .join(' ');
+    const containerClassName = classNames('sd-list-item', 'sd-list-item--no-hover', 'px-1', 'items-center', className);
 
     return (
         <li className={containerClassName} data-test-id={testId} role="status" aria-live="polite" aria-busy="true">
