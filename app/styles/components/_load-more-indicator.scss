@@ -1,0 +1,15 @@
+.load-more-indicator {
+    display: contents;
+    .sd-loader {
+        z-index: 10;
+    }
+    .load-more-indicator__text {
+        z-index: 11;
+    }
+}
+.load-more-indicator__text {
+    font-size: var(--text-size-small);
+    color: var(--color-text-subdued);
+    position: relative;
+    padding-left: 0.5rem;
+}
