@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as Components from './components/Index';
 import {
     Checkbox,
-    CheckGroup,
     RadioGroup,
     CheckboxButton,
     RadioButtonGroup,
@@ -51,30 +50,16 @@ import * as Form from '../../../../app-typescript/components/Form';
 import {FormLabel} from '../../../../app-typescript/components/Form/FormLabel';
 import {CalendarWeekDayItem} from '../../../../app-typescript/components//Lists/CalendarWeekDayItem';
 
-interface IProps {
-    children?: React.ReactNode;
-}
-
 interface IState {
-    itemType: string;
-    itemSelected1: boolean;
-    itemSelected2: boolean;
-    itemSelected3: boolean;
-    value1?: string;
     value2?: string;
     value3?: string;
-    value4?: string;
-    value5?: string;
-    value6?: string;
     selctedTheme: string;
-    invalid: boolean;
     date: any;
     time: string | null;
     modalPlanningTemplates: boolean;
     modalSaveEvent: boolean;
     modalSaveEvent2: boolean;
     modalSaveEvent3: boolean;
-    modalSaveEvent4: boolean;
     treeSelectValue: any;
     value: any;
     valueS2: any;
@@ -85,10 +70,6 @@ interface IState {
     openCollapsibleThree: boolean;
     openCollapsibleFour: boolean;
     openCollapsibleFive: boolean;
-    value22: boolean;
-    value23: boolean;
-    value24: boolean;
-    value25: boolean;
 }
 
 let options2 = [
@@ -125,29 +106,19 @@ let options4 = [
     },
 ];
 
-export class TestGround extends React.Component<IProps, IState> {
-    constructor(props: IProps) {
+export class TestGround extends React.Component<{}, IState> {
+    constructor(props: {}) {
         super(props);
         this.state = {
-            itemType: 'itemtype01',
-            itemSelected1: false,
-            itemSelected2: false,
-            itemSelected3: false,
-            value1: undefined,
             value2: undefined,
             value3: undefined,
-            value4: undefined,
-            value5: undefined,
-            value6: undefined,
             selctedTheme: 'light',
-            invalid: false,
             date: new Date('2022-01-08'),
             time: '16:50',
             modalPlanningTemplates: false,
             modalSaveEvent: false,
             modalSaveEvent2: false,
             modalSaveEvent3: false,
-            modalSaveEvent4: false,
             treeSelectValue: [],
             value: undefined,
             valueS2: undefined,
@@ -158,10 +129,6 @@ export class TestGround extends React.Component<IProps, IState> {
             openCollapsibleThree: false,
             openCollapsibleFour: false,
             openCollapsibleFive: false,
-            value22: false,
-            value23: false,
-            value24: false,
-            value25: false,
         };
     }
 

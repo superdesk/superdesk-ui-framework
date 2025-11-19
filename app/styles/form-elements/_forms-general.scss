@@ -398,12 +398,6 @@
 
 /// ---------------------------- NEW FORM LAYOUT !!! USE THIS ONE INSTEAD OF THE OLD ONE ---------------------------- ///
 
-// .form-container {
-//     container-type: inline-size;
-//     container-name: form-container;
-// }
-
-
 .form-layout {
 	container-type: inline-size;
     container-name: form-container;
@@ -471,7 +465,6 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
     }
-
 	.form-group__text-block {
 		min-height: var(--form-element-height-default);
 		color: inherit;
@@ -480,6 +473,7 @@
 		align-items: center;
 	}
 }
+
 .form-group__wrapper {
 	display: flex;
 	flex-direction: column;
@@ -492,8 +486,8 @@
 		line-height: 1;
 		margin-block-end: var(--space--0-5);
 	}
-
 }
+
 .form-group-item {
     display: flex;
     flex-direction: column;
@@ -508,17 +502,14 @@
     &.form-group-item--span-4 {
         grid-column: span 4;
     }
-
 	&.form-group-item--auto-width {
 		flex-grow: 0;
 		min-width: 0;
 		flex-basis: auto;
 	}
-
 	> *:not(.sd-input):not(.form-group-item__inner):not(.sd-check__group-new) {
 		margin-block-start: 1.6rem;
 	}
-
 	.form-group-item__inner {
 		display: flex;
 		gap: var(--space--1);
@@ -534,11 +525,13 @@
 	min-width: 0;
 	flex-basis: auto;
 }
+
 @container form-container (width <= 900px) {
     .form-group {
         --form-group-col-gap: var(--gap-3);
     }
 }
+
 @container form-container (width<= 500px) {
     .form-group {
         --form-group-col-gap: var(--gap-1-5);
