@@ -10,9 +10,9 @@ interface IProps {
     spaces?: 'compact' | 'standard' | 'relaxed';
 
     /**
-     * Bottom margin for the form layout. Values are multipliers of 8px. Defaults to `2` (16px).
+     * Bottom margin for the form layout. `spaces` adds a bottom margin equal to the row gap. Defaults to `none`.
      */
-    marginBottom?: '0' | '1' | '2' | '3' | '4';
+    marginBottom?: 'none' | 'spaces';
 
     /**
      * Optional legend for the form layout/fieldset. Can be used to group items together.
@@ -33,10 +33,13 @@ interface IProps {
 export class FormLayout extends React.PureComponent<IProps> {
     render() {
         const hasLabel = this.props.legend && this.props.legend.trim() !== '';
+        const spaces = this.props.spaces || 'standard';
+        const marginBottom = this.props.marginBottom || 'none';
         const classes = classNames(
             'form-layout',
             {
-                [`form-layout--mb-${this.props.marginBottom}`]: this.props.marginBottom,
+                [`form-layout--${spaces}`]: spaces,
+                [`form-layout--mb-${marginBottom}`]: marginBottom,
                 'form-layout--preserve-spaces': this.props.preserveSpaces,
             },
             this.props.className,

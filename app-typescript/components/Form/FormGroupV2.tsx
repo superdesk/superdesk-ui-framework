@@ -11,19 +11,27 @@ interface IProps {
 
     rowLabel?: string;
     grid?: boolean;
+
+    /**
+     * Additional CSS class names to apply to the form group.
+     */
+    className?: string;
 }
 
-export class FormGroupNew extends React.PureComponent<IProps> {
+export class FormGroupV2 extends React.PureComponent<IProps> {
     render() {
-        const classes = classNames('form-group-new', {
-            'form-group-new--has_row-label': this.props.rowLabel,
-            'form-group-new--grid': this.props.grid,
-        });
+        const classes = classNames(
+            'form-group',
+            {
+                'form-group--grid': this.props.grid,
+            },
+            this.props.className,
+        );
 
         if (this.props.rowLabel) {
             return (
-                <div className="form-group-new__wrapper">
-                    <label className="form-group-new__label">{this.props.rowLabel}</label>
+                <div className="form-group__wrapper">
+                    <label className="form-group__label">{this.props.rowLabel}</label>
                     <div className={classes}>{this.props.children}</div>
                 </div>
             );

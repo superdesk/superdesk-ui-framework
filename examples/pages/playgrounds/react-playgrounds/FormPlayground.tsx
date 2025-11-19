@@ -13,8 +13,8 @@ import {
 } from '../../../../app-typescript/index';
 
 import {FormLayout} from '../../../../app-typescript/components/Form/FormLayout';
-import {FormGroupNew} from '../../../../app-typescript/components/Form/FormGroupNew';
-import {FormGroupItemNew} from '../../../../app-typescript/components/Form/FormGroupItemNew';
+import {FormGroupV2} from '../../../../app-typescript/components/Form/FormGroupV2';
+import {FormGroupItem} from '../../../../app-typescript/components/Form/FormGroupItem';
 
 interface IProps {
     children?: React.ReactNode;
@@ -94,8 +94,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
 
                                     <Container className="form-container sd-border--medium p-4 radius-lg surface-color-base mt-3">
                                         <FormLayout preserveSpaces legend="Optional legend: Multiple Form Groups">
-                                            <FormGroupNew grid>
-                                                <FormGroupItemNew colSpan={1}>
+                                            <FormGroupV2 grid>
+                                                <FormGroupItem colSpan={1}>
                                                     <Input
                                                         label="First Name"
                                                         value={''}
@@ -104,8 +104,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
-                                                <FormGroupItemNew colSpan={1}>
+                                                </FormGroupItem>
+                                                <FormGroupItem colSpan={1}>
                                                     <Input
                                                         label="Last Name"
                                                         value={''}
@@ -113,9 +113,9 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
+                                                </FormGroupItem>
 
-                                                <FormGroupItemNew colSpan={1}>
+                                                <FormGroupItem colSpan={1}>
                                                     <Input
                                                         label="Username"
                                                         value={''}
@@ -123,8 +123,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
-                                                <FormGroupItemNew colSpan={1}>
+                                                </FormGroupItem>
+                                                <FormGroupItem colSpan={1}>
                                                     <Input
                                                         label="Sign-off"
                                                         value={''}
@@ -132,10 +132,10 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
-                                            </FormGroupNew>
-                                            <FormGroupNew grid>
-                                                <FormGroupItemNew colSpan={2}>
+                                                </FormGroupItem>
+                                            </FormGroupV2>
+                                            <FormGroupV2 grid>
+                                                <FormGroupItem colSpan={2}>
                                                     <Input
                                                         label="Email"
                                                         value={''}
@@ -143,8 +143,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
-                                                <FormGroupItemNew colSpan={1}>
+                                                </FormGroupItem>
+                                                <FormGroupItem colSpan={1}>
                                                     <Input
                                                         label="Password"
                                                         value={''}
@@ -154,8 +154,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         info="Password must be at least 8 characters long"
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
-                                                <FormGroupItemNew colSpan={1}>
+                                                </FormGroupItem>
+                                                <FormGroupItem colSpan={1}>
                                                     <Input
                                                         label="Confirm Password"
                                                         value={''}
@@ -165,10 +165,10 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         info="Confirm password must match the password"
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
-                                            </FormGroupNew>
-                                            <FormGroupNew grid>
-                                                <FormGroupItemNew colSpan={2}>
+                                                </FormGroupItem>
+                                            </FormGroupV2>
+                                            <FormGroupV2 grid>
+                                                <FormGroupItem colSpan={2}>
                                                     <TreeSelect
                                                         kind={'synchronous'}
                                                         value={this.state.treeSelectValue}
@@ -182,8 +182,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         placeholder="Add languages"
                                                         width="medium"
                                                     ></TreeSelect>
-                                                </FormGroupItemNew>
-                                                <FormGroupItemNew colSpan={2}>
+                                                </FormGroupItem>
+                                                <FormGroupItem colSpan={2}>
                                                     <Input
                                                         label="Password"
                                                         value={''}
@@ -192,11 +192,11 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         onChange={() => false}
                                                     />
                                                     {/* <Text>Password must be at least 8 characters long</Text> */}
-                                                </FormGroupItemNew>
-                                            </FormGroupNew>
+                                                </FormGroupItem>
+                                            </FormGroupV2>
 
-                                            <FormGroupNew grid rowLabel="SomeCheckboxes">
-                                                <FormGroupItemNew colSpan={4}>
+                                            <FormGroupV2 grid rowLabel="SomeCheckboxes" className="mb-1">
+                                                <FormGroupItem colSpan={4}>
                                                     <CheckGroup>
                                                         <Checkbox
                                                             checked={this.state.value22}
@@ -221,11 +221,11 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                             }
                                                         />
                                                     </CheckGroup>
-                                                </FormGroupItemNew>
-                                            </FormGroupNew>
+                                                </FormGroupItem>
+                                            </FormGroupV2>
 
-                                            <FormGroupNew grid>
-                                                <FormGroupItemNew colSpan={3}>
+                                            <FormGroupV2 grid>
+                                                <FormGroupItem colSpan={3}>
                                                     <Input
                                                         label="Username"
                                                         value={''}
@@ -233,8 +233,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
-                                                <FormGroupItemNew colSpan={1}>
+                                                </FormGroupItem>
+                                                <FormGroupItem colSpan={1}>
                                                     <Input
                                                         label="Password"
                                                         value={''}
@@ -242,11 +242,11 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
-                                            </FormGroupNew>
+                                                </FormGroupItem>
+                                            </FormGroupV2>
 
-                                            <FormGroupNew>
-                                                <FormGroupItemNew>
+                                            <FormGroupV2>
+                                                <FormGroupItem>
                                                     <Input
                                                         label="Another Input"
                                                         value={''}
@@ -254,8 +254,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
-                                                <FormGroupItemNew>
+                                                </FormGroupItem>
+                                                <FormGroupItem>
                                                     <Input
                                                         label="Another Input"
                                                         value={''}
@@ -263,14 +263,10 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
-                                                {/* <FormGroupItemNew autoWidth>
-                                                    <div className="form-group-new__text-block">Testing text block</div>
-                                                    
-                                                </FormGroupItemNew> */}
-                                                <FormGroupItemNew>
-                                                    <Container className="form-group-new-item__inner">
-                                                        <div className="form-group-new__text-block">Test:</div>
+                                                </FormGroupItem>
+                                                <FormGroupItem>
+                                                    <Container className="form-group-item__inner">
+                                                        <div className="form-group__text-block">Test:</div>
                                                         <Input
                                                             label="Another Input"
                                                             value={''}
@@ -281,14 +277,14 @@ export class FormPlayground extends React.Component<IProps, IState> {
 
                                                         <Button text="Submit" onClick={() => false} type="primary" />
                                                     </Container>
-                                                </FormGroupItemNew>
-                                                <FormGroupItemNew autoWidth>
+                                                </FormGroupItem>
+                                                <FormGroupItem autoWidth>
                                                     <ButtonGroup>
-                                                        <Button text="Submit" onClick={() => false} type="primary" />
                                                         <Button text="Cancel" onClick={() => false} type="tertiary" />
+                                                        <Button text="Submit" onClick={() => false} type="primary" />
                                                     </ButtonGroup>
-                                                </FormGroupItemNew>
-                                            </FormGroupNew>
+                                                </FormGroupItem>
+                                            </FormGroupV2>
                                         </FormLayout>
                                     </Container>
 
@@ -304,8 +300,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                             preserveSpaces
                                             legend="Optional legend: All items in one Form Group"
                                         >
-                                            <FormGroupNew grid>
-                                                <FormGroupItemNew colSpan={1}>
+                                            <FormGroupV2 grid>
+                                                <FormGroupItem colSpan={1}>
                                                     <Input
                                                         label="First Name"
                                                         value={''}
@@ -314,8 +310,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
-                                                <FormGroupItemNew colSpan={1}>
+                                                </FormGroupItem>
+                                                <FormGroupItem colSpan={1}>
                                                     <Input
                                                         label="Last Name"
                                                         value={''}
@@ -323,8 +319,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
-                                                <FormGroupItemNew colSpan={1}>
+                                                </FormGroupItem>
+                                                <FormGroupItem colSpan={1}>
                                                     <Input
                                                         label="Username"
                                                         value={''}
@@ -332,8 +328,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
-                                                <FormGroupItemNew colSpan={1}>
+                                                </FormGroupItem>
+                                                <FormGroupItem colSpan={1}>
                                                     <Input
                                                         label="Sign-off"
                                                         value={''}
@@ -341,8 +337,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
-                                                <FormGroupItemNew colSpan={2}>
+                                                </FormGroupItem>
+                                                <FormGroupItem colSpan={2}>
                                                     <Input
                                                         label="Email"
                                                         value={''}
@@ -350,8 +346,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
-                                                <FormGroupItemNew colSpan={1}>
+                                                </FormGroupItem>
+                                                <FormGroupItem colSpan={1}>
                                                     <Input
                                                         label="Password"
                                                         value={''}
@@ -361,8 +357,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         info="Password must be at least 8 characters long"
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
-                                                <FormGroupItemNew colSpan={1}>
+                                                </FormGroupItem>
+                                                <FormGroupItem colSpan={1}>
                                                     <Input
                                                         label="Confirm Password"
                                                         value={''}
@@ -372,8 +368,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         info="Confirm password must match the password"
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
-                                                <FormGroupItemNew colSpan={2}>
+                                                </FormGroupItem>
+                                                <FormGroupItem colSpan={2}>
                                                     <TreeSelect
                                                         kind={'synchronous'}
                                                         value={this.state.treeSelectValue}
@@ -387,8 +383,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         placeholder="Add languages"
                                                         width="medium"
                                                     ></TreeSelect>
-                                                </FormGroupItemNew>
-                                                <FormGroupItemNew colSpan={2}>
+                                                </FormGroupItem>
+                                                <FormGroupItem colSpan={2}>
                                                     <Input
                                                         label="Password"
                                                         value={''}
@@ -397,8 +393,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         onChange={() => false}
                                                     />
                                                     {/* <Text>Password must be at least 8 characters long</Text> */}
-                                                </FormGroupItemNew>
-                                                <FormGroupItemNew colSpan={4}>
+                                                </FormGroupItem>
+                                                <FormGroupItem colSpan={4}>
                                                     <CheckGroup>
                                                         <Checkbox
                                                             checked={this.state.value22}
@@ -423,8 +419,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                             }
                                                         />
                                                     </CheckGroup>
-                                                </FormGroupItemNew>
-                                                <FormGroupItemNew colSpan={3}>
+                                                </FormGroupItem>
+                                                <FormGroupItem colSpan={3}>
                                                     <Input
                                                         label="Username"
                                                         value={''}
@@ -432,8 +428,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
-                                                <FormGroupItemNew colSpan={1}>
+                                                </FormGroupItem>
+                                                <FormGroupItem colSpan={1}>
                                                     <Input
                                                         label="Password"
                                                         value={''}
@@ -441,8 +437,8 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         onChange={() => false}
                                                     />
-                                                </FormGroupItemNew>
-                                            </FormGroupNew>
+                                                </FormGroupItem>
+                                            </FormGroupV2>
                                         </FormLayout>
                                     </Container>
                                 </div>

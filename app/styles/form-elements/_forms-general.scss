@@ -299,7 +299,7 @@
 
 
 
-/// ---------------------------- NEW FORM LAYOUT TEST---------------------------- ///
+/// ----------------------------  FORM LAYOUT (Do not use anymore) --------------------------- ///
 
 .form__group-new {
 	display: flex;
@@ -392,24 +392,21 @@
 		letter-spacing: 0.02em;
 	}
 }
+/// --------------------------  FORM LAYOUT (Do not use anymore) END ------------------------ ///
+/// ----------------------------------------------------------------------------------------- ///
 
-/// ---------------------------- NEW FORM LAYOUT TEST 2 ---------------------------- ///
-.form__group-new--has_row-label {
-	.form__group-new__wrapper {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-	}
-}
 
-.form-container {
-    container-type: inline-size;
-    container-name: form-container;
-}
+/// ---------------------------- NEW FORM LAYOUT !!! USE THIS ONE INSTEAD OF THE OLD ONE ---------------------------- ///
+
+// .form-container {
+//     container-type: inline-size;
+//     container-name: form-container;
+// }
 
 
 .form-layout {
-    --form-group-col-gap: var(--gap-5);
+	container-type: inline-size;
+    container-name: form-container;
 	--form-layout-row-gap: var(--gap-4);
     --form-padding: 0;
     --form-heading-font-size: clamp(1.8rem, 4cqi, 2.1rem);
@@ -457,70 +454,72 @@
 			--form-heading-margin: var(--space--1);
 		}
 	}
+	&.form-layout--mb-none {
+		margin-block-end: 0;
+	}
+	&.form-layout--mb-spaces {
+		margin-block-end: var(--form-layout-row-gap);
+	}
 }
-.form-group-new {
+
+.form-group {
+	--form-group-col-gap: var(--gap-5);
     display: flex;
 	row-gap: var(--form-layout-row-gap);
     column-gap: var(--form-group-col-gap);
-    &.form-group-new--grid {
+    &.form-group--grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
     }
 
-	.form-group-new__text-block {
+	.form-group__text-block {
 		min-height: var(--form-element-height-default);
-		// margin-block-start: 1.6rem;
 		color: inherit;
 		font-size: 1.3rem;
 		display: inline-flex;
 		align-items: center;
 	}
 }
-.form-group-new__wrapper {
+.form-group__wrapper {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 	row-gap: var(--form-layout-row-gap);
-	.form-group-new__label {
+	.form-group__label {
 		font-size: 1.6rem;
 		font-weight: 500;
 		color: var(--color-text);
 		line-height: 1;
-		margin-block-end: var(--space--1);
+		margin-block-end: var(--space--0-5);
 	}
 
 }
-.form-group-new-item {
+.form-group-item {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 	min-height: var(--form-element-height-default);
-    &.form-group-new-item--span-2 {
+    &.form-group-item--span-2 {
         grid-column: span 2;
     }
-    &.form-group-new-item--span-3 {
+    &.form-group-item--span-3 {
         grid-column: span 3;
     }
-    &.form-group-new-item--span-4 {
+    &.form-group-item--span-4 {
         grid-column: span 4;
     }
 
-	&.form-group-new-item--auto-width {
+	&.form-group-item--auto-width {
 		flex-grow: 0;
 		min-width: 0;
 		flex-basis: auto;
 	}
 
-	// Add top padding for items that don't contain sd-input
-	// &:not(:has(.sd-input)) {
-	// 	padding-top: 1.6rem;
-	// }
-
-	> *:not(.sd-input):not(.form-group-new-item__inner):not(.sd-check__group-new) {
+	> *:not(.sd-input):not(.form-group-item__inner):not(.sd-check__group-new) {
 		margin-block-start: 1.6rem;
 	}
 
-	.form-group-new-item__inner {
+	.form-group-item__inner {
 		display: flex;
 		gap: var(--space--1);
 		align-items: flex-start;
@@ -530,18 +529,18 @@
 	}
 }
 
-.form-group-new-item--auto-width {
+.form-group-item--auto-width {
 	flex-grow: 0;
 	min-width: 0;
 	flex-basis: auto;
 }
 @container form-container (width <= 900px) {
-    .form-layout {
+    .form-group {
         --form-group-col-gap: var(--gap-3);
     }
 }
 @container form-container (width<= 500px) {
-    .form-layout {
+    .form-group {
         --form-group-col-gap: var(--gap-1-5);
     }
 }

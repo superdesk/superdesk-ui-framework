@@ -8,5 +8,5 @@ export {InputBase} from './InputBase';
 export {InputNew} from './InputNew';
 export {FormRowNew} from './FormRowNew';
 export {FormLayout} from './FormLayout';
-export {FormGroupNew} from './FormGroupNew';
-export {FormGroupItemNew} from './FormGroupItemNew';
+export {FormGroupV2} from './FormGroupV2';
+export {FormGroupItem} from './FormGroupItem';
