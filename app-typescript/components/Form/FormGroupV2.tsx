@@ -18,25 +18,23 @@ interface IProps {
     className?: string;
 }
 
-export class FormGroupV2 extends React.PureComponent<IProps> {
-    render() {
-        const classes = classNames(
-            'form-group',
-            {
-                'form-group--grid': this.props.grid,
-            },
-            this.props.className,
-        );
+export const FormGroupV2: React.FC<IProps> = React.memo(({children, rowLabel, grid, className}) => {
+    const classes = classNames(
+        'form-group',
+        {
+            'form-group--grid': grid,
+        },
+        className,
+    );
 
-        if (this.props.rowLabel) {
-            return (
-                <div className="form-group__wrapper">
-                    <label className="form-group__label">{this.props.rowLabel}</label>
-                    <div className={classes}>{this.props.children}</div>
-                </div>
-            );
-        } else {
-            return <div className={classes}>{this.props.children}</div>;
-        }
+    if (rowLabel) {
+        return (
+            <div className="form-group__wrapper">
+                <label className="form-group__label">{rowLabel}</label>
+                <div className={classes}>{children}</div>
+            </div>
+        );
     }
-}
+
+    return <div className={classes}>{children}</div>;
+});

@@ -20,20 +20,18 @@ interface IProps {
     className?: string;
 }
 
-export class FormGroupItem extends React.PureComponent<IProps> {
-    render() {
-        const classes = classNames(
-            'form-group-item',
-            {
-                'form-group-item--auto-width': this.props.autoWidth,
-                'form-group-item--span-1': this.props.colSpan === 1,
-                'form-group-item--span-2': this.props.colSpan === 2,
-                'form-group-item--span-3': this.props.colSpan === 3,
-                'form-group-item--span-4': this.props.colSpan === 4 || !this.props.colSpan,
-            },
-            this.props.className,
-        );
+export const FormGroupItem: React.FC<IProps> = React.memo(({children, autoWidth, colSpan, className}) => {
+    const classes = classNames(
+        'form-group-item',
+        {
+            'form-group-item--auto-width': autoWidth,
+            'form-group-item--span-1': colSpan === 1,
+            'form-group-item--span-2': colSpan === 2,
+            'form-group-item--span-3': colSpan === 3,
+            'form-group-item--span-4': colSpan === 4 || !colSpan,
+        },
+        className,
+    );
 
-        return <div className={classes}>{this.props.children}</div>;
-    }
-}
+    return <div className={classes}>{children}</div>;
+});

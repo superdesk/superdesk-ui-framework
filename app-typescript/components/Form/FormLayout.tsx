@@ -30,30 +30,28 @@ interface IProps {
     preserveSpaces?: boolean;
 }
 
-export class FormLayout extends React.PureComponent<IProps> {
-    render() {
-        const hasLabel = this.props.legend && this.props.legend.trim() !== '';
-        const spaces = this.props.spaces || 'standard';
-        const marginBottom = this.props.marginBottom || 'none';
+export const FormLayout: React.FC<IProps> = React.memo(
+    ({children, spaces = 'standard', marginBottom = 'none', legend, className, preserveSpaces}) => {
+        const hasLabel = legend && legend.trim() !== '';
         const classes = classNames(
             'form-layout',
             {
                 [`form-layout--${spaces}`]: spaces,
                 [`form-layout--mb-${marginBottom}`]: marginBottom,
-                'form-layout--preserve-spaces': this.props.preserveSpaces,
+                'form-layout--preserve-spaces': preserveSpaces,
             },
-            this.props.className,
+            className,
         );
 
         if (hasLabel) {
             return (
                 <fieldset className={classes}>
-                    <legend className="form-heading-new">{this.props.legend}</legend>
-                    {this.props.children}
+                    <legend className="form-heading-new">{legend}</legend>
+                    {children}
                 </fieldset>
             );
-        } else {
-            return <div className={classes}>{this.props.children}</div>;
         }
-    }
-}
+
+        return <div className={classes}>{children}</div>;
+    },
+);
