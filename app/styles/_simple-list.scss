@@ -8,7 +8,7 @@ $simple-list-border-color: $neutral-border-color;
     align-self: stretch;
 
     .simple-list__item {
-        padding: 0.5rem 0;
+        padding: var(--space--1) 0;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -87,7 +87,7 @@ $simple-list-border-color: $neutral-border-color;
 
 .simple-list--dotted {
     .simple-list__item {
-        padding: 0.8rem 0;
+        padding: var(--space--1) 0;
         border-block-end: 1px dotted $simple-list-border-color;
 
         &:first-child {
@@ -111,18 +111,24 @@ $simple-list-border-color: $neutral-border-color;
         }
     }
 }
-
 .simple-list--comfortable {
     .simple-list__item {
         padding: 1.2rem 0;
     }
 }
 
-.simple-list--loose {
+.simple-list--comfortable {
     .simple-list__item {
-        padding: 2.4rem 0;
+        padding: var(--space--1-5) 0;
     }
 }
+
+.simple-list--loose {
+    .simple-list__item {
+        padding: var(--space--2) 0;
+    }
+}
+
 
 .simple-list--no-padding {
     padding: 0 0 2rem 0;
