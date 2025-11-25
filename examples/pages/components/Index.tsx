@@ -85,6 +85,7 @@ import {ObjectFitUtilitiesDoc} from './utilities/ObjectFitUtilities';
 import {ObjectPositionUtilitiesDoc} from './utilities/ObjectPositionUtilities';
 import LoaderDoc from './Loader';
 import CardDoc from './Card';
+import FormLayoutDoc from './FormLayout';
 
 interface IPages {
     [group: string]: {
@@ -304,6 +305,10 @@ const pages: IPages = {
     formComponents: {
         name: 'Form Components',
         items: {
+            'form-layout': {
+                name: 'Form Layout',
+                component: FormLayoutDoc,
+            },
             inputs: {
                 name: 'Inputs',
                 component: InputsDoc,

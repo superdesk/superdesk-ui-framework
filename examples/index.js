@@ -316,6 +316,10 @@ export default angular
                 name: 'Colors',
                 component: 'Colors',
             },
+            'form-playground': {
+                name: 'Forms',
+                component: 'FormPlayground',
+            },
         },
 
         // Publisher playgrounds
