@@ -38,8 +38,7 @@ export class WithPortal extends React.Component<IProps> {
 
         if (nextProps.active === true) {
             return (
-                this.props.children !== nextProps.children ||
-                this.props['data-test-id'] !== nextProps['data-test-id']
+                this.props.children !== nextProps.children || this.props['data-test-id'] !== nextProps['data-test-id']
             );
         }
 
