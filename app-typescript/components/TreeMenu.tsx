@@ -374,102 +374,104 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
             <div ref={this.treeMenuRef}>
                 <div ref={this.openDropdownRef}>{this.props.children(this.toggle)}</div>
 
-                <WithPortal active={this.state.openDropdown} data-test-id="tree-menu-popover">
-                    <div
-                        ref={this.dropdownRef}
-                        className="autocomplete autocomplete--multi-select autocomplete--fixed-width"
-                        style={{
-                            zIndex: this.zIndex,
-                        }}
-                    >
-                        <div className="autocomplete__header">
-                            <div
-                                className="autocomplete__icon"
-                                onClick={() => {
-                                    this.backButton();
-                                }}
-                            >
-                                <Icon name="search" className="search"></Icon>
-                            </div>
-
-                            <div className="autocomplete__filter">
-                                <input
-                                    className="autocomplete__input"
-                                    type="text"
-                                    placeholder={this.props.searchPlaceholder}
-                                    ref={this.inputRef}
-                                    value={this.state.searchFieldValue}
-                                    onChange={(event) => {
-                                        this.setState({searchFieldValue: event.target.value});
-                                        this.popperInstance?.update();
-                                    }}
-                                />
-                            </div>
-                        </div>
-
-                        {this.state.activeTree.length > 0 && this.state.buttonValue != null && (
-                            <div className="autocomplete__category-header">
+                {this.state.openDropdown && (
+                    <WithPortal active={this.state.openDropdown} data-test-id="tree-menu-popover">
+                        <div
+                            ref={this.dropdownRef}
+                            className="autocomplete autocomplete--multi-select autocomplete--fixed-width"
+                            style={{
+                                zIndex: this.zIndex,
+                            }}
+                        >
+                            <div className="autocomplete__header">
                                 <div
                                     className="autocomplete__icon"
                                     onClick={() => {
                                         this.backButton();
                                     }}
                                 >
-                                    <Icon name="arrow-left" className="arrow-left"></Icon>
+                                    <Icon name="search" className="search"></Icon>
                                 </div>
 
                                 <div className="autocomplete__filter">
-                                    <button className="autocomplete__category-title">
-                                        {this.props.optionTemplate
-                                            ? this.props.optionTemplate(this.state.buttonValue.value)
-                                            : this.props.getLabel(this.state.buttonValue.value)}
-                                    </button>
+                                    <input
+                                        className="autocomplete__input"
+                                        type="text"
+                                        placeholder={this.props.searchPlaceholder}
+                                        ref={this.inputRef}
+                                        value={this.state.searchFieldValue}
+                                        onChange={(event) => {
+                                            this.setState({searchFieldValue: event.target.value});
+                                            this.popperInstance?.update();
+                                        }}
+                                    />
                                 </div>
                             </div>
-                        )}
 
-                        {this.state.searchFieldValue === '' ? (
-                            this.props.getOptions ? (
-                                <ul
-                                    ref={this.ref}
-                                    className="suggestion-list suggestion-list--multi-select"
-                                    role="tree"
-                                >
-                                    {this.state.options.map((option, i: React.Key | undefined) => (
-                                        <TreeSelectItem
-                                            key={i}
-                                            option={option}
-                                            handleTree={this.handleTree}
-                                            onClick={() => {
-                                                onSelect(option);
-                                            }}
-                                            disabledItem={disabledItem(option)}
-                                            getBorderColor={this.props.getBorderColor}
-                                            getBackgroundColor={this.props.getBackgroundColor}
-                                            getId={this.props.getId}
-                                            optionTemplate={this.props.optionTemplate}
-                                            getLabel={this.props.getLabel}
-                                            onKeyDown={() =>
-                                                this.setState({
-                                                    buttonTarget: [
-                                                        ...this.state.buttonTarget,
-                                                        this.props.getId(option.value),
-                                                    ],
-                                                })
-                                            }
-                                        />
-                                    ))}
+                            {this.state.activeTree.length > 0 && this.state.buttonValue != null && (
+                                <div className="autocomplete__category-header">
+                                    <div
+                                        className="autocomplete__icon"
+                                        onClick={() => {
+                                            this.backButton();
+                                        }}
+                                    >
+                                        <Icon name="arrow-left" className="arrow-left"></Icon>
+                                    </div>
+
+                                    <div className="autocomplete__filter">
+                                        <button className="autocomplete__category-title">
+                                            {this.props.optionTemplate
+                                                ? this.props.optionTemplate(this.state.buttonValue.value)
+                                                : this.props.getLabel(this.state.buttonValue.value)}
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
+                            {this.state.searchFieldValue === '' ? (
+                                this.props.getOptions ? (
+                                    <ul
+                                        ref={this.ref}
+                                        className="suggestion-list suggestion-list--multi-select"
+                                        role="tree"
+                                    >
+                                        {this.state.options.map((option, i: React.Key | undefined) => (
+                                            <TreeSelectItem
+                                                key={i}
+                                                option={option}
+                                                handleTree={this.handleTree}
+                                                onClick={() => {
+                                                    onSelect(option);
+                                                }}
+                                                disabledItem={disabledItem(option)}
+                                                getBorderColor={this.props.getBorderColor}
+                                                getBackgroundColor={this.props.getBackgroundColor}
+                                                getId={this.props.getId}
+                                                optionTemplate={this.props.optionTemplate}
+                                                getLabel={this.props.getLabel}
+                                                onKeyDown={() =>
+                                                    this.setState({
+                                                        buttonTarget: [
+                                                            ...this.state.buttonTarget,
+                                                            this.props.getId(option.value),
+                                                        ],
+                                                    })
+                                                }
+                                            />
+                                        ))}
+                                    </ul>
+                                ) : null
+                            ) : (
+                                <ul className="suggestion-list suggestion-list--multi-select" ref={this.ref}>
+                                    {this.filteredItem(
+                                        this.props.singleLevelSearch ? this.state.options : this.state.filterArr,
+                                    )}
                                 </ul>
-                            ) : null
-                        ) : (
-                            <ul className="suggestion-list suggestion-list--multi-select" ref={this.ref}>
-                                {this.filteredItem(
-                                    this.props.singleLevelSearch ? this.state.options : this.state.filterArr,
-                                )}
-                            </ul>
-                        )}
-                    </div>
-                </WithPortal>
+                            )}
+                        </div>
+                    </WithPortal>
+                )}
             </div>
         );
     }

@@ -27,24 +27,6 @@ export class WithPortal extends React.Component<IProps> {
         this.ref = React.createRef();
     }
 
-    shouldComponentUpdate(nextProps: Readonly<IProps>): boolean {
-        if (this.props.active === true && nextProps.active === false) {
-            return true;
-        }
-
-        if (nextProps.active === false) {
-            return false;
-        }
-
-        if (nextProps.active === true) {
-            return (
-                this.props.children !== nextProps.children || this.props['data-test-id'] !== nextProps['data-test-id']
-            );
-        }
-
-        return false;
-    }
-
     componentDidMount(): void {
         this.dataTheme = findParent(this.ref.current)?.getAttribute('data-theme') ?? undefined;
     }
