@@ -5,7 +5,7 @@ import nextId from 'react-id-generator';
 import _debounce from 'lodash/debounce';
 import {InputWrapper} from '../Form';
 import {createPopper, Instance} from '@popperjs/core';
-import {isEqual} from 'lodash';
+import {difference, isEqual} from 'lodash';
 import {getTextColor} from '../../helpers';
 import {IInputWrapper} from '../Form/InputWrapper';
 import {SelectPreview} from '../SelectPreview';
@@ -145,6 +145,10 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.popperInstance = null;
         this.onDragEnd = this.onDragEnd.bind(this);
         this.changesFromOutside = false;
+    }
+
+    shouldComponentUpdate(nextProps: Readonly<IProps<T>>, nextState: Readonly<IState<T>>): boolean {
+        return !isEqual(this.props, nextProps) || !isEqual(this.state, nextState);
     }
 
     inputFocus = () => {
@@ -504,17 +508,17 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             const filteredArr: Array<ITreeNode<T>> =
                 this.props.search != null
                     ? this.props
-                          .search(
-                              list.map(({value}) => value),
-                              this.state.searchFieldValue,
-                          )
-                          .map((item) => listItemsById[this.props.getId(item)])
+                        .search(
+                            list.map(({value}) => value),
+                            this.state.searchFieldValue,
+                        )
+                        .map((item) => listItemsById[this.props.getId(item)])
                     : list.filter((item) => {
-                          return this.props
-                              .getLabel(item.value)
-                              .toLowerCase()
-                              .includes(this.state.searchFieldValue.toLowerCase());
-                      });
+                        return this.props
+                            .getLabel(item.value)
+                            .toLowerCase()
+                            .includes(this.state.searchFieldValue.toLowerCase());
+                    });
 
             if (filteredArr.length === 0) {
                 return <li className="suggestion-item--nothing-found">{gettext('No results found')}</li>;
@@ -670,19 +674,21 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
     }
 
     render() {
+        console.log('render');
+
         if (this.props.preview) {
             return (
                 <SelectPreview
                     kind={
                         this.props.allowMultiple
                             ? {
-                                  mode: 'multi-select',
-                                  getBackgroundColor: this.props.getBackgroundColor,
-                              }
+                                mode: 'multi-select',
+                                getBackgroundColor: this.props.getBackgroundColor,
+                            }
                             : {
-                                  mode: 'single-select',
-                                  getBorderColor: this.props.getBorderColor,
-                              }
+                                mode: 'single-select',
+                                getBorderColor: this.props.getBorderColor,
+                            }
                     }
                     items={this.state.value}
                     valueTemplate={this.props.valueTemplate}
@@ -693,35 +699,35 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
         const ListWrapper = this.props.sortable
             ? ({children}: {children: React.ReactNode}) => (
-                  <DragDropContext onDragEnd={this.onDragEnd}>
-                      <Droppable droppableId="droppable" direction="horizontal">
-                          {(provided, _snapshot) => (
-                              <ul className="tags-input__tag-list" ref={provided.innerRef} {...provided.droppableProps}>
-                                  {children}
-                                  {provided.placeholder}
-                              </ul>
-                          )}
-                      </Droppable>
-                  </DragDropContext>
-              )
+                <DragDropContext onDragEnd={this.onDragEnd}>
+                    <Droppable droppableId="droppable" direction="horizontal">
+                        {(provided, _snapshot) => (
+                            <ul className="tags-input__tag-list" ref={provided.innerRef} {...provided.droppableProps}>
+                                {children}
+                                {provided.placeholder}
+                            </ul>
+                        )}
+                    </Droppable>
+                </DragDropContext>
+            )
             : ({children}: {children: React.ReactNode}) => <ul className="tags-input__tag-list">{children}</ul>;
 
         const ItemWrapper = this.props.sortable
             ? ({children, itemId, i}: {children: React.ReactNode; itemId: string; i: number}) => {
-                  return (
-                      <Draggable draggableId={itemId} index={i}>
-                          {(provided2) => (
-                              <div
-                                  ref={provided2.innerRef}
-                                  {...provided2.draggableProps}
-                                  {...provided2.dragHandleProps}
-                              >
-                                  {children}
-                              </div>
-                          )}
-                      </Draggable>
-                  );
-              }
+                return (
+                    <Draggable draggableId={itemId} index={i}>
+                        {(provided2) => (
+                            <div
+                                ref={provided2.innerRef}
+                                {...provided2.draggableProps}
+                                {...provided2.dragHandleProps}
+                            >
+                                {children}
+                            </div>
+                        )}
+                    </Draggable>
+                );
+            }
             : ({children}: {children: React.ReactNode}) => <React.Fragment>{children}</React.Fragment>;
 
         return (
@@ -805,18 +811,18 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
                             {this.state.value.length > 0
                                 ? this.props.readOnly ||
-                                  this.props.disabled || (
-                                      <button
-                                          className="tags-input__remove-value"
-                                          style={{position: 'relative', bottom: '2px'}}
-                                          onClick={(e) => {
-                                              e.stopPropagation();
-                                              this.setState({value: []});
-                                          }}
-                                      >
-                                          <Icon name="remove-sign"></Icon>
-                                      </button>
-                                  )
+                                this.props.disabled || (
+                                    <button
+                                        className="tags-input__remove-value"
+                                        style={{position: 'relative', bottom: '2px'}}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            this.setState({value: []});
+                                        }}
+                                    >
+                                        <Icon name="remove-sign"></Icon>
+                                    </button>
+                                )
                                 : null}
                         </div>
                     ) : (

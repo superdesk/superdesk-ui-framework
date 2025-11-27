@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as Markup from '../../js/react';
 import {PropsList, Prop} from '../../../app-typescript';
 import {TreeSelect} from '../../../app-typescript/components/TreeSelect/TreeSelect';
+import {cloneDeep} from 'lodash';
 
 interface IState {
     value: any;
@@ -10,6 +11,8 @@ interface IState {
     options2: any;
     inputValue: string;
     arr: any;
+    testInput: string;
+    testTreeSelectValue: any;
 }
 
 const multiSelectOptions = [
@@ -166,6 +169,8 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
             options2: multiSelectOptions,
             inputValue: '',
             arr: [],
+            testInput: '',
+            testTreeSelectValue: [],
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -180,6 +185,20 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                 options: option.item,
             });
         }
+    }
+
+    handleTreeSelectChange = (value) => {
+        this.setState({
+            testTreeSelectValue: value,
+        })
+    }
+
+    getOptions = () => {
+        return multiSelectOptions;
+    }
+
+    getId = (item) => {
+        return item.name;
     }
 
     render() {
@@ -408,6 +427,68 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                             }}
                             onChange={(e) => false}
                         />
+                    `}</Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
+
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                        <div className="docs-page__content-row docs-page__content-row--no-margin">
+                            <div className="form__row">
+                                <label className="sd-line-input">
+                                    <span>Test Input</span>
+                                    <input
+                                        className="sd-line-input__input"
+                                        type="text"
+                                        value={this.state.testInput}
+                                        onChange={(e) => {
+                                            let stateCopy = cloneDeep(this.state) as IState;
+                                            stateCopy.testInput = e.target.value;
+
+                                            this.setState(stateCopy)
+                                        }}
+                                    />
+                                </label>
+                            </div>
+                            <div className="form__row">
+                                <TreeSelect
+                                    kind="synchronous"
+                                    value={this.state.testTreeSelectValue}
+                                    getOptions={this.getOptions}
+                                    getId={this.getId}
+                                    getLabel={this.getId}
+                                    selectBranchWithChildren
+                                    allowMultiple
+                                    label="TreeSelect (won't re-render on input change)"
+                                    info="Open console and add a log in TreeSelect render to verify"
+                                    searchPlaceholder="Search..."
+                                    onChange={this.handleTreeSelectChange}
+                                />
+                            </div>
+                        </div>
+                    </Markup.ReactMarkupPreview>
+
+                    <Markup.ReactMarkupCode>{`
+                        // State contains both testInput and testTreeSelectValue
+                        <input
+                            value={this.state.testInput}
+                            onChange={(e) => this.setState({testInput: e.target.value})}
+                        />
+
+                        <TreeSelect
+                            kind="synchronous"
+                            value={this.state.testTreeSelectValue}
+                            getOptions={() => multiSelectOptions}
+                            getId={(item) => item.name}
+                            getLabel={(item) => item.name}
+                            selectBranchWithChildren
+                            allowMultiple
+                            onChange={(val) => {
+                                this.setState({testTreeSelectValue: val});
+                            }}
+                        />
+
+                        // When testInput changes, parent re-renders but TreeSelect doesn't
+                        // because its props haven't changed (React.memo optimization)
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
