@@ -4,6 +4,7 @@ import {createPortal} from 'react-dom';
 interface IProps {
     active: boolean;
     'data-test-id'?: string;
+    children: React.ReactChild;
 }
 
 export function findParent(element: HTMLElement | null) {
@@ -27,7 +28,22 @@ export class WithPortal extends React.Component<IProps> {
     }
 
     shouldComponentUpdate(nextProps: Readonly<IProps>): boolean {
-        return nextProps.active;
+        if (this.props.active === true && nextProps.active === false) {
+            return true;
+        }
+
+        if (nextProps.active === false) {
+            return false;
+        }
+
+        if (nextProps.active === true) {
+            return (
+                this.props.children !== nextProps.children ||
+                this.props['data-test-id'] !== nextProps['data-test-id']
+            );
+        }
+
+        return false;
     }
 
     componentDidMount(): void {
