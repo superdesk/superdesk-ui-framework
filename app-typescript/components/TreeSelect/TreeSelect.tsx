@@ -147,6 +147,26 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.changesFromOutside = false;
     }
 
+    shouldComponentUpdate(nextProps: Readonly<IProps<T>>, nextState: Readonly<IState<T>>): boolean {
+        if (!isEqual(this.state, nextState)) {
+            return true;
+        }
+
+        const propKeys = Object.keys(nextProps) as Array<keyof IProps<T>>;
+
+        for (const key of propKeys) {
+            if (typeof this.props[key] === 'function') {
+                continue;
+            }
+
+            if (!isEqual(this.props[key], nextProps[key])) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     inputFocus = () => {
         this.inputRef.current?.focus();
     };
