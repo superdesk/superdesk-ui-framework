@@ -31,7 +31,7 @@ jobs:
                   token: ${{ secrets.NPM_TOKEN }}
 
             - name: Check publish result
-              if: failure() && steps.publish.outcome == 'failure'
+              if: steps.publish.outcome == 'failure'
               run: |
                   echo "::notice::Package was not published. Version may already exist on npm."
                   exit 0
