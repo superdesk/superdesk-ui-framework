@@ -6,6 +6,8 @@ on:
             - 'develop'
             - 'v3'
             - 'v4'
+            - 'v5.1'
+            - 'v5'
 
 jobs:
     publish:
