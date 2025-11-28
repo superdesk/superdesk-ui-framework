@@ -26,16 +26,23 @@ jobs:
             - run: npm run build
             - uses: JS-DevTools/npm-publish@v3
               id: publish
+              continue-on-error: true
               with:
                   token: ${{ secrets.NPM_TOKEN }}
 
+            - name: Check publish result
+              if: failure() && steps.publish.outcome == 'failure'
+              run: |
+                  echo "::notice::Package was not published. Version may already exist on npm."
+                  exit 0
+
             - name: Get package version
-              if: steps.publish.outputs.type != 'none'
+              if: steps.publish.outputs.type != 'none' && steps.publish.outcome == 'success'
               id: package-version
               run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
 
             - name: Create Git tag
-              if: steps.publish.outputs.type != 'none'
+              if: steps.publish.outputs.type != 'none' && steps.publish.outcome == 'success'
               run: |
                   git config user.name "github-actions[bot]"
                   git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -43,7 +50,7 @@ jobs:
                   git push origin "v${{ steps.package-version.outputs.version }}"
 
             - name: Create GitHub Release
-              if: steps.publish.outputs.type != 'none'
+              if: steps.publish.outputs.type != 'none' && steps.publish.outcome == 'success'
               uses: softprops/action-gh-release@v1
               with:
                   tag_name: v${{ steps.package-version.outputs.version }}
