@@ -1,115 +1,165 @@
-import * as React from 'react';
+import React, {forwardRef, useState, useRef, useCallback, useImperativeHandle, useEffect, useMemo} from 'react';
 import classNames from 'classnames';
+import debounce from 'lodash/debounce';
 import {Icon} from './Icon';
 
 interface IProps {
-    value?: string;
-    type?: 'expanded' | 'collapsed' | 'boxed';
+    children?: React.ReactNode;
+
+    /**
+     * Defaults to `expanded`
+     */
+    type?: 'expanded' | 'collapsed';
+
     placeholder: string;
-    focused?: boolean;
     boxed?: boolean;
-    onSubmit?(value: string | number): void;
-}
 
-interface IState {
-    inputValue: any;
-    type: string;
-    focused: boolean;
-    boxed?: boolean;
-    keyDown?: boolean;
-}
+    hideSearchButton?: boolean;
 
-export class SearchBar extends React.PureComponent<IProps, IState> {
-    private inputRef: any;
-    constructor(props: IProps) {
-        super(props);
-        this.state = {
-            inputValue: this.props.value ? this.props.value : '',
-            focused: this.props.focused ? this.props.focused : false,
-            type: this.props.type ? this.props.type : 'expanded',
-            boxed: this.props.boxed ? this.props.boxed : false,
-            keyDown: false,
-        };
-        this.inputRef = React.createRef();
-    }
+    searchOptions?: {
+        searchOnType: true;
 
-    componentDidUpdate(prevProps: any) {
-        if (prevProps.value !== this.props.value) {
-            this.setState({inputValue: this.props.value});
-        }
-    }
-
-    componentDidMount = () => {
-        document.addEventListener('mousedown', (event) => {
-            if (this.inputRef.current && !this.inputRef.current.contains(event.target)) {
-                this.setState({focused: false});
-            }
-        });
+        /**
+         * Defaults to 300ms
+         */
+        searchDelay: number;
     };
 
-    render() {
-        let classes = classNames('sd-searchbar', {
-            [`sd-searchbar--${this.state.type}`]: this.props.type,
-            'sd-searchbar--expanded': this.state.type === 'expanded' || this.props.type === undefined,
-            'sd-searchbar--focused': this.state.focused,
-            'sd-searchbar--boxed': this.state.boxed,
-        });
-        return (
-            <div className={classes} ref={this.inputRef}>
-                {this.props.children}
-                <label className="sd-searchbar__icon"></label>
-                <input
-                    id="search-input"
-                    ref={(input: any) => input && this.props.focused && input.focus()}
-                    className="sd-searchbar__input"
-                    type="text"
-                    placeholder={this.props.placeholder}
-                    value={this.state.inputValue}
-                    onKeyPress={(event) => {
-                        if (event.key === 'Enter') {
-                            if (this.props.onSubmit) {
-                                this.props.onSubmit(this.state.inputValue);
-                            }
-                            this.setState({keyDown: true});
-                        }
-                    }}
-                    onKeyUp={(event) => {
-                        if (event.key === 'Enter') {
-                            this.setState({keyDown: false});
-                        }
-                    }}
-                    onChange={(event) => this.setState({inputValue: event.target.value})}
-                    onFocus={() => this.setState({focused: true})}
-                />
-                {this.state.inputValue && (
-                    <button
-                        className="sd-searchbar__cancel"
-                        onClick={() => {
-                            this.setState({inputValue: ''});
-                            setTimeout(() => {
-                                if (this.props.onSubmit) {
-                                    this.props.onSubmit(this.state.inputValue);
-                                }
-                            });
-                        }}
-                    >
-                        <Icon name="remove-sign" />
-                    </button>
-                )}
-                {this.state.inputValue && (
-                    <button
-                        id="sd-searchbar__search-btn"
-                        className={`sd-searchbar__search-btn ${this.state.keyDown ? 'sd-searchbar__search-btn--active' : ''}`}
-                        onClick={() => {
-                            if (this.props.onSubmit) {
-                                this.props.onSubmit(this.state.inputValue);
-                            }
-                        }}
-                    >
-                        <Icon name="chevron-right-thin" />
-                    </button>
-                )}
-            </div>
-        );
-    }
+    onSubmit(value: string): void;
 }
+
+export const SearchBar = forwardRef<{focus: () => void; search: () => void}, IProps>((props, ref) => {
+    const {type = 'expanded', boxed = false} = props;
+
+    const [focused, setFocused] = useState(false);
+    const [keyDown, setKeyDown] = useState(false);
+    const [value, setValue] = useState('');
+
+    const inputRef = useRef<HTMLDivElement>(null);
+    const searchInputRef = useRef<HTMLInputElement>(null);
+
+    /**
+     * Use a ref to keep track of the input value, so that the debounced search
+     * can have latest instances while also the latest value.
+     */
+    const valueRef = useRef(value);
+
+    const search = useCallback(() => {
+        const currentValue = valueRef.current;
+
+        // Require at least 3 characters before triggering search, or allow empty string to clear
+        if (currentValue.length > 0 && currentValue.length < 3) {
+            return;
+        }
+
+        props.onSubmit(currentValue);
+    }, [props.onSubmit]);
+
+    const handleDebouncedSearch = useMemo(
+        () => debounce(search, props.searchOptions?.searchDelay ?? 300),
+        [search, props.searchOptions?.searchDelay],
+    );
+
+    useImperativeHandle(ref, () => ({
+        focus: () => {
+            setFocused(true);
+        },
+        search,
+    }));
+
+    useEffect(() => {
+        if (focused) {
+            searchInputRef.current?.focus();
+        }
+    }, [focused]);
+
+    useEffect(() => {
+        const mouseDownHandler = (event: MouseEvent) => {
+            if (inputRef.current && !inputRef.current.contains(event.target as Node)) {
+                setFocused(false);
+            }
+        };
+
+        document.addEventListener('mousedown', mouseDownHandler);
+
+        return () => {
+            handleDebouncedSearch.cancel();
+            document.removeEventListener('mousedown', mouseDownHandler);
+        };
+    }, [handleDebouncedSearch]);
+
+    const containerClasses = classNames('sd-searchbar', {
+        [`sd-searchbar--${type}`]: type,
+        'sd-searchbar--expanded': type === 'expanded',
+        'sd-searchbar--focused': focused,
+        'sd-searchbar--boxed': boxed,
+    });
+    const searchButtonClasses = classNames('sd-searchbar__search-btn', {
+        'sd-searchbar__search-btn--active': keyDown,
+    });
+
+    return (
+        <div className={containerClasses} ref={inputRef}>
+            {props.children}
+            <label className="sd-searchbar__icon"></label>
+            <input
+                id="search-input"
+                ref={searchInputRef}
+                className="sd-searchbar__input"
+                type="text"
+                placeholder={props.placeholder}
+                value={value}
+                onKeyPress={(event) => {
+                    if (event.key === 'Enter') {
+                        handleDebouncedSearch.cancel();
+
+                        props.onSubmit(value);
+                        setKeyDown(true);
+                    }
+                }}
+                onKeyUp={(event) => {
+                    if (event.key === 'Enter') {
+                        setKeyDown(false);
+                    }
+                }}
+                onChange={(event) => {
+                    const newValue = event.target.value;
+
+                    setValue(newValue);
+                    valueRef.current = newValue;
+
+                    if (props.searchOptions?.searchOnType) {
+                        handleDebouncedSearch();
+                    }
+                }}
+                onFocus={() => setFocused(true)}
+            />
+            {value && (
+                <button
+                    className="sd-searchbar__cancel"
+                    onClick={() => {
+                        handleDebouncedSearch.cancel();
+                        setValue('');
+
+                        props.onSubmit('');
+                    }}
+                >
+                    <Icon name="remove-sign" />
+                </button>
+            )}
+            {!props.hideSearchButton && (
+                <button
+                    id="sd-searchbar__search-btn"
+                    className={searchButtonClasses}
+                    onClick={() => {
+                        handleDebouncedSearch.cancel();
+
+                        props.onSubmit(value);
+                    }}
+                >
+                    <Icon name="chevron-right-thin" />
+                </button>
+            )}
+        </div>
+    );
+});

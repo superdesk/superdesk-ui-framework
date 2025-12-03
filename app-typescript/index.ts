@@ -90,6 +90,7 @@ export {ThemeSelector} from './components/ThemeSelector';
 export {DropZone} from './components/DropZone';
 export {CreateButton} from './components/CreateButton';
 export {SearchBar} from './components/SearchBar';
+export {OverflowStack} from './components/OverflowStack/OverflowStack';
 export {WithSizeObserver} from './components/WithSizeObserver';
 export {SvgIconIllustration} from './components/SvgIconIllustration';
 export {IllustrationButton} from './components/IllustrationButton';

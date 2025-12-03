@@ -1,0 +1,120 @@
+// Overflow Stack Component
+// A generic component for stacking items with overflow indicator
+
+.overflow-stack {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+
+    // Gap variations (for non-overlapping items)
+    &.overflow-stack--gap-compact {
+        gap: var(--gap-0-5); // 4px
+    }
+
+    &.overflow-stack--gap-loose {
+        gap: var(--gap-1); // 8px
+    }
+
+    &.overflow-stack--gap-none {
+        gap: 0; // no gap
+    }
+
+    // Overlapping mode (like avatars)
+    &.overflow-stack--overlap {
+        gap: 0;
+
+        .overflow-stack__item {
+            margin-inline-start: calc(var(--space--1) * -1);
+            transition: transform 0.2s ease, z-index 0.2s ease;
+            position: relative;
+            z-index: 1;
+
+            &:first-child {
+                margin-inline-start: 0;
+            }
+
+            &:hover {
+                transform: translateY(-2px);
+                z-index: 10;
+                > * {
+                    outline: 2px solid var(--color-surface-base);
+                }
+            }
+        }
+
+        .overflow-stack__indicator {
+            margin-inline-start: calc(var(--space--1) * -1);
+            z-index: 0;
+
+            &:hover {
+                transform: translateY(-2px);
+                z-index: 10;
+            }
+        }
+    }
+}
+
+.overflow-stack__item {
+    display: inline-flex;
+    align-items: center;
+}
+
+.overflow-stack__indicator {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3.2rem;
+    height: 3.2rem;
+    padding: 0 var(--space--0-5);
+    background-color: var(--sd-colour-primary);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius--medium);
+    font-size: 1.3rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    position: relative;
+
+    &:hover {
+        background-color: var(--sd-colour-primary--darker);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--sd-colour-primary);
+        outline-offset: 2px;
+    }
+}
+
+.overflow-stack__indicator-content {
+    font-size: var(--text-size--small);
+    color: var(--color-text-muted);
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    padding: var(--space--0-5);
+}
+
+.overflow-stack__popover {
+    background-color: var(--color-dropdown-menu-Bg);
+    border-radius: var(--b-radius--large);
+    padding: var(--space--1-5);
+    box-shadow: var(--sd-shadow__dropdown);
+    display: flex;
+    flex-direction: column;
+    min-width: max-content;
+    overflow-y: auto;
+}
+
+.overflow-stack__popover-item {
+    display: flex;
+    align-items: center;
+    padding-block: var(--space--0-5);
+    transition: all 0.2s ease;
+}

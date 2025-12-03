@@ -32,6 +32,7 @@ import {RundownEditor} from './RundownEditor';
 import * as Nav from '../../../../app-typescript/components/Navigation';
 import {ContentList} from '../../../../app-typescript/components/Lists/ContentList';
 import {TableList} from '../../../../app-typescript/components/Lists/TableList';
+import {noop} from 'lodash';
 
 interface IProps {
     children?: React.ReactNode;
@@ -238,7 +239,7 @@ export class Rundowns extends React.Component<IProps, IState> {
                     <Layout.LayoutContainer>
                         <Layout.HeaderPanel>
                             <SubNav>
-                                <SearchBar placeholder="Search media"></SearchBar>
+                                <SearchBar onSubmit={noop} placeholder="Search media"></SearchBar>
                                 <ButtonGroup align="end" spaces="no-space">
                                     <Dropdown
                                         items={[
@@ -1147,7 +1148,7 @@ export class Rundowns extends React.Component<IProps, IState> {
                     <Layout.LayoutContainer>
                         <Layout.HeaderPanel>
                             <SubNav>
-                                <SearchBar placeholder="Search shows"></SearchBar>
+                                <SearchBar onSubmit={noop} placeholder="Search shows"></SearchBar>
                                 <ButtonGroup align="end" spaces="no-space">
                                     <CreateButton ariaValue="New show" onClick={() => false} />
                                 </ButtonGroup>
