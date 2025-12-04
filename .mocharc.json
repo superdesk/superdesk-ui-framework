@@ -1,5 +1,12 @@
 {
-    "extension": ["ts", ".tsx"],
+    "extension": [
+        "ts",
+        ".tsx"
+    ],
     "spec": "app-typescript/**/*.spec.*",
-    "require": ["ts-node/register", "./mocha-setup.ts"]
+    "require": [
+        "ts-node/register",
+        "./mocha-setup.ts"
+    ],
+    "exit": true
 }
