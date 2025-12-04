@@ -60,13 +60,13 @@ export default class CopyableTextBoxDoc extends React.Component<{}, IState> {
                             <div className="form__row" style={{maxWidth: '60rem', background: 'white'}}>
                                 <CopyableTextBox
                                     label="Authentication Token"
-                                    size='small'
+                                    size="small"
                                     value="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0"
                                     helperText="Keep this token secure and do not share it with anyone"
                                 />
                             </div>
                             <div className="form__row" style={{maxWidth: '60rem'}}>
-                                <CopyableTextBox size='large' label="Short Text" value="Example" />
+                                <CopyableTextBox size="large" label="Short Text" value="Example" />
                             </div>
                         </div>
                     </Markup.ReactMarkupPreview>
@@ -104,20 +104,8 @@ export default class CopyableTextBoxDoc extends React.Component<{}, IState> {
                         default="/"
                         description="The text content to display and copy."
                     />
-                    <Prop
-                        name="label"
-                        isRequired={false}
-                        type="string"
-                        default="/"
-                        description="Label"
-                    />
-                    <Prop
-                        name="helperText"
-                        isRequired={false}
-                        type="string"
-                        default="/"
-                        description="Helper text"
-                    />
+                    <Prop name="label" isRequired={false} type="string" default="/" description="Label" />
+                    <Prop name="helperText" isRequired={false} type="string" default="/" description="Helper text" />
                     <Prop
                         name="data-test-id"
                         isRequired={false}

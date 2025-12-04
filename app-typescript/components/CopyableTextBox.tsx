@@ -64,7 +64,7 @@ export class CopyableTextBox extends React.Component<IProps, IState> {
                         onClick={this.handleCopy}
                         type="default"
                         style="hollow"
-                        size={this.props.size ?? "normal"}
+                        size={this.props.size ?? 'normal'}
                         data-test-id="copy-button"
                     />
                 </div>
