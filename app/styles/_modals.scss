@@ -1,17 +1,22 @@
+@use "sass:map";
+@use "mixins";
+@use "variables/colors";
+@use "variables/dimensions";
+
 // MODALS
 
 // Recalculate z-index where appropriate
-$zindexDropdown: 2000;
+dimensions.$zindexDropdown: 2000;
 $zindexPopover: 2010;
 $zindexTooltip: 2040;
 $zindexModalBackdrop: 1045;
 $zindexModal: 1050;
-$nav-height: 48px;
+dimensions.$nav-height: 48px;
 
 .modal-open {
     overflow: hidden;
-    .dropdown__menu {  z-index: $zindexDropdown + $zindexModal; }
-    .dropdown.open  { *z-index: $zindexDropdown + $zindexModal; }
+    .dropdown__menu {  z-index: dimensions.$zindexDropdown + $zindexModal; }
+    .dropdown.open  { *z-index: dimensions.$zindexDropdown + $zindexModal; }
     .popover        {  z-index: $zindexPopover  + $zindexModal; }
     .tooltip        {  z-index: $zindexTooltip  + $zindexModal; }
 }
@@ -23,15 +28,15 @@ $modal-x-large-width : 1000px;
 $modal-fill-width: 100%;
 $modal-fullscreen-width: 100%;
 
-$modal-border-radius: $border-radius__base--large;
+$modal-border-radius: dimensions.$border-radius__base--large;
 $modal-line-color: var(--sd-colour-line--x-light);
 $modal-bg-color: var(--color-modal-Bg);
 
-$modal-header-height : $nav-height;
+$modal-header-height : dimensions.$nav-height;
 $modal-footer-height : 48px;
-$modal-subnav-height : $nav-height;
+$modal-subnav-height : dimensions.$nav-height;
 
-$modal-padding : $sd-base-increment * 2;
+$modal-padding : dimensions.$sd-base-increment * 2;
 $modal-box-shadow: var(--sd-shadow__modal);
 
 // Map with all modal sizes
@@ -76,11 +81,11 @@ $modal-sizes: (
 }
 
 @mixin modal-header() {
-    padding: $modal-padding - $sd-base-increment $modal-padding;
+    padding: $modal-padding - dimensions.$sd-base-increment $modal-padding;
     border-block-end: 1px solid $modal-line-color;
     min-height: $modal-header-height;
     background-color: $modal-bg-color;
-    border-radius: $border-radius__base--large $border-radius__base--large 0 0;
+    border-radius: dimensions.$border-radius__base--large dimensions.$border-radius__base--large 0 0;
 }
 
 @mixin modal-body() {
@@ -91,8 +96,8 @@ $modal-sizes: (
 }
 
 @mixin modal-footer() {
-    @include clearfix(); // clear it in case folks use .pull-* classes on buttons
-    padding: $modal-padding - $sd-base-increment $modal-padding;
+    @include mixins.clearfix(); // clear it in case folks use .pull-* classes on buttons
+    padding: $modal-padding - dimensions.$sd-base-increment $modal-padding;
     text-align: end; // right align buttons
     border-block-start: 1px solid $modal-line-color;
     min-height: $modal-footer-height;
@@ -112,7 +117,7 @@ $modal-sizes: (
     // default size, no class needed
     .modal__dialog {
         @include modal-dialog();
-        max-width: map-get($modal-sizes, default);
+        max-width: map.get($modal-sizes, default);
         width: 100%;
     }
 
@@ -147,7 +152,7 @@ $modal-sizes: (
                 }
 
                 .modal__content {
-                    @include border-radius(0);
+                    @include mixins.border-radius(0);
                     flex: 0 0 100%;
                     margin: 0;
                 }
@@ -259,7 +264,7 @@ $modal-sizes: (
 
     .modal__footer {
         &> .btn + .btn {
-            margin-inline-start: $sd-base-increment;
+            margin-inline-start: dimensions.$sd-base-increment;
         }
     }
 
@@ -287,7 +292,7 @@ $modal-sizes: (
     }
 
     .modal__sliding-toolbar {
-        @include sliding-toolbar;
+        @include mixins.sliding-toolbar;
         max-height: 5.4rem;
     }
 
@@ -343,7 +348,7 @@ $modal-sizes: (
 
     .modal__body-heading {
         font-size: 1.8rem;
-        color: $sd-text;
+        color: colors.$sd-text;
         font-weight: 400;
         margin-block-end: 2rem;
         line-height: 100%;
@@ -355,7 +360,7 @@ $modal-sizes: (
     }
 
     .modal__body-heading--inactive {
-        color: $sd-text-light;
+        color: colors.$sd-text-light;
     }
 }
 
@@ -380,7 +385,7 @@ $modal-sizes: (
 
 .modal__header--flex {
     .icn-btn {
-        margin-inline-end: - $sd-base-increment;
+        margin-inline-end: - dimensions.$sd-base-increment;
     }
 }
 

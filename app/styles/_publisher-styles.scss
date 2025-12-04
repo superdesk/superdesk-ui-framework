@@ -1,3 +1,6 @@
+@use "variables/colors";
+@use "variables/dimensions";
+
 // Dashboard content header
 
 .dashboard-content-header {
@@ -7,7 +10,7 @@
 
 .big-number-block {
     display: flex;
-    color: $grayNeutral;
+    color: colors.$grayNeutral;
 }
 
 .big-number-block__number {
@@ -47,7 +50,7 @@
 
 .dashboard-thumbnail-block__label {
     font-size: 1.2rem;
-    color: $grayLight;
+    color: colors.$grayLight;
 }
 
 .dashboard-thumbnail-block__heading {
@@ -61,14 +64,14 @@
 }
 
 .dashboard-thumbnail-block__link {
-    color: $sd-colour-interactive;
+    color: colors.$sd-colour-interactive;
     text-decoration: none;
-    border-block-end: 1px dotted $sd-colour-interactive;
+    border-block-end: 1px dotted colors.$sd-colour-interactive;
 
     &:hover {
-        border-block-end: 1px solid $sd-colour-interactive;
+        border-block-end: 1px solid colors.$sd-colour-interactive;
         text-decoration: none;
-        color: $sd-colour-interactive;
+        color: colors.$sd-colour-interactive;
     }
 }
 
@@ -90,7 +93,7 @@
     .sd-overlay-block__overlay-message {
         display: none;
         margin-block-start: 1rem;
-        color: $grayText;
+        color: colors.$grayText;
     }
     
     img {
@@ -135,7 +138,7 @@
     width: 5.6rem;
     height: 5.6rem;
     border: 2px solid rgba(255, 255, 255, 0.5);
-    border-radius: $border-radius__base--full;
+    border-radius: dimensions.$border-radius__base--full;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -172,7 +175,7 @@
 
 .sd-overlay-block--no-image {
     height: 160px;
-    border: 2px dashed $grayDark;
+    border: 2px dashed colors.$grayDark;
 
     img {
         display: none;

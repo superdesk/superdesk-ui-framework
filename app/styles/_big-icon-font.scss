@@ -1,3 +1,7 @@
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:map';
+
 // BIG ICON FONT
 // Icons for the left and right sidebar and large action buttons in the top subnavigation bar
 
@@ -6,9 +10,9 @@
 // and font specification. Your resulting HTML will look like
 // <i class="icon-ok"></i>.
 
-@import 'variables/colors';
+@use 'variables/colors';
 
-$icon-color: $grayDark !default;
+$icon-color: colors.$grayDark !default;
 
 @font-face {
 	font-family: 'sd_big-icons';
@@ -46,16 +50,16 @@ $icon-color: $grayDark !default;
 }
 
 .big-icon--blue {
-    color: $sd-colour-interactive;
+    color: colors.$sd-colour-interactive;
 }
 
 .big-icon--white {
-    color: $white !important;
+    color: colors.$white !important;
 }
 
 [class*=big-icon--].red,
 .big-icon--red {
-    color: $fireBrick;
+    color: colors.$fireBrick;
 }
 
 // Icons definition
@@ -154,7 +158,7 @@ $sd-big-icon-font: (
         }
 
         &.color--white {
-            color: hsla(214, 13%, 90, 1) !important;
+            color: hsla(214, 13%, 90%, 1) !important;
         }
 
         &.scale--2x {
@@ -176,5 +180,5 @@ $sd-big-icon-font: (
 }
 
 :export {
-    icon: map-keys($sd-big-icon-font);
+    icon: map.keys($sd-big-icon-font);
 }

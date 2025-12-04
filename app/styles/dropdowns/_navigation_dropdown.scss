@@ -1,13 +1,16 @@
+@use "../variables/colors";
+@use "../variables/dimensions";
+
 //navigation big dropdown
 .dropdown.dropdown--big, 
 .navbtn.dropdown {
     & > .dropdown__toggle {
         padding: 0 15px;
         display: block;
-        color:$sd-text;
-        height: $subnav-height;
+        color:colors.$sd-text;
+        height: dimensions.$subnav-height;
         text-align: center;
-        line-height: $subnav-height;
+        line-height: dimensions.$subnav-height;
         font-size: 15px;
         position: relative;
         z-index: 2;
@@ -25,7 +28,7 @@
     &.open {
         & > .dropdown__toggle {
             background-color: var(--color-dropdown-menu-Bg);
-            color: $sd-colour-interactive;
+            color: colors.$sd-colour-interactive;
             z-index: 3;
 
             &.sd-create-btn {
@@ -49,7 +52,7 @@
         z-index: 2;
         margin-block-start: -1px;
         min-width: 200px;
-        box-shadow: $shadow__dropdown--default;
+        box-shadow: dimensions.$shadow__dropdown--default;
         padding: 10px 0;
 
         &:before {
@@ -90,7 +93,7 @@
                     }
 
                     &:hover {
-                        background: $sd-colour-interactive;
+                        background: colors.$sd-colour-interactive;
                         color: #fff;
                     }
                 }
@@ -98,7 +101,7 @@
 
             &:active {
                 > button {
-                    background: $sd-colour-interactive;
+                    background: colors.$sd-colour-interactive;
                     color: #fff;
                 }
             }

@@ -55,7 +55,9 @@ const config = {
                     {
                         loader: 'css-loader',
                     },
-                    'sass-loader',
+                    {
+                        loader: "sass-loader",
+                    },
                 ],
             },
             {
@@ -86,7 +88,7 @@ const config = {
             chunksSortMode: 'manual',
         }),
 
-        new CopyWebpackPlugin([{from: 'examples/img/', flatten: true}, {from: 'examples/pages/'}]),
+        new CopyWebpackPlugin([{ from: 'examples/img/', flatten: true }, { from: 'examples/pages/' }]),
 
         new MiniCssExtractPlugin({
             filename: '[name].bundle.css',

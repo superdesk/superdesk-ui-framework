@@ -1,3 +1,7 @@
+@use "mixins";
+@use "variables/colors";
+@use "variables/dimensions";
+
 :root {
     --sd-thumb-carousel__shadow-line: hsla(214, 13%, 80%, 0.2);
     --sd-thumb-carousel__shadow: 0 0 0 1px var(--sd-thumb-carousel__shadow-line), 0 0 1px hsla(0, 0%, 0%, 0.1), 0 1px 4px hsla(0, 0%, 0%, 0.2);
@@ -43,7 +47,7 @@
         font-size: 1.2rem;
         color: var(--sd-thumb-carousel__colour-txt);
         opacity: 0.75;
-        @include text-overflow;
+        @include mixins.text-overflow;
         padding-inline-start: 16px;
     }
 }
@@ -114,7 +118,7 @@
     text-align: center;
     background-color: var(--sd-thumb-carousel__colour-img-bg);
     box-shadow: 0 0 1px hsla(0, 0%, 0%, 0.12), 0 1px 4px hsla(0, 0%, 0%, 0.20);
-    border-radius: $border-radius__base--small;
+    border-radius: dimensions.$border-radius__base--small;
     overflow: hidden;
 
     img {
@@ -145,7 +149,7 @@
         width: 8px;
         height: 8px;
         transition: all 0.2s ease;
-        border-radius: $border-radius__base--full;
+        border-radius: dimensions.$border-radius__base--full;
         opacity: 1;
         background-color: var(--sd-thumb-carousel__colour-indicator);
         padding: 0;
@@ -166,12 +170,12 @@
             opacity: 1;
         }
     }
-    
+
 }
 
 .sd-thumb-carousel__btn--prev, .sd-thumb-carousel__btn--next,
 .p-carousel-prev, .p-carousel-next {
-    @extend .icn-btn;
+    @extend .icn-btn !optional;
     display: flex;
     align-self: center;
     flex-grow: 0;
@@ -198,7 +202,7 @@
         opacity: 1;
         background-color: var(--sd-colour-interactive) !important;
         box-shadow: 0 0 1px hsla(0, 0%, 0%, 0.1), 0 1px 2px hsla(0, 0%, 0%, 0.12);
-        color: $white;
+        color: colors.$white;
     }
 
     &:focus {
@@ -228,14 +232,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $white;
-    border-radius: $border-radius__base--full;
+    background-color: colors.$white;
+    border-radius: dimensions.$border-radius__base--full;
     color: var(--sd-thumb-carousel__colour-indicator--highlight);
     position: absolute;
     inset-block-start: 12px;
     inset-inline-start: 12px;
     z-index: 1;
-    
+
     i {
         color: var(--sd-thumb-carousel__colour-indicator--highlight) !important;
         margin-block-start: -2px;

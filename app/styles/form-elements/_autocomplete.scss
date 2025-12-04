@@ -1,3 +1,6 @@
+@use "../variables/colors";
+@use "../variables/dimensions";
+
 // Superdesk specific
 
 .sd-searchbar, .sd-input--inline-label {
@@ -18,7 +21,7 @@
     &.pi {
         color: inherit !important;
         z-index: 1;
-        border-radius: $border-radius__base--full;
+        border-radius: dimensions.$border-radius__base--full;
         inset-inline-end:8px;
 
     }
@@ -28,7 +31,7 @@
     .p-autocomplete-loader {
         &.pi {
             font-size: 2.4rem !important;
-            background-color: $white;
+            background-color: colors.$white;
         }
     }
 }

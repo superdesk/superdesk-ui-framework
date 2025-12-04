@@ -1,3 +1,5 @@
+@use "pr-general";
+
 .p-autocomplete {
     display: contents;
 }
@@ -7,7 +9,7 @@
 }
 
 .p-autocomplete-panel {
-    @include pr-dropdown-panel-base;
+    @include pr-general.pr-dropdown-panel-base;
     margin-block-start: 16px;
     padding: 1rem 0;
 
@@ -16,7 +18,7 @@
     }
 
     .p-autocomplete-list-item, .p-autocomplete-item {
-        @include pr-menu-item-base;
+        @include pr-general.pr-menu-item-base;
         
         b {
             font-weight: 600;

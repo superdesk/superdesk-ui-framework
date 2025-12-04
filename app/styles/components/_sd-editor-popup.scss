@@ -1,3 +1,6 @@
+@use "../mixins";
+@use "../variables/colors";
+
 $editor-popup-padding: 1.6rem;
 
 .editor-popup {
@@ -11,11 +14,11 @@ $editor-popup-padding: 1.6rem;
 }
 
 .editor-popup--annotation {
-    border-block-start: 3px solid $annotation-color;
+    border-block-start: 3px solid colors.$annotation-color;
 }
 
 .editor-popup--comment {
-    border-block-start: 3px solid $comment-color;
+    border-block-start: 3px solid colors.$comment-color;
 }
 
 .editor-popup__main {
@@ -43,7 +46,7 @@ $editor-popup-padding: 1.6rem;
 }
 
 .editor-popup__author-name {
-    @include text-overflow;
+    @include mixins.text-overflow;
     display: block;
     margin: 0 0 0.2rem;
     font-weight: 500;

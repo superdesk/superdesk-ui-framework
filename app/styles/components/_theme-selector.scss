@@ -1,7 +1,10 @@
+@use "../variables/colors";
+@use "../variables/dimensions";
+
 .sd-theme-selector__list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-    gap: $sd-base-increment * 2;
+    gap: dimensions.$sd-base-increment * 2;
     flex-grow: 1;
     align-self: stretch;
 }
@@ -16,7 +19,7 @@
 
 .sd-theme-selector__list--large {
     grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
-    gap: $sd-base-increment * 3;
+    gap: dimensions.$sd-base-increment * 3;
 }
 
 .sd-theme-selector__item {
@@ -50,12 +53,12 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: $sd-base-increment;
-    height: $sd-base-increment * 5;
+    gap: dimensions.$sd-base-increment;
+    height: dimensions.$sd-base-increment * 5;
     border-radius: 0 0 var(--b-radius--medium) var(--b-radius--medium);
     overflow: hidden;
     color: var(--color-text);
-    padding: 0 $sd-base-increment * 1.5;
+    padding: 0 dimensions.$sd-base-increment * 1.5;
     box-shadow: 0 -3px 6px -2px hsla(0, 0%, 0%, 0.12);
 }
 
@@ -116,8 +119,8 @@
 
     input:checked {
         &~.sd-radio-new {
-            border-color: $sd-colour-interactive;
-            background: $sd-colour-interactive;
+            border-color: colors.$sd-colour-interactive;
+            background: colors.$sd-colour-interactive;
 
             &::after {
                 opacity: 1;
@@ -134,7 +137,7 @@
         }
 
         &~.sd-theme-selector__label-text {
-            color: $sd-colour-interactive;
+            color: colors.$sd-colour-interactive;
         }
     }
 

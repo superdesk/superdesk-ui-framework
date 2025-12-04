@@ -1,7 +1,10 @@
+@use "../variables/colors";
+@use "../variables/dimensions";
+
 .sd-collapse-box {
     display: flex;
     flex-direction: column;
-    border-radius: $border-radius__base--small;
+    border-radius: dimensions.$border-radius__base--small;
     position: relative;
     margin-block-end: 1rem;
     border: 1px solid var(--sd-colour--shadow-line--m);
@@ -28,7 +31,7 @@
             &:hover {
                 .icn-btn {
                     background-color: hsla(214, 13%, 60%, 0.25);
-                    color: $white;
+                    color: colors.$white;
                     opacity: 1;
                 }
             }
@@ -36,7 +39,7 @@
             &:active {
                 .icn-btn {
                     background-color: hsla(214, 13%, 70%, 0.25);
-                    color: $sd-colour-interactive;
+                    color: colors.$sd-colour-interactive;
                     opacity: 1;
                 }
             }
@@ -66,11 +69,11 @@
     }
 
     .sd-collapse-box__content--border-locked {
-        border-inline-start: 4px solid $red;
+        border-inline-start: 4px solid colors.$red;
     }
 
     .sd-collapse-box__content--border-success {
-        border-inline-start: 4px solid $green;
+        border-inline-start: 4px solid colors.$green;
     }
 
     .sd-collapse-box__content-block { // place inside .sd-collapse-box__content
@@ -116,7 +119,7 @@
     inset-inline-end: 0;
     height: 4.6rem;
     overflow: hidden;
-    border-radius: $border-radius__base--x-small $border-radius__base--x-small 0 0;
+    border-radius: dimensions.$border-radius__base--x-small dimensions.$border-radius__base--x-small 0 0;
 }
 
 .sd-collapse-box__sliding-toolbar {

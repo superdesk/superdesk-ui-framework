@@ -1,3 +1,7 @@
+@use "sass:math";
+@use "../variables/colors";
+@use "../variables/dimensions";
+
 $sd-sidebarMenu-background: var(--sd-colour-sidebar-menu--00);
 $sd-sidebarMenu-secondLevel-background: var(--sd-colour-sidebar-menu--10);
 $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
@@ -5,10 +9,10 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 .sd-sidebar-menu {
 	position: absolute;
 	inset-block-end: 0;
-	width: $sd-sidebarMenu-width;
-	inset-block-start: $nav-height;
+	width: dimensions.$sd-sidebarMenu-width;
+	inset-block-start: dimensions.$nav-height;
 	background-color: $sd-sidebarMenu-background;
-	z-index: $zindexFixedNavbar - 1;
+	z-index: dimensions.$zindexFixedNavbar - 1;
 	transition: all .3s ease;
 }
 
@@ -17,18 +21,18 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 	box-shadow: 2px 0 5px 0 rgba(0, 0, 0, .25);
 
 	&.main-menu__open {
-		inset-inline-start: $sd-main-menu-width;
-		//inset-inline-end: 0; This doesn't seam to have any function; To be tested; 
+		inset-inline-start: dimensions.$sd-main-menu-width;
+		//inset-inline-end: 0; This doesn't seam to have any function; To be tested;
 	}
 }
 
 .sd-sidebar-menu--second-level {
 	background-color: $sd-sidebarMenu-secondLevel-background;
-	z-index: $zindexFixedNavbar - 2;
+	z-index: dimensions.$zindexFixedNavbar - 2;
 }
 
 .sd-sidebar-menu__spacer {
-	width: $sd-sidebarMenu-width / 2;
+	width: math.div(dimensions.$sd-sidebarMenu-width, 2);
 	margin: 1.8rem auto;
 	border-block-start: 1px dotted var(--sd-colour-line--medium);
 	border-block-end: 0;
@@ -37,7 +41,7 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 .sd-sidebar-menu__btn {
 	display: block;
 	margin: 0.6rem auto;
-	border-radius: $border-radius__base--full;
+	border-radius: dimensions.$border-radius__base--full;
 	height: 3.6rem;
 	width: 3.6rem;
 	opacity: .7;
@@ -63,7 +67,7 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 	opacity: 1;
 
 	.sd-sidebar-menu__main-icon {
-		color: $white;
+		color: colors.$white;
 
 		[class^="big-icon--"],
 		[class*=" big-icon--"],
@@ -131,7 +135,7 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 	position: absolute;
 	inset-block-end: 0;
 	inset-block-start: 0;
-	width: $sd-sidebarMenu-width;
+	width: dimensions.$sd-sidebarMenu-width;
 	background-color: $sd-sideTabMenu-background;
 	z-index: 16;
 	transition: all .3s ease;
@@ -161,7 +165,7 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 	justify-content: center;
 	position: relative;
 	width: 100%;
-	height: $sd-sidebarMenu-width;
+	height: dimensions.$sd-sidebarMenu-width;
 	text-align: center;
 	padding: 0;
 	margin: 0;
@@ -177,7 +181,7 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 
 .sd-sidetab-menu__helper-icon,
 .sd-sidetab-menu__main-icon {
-	color: $sd-text-light;
+	color: colors.$sd-text-light;
 	position: absolute;
 	inset-block-start: 1rem;
 	inset-inline-start: 1rem;
@@ -186,7 +190,7 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 	justify-content: center;
 
 	i {
-		color: $sd-text-light;
+		color: colors.$sd-text-light;
 	}
 }
 
@@ -290,7 +294,7 @@ i.sd-sidetab-menu__helper-icon {
 .sd-side-menu__btn {
 	display: block;
 	margin: 0.6rem auto;
-	border-radius: $border-radius__base--full;
+	border-radius: dimensions.$border-radius__base--full;
 	height: 3.6rem;
 	width: 3.6rem;
 	opacity: .7;
@@ -304,7 +308,7 @@ i.sd-sidetab-menu__helper-icon {
 	}
 
 	&:active {
-		background-color: $sd-colour-interactive;
+		background-color: colors.$sd-colour-interactive;
 		opacity: 1;
 	}
 }
@@ -372,7 +376,7 @@ i.sd-sidetab-menu__helper-icon {
 .sd-side-menu__btn--active {
 	.sd-side-menu__helper-icon,
 	.sd-side-menu__main-icon {
-		color: $white;
+		color: colors.$white;
 	}
 
 	&:hover {
@@ -393,7 +397,7 @@ i.sd-sidetab-menu__helper-icon {
 }
 
 .sd-quickbar-menu {
-	width: $sd-sidebarMenu-width;
+	width: dimensions.$sd-sidebarMenu-width;
 	background-color: var(--sd-colour-panel-bg--050);
 	z-index: 1;
 	overflow-y: auto;
@@ -426,8 +430,8 @@ i.sd-sidetab-menu__helper-icon {
 	align-items: center;
 	justify-content: center;
 	position: relative;
-	width: $sd-sidebarMenu-width;
-	height: $sd-sidebarMenu-width;
+	width: dimensions.$sd-sidebarMenu-width;
+	height: dimensions.$sd-sidebarMenu-width;
 	text-align: center;
 	padding: 0;
 	margin: 0;

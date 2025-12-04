@@ -1,18 +1,24 @@
+@use "sass:color";
+@use "sass:math";
+@use "../mixins";
+@use "../variables/colors";
+@use "../variables/dimensions";
+
 // SUBNAV
 
 .subnav {
-    @include transition(all, 0.3s, ease);
+    @include mixins.transition(all, 0.3s, ease);
     position: relative;
     display: flex;
-    height: $subnav-height;
-    background: $subnav-background;
+    height: dimensions.$subnav-height;
+    background: colors.$subnav-background;
     border-block-end: 0px;
     box-shadow: var(--sd-shadow__subnav);
     z-index: 3;
     align-items: center;
-    color: $sd-text;
+    color: colors.$sd-text;
     flex-shrink: 0;
-    
+
     .sd-check__group {
         padding: 0;
         display: flex;
@@ -26,12 +32,12 @@
 }
 
 .subnav--darker {
-    background: $subnav-background-darker !important;
+    background: colors.$subnav-background-darker !important;
 }
 
 .subnav--dark-blue-grey, .subnav--blueGreyDarker {
-    background: $subnav-background-dark-blue-grey !important;
-    color: $white;
+    background: colors.$subnav-background-dark-blue-grey !important;
+    color: colors.$white;
 
     .navbtn:hover {
         background: rgba(255, 255, 255, 0.20);
@@ -39,8 +45,8 @@
 }
 
 .subnav--mid-blue-grey, .subnav--blueGrey {
-    background: $subnav-background-blue-grey !important;
-    color: $white;
+    background: colors.$subnav-background-blue-grey !important;
+    color: colors.$white;
 }
 
 .subnav--absolute {
@@ -60,8 +66,8 @@
 }
 
 .subnav__page-title {
-    @include text-overflow();
-    @include text-normal();
+    @include mixins.text-overflow();
+    @include mixins.text-normal();
     padding: 0 1.6rem;
     color: inherit;
     font-size: 1.8rem;
@@ -83,19 +89,19 @@
 }
 
 .subnav__divider--small {
-    width: $sd-base-increment * 1.5;
+    width: dimensions.$sd-base-increment * 1.5;
 }
 
 .subnav__divider--medium {
-    width: $sd-base-increment * 2;
+    width: dimensions.$sd-base-increment * 2;
 }
 
 .subnav__divider--large {
-    width: $sd-base-increment * 3;
+    width: dimensions.$sd-base-increment * 3;
 }
 
 .subnav__divider--x-large {
-    width: $sd-base-increment * 4;
+    width: dimensions.$sd-base-increment * 4;
 }
 
 .subnav {
@@ -113,18 +119,18 @@
 }
 
 .subnav__sliding-toolbar {
-    @include sliding-toolbar; // See mixins.scss for details
+    @include mixins.sliding-toolbar; // See mixins.scss for details
 }
 
 
 // NEW NAVBUTTONS
-  
+
 $navbutton-transition: all 0.2s ease-out, color 0.1s ease-out;
 $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-70), inset 0 0 0 3px var(--sd-colour-interactive--alpha-40);
-  
+
 @mixin navbutton-base {
     position: relative;
-    height: $subnav-height;
+    height: dimensions.$subnav-height;
     width: 4.8rem;
     display: inline-flex;
     flex-direction: row;
@@ -176,14 +182,14 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
         }
     }
 }
-  
+
 .sd-navbtn {
     @include navbutton-base;
 
     &.sd-navbtn--highlight {
         background: var(--sd-colour-highlight);
         border-color: var(--sd-colour-highlight);
-        color: $white;
+        color: colors.$white;
 
         &:hover {
             background-color: var(--sd-colour-highlight--hover);
@@ -210,7 +216,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
 
     &.sd-navbtn--dark {
         background: var(--color-navbutton-bg-dark);
-        color: $white;
+        color: colors.$white;
 
         &:hover {
             background-color: var(--color-navbutton-bg-dark-hover);
@@ -225,7 +231,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
     &.sd-navbtn--active {
         background: var(--sd-colour-interactive);
         border-color: var(--sd-colour-interactive);
-        color: $white;
+        color: colors.$white;
 
         &:hover {
             background-color:  var(--sd-colour-interactive--hover);
@@ -240,8 +246,8 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
 
     .badge {
         position: absolute;
-        inset-block-start: $sd-base-increment / 2;
-        inset-inline-end: $sd-base-increment / 2;
+        inset-block-start: math.div(dimensions.$sd-base-increment, 2);
+        inset-inline-end: math.div(dimensions.$sd-base-increment, 2);
         z-index: 1;
     }
 }
@@ -259,12 +265,12 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
         display: inline-flex;
         font-size: 1.4rem;
         position: relative;
-        margin-inline-end: $sd-base-increment / 2;
-        margin-inline-start: $sd-base-increment;
+        margin-inline-end: math.div(dimensions.$sd-base-increment, 2);
+        margin-inline-start: dimensions.$sd-base-increment;
     }
 
     i {
-        margin-inline-start: $sd-base-increment / 2;
+        margin-inline-start: math.div(dimensions.$sd-base-increment, 2);
     }
 }
 
@@ -290,13 +296,13 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
                     border-inline-end: 4px solid transparent;
                     border-block-start:   4px solid currentColor;
                     opacity: .75;
-                    @include transition(all, 0.1s, ease-in);
+                    @include mixins.transition(all, 0.1s, ease-in);
                 }
             }
         }
     }
 }
-  
+
 .dropdown.open {
     .sd-navbtn {
         background-color: var(--color-dropdown-menu-Bg);
@@ -307,12 +313,12 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
 
         i {
             opacity: 1;
-            color: $sd-colour-interactive;
+            color: colors.$sd-colour-interactive;
         }
 
         &.sd-navbtn--textual {
             .sd-navbtn__text {
-                color: $sd-colour-interactive;
+                color: colors.$sd-colour-interactive;
 
                 &::after {
                     opacity: 1;
@@ -329,18 +335,18 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
         z-index: 1001;
     }
 }
-  
+
 .navbtn {
     position: relative;
     display: inline-flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: $subnav-height;
+    height: dimensions.$subnav-height;
     width: 4.8rem;
     padding: 0;
     background: transparent;
-    color: $sd-text;
+    color: colors.$sd-text;
     text-align: center;
     text-decoration: none;
     border: 0px solid transparent;
@@ -359,7 +365,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
     [class^="big-icon--"],
     [class*=" big-icon--"] {
         line-height: 1;
-        color: $sd-text;
+        color: colors.$sd-text;
         display: block;
     }
 
@@ -369,7 +375,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
 
     [class^="icon-"],
     [class*=" icon-"] {
-        color: $sd-text;
+        color: colors.$sd-text;
     }
 
     &:hover {
@@ -385,9 +391,9 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
     }
 
     &.navbtn--blue {
-        background: $sd-colour-interactive;
+        background: colors.$sd-colour-interactive;
         border-color: var(--sd-colour-interactive--lighten-10);
-        color: $white;
+        color: colors.$white;
 
         &.disabled {
             background: var(--sd-colour-interactive--lighten-30);
@@ -396,7 +402,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
 
     &.navbtn--text-only {
         width: auto;
-        line-height: $subnav-height;
+        line-height: dimensions.$subnav-height;
         padding: 0 20px;
         border-inline-width: 0 1px;
         font-size: 1.5rem;
@@ -407,13 +413,13 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
     }
 
     &.navbtn--highlighted {
-        background-color: $purple !important;
+        background-color: colors.$purple !important;
         transition: all 0.3s;
         padding: 0 0 0 9px;
-        color: $white;
+        color: colors.$white;
 
         &:hover {
-            background-color: darken($purple, 10%);
+            background-color: color.adjust(colors.$purple, $lightness: -10%);
         }
     }
 
@@ -422,11 +428,11 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
     }
 
     &.navbtn--active {
-        background-color: $sd-colour-interactive;
+        background-color: colors.$sd-colour-interactive;
 
         > i {
             opacity: 1;
-            color: $white;
+            color: colors.$white;
         }
     }
 
@@ -438,23 +444,23 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
 .dropdown.open {
     .navbtn {
         background: var(--color-dropdown-menu-Bg);
-        color: $sd-colour-interactive;
+        color: colors.$sd-colour-interactive;
         box-shadow: -2px -1px 5px -2px rgba(0, 0, 0, 0.2), 3px -1px 5px -2px rgba(0, 0, 0, 0.2);
-        z-index: $zindexDropdown + 1;
+        z-index: dimensions.$zindexDropdown + 1;
 
         > i {
             opacity: 1;
-            color: $sd-colour-interactive;
+            color: colors.$sd-colour-interactive;
         }
     }
 
     .sd-create-btn {
         i {
-            color: $white;
+            color: colors.$white;
         }
     }
 }
-  
+
 .subnav__stretch-bar {
     margin-inline: var(--space--1-5);
     display: flex;
@@ -484,7 +490,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
 
 .subnav__spacer {
     width: 1px;
-    height: $subnav-height;
+    height: dimensions.$subnav-height;
     flex-grow: 0;
     border-inline-start: 1px solid rgba(0,0,0,.1);
     margin: auto 2rem;
@@ -492,7 +498,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
 
 .subnav__spacer--dotted {
     border-inline-start: 1px dotted rgba(0,0,0,.3);
-    height: $subnav-height / 2;
+    height: math.div(dimensions.$subnav-height, 2);
 }
 
 .subnav__spacer--no-r-margin {
@@ -505,7 +511,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
 
 .subnav__spacer--no-margin {
     margin-inline-start: 0;
-    margin-inline-end: 0; 
+    margin-inline-end: 0;
 }
 
 .subnav__button-stack {
@@ -663,7 +669,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
         padding: 0 1.2rem;
     }
 }
-  
+
 .sd-page-content--slide-in--open {
     .subnav--responsive {
         .sd-check__wrapper + .sd-check__wrapper {
@@ -685,9 +691,9 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
     }
 }
 
-  
+
 // ------------- MEDIA QUERIES ---------------------
-  
+
 @media only screen and (max-width: 1366px) {
     .sd-page-content--slide-in--open .sd-page-content__content-block--30-slide {
         width: 50rem;
@@ -697,9 +703,9 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
         width: calc(100vw - 54.8rem);
     }
 }
-  
+
 // Editing Closed
-  
+
 @media only screen and (max-width: 800px) {
     .subnav--responsive {
         #planning-dropdown {
@@ -713,7 +719,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
         .dropdown__toggle {
             max-width: 160px;
         }
-        
+
         &.compact--level-1 {
             .dropdown__toggle {
                 max-width: 160px;
@@ -733,7 +739,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
         }
     }
 }
-  
+
 // Editing Open
 
 @media only screen and (max-width: 1480px) {
@@ -762,7 +768,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
             #planning-buttons {
                 display: none;
             }
-            
+
             .dropdown__toggle {
                 max-width: 160px;
             }

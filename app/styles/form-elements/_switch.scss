@@ -1,3 +1,6 @@
+@use "../variables/colors";
+@use "../variables/dimensions";
+
 .sd-toggle, .sd-switch {
     display:inline-block;
     flex-shrink: 0;
@@ -7,7 +10,7 @@
     position:relative;
     vertical-align: middle;
     cursor:pointer;
-    border-radius: $border-radius__base--full;
+    border-radius: dimensions.$border-radius__base--full;
     overflow: hidden;
     box-shadow: inset 0 1px 0 0 hsla(0, 0%, 0%, 0.15);
 
@@ -17,8 +20,8 @@
         width:1.4rem;
         inset-block-start:0.2rem;
         height:1.4rem;
-        background: $white;
-        border-radius: $border-radius__base--full;
+        background: colors.$white;
+        border-radius: dimensions.$border-radius__base--full;
         box-shadow: 0 1px 0 0 hsla(0, 0%, 0%, 0.2);
         transition: all 0.2s ease;
     }
@@ -65,7 +68,7 @@
     align-items: center;
     user-select: none;
     position: relative;
-    gap: $sd-base-increment;
+    gap: dimensions.$sd-base-increment;
 
     label {
         margin: 0;
@@ -80,14 +83,14 @@
 
     .sd-toggle__wrapper,
     .sd-switch__wrapper {
-        margin-inline-end: $sd-base-increment * 3;
+        margin-inline-end: dimensions.$sd-base-increment * 3;
     }
 }
 
 .sd-switch__group--vertical {
     flex-direction: column;
     align-items: flex-start;
-    gap: $sd-base-increment * 2;
+    gap: dimensions.$sd-base-increment * 2;
 
     &.sd-switch__group--right {
         width: 100%;

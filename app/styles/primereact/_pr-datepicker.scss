@@ -1,5 +1,10 @@
+@use "../buttons";
+@use "../variables/colors";
+@use "../variables/dimensions";
+@use "pr-general";
+
 .p-datepicker {
-    @include pr-dropdown-panel-base;
+    @include pr-general.pr-dropdown-panel-base;
     padding: 12px;
     margin-block-start: 1px;
 
@@ -37,7 +42,7 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            gap: $sd-base-increment * 0.5;
+            gap: dimensions.$sd-base-increment * 0.5;
             font-size: 1.3rem;
 
             &.sd-datepicker__navigator-month {
@@ -67,8 +72,8 @@
             align-items: center;
             justify-content: center;
             border-radius: var(--b-radius--full);
-            height: $sd-base-increment * 4;
-            width: $sd-base-increment * 4;
+            height: dimensions.$sd-base-increment * 4;
+            width: dimensions.$sd-base-increment * 4;
             transition: all 0.2s ease-out, color 0.1s ease-out;
 
             &:hover {
@@ -82,7 +87,7 @@
 
             &:focus-visible {
                 background-color: hsla(214, 13%, 55%, 0.2);
-                box-shadow: $icn-button-focus-box-shadow;
+                box-shadow: buttons.$icn-button-focus-box-shadow;
                 outline: none;
 
                 [class^="icon-"], [class*=" icon-"] {
@@ -98,7 +103,7 @@
             justify-content: center;
             align-items: center;
             margin-block-end: 16px;
-            gap: $sd-base-increment;
+            gap: dimensions.$sd-base-increment;
 
             button {
                 flex: 1 1;
@@ -166,11 +171,11 @@
     justify-content: center;
     width: 32px;
     height: 32px;
-    border-radius: $border-radius__base--x-small;
+    border-radius: dimensions.$border-radius__base--x-small;
     font-weight: normal;
     margin-inline-start: 4px;
     margin-inline-end: 4px;
-    transition: $sd-transition__menu-item;
+    transition: dimensions.$sd-transition__menu-item;
 }
 
 .p-datepicker table thead th > span {
@@ -187,8 +192,8 @@
 
 // selected date style
 .p-datepicker .p-highlight {
-    background-color: $sd-colour-interactive;
-    color: $white;
+    background-color: colors.$sd-colour-interactive;
+    color: colors.$white;
 }
 
 // calendar icon button
@@ -202,16 +207,16 @@
     }
 
     &:not(.p-disabled) .p-button-icon-left:hover {
-        color: $sd-colour-interactive;
+        color: colors.$sd-colour-interactive;
     }
 }
 
 .p-calendar {
-    @include pr-input-item-base;
+    @include pr-general.pr-input-item-base;
 
     .p-inputtext {
         color: var(--color-text);
-        height: $height-input--default;
+        height: dimensions.$height-input--default;
         background-color: transparent;
         border: none;
         font-size: 1.4rem;

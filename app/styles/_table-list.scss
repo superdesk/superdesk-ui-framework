@@ -1,3 +1,6 @@
+@use "variables/colors";
+@use "variables/dimensions";
+
 // Boxed lists
 // Simpler version of the list item.
 
@@ -11,7 +14,7 @@
 }
 
 .table-list--comfortable {
-    gap: $sd-base-increment * 2;
+    gap: dimensions.$sd-base-increment * 2;
 }
 
 .table-list--contained {
@@ -23,7 +26,7 @@
     cursor: default;
 }
 
-$table-list-palette: $sd-basic-palette;
+$table-list-palette: colors.$sd-basic-palette;
 
 .table-list__item {
     display: grid;
@@ -31,7 +34,7 @@ $table-list-palette: $sd-basic-palette;
     grid-template-columns: [contentCol] 1fr [actionsVisible] auto [actionsHidden] auto;
     position: relative;
     flex-direction: row;
-    padding: $sd-base-increment;
+    padding: dimensions.$sd-base-increment;
     min-height: 4.2rem;
     border-radius: var(--b-radius--medium);
     background-color: var(--sd-item__main-Bg);
@@ -67,7 +70,7 @@ $table-list-palette: $sd-basic-palette;
 }
 
 .table-list__item--margin {
-    margin-block-end: $sd-base-increment;
+    margin-block-end: dimensions.$sd-base-increment;
 }
 
 .table-list__item--selected {
@@ -311,7 +314,7 @@ $table-list-palette: $sd-basic-palette;
 }
 
 .table-list--gap-s {
-    gap: $sd-base-increment;
+    gap: dimensions.$sd-base-increment;
 }
 
 .table-list__item--draggable {

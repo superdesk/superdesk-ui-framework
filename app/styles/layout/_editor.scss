@@ -1,3 +1,5 @@
+@use "../variables/dimensions";
+
 // ========== Outer Editor Layout (Frame) ========== //
 
 .sd-editor-grid {
@@ -18,7 +20,7 @@
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr;
-    width: $sd-sidebarMenu-width;
+    width: dimensions.$sd-sidebarMenu-width;
     overflow-y: auto;
 }
 
@@ -107,7 +109,7 @@
     grid-template-columns: 1fr;
     grid-column: sideTabsBar;
     grid-row: editorContent;
-    width: $sd-sidebarMenu-width;
+    width: dimensions.$sd-sidebarMenu-width;
     overflow-y: auto;
     z-index: 11;
 }
@@ -136,7 +138,7 @@
 .sd-editor-content__toolbar {
     grid-column: editorMain;
     grid-row: editorToolbar;
-    height: $nav-height;
+    height: dimensions.$nav-height;
     position: relative;
     padding: 4px 20px;
     background-color: var(--sd-colour-panel-bg--000);
@@ -156,7 +158,7 @@
 }
 
 .sd-editor-content__save-bar {
-    height: $nav-height;
+    height: dimensions.$nav-height;
     position: relative;
     padding: 4px 20px;
     //background-color: var(--sd-colour-panel-bg--000);
@@ -177,7 +179,7 @@
 }
 
 .sd-editor-content__toolbar-inner {
-    height: $nav-height;
+    height: dimensions.$nav-height;
     position: relative;
     padding: 4px 20px;
     background-color: var(--sd-colour-panel-bg--000);
@@ -222,7 +224,7 @@
     background-color: var(--sd-colour-panel-bg--100);
     position: relative;
     margin: 0;
-    padding: $sd-base-increment * 3 $sd-base-increment * 1.5;
+    padding: dimensions.$sd-base-increment * 3 dimensions.$sd-base-increment * 1.5;
     z-index: 2;
     box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.25);
     transition: max-height 0.12s ease-in;
@@ -239,7 +241,7 @@
 
     &.authoring-header--collapsed {
         max-height: 0;
-        padding: 0 $sd-base-increment * 1.5 !important;
+        padding: 0 dimensions.$sd-base-increment * 1.5 !important;
 
         .authoring-header__toggle {
             i {
@@ -263,15 +265,15 @@
     }
 
     &.authoring-header--padding-small {
-        padding: $sd-base-increment * 3 $sd-base-increment * 1.5;
+        padding: dimensions.$sd-base-increment * 3 dimensions.$sd-base-increment * 1.5;
     }
 
     &.authoring-header--padding-medium {
-        padding: $sd-base-increment * 3 $sd-base-increment * 3;
+        padding: dimensions.$sd-base-increment * 3 dimensions.$sd-base-increment * 3;
     }
 
     &.authoring-header--padding-large {
-        padding: $sd-base-increment * 3 $sd-base-increment * 4;
+        padding: dimensions.$sd-base-increment * 3 dimensions.$sd-base-increment * 4;
     }
 }
 
@@ -327,7 +329,7 @@
 .sd-editor-content__authoring-bookmark-bar {
     grid-column: bookmarkBar;
     grid-row: authoringBody;
-    width: $sd-sidebarMenu-width;
+    width: dimensions.$sd-sidebarMenu-width;
     background-color: var(--sd-colour-panel-bg--000);
     display: grid;
     grid-template-rows: 1fr;
