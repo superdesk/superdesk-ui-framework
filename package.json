@@ -80,7 +80,6 @@
         "redux-form": "^7.0.4",
         "sass-loader": "^10.5.2",
         "sass": "^1.94.2",
-        "style-loader": "^0.18.2",
         "superdesk-code-style": "^1.1.2",
         "ts-loader": "^6.0.2",
         "ts-node": "^10.9.1",
