@@ -168,10 +168,10 @@ $sd-big-icon-font: (
         &.scale--4x {
             --big-icon-size: 104px
         }
-    }
-	
-    &.big-icon--#{$name}:before {
-        content: $value;
+
+        &:before {
+            content: $value;
+        }
     }
 }
 
