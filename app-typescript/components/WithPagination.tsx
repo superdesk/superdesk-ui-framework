@@ -132,7 +132,11 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
         const pageElements = getPagination(this.state.currentPage, this.pageCount).map((el, i) => {
             if (el === 'dots') {
                 return (
-                    <span key={`dots-${i}`} data-test-id="more-pages" className="sd-pagination__item sd-pagination__item--more">
+                    <span
+                        key={`dots-${i}`}
+                        data-test-id="more-pages"
+                        className="sd-pagination__item sd-pagination__item--more"
+                    >
                         ...
                     </span>
                 );
