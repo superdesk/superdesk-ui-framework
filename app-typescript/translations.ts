@@ -6,6 +6,7 @@
 export const translations = {
     Close: 'Close',
     Search: 'Search',
+    Copy: 'Copy',
     'No results found': 'No results found',
 };
 
