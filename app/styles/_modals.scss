@@ -6,17 +6,17 @@
 // MODALS
 
 // Recalculate z-index where appropriate
-dimensions.$zindexDropdown: 2000;
+$zindexDropdown: 2000;
 $zindexPopover: 2010;
 $zindexTooltip: 2040;
 $zindexModalBackdrop: 1045;
 $zindexModal: 1050;
-dimensions.$nav-height: 48px;
+$nav-height: 48px;
 
 .modal-open {
     overflow: hidden;
-    .dropdown__menu {  z-index: dimensions.$zindexDropdown + $zindexModal; }
-    .dropdown.open  { *z-index: dimensions.$zindexDropdown + $zindexModal; }
+    .dropdown__menu {  z-index: $zindexDropdown + $zindexModal; }
+    .dropdown.open  { *z-index: $zindexDropdown + $zindexModal; }
     .popover        {  z-index: $zindexPopover  + $zindexModal; }
     .tooltip        {  z-index: $zindexTooltip  + $zindexModal; }
 }
@@ -32,9 +32,9 @@ $modal-border-radius: dimensions.$border-radius__base--large;
 $modal-line-color: var(--sd-colour-line--x-light);
 $modal-bg-color: var(--color-modal-Bg);
 
-$modal-header-height : dimensions.$nav-height;
+$modal-header-height : $nav-height;
 $modal-footer-height : 48px;
-$modal-subnav-height : dimensions.$nav-height;
+$modal-subnav-height : $nav-height;
 
 $modal-padding : dimensions.$sd-base-increment * 2;
 $modal-box-shadow: var(--sd-shadow__modal);
@@ -49,7 +49,7 @@ $modal-sizes: (
 ) !default;
 
 @mixin modal-base(
-    $align-items: flex-start, 
+    $align-items: flex-start,
     $space-around: 40px
 ) {
     position: fixed;
@@ -170,7 +170,7 @@ $modal-sizes: (
         @if $name != default {
             &--#{$name} {
                 .modal__dialog {
-                   max-width: $value; 
+                   max-width: $value;
                 }
 
                 .modal__body {
@@ -180,7 +180,7 @@ $modal-sizes: (
         }
     }
 
-    // modifier, change body to white background 
+    // modifier, change body to white background
     // &.modal--white {
     //     .modal__body {
     //         background: $white !important;
@@ -259,7 +259,7 @@ $modal-sizes: (
 
     .modal__header, .modal__footer {
         flex: 0 0 auto;
-        width: 100%;            
+        width: 100%;
     }
 
     .modal__footer {
@@ -328,13 +328,13 @@ $modal-sizes: (
     .modal__body {
         @include modal-body();
         flex: 0 1 auto;
-        width: 100%; 
+        width: 100%;
         max-width: $modal-base-width;
-        // modifier to add min height, if needed          
+        // modifier to add min height, if needed
     }
 
     .modal__body--add-min-height {
-        min-height: 300px; 
+        min-height: 300px;
 
         // we reset this value if the screen height is lower than 500px
         @media (max-height: 500px) {
@@ -344,7 +344,7 @@ $modal-sizes: (
 
     .modal__body--no-padding {
         padding: 0 !important;
-    } 
+    }
 
     .modal__body-heading {
         font-size: 1.8rem;
@@ -436,7 +436,7 @@ $modal-sizes: (
     .modal__header, .modal__body {
         padding-inline-start: var(--space--3);
     }
-    
+
     .modal__heading {
         min-width: 12rem;
     }
