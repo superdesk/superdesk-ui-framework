@@ -1,11 +1,12 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
-
+import { NavLink } from 'react-router-dom';
 import Prism from 'prismjs';
-import NormalizeWhitespace from 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
-import LineNumbers from 'prismjs/plugins/line-numbers/prism-line-numbers';
-import Markdown from 'prismjs/components/prism-markdown';
-import JSX from 'prismjs/components/prism-jsx';
+
+// Needed for markup preview styles to load
+import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
+import 'prismjs/plugins/line-numbers/prism-line-numbers';
+import 'prismjs/components/prism-markdown';
+import 'prismjs/components/prism-jsx';
 
 class ReactNav extends React.PureComponent {
     constructor(props) {
@@ -19,9 +20,11 @@ class ReactNav extends React.PureComponent {
         };
 
         this.activeRef = React.createRef();
+        this.searchInputRef = React.createRef();
 
         this.handleSearchChange = this.handleSearchChange.bind(this);
         this.toggleSection = this.toggleSection.bind(this);
+        this.handleKeyDown = this.handleKeyDown.bind(this);
     }
 
     componentDidMount() {
@@ -30,6 +33,26 @@ class ReactNav extends React.PureComponent {
                 block: 'center',
                 inline: 'nearest',
             });
+        }
+
+        if (this.searchInputRef.current) {
+            this.searchInputRef.current.focus();
+        }
+
+        document.addEventListener('keydown', this.handleKeyDown);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('keydown', this.handleKeyDown);
+    }
+
+    handleKeyDown(event) {
+        if ((event.metaKey || event.ctrlKey) && event.key === 'k') {
+            event.preventDefault();
+            if (this.searchInputRef.current) {
+                this.searchInputRef.current.focus();
+                this.searchInputRef.current.select();
+            }
         }
     }
 
@@ -53,8 +76,8 @@ class ReactNav extends React.PureComponent {
     }
 
     render() {
-        const {pages, base = 'components'} = this.props;
-        const {searchTerm} = this.state;
+        const { pages, base = 'components' } = this.props;
+        const { searchTerm } = this.state;
 
         const filteredPages = Object.keys(pages).reduce((filtered, section) => {
             const filteredItems = Object.keys(pages[section].items)
@@ -65,7 +88,7 @@ class ReactNav extends React.PureComponent {
                 }, {});
 
             if (Object.keys(filteredItems).length > 0) {
-                filtered[section] = {...pages[section], items: filteredItems};
+                filtered[section] = { ...pages[section], items: filteredItems };
             }
 
             return filtered;
@@ -91,7 +114,7 @@ class ReactNav extends React.PureComponent {
                                 ref={`/${base}/${page}` === location.hash.replace('#', '') ? this.activeRef : null}
                             >
                                 <NavLink
-                                    to={{pathname: `/${base}/${page}`}}
+                                    to={{ pathname: `/${base}/${page}` }}
                                     activeClassName="docs-page__nav-item--active"
                                 >
                                     {filteredPages[group].items[page].name}
@@ -103,21 +126,40 @@ class ReactNav extends React.PureComponent {
             </li>
         ));
 
+        const isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+        const shortcutKey = isMac ? '⌘K' : 'Ctrl+K';
+
         return (
             <aside className="docs-page__sidebar">
                 <div className="docs-page__sidebar-searchbar-container">
-                    <div className="mx-2 mb-1-5 sd-searchbar sd-searchbar--expanded sd-searchbar--boxed">
+                    <div className="mx-2 mb-1-5 sd-searchbar sd-searchbar--expanded sd-searchbar--boxed" style={{ position: 'relative' }}>
                         <label className="sd-searchbar__icon"></label>
                         <input
+                            ref={this.searchInputRef}
                             id="search-input"
                             className="sd-searchbar__input"
                             type="text"
                             placeholder="Search"
                             value={searchTerm}
                             onChange={this.handleSearchChange}
+                            style={{ paddingRight: '4rem' }}
                         />
+                        {!this.state.searchTerm && (
+                            <kbd
+                                style={{
+                                    position: 'absolute',
+                                    right: '1rem',
+                                    top: '50%',
+                                    transform: 'translateY(-50%)',
+                                    padding: '0.2em 0.5em',
+                                    background: 'var(--sd-colour-interactive--alpha-20)',
+                                    borderRadius: '3px',
+                                }}>
+                                {shortcutKey}
+                            </kbd>
+                        )}
                         {this.state.searchTerm && (
-                            <button className="sd-searchbar__cancel" onClick={() => this.setState({searchTerm: ''})}>
+                            <button className="sd-searchbar__cancel" onClick={() => this.setState({ searchTerm: '' })}>
                                 <Icon name="remove-sign" />
                             </button>
                         )}
@@ -174,12 +216,12 @@ class ReactMarkup extends React.PureComponent {
     }
 
     changeTab(tab) {
-        this.setState({active: tab});
+        this.setState({ active: tab });
     }
 
     render() {
         const childrenWithProps = React.Children.map(this.props.children, (child) =>
-            React.cloneElement(child, {active: this.state.active}),
+            React.cloneElement(child, { active: this.state.active }),
         );
 
         return (
@@ -210,7 +252,7 @@ class ReactMarkupPreview extends React.PureComponent {
         return (
             <div
                 className="docs-page__code-example"
-                style={this.props.active === 'preview' ? {display: 'block'} : {display: 'none'}}
+                style={this.props.active === 'preview' ? { display: 'block' } : { display: 'none' }}
             >
                 {this.props.children}
             </div>
@@ -226,7 +268,7 @@ class ReactMarkupCode extends React.PureComponent {
         return (
             <div
                 className="docs-page__code-markup"
-                style={this.props.active === 'markup' ? {display: 'block'} : {display: 'none'}}
+                style={this.props.active === 'markup' ? { display: 'block' } : { display: 'none' }}
             >
                 <pre className="line-numbers">
                     <code className="language-jsx">{this.props.children}</code>
@@ -240,8 +282,9 @@ class ReactMarkupCodePreview extends React.PureComponent {
     componentDidMount() {
         Prism.highlightAll();
     }
+
     render() {
-        const {limitHeight, children} = this.props;
+        const { limitHeight, children } = this.props;
         const classes = `language-jsx ${limitHeight ? 'max-h-25' : ''}`;
 
         return (
