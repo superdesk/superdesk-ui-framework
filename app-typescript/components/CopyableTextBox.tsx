@@ -7,8 +7,6 @@ import {IInputCommon} from './Form/InputWrapper';
 
 interface ICopyableTextBoxProps extends IInputCommon {
     value: string;
-    label?: string;
-    helperText?: string;
 
     /**
      * Defaults to normal
