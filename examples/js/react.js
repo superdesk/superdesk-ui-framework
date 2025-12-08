@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import Prism from 'prismjs';
 
 // Needed for markup preview styles to load
@@ -76,8 +76,8 @@ class ReactNav extends React.PureComponent {
     }
 
     render() {
-        const { pages, base = 'components' } = this.props;
-        const { searchTerm } = this.state;
+        const {pages, base = 'components'} = this.props;
+        const {searchTerm} = this.state;
 
         const filteredPages = Object.keys(pages).reduce((filtered, section) => {
             const filteredItems = Object.keys(pages[section].items)
@@ -88,7 +88,7 @@ class ReactNav extends React.PureComponent {
                 }, {});
 
             if (Object.keys(filteredItems).length > 0) {
-                filtered[section] = { ...pages[section], items: filteredItems };
+                filtered[section] = {...pages[section], items: filteredItems};
             }
 
             return filtered;
@@ -114,7 +114,7 @@ class ReactNav extends React.PureComponent {
                                 ref={`/${base}/${page}` === location.hash.replace('#', '') ? this.activeRef : null}
                             >
                                 <NavLink
-                                    to={{ pathname: `/${base}/${page}` }}
+                                    to={{pathname: `/${base}/${page}`}}
                                     activeClassName="docs-page__nav-item--active"
                                 >
                                     {filteredPages[group].items[page].name}
@@ -132,7 +132,10 @@ class ReactNav extends React.PureComponent {
         return (
             <aside className="docs-page__sidebar">
                 <div className="docs-page__sidebar-searchbar-container">
-                    <div className="mx-2 mb-1-5 sd-searchbar sd-searchbar--expanded sd-searchbar--boxed" style={{ position: 'relative' }}>
+                    <div
+                        className="mx-2 mb-1-5 sd-searchbar sd-searchbar--expanded sd-searchbar--boxed"
+                        style={{position: 'relative'}}
+                    >
                         <label className="sd-searchbar__icon"></label>
                         <input
                             ref={this.searchInputRef}
@@ -142,7 +145,7 @@ class ReactNav extends React.PureComponent {
                             placeholder="Search"
                             value={searchTerm}
                             onChange={this.handleSearchChange}
-                            style={{ paddingRight: '4rem' }}
+                            style={{paddingRight: '4rem'}}
                         />
                         {!this.state.searchTerm && (
                             <kbd
@@ -154,12 +157,13 @@ class ReactNav extends React.PureComponent {
                                     padding: '0.2em 0.5em',
                                     background: 'var(--sd-colour-interactive--alpha-20)',
                                     borderRadius: '3px',
-                                }}>
+                                }}
+                            >
                                 {shortcutKey}
                             </kbd>
                         )}
                         {this.state.searchTerm && (
-                            <button className="sd-searchbar__cancel" onClick={() => this.setState({ searchTerm: '' })}>
+                            <button className="sd-searchbar__cancel" onClick={() => this.setState({searchTerm: ''})}>
                                 <Icon name="remove-sign" />
                             </button>
                         )}
@@ -216,12 +220,12 @@ class ReactMarkup extends React.PureComponent {
     }
 
     changeTab(tab) {
-        this.setState({ active: tab });
+        this.setState({active: tab});
     }
 
     render() {
         const childrenWithProps = React.Children.map(this.props.children, (child) =>
-            React.cloneElement(child, { active: this.state.active }),
+            React.cloneElement(child, {active: this.state.active}),
         );
 
         return (
@@ -252,7 +256,7 @@ class ReactMarkupPreview extends React.PureComponent {
         return (
             <div
                 className="docs-page__code-example"
-                style={this.props.active === 'preview' ? { display: 'block' } : { display: 'none' }}
+                style={this.props.active === 'preview' ? {display: 'block'} : {display: 'none'}}
             >
                 {this.props.children}
             </div>
@@ -268,7 +272,7 @@ class ReactMarkupCode extends React.PureComponent {
         return (
             <div
                 className="docs-page__code-markup"
-                style={this.props.active === 'markup' ? { display: 'block' } : { display: 'none' }}
+                style={this.props.active === 'markup' ? {display: 'block'} : {display: 'none'}}
             >
                 <pre className="line-numbers">
                     <code className="language-jsx">{this.props.children}</code>
@@ -284,7 +288,7 @@ class ReactMarkupCodePreview extends React.PureComponent {
     }
 
     render() {
-        const { limitHeight, children } = this.props;
+        const {limitHeight, children} = this.props;
         const classes = `language-jsx ${limitHeight ? 'max-h-25' : ''}`;
 
         return (
