@@ -95,7 +95,7 @@
         "@popperjs/core": "^2.4.0",
         "@sourcefabric/common": "0.0.66",
         "@superdesk/primereact": "^5.0.2-16",
-        "@superdesk/react-resizable-panels": "0.0.39",
+        "react-resizable-panels": "^3.0.6",
         "chart.js": "^2.9.3",
         "date-fns": "^4.1.0",
         "popper-max-size-modifier": "^0.2.0",
