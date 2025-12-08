@@ -24,7 +24,10 @@ const config = {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
         alias: {
             'superdesk-ui': path.resolve(__dirname, './app'),
-            'react-resizable-panels': path.resolve(__dirname, './node_modules/react-resizable-panels/dist/react-resizable-panels.development.js'),
+            'react-resizable-panels': path.resolve(
+                __dirname,
+                './node_modules/react-resizable-panels/dist/react-resizable-panels.development.js',
+            ),
         },
     },
 
@@ -89,7 +92,7 @@ const config = {
             chunksSortMode: 'manual',
         }),
 
-        new CopyWebpackPlugin([{ from: 'examples/img/', flatten: true }, { from: 'examples/pages/' }]),
+        new CopyWebpackPlugin([{from: 'examples/img/', flatten: true}, {from: 'examples/pages/'}]),
 
         new MiniCssExtractPlugin({
             filename: '[name].bundle.css',
