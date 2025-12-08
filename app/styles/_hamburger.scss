@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // Settings
 $hamburger-layer-width : 18px !default;
 $hamburger-layer-height : 3px !default;
@@ -44,7 +46,7 @@ $hamburger-active-hover-opacity: $hamburger-hover-opacity !default;
 .hamburger__inner {
 	display: block;
 	inset-block-start: 50%;
-	margin-block-start: $hamburger-layer-height / -2;
+	margin-block-start: math.div($hamburger-layer-height, -2);
 
 	&,
 	&::before,

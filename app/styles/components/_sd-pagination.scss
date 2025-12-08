@@ -1,3 +1,5 @@
+@use "../variables/dimensions";
+
 .sd-pagination {
     display: flex;
     align-items: center;
@@ -17,8 +19,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: $sd-base-increment * 4;
-    min-width: $sd-base-increment * 4;
+    height: dimensions.$sd-base-increment * 4;
+    min-width: dimensions.$sd-base-increment * 4;
     border-radius: var(--b-radius--full);
     transition: all 0.2s ease;
     border: 1px solid transparent;

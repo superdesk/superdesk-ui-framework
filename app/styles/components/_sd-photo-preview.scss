@@ -1,3 +1,8 @@
+@use "sass:color";
+@use "../mixins";
+@use "../variables/colors";
+@use "../variables/dimensions";
+
 $photo-nav-transition: all 0.2s ease-out;
 
 .sd-photo-preview  {
@@ -129,13 +134,13 @@ $photo-nav-transition: all 0.2s ease-out;
 }
 
 .sd-photo-preview__label {
-    @include text-overflow;
+    @include mixins.text-overflow;
     background: rgba(0, 0, 0, 0.25);
     color: inherit;
     padding: 0.8rem 2rem;
     margin: 1rem auto;
     line-height: 100%;
-    border-radius: $border-radius__base--x-small;
+    border-radius: dimensions.$border-radius__base--x-small;
     font-weight: 300;
     min-width: 16rem;
 }
@@ -213,7 +218,7 @@ $photo-nav-transition: all 0.2s ease-out;
     transition: 0.2s linear opacity;
     z-index: 1;
     opacity: 0;
-    color: $white;
+    color: colors.$white;
 
     &:hover {
         opacity: 1;
@@ -235,7 +240,7 @@ $photo-nav-transition: all 0.2s ease-out;
     width: 4.8rem;
     height: 4.8rem;
     border: 2px solid rgba(255, 255, 255, 0.6);
-    border-radius: $border-radius__base--full;
+    border-radius: dimensions.$border-radius__base--full;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -263,11 +268,11 @@ $photo-nav-transition: all 0.2s ease-out;
     }
 
     &:active {
-        border-color: $sd-colour-interactive;
+        border-color: colors.$sd-colour-interactive;
         background-color: rgba(0, 0, 0, 0.8);
 
         i {
-            color: $sd-colour-interactive;
+            color: colors.$sd-colour-interactive;
         }
     }
 }
@@ -323,11 +328,11 @@ $photo-nav-transition: all 0.2s ease-out;
 
 @mixin photoNavButton-style(
     $background: rgba(0,0,0,1),
-    $background-normal: scale-color($background, $alpha: -20%),
-    $background-hover: scale-color($background, $alpha: -10%),
-    $background-active: $sd-colour-interactive) 
+    $background-normal: color.scale($background, $alpha: -20%),
+    $background-hover: color.scale($background, $alpha: -10%),
+    $background-active: colors.$sd-colour-interactive) 
 {
-    border-radius: $border-radius__base--full;
+    border-radius: dimensions.$border-radius__base--full;
     cursor: pointer;
     height: 5.6rem;
     line-height: 5.6rem;
@@ -335,7 +340,7 @@ $photo-nav-transition: all 0.2s ease-out;
     inset-block-start: calc(50% - 2.8rem);
     width: 5.6rem;
     box-shadow: 0 4px 24px rgba(0,0,0,.20), 0 10px 28px rgba(0,0,0,.35);
-    color: $white;
+    color: colors.$white;
     transition: $photo-nav-transition;
     background-color: $background-normal;
     opacity: 0.3;
@@ -360,7 +365,7 @@ $photo-nav-transition: all 0.2s ease-out;
         inset-inline-start:0;
         text-align: center;
         z-index: 2;
-        color: $white;
+        color: colors.$white;
         width: 5.6rem;
         font-size: 3.2rem;
     }
@@ -374,7 +379,7 @@ $photo-nav-transition: all 0.2s ease-out;
     background-color: hsla(0, 0%, 100%, 0.1);
     height:4.8rem;
     width:4.8rem;
-    color: $white;
+    color: colors.$white;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -387,7 +392,7 @@ $photo-nav-transition: all 0.2s ease-out;
 
     [class^="icon-"],
     [class*=" icon-"] {
-        color: $white; 
+        color: colors.$white; 
         flex-shrink: 0;
     }
 
@@ -396,7 +401,7 @@ $photo-nav-transition: all 0.2s ease-out;
     }
 
     &:active {
-        background-color: $sd-colour-interactive;
+        background-color: colors.$sd-colour-interactive;
         opacity: 1;
     }
 }
@@ -429,7 +434,7 @@ $photo-nav-transition: all 0.2s ease-out;
     inset-block-end: 0; 
     inset-inline-start:0;
     z-index: 0;
-    border: 2px dashed $sd-colour-interactive;
+    border: 2px dashed colors.$sd-colour-interactive;
     background-color: var(--sd-colour-interactive--alpha-10);
 }
 

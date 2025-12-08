@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const path = require('path');
@@ -24,6 +24,10 @@ const config = {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
         alias: {
             'superdesk-ui': path.resolve(__dirname, './app'),
+            'react-resizable-panels': path.resolve(
+                __dirname,
+                './node_modules/react-resizable-panels/dist/react-resizable-panels.development.js',
+            ),
         },
     },
 
@@ -50,17 +54,19 @@ const config = {
             },
             {
                 test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: 'css-loader!sass-loader',
-                }),
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                    },
+                    {
+                        loader: 'sass-loader',
+                    },
+                ],
             },
             {
-                test: /\.css/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: 'css-loader',
-                }),
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
             {
                 test: /\.html$/,
@@ -71,6 +77,7 @@ const config = {
                 loader: 'file-loader',
                 options: {
                     name: '[name].[ext]',
+                    esModule: false,
                 },
             },
         ],
@@ -78,15 +85,19 @@ const config = {
 
     plugins: [
         new CleanWebpackPlugin(['dist', 'react']),
+
         new HtmlWebpackPlugin({
             template: 'examples/index.html',
             chunks: ['vendor', 'examples', 'superdesk-ui'],
             chunksSortMode: 'manual',
         }),
+
         new CopyWebpackPlugin([{from: 'examples/img/', flatten: true}, {from: 'examples/pages/'}]),
-        new ExtractTextPlugin({
+
+        new MiniCssExtractPlugin({
             filename: '[name].bundle.css',
         }),
+
         new webpack.ProvidePlugin({
             $: 'jquery',
             'window.$': 'jquery',

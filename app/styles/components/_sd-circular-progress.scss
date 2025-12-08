@@ -1,4 +1,5 @@
-@import '../variables/_colors.scss';
+@use '../variables/_colors.scss';
+@use "../variables/dimensions";
 
 // extra small
 $circular-progress-size-xs: 20px;
@@ -58,7 +59,7 @@ $circular-progress-stroke-xl: 6;
     }
 
     .progressbar {
-        stroke: $green;
+        stroke: colors.$green;
         fill: transparent;
     }
 
@@ -76,14 +77,14 @@ $circular-progress-stroke-xl: 6;
     inset-inline-end: 0;
     inset-block-end: 0;
     inset-inline-start: 0;
-    color: $green;
-    border-radius: $border-radius__base--full;
+    color: colors.$green;
+    border-radius: dimensions.$border-radius__base--full;
     box-shadow: inset 0 0 0 0 currentColor;
     transition: box-shadow 0.3s ease-in-out;
     z-index: 2;
 
     i {
-        color: $white;
+        color: colors.$white;
         text-align: center;
         margin: auto;
         align-content: center;
@@ -103,7 +104,7 @@ $circular-progress-stroke-xl: 6;
     }
 
     &.progress-done--error {
-        color: $red;
+        color: colors.$red;
         box-shadow: inset 0 0 0 50px currentColor;
 
         i {

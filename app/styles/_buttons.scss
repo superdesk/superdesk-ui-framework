@@ -1,3 +1,6 @@
+@use "variables/colors";
+@use "variables/dimensions";
+
 
 $button-margin: 0 !default;
 $button-opacity-disabled: 0.60 !default;
@@ -5,8 +8,8 @@ $icn-button-opacity-disabled: 0.40 !default;
 
 // /// transitions for buttons.
 $button-transition: all 0.2s ease-out, color 0.1s ease-out !default;
-$button-focus-box-shadow: 0 0 0 3px $sd-colour--focus-shadow;
-$icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
+$button-focus-box-shadow: 0 0 0 3px colors.$sd-colour--focus-shadow;
+$icn-button-focus-box-shadow: 0 0 0 2px colors.$sd-colour--focus-shadow;
 
 ////////////////////////////// NEW BUTTONS //////////////////////////////
 
@@ -28,9 +31,9 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
     margin: $button-margin;
     padding-block-start: 0;
     padding-block-end: 0;
-    padding-inline: $padding-x__button--default;
-    height: $height__button--default;
-    font-size: $font-size__button--default;
+    padding-inline: dimensions.$padding-x__button--default;
+    height: dimensions.$height__button--default;
+    font-size: dimensions.$font-size__button--default;
     -webkit-appearance: none;
     border: none;
     border-radius: var(--b-radius--small);
@@ -251,16 +254,16 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
         }
 
         &.btn--icon-only-circle {
-            border-radius: $border-radius__base--full;
+            border-radius: dimensions.$border-radius__base--full;
             padding: 0;
-            width: $height__button--default;
+            width: dimensions.$height__button--default;
 
             &.btn--small {
-                width: $height__button--small;
+                width: dimensions.$height__button--small;
             }
 
             &.btn--large {
-                width: $height__button--large;
+                width: dimensions.$height__button--large;
             }
         }
     }
@@ -283,15 +286,15 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
 
 // Sizes
 .btn--small {
-    padding: $padding-x__button--small;
-    height: $height__button--small;
-    font-size: $font-size__button--small;
+    padding: dimensions.$padding-x__button--small;
+    height: dimensions.$height__button--small;
+    font-size: dimensions.$font-size__button--small;
 }
 
 .btn--large {
-    padding: $padding-x__button--large;
-    height: $height__button--large;
-    font-size: $font-size__button--large;
+    padding: dimensions.$padding-x__button--large;
+    height: dimensions.$height__button--large;
+    font-size: dimensions.$font-size__button--large;
 }
 
 .btn--expanded {
@@ -358,9 +361,9 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
     justify-content: center;
     font-size: 1.6rem;
     transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
-    height: $height__button--default;
-    width: $height__button--default;
-    border-radius: $border-radius__base--full;
+    height: dimensions.$height__button--default;
+    width: dimensions.$height__button--default;
+    border-radius: dimensions.$border-radius__base--full;
     background-color: transparent;
     opacity: 0.75;
     background-color: hsla(214, 13%, 55%, 0);
@@ -397,7 +400,7 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
         background-color: hsla(214, 13%, 55%, 0.3);
 
         [class^="icon-"], [class*=" icon-"] {
-            color: $sd-colour-interactive;
+            color: colors.$sd-colour-interactive;
             opacity: 1;
         }
     }
@@ -430,13 +433,13 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
 }
 
 .icn-btn--small {
-    height: $height__button--small;
-    width: $height__button--small;
+    height: dimensions.$height__button--small;
+    width: dimensions.$height__button--small;
 }
 
 .icn-btn--x-large {
-    height: $height__button--x-large;
-    width: $height__button--x-large;
+    height: dimensions.$height__button--x-large;
+    width: dimensions.$height__button--x-large;
 
     [class^="icon-"], [class*=" icon-"] {
         vertical-align: baseline !important;
@@ -481,8 +484,8 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
 
 .p-dialog-header-close {
     @include icn-btn-style;
-    height: $height__button--small;
-    width: $height__button--small;
+    height: dimensions.$height__button--small;
+    width: dimensions.$height__button--small;
 
     &:hover {
         opacity: 1;
@@ -501,7 +504,7 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
   display: flex;
   flex-direction: row;
   align-content: center;
-  gap: $sd-base-increment;
+  gap: dimensions.$sd-base-increment;
 }
 
 .button-nav__btn {
@@ -515,7 +518,7 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
     background: transparent;
     -webkit-appearance: none;
     border: none;
-    border-radius: $border-radius__base--full;
+    border-radius: dimensions.$border-radius__base--full;
     transition: $button-transition;
     font-size: 1.4rem;
     line-height: 1;
@@ -551,7 +554,7 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: $sd-base-increment;
+    gap: dimensions.$sd-base-increment;
 
     .btn {
         margin: 0;
@@ -566,7 +569,7 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
     }
 
     &.button-group--compact {
-        gap: 0.5 * $sd-base-increment;
+        gap: 0.5 * dimensions.$sd-base-increment;
     }
 
     .button-group--inline {
@@ -609,15 +612,15 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
 }
 
 .button-group--comfort {
-    gap: $sd-base-increment;
+    gap: dimensions.$sd-base-increment;
 }
 
 .button-group--loose {
-    gap: $sd-base-increment * 2;
+    gap: dimensions.$sd-base-increment * 2;
 }
 
 .button-group--compact {
-    gap: $sd-base-increment * 0.5;
+    gap: dimensions.$sd-base-increment * 0.5;
 }
 
 .button-group--no-space {
@@ -625,13 +628,13 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
 }
 
 .button-group--padded {
-    padding-inline-start: $sd-base-increment * 2;
-    padding-inline-end: $sd-base-increment * 2;
+    padding-inline-start: dimensions.$sd-base-increment * 2;
+    padding-inline-end: dimensions.$sd-base-increment * 2;
 }
 
 .button-group__divider {
     width: 1px;
-    height: $sd-base-increment * 3;
+    height: dimensions.$sd-base-increment * 3;
 }
 
 .button-group__divider--mini {

@@ -1,3 +1,6 @@
+@use "../variables/colors";
+@use "../variables/dimensions";
+
 // LAYOUT : Basic Layouts : layout/basic-layout.scss
 
 .sd-page {
@@ -71,7 +74,7 @@
 
 .sd-page__page-heading {
     font-size: 1.6rem;
-    color: $sd-text;
+    color: colors.$sd-text;
     font-weight: 500;
 }
 
@@ -79,7 +82,7 @@
     flex-grow: 1;
     padding: 20px;
     overflow: auto;
-    background-color: $mainListBackGround;
+    background-color: colors.$mainListBackGround;
 }
 
 .sd-page__content--centered-dashboard {
@@ -105,12 +108,12 @@
 .sd-overlay-panel {
     z-index: 2;
     position: absolute;
-    inset-block-start: $subnav-height;
+    inset-block-start: dimensions.$subnav-height;
     inset-inline-end: 0;
     inset-block-end: 3rem;
     width: 0;
-    background-color: $white;
-    color: $sd-text;
+    background-color: colors.$white;
+    color: colors.$sd-text;
     box-shadow: -2px 0 12px 0 rgba(0,0,0,0.3);
     overflow: hidden;
     transition: all 0.1s ease-out;

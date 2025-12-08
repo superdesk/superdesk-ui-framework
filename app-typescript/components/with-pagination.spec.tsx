@@ -1,4 +1,4 @@
-import {describe, it, xit} from 'mocha';
+import {describe, it} from 'mocha';
 import * as assert from 'assert';
 import {mount} from 'enzyme';
 import * as React from 'react';
@@ -83,7 +83,7 @@ describe('with-pagination', () => {
         }, TIMEOUT + 100);
     });
 
-    xit('previous-next buttons works', (done) => {
+    it.skip('previous-next buttons works', (done) => {
         const wrapper = mount(<Paginated />);
 
         setTimeout(() => {

@@ -1,3 +1,6 @@
+@use "sass:math";
+@use "../variables/dimensions";
+
 .sd-container {
     display: flex;
     align-items: center;
@@ -26,17 +29,17 @@
 }
 
 .sd-container--gap-x-small {
-    gap: $sd-base-increment / 2;
+    gap: math.div(dimensions.$sd-base-increment, 2);
 }
 
 .sd-container--gap-small {
-    gap: $sd-base-increment;
+    gap: dimensions.$sd-base-increment;
 }
 
 .sd-container--gap-medium {
-    gap: $sd-base-increment * 1.5;
+    gap: dimensions.$sd-base-increment * 1.5;
 }
 
 .sd-container--gap-large {
-    gap: $sd-base-increment * 2;
+    gap: dimensions.$sd-base-increment * 2;
 }

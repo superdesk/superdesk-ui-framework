@@ -1,3 +1,7 @@
+@use "../variables/colors";
+@use "../variables/dimensions";
+@use "../variables/typography";
+
 // EDITOR Themes
 
 :root,
@@ -170,18 +174,18 @@
 }
 
 $color-swatch-border-color: transparent;
-$color-swatch-border-active-color: $sd-colour-interactive;
+$color-swatch-border-active-color: colors.$sd-colour-interactive;
 
 $color-swatch-size: 6.8rem;
 $color-swatch-inner-size: 6rem;
 
-$theme-background: $white !default;
-$theme-color: $sd-text !default;
+$theme-background: colors.$white !default;
+$theme-color: colors.$sd-text !default;
 
 // Theme fonts
-$font-sans-1: $baseFontFamily;
-$font-serif-1: $baseFontFamilySerif;
-$font-monospace-1: $baseFontFamilyMono;
+$font-sans-1: typography.$baseFontFamily;
+$font-serif-1: typography.$baseFontFamilySerif;
+$font-monospace-1: typography.$baseFontFamilyMono;
 
 $theme-font-list: (
 	sans: $font-sans-1,
@@ -190,12 +194,12 @@ $theme-font-list: (
 );
 
 $themes: (
-	'default': ('bg-color': $white,
-		'text-color': $sd-text ),
-	'dark': ('bg-color': $grayDarker,
+	'default': ('bg-color': colors.$white,
+		'text-color': colors.$sd-text ),
+	'dark': ('bg-color': colors.$grayDarker,
 		'text-color': #AACCD1),
 	'blue': ('bg-color': #06356A,
-		'text-color': $white ),
+		'text-color': colors.$white ),
 	'turquoise': ('bg-color': #5AC7C3,
 		'text-color': #122235),
 	'military': ('bg-color': #949E5F,
@@ -229,7 +233,7 @@ $body-font-size: (
 	padding: 0 0.8rem;
 	height: 1.8rem;
 	vertical-align: middle;
-	border-radius: $border-radius__base--x-small;
+	border-radius: dimensions.$border-radius__base--x-small;
 	text-transform: uppercase;
 	line-height: 1;
 	letter-spacing: 0.05em;
@@ -237,7 +241,7 @@ $body-font-size: (
 	white-space: nowrap;
 	font-weight: 400;
 	background-color: var(--sd-editor-colour__field-label-bg);
-	color: $white;
+	color: colors.$white;
 	font-family: "Roboto";
 }
 
@@ -252,7 +256,7 @@ $body-font-size: (
 	height: $color-swatch-size;
 	width: $color-swatch-size;
 	padding: 0.2rem;
-	border-radius: $border-radius__base--full;
+	border-radius: dimensions.$border-radius__base--full;
 	border: 2px solid $color-swatch-border-color;
 }
 
@@ -262,7 +266,7 @@ $body-font-size: (
 	align-items: center;
 	height: $color-swatch-inner-size;
 	width: $color-swatch-inner-size;
-	border-radius: $border-radius__base--full;
+	border-radius: dimensions.$border-radius__base--full;
 	background-color: var(--sd-editor-colour__main-bg);
 	color: var(--sd-editor-colour__txt);
 	text-align: center;
@@ -382,10 +386,10 @@ $body-font-size: (
 
 		&.checked {
 			border-color: var(--sd-colour-interactive--active) !important;
-			color: $white;
+			color: colors.$white;
 
 			label {
-				color: $white !important;
+				color: colors.$white !important;
 			}
 		}
 	}

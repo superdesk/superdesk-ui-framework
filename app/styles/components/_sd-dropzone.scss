@@ -1,3 +1,6 @@
+@use "../variables/dimensions";
+@use "../variables/typography";
+
 $iconSize-large: 3.6rem;
 $iconSize-small: 2.4rem;
 
@@ -8,10 +11,10 @@ $iconSize-small: 2.4rem;
     align-items: center;
     justify-content: center;
     border-radius: var(--b-radius--medium);
-    min-height: $sd-base-increment * 9;
+    min-height: dimensions.$sd-base-increment * 9;
     width: 100%;
-    padding: $sd-base-increment * 3;
-    gap: $sd-base-increment * 1;
+    padding: dimensions.$sd-base-increment * 3;
+    gap: dimensions.$sd-base-increment * 1;
     transition: all 0.2s ease;
     background-color: var(--sd-colour-bg-translucent--10);
 
@@ -104,7 +107,7 @@ $iconSize-small: 2.4rem;
     margin: 0 auto;
     font-size: 1.8rem;
     font-weight: 700;
-    font-family: $baseFontFamilySerif;
+    font-family: typography.$baseFontFamilySerif;
     color: var(--color-text-muted);
 }
 

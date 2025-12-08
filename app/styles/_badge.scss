@@ -1,3 +1,6 @@
+@use "variables/colors";
+@use "variables/dimensions";
+
 /// Default colors for badges.
 $badge-background: var(--sd-colour-bg--08) !default;
 $badge-background-translucent: var(--sd-colour-bg-translucent--08);
@@ -5,7 +8,7 @@ $badge-color: var(--color-text-ondark) !default;
 $badge-color-alt: var(--sd-colour-btn-txt-neutral) !default;
 
 /// Coloring classes. A map of classes to output in the CSS.
-$badge-palette: $sd-basic-palette !default;
+$badge-palette: colors.$sd-basic-palette !default;
 
 /// Default padding inside badges.
 $badge-padding: 0.4em 0.5em 0.3em!default;
@@ -27,7 +30,7 @@ $badge-lineheight: 1.1em !default;
     display: inline-block;
     min-width: $badge-minwidth;
     padding: $badge-padding;
-    border-radius: $border-radius__base--full;
+    border-radius: dimensions.$border-radius__base--full;
     font-size: $badge-font-size;
     line-height: $badge-lineheight;
     text-align: center;

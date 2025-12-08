@@ -1,3 +1,6 @@
+@use "variables/colors";
+@use "variables/dimensions";
+
 /// @group sd-alert
 
 /// Default padding inside sd-alerts.
@@ -38,7 +41,7 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     box-shadow: $sd-alert-shadow;
     background-color: var(--sd-alert-bg);
     display: flex;
-    gap: $sd-base-increment * 2;
+    gap: dimensions.$sd-base-increment * 2;
 
     & strong {
         font-weight: 500;
@@ -61,7 +64,7 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
         padding-inline: $sd-alert-padding-x-small;
         box-shadow: $sd-alert-shadow-small;
         transition: $sd-alert-transition-small;
-        gap: $sd-base-increment * 1;
+        gap: dimensions.$sd-base-increment * 1;
     }
 
     &--marg-b12 {
@@ -202,7 +205,7 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
 }
 
 .sd-alert--primary, .sd-alert--info, .sd-alert--success, .sd-alert--warning, .sd-alert--alert, .sd-alert--highlight, .sd-alert--sd-green {
-    color: $white;
+    color: colors.$white;
 }
 
 .sd-alert--primary, .sd-alert--info {
@@ -245,7 +248,7 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     opacity: .2;
     line-height: 2.1rem;
     color: inherit;
-    border-radius: $border-radius__base--full;
+    border-radius: dimensions.$border-radius__base--full;
 
     &::after {
         font-family: sd_icons;
@@ -303,7 +306,7 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     color:white;
     text-align: center;
     display: inline-block;
-    border-radius: $border-radius__base--full;
+    border-radius: dimensions.$border-radius__base--full;
     flex-grow: 0;
     flex-shrink: 1;
     transition: all linear 100ms 0.2s, background-color ease-in 200ms;
