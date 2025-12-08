@@ -105,7 +105,13 @@ export default class CopyableTextBoxDoc extends React.Component<{}, IState> {
                         description="The text content to display and copy."
                     />
                     <Prop name="label" isRequired={false} type="string" default="/" description="Label" />
-                    <Prop name="helperText" isRequired={false} type="string" default="/" description="Helper text" />
+                    <Prop
+                        name="size"
+                        isRequired={false}
+                        type="'small' | 'normal' | 'large'"
+                        default="medium"
+                        description="Size"
+                    />
                     <Prop
                         name="data-test-id"
                         isRequired={false}

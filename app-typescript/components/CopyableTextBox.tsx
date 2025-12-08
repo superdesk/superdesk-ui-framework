@@ -4,12 +4,13 @@ import {gettext} from '../translations';
 import {InputWrapper} from './Form';
 import nextId from 'react-id-generator';
 import {IInputCommon} from './Form/InputWrapper';
+import {toasted} from './Toast';
 
 interface ICopyableTextBoxProps extends IInputCommon {
     value: string;
 
     /**
-     * Defaults to normal
+     * Defaults to medium
      */
     size?: 'medium' | 'large';
 
@@ -30,17 +31,24 @@ export const CopyableTextBox: React.FC<ICopyableTextBoxProps> = (props) => {
     }, []);
 
     const handleCopy = () => {
-        navigator.clipboard.writeText(props.value).then(() => {
-            setCopied(true);
+        navigator.clipboard
+            .writeText(props.value)
+            .then(() => {
+                setCopied(true);
 
-            if (timeoutIdRef.current) {
-                window.clearTimeout(timeoutIdRef.current);
-            }
+                if (timeoutIdRef.current) {
+                    window.clearTimeout(timeoutIdRef.current);
+                }
 
-            timeoutIdRef.current = window.setTimeout(() => {
-                setCopied(false);
-            }, 2000);
-        });
+                timeoutIdRef.current = window.setTimeout(() => {
+                    setCopied(false);
+                }, 2000);
+            })
+            .catch(() => {
+                toasted.notify(gettext("Couldn't copy"), {
+                    type: 'warning',
+                });
+            });
     };
 
     return (
