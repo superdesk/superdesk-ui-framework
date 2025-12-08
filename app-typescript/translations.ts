@@ -8,7 +8,7 @@ export const translations = {
     Search: 'Search',
     Copy: 'Copy',
     'No results found': 'No results found',
-    'Couldn\'t copy': 'Couldn\'t copy',
+    "Couldn't copy": "Couldn't copy",
 };
 
 export function setTranslations(_translations: typeof translations) {
