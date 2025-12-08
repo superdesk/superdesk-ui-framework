@@ -1,8 +1,11 @@
 import React, {useEffect} from 'react';
 import {Button} from './Button';
 import {gettext} from '../translations';
+import {InputWrapper} from './Form';
+import nextId from 'react-id-generator';
+import {IInputCommon} from './Form/InputWrapper';
 
-interface ICopyableTextBoxProps {
+interface ICopyableTextBoxProps extends IInputCommon {
     value: string;
     label?: string;
     helperText?: string;
@@ -10,14 +13,15 @@ interface ICopyableTextBoxProps {
     /**
      * Defaults to normal
      */
-    size?: 'small' | 'normal' | 'large';
+    size?: 'medium' | 'large';
 
     'data-test-id'?: string;
 }
 
 export const CopyableTextBox: React.FC<ICopyableTextBoxProps> = (props) => {
-    const [copied, setCopied] = React.useState(false);
+    const htmlId = nextId();
     const timeoutIdRef = React.useRef<number>();
+    const [copied, setCopied] = React.useState(false);
 
     useEffect(() => {
         return () => {
@@ -42,12 +46,32 @@ export const CopyableTextBox: React.FC<ICopyableTextBoxProps> = (props) => {
     };
 
     return (
-        <div className="sd-display-flex-column" data-test-id={props['data-test-id']}>
-            {props.label && <div className="sd-input__label">{props.label}</div>}
-            <div className="sd-d-flex gap-0-5">
-                <div className="sd-copyable-text-box">
-                    <span className="sd-copyable-text-box__text">{props.value}</span>
-                </div>
+        <InputWrapper
+            label={props.label}
+            disabled={props.disabled}
+            value={props.value}
+            error={props.error}
+            invalid={props.error != null}
+            info={props.info}
+            size={props.size ?? 'medium'}
+            fullWidth={true}
+            htmlId={htmlId}
+            tabindex={props.tabindex}
+        >
+            <div className="d-flex items-center gap-1">
+                <input
+                    id={htmlId}
+                    aria-describedby={htmlId + 'label'}
+                    type="text"
+                    className="sd-input__input"
+                    style={{
+                        border: '1px solid var(--color-input-border)',
+                        borderRadius: 'var(--b-radius--medium)',
+                    }}
+                    value={props.value}
+                    disabled
+                    data-test-id={props['data-test-id']}
+                />
                 <Button
                     text={gettext('Copy')}
                     icon={copied ? 'ok' : 'copy'}
@@ -55,11 +79,10 @@ export const CopyableTextBox: React.FC<ICopyableTextBoxProps> = (props) => {
                     onClick={handleCopy}
                     type="default"
                     style="hollow"
-                    size={props.size ?? 'normal'}
+                    size={props.size === 'medium' ? 'normal' : (props.size ?? 'normal')}
                     data-test-id="copy-button"
                 />
             </div>
-            {props.helperText && <div className="sd-input__hint">{props.helperText}</div>}
-        </div>
+        </InputWrapper>
     );
 };
