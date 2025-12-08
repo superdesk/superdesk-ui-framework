@@ -49,24 +49,13 @@ export default class CopyableTextBoxDoc extends React.Component<{}, IState> {
 
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <div className="docs-page__content-row">
-                            <div className="form__row" style={{maxWidth: '60rem'}}>
+                        <div className="docs-page__content-row" style={{maxWidth: '60rem'}}>
+                            <div className="form__row">
                                 <CopyableTextBox
                                     label="API Endpoint"
                                     value="https://api.example.com/v2/users"
-                                    helperText="Use this endpoint to fetch user data from the API"
+                                    info="Use this endpoint to fetch user data from the API"
                                 />
-                            </div>
-                            <div className="form__row" style={{maxWidth: '60rem', background: 'white'}}>
-                                <CopyableTextBox
-                                    label="Authentication Token"
-                                    size="small"
-                                    value="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0"
-                                    helperText="Keep this token secure and do not share it with anyone"
-                                />
-                            </div>
-                            <div className="form__row" style={{maxWidth: '60rem'}}>
-                                <CopyableTextBox size="large" label="Short Text" value="Example" />
                             </div>
                         </div>
                     </Markup.ReactMarkupPreview>
@@ -79,16 +68,6 @@ export default class CopyableTextBoxDoc extends React.Component<{}, IState> {
                                     value="https://api.example.com/v2/users"
                                     helperText="Use this endpoint to fetch user data from the API"
                                 />
-                            </div>
-                            <div className="form__row" style={{maxWidth: '60rem'}}>
-                                <CopyableTextBox
-                                    label='Authentication Token'
-                                    value="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0"
-                                    helperText="Keep this token secure and do not share it with anyone"
-                                />
-                            </div>
-                            <div className="form__row" style={{maxWidth: '60rem'}}>
-                                <CopyableTextBox label='Short Text' value="Example" />
                             </div>
                         </div>
                     `}
