@@ -34,6 +34,11 @@ export const CopyableTextBox: React.FC<ICopyableTextBoxProps> = (props) => {
         navigator.clipboard
             .writeText(props.value)
             .then(() => {
+                toasted.notify(gettext('Copied to clipboard'), {
+                    type: 'success',
+                    duration: 500,
+                });
+
                 setCopied(true);
 
                 if (timeoutIdRef.current) {

@@ -8,37 +8,31 @@ interface IProps {
     icon: string;
     ariaValue: string;
     toolTipFlow?: 'top' | 'left' | 'right' | 'down';
-    toolTipAppend?: boolean;
     size?: 'default' | 'small' | 'x-large';
     style?: 'default' | 'outline' | 'outlineWhite';
     disabled?: boolean;
     onClick(event: React.MouseEvent): void;
 }
 
-export class IconButton extends React.PureComponent<IProps> {
-    static defaultProps = {
-        toolTipAppend: true,
-    };
-    render() {
-        let classes = classNames('icn-btn', {
-            [`icn-btn--${this.props.size}`]: this.props.size || this.props.size !== undefined,
-            [`icn-btn--${this.props.style}`]: this.props.style || this.props.style !== undefined,
-            'icn-btn--disabled': this.props.disabled,
-        });
+export const IconButton: React.FC<IProps> = (props) => {
+    const classes = classNames('icn-btn', {
+        [`icn-btn--${props.size}`]: props.size || props.size !== undefined,
+        [`icn-btn--${props.style}`]: props.style || props.style !== undefined,
+        'icn-btn--disabled': props.disabled,
+    });
 
-        return (
-            <Tooltip text={this.props.disabled ? null : this.props.ariaValue} flow={this.props.toolTipFlow}>
-                <button
-                    id={this.props.id}
-                    tabIndex={0}
-                    onClick={this.props.onClick}
-                    className={classes}
-                    disabled={this.props.disabled}
-                    aria-label={this.props.ariaValue}
-                >
-                    <Icon name={this.props.icon} ariaHidden={true} />
-                </button>
-            </Tooltip>
-        );
-    }
-}
+    return (
+        <Tooltip text={props.disabled ? null : props.ariaValue} flow={props.toolTipFlow}>
+            <button
+                id={props.id}
+                tabIndex={0}
+                onClick={props.onClick}
+                className={classes}
+                disabled={props.disabled}
+                aria-label={props.ariaValue}
+            >
+                <Icon name={props.icon} ariaHidden={true} />
+            </button>
+        </Tooltip>
+    );
+};
