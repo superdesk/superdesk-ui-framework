@@ -35,4 +35,4 @@ export const IconButton: React.FC<IProps> = (props) => {
             </button>
         </Tooltip>
     );
-}
+};
