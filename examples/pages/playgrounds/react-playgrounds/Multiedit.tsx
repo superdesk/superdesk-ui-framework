@@ -194,7 +194,6 @@ export class Editor extends React.Component<{}, IEditor> {
                                     <ButtonGroup align="end">
                                         <IconButton
                                             icon="preview-mode"
-                                            toolTipAppend={true}
                                             ariaValue="Print preview"
                                             onClick={() => false}
                                         />
