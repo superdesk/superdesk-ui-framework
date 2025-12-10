@@ -222,6 +222,51 @@ export class TestGround extends React.Component<{}, IState> {
 
                         <hr />
 
+                        <Container gap="large" className="sd-border--medium text-md p-2 radius-lg mb-3">
+                            <Avatar
+                                size="large"
+                                imageUrl="/avatar.jpg"
+                                initials="JL"
+                                displayName="Jeffrey Lebowski"
+                                nameDisplay="inline"
+                                textPosition="start"
+                                administratorIndicator={true}
+                                icon={{name: 'print', color: 'var(--sd-colour-state--done)'}}
+                                statusDot={{color: 'var(--sd-colour-coverage-state--on-merit)'}}
+                            />
+                            <Avatar
+                                size="x-small"
+                                imageUrl="/avatar.jpg"
+                                initials="JL"
+                                displayName="Jeffrey Lebowski"
+                                nameDisplay="inline"
+                                textPosition="end"
+                                icon={{name: 'print', color: 'var(--sd-colour-state--done)'}}
+                                statusDot={{color: 'var(--sd-colour-coverage-state--on-merit)'}}
+                            />
+                            <Avatar
+                                size="small"
+                                imageUrl="/avatar.jpg"
+                                initials="JL"
+                                displayName="Jeffrey Lebowski"
+                                nameDisplay="inline"
+                                textPosition="end"
+                                icon={{name: 'print', color: 'var(--sd-colour-state--done)'}}
+                                statusDot={{color: 'var(--sd-colour-coverage-state--on-merit)'}}
+                            />
+                            <Avatar
+                                size="small"
+                                imageUrl={null}
+                                initials="PH"
+                                displayName="Peter Hook"
+                                nameDisplay="inline"
+                                textPosition="end"
+                            />
+                            <Avatar size="large" imageUrl={null} initials="WS" displayName="Walter Sobchak" />
+                        </Container>
+
+                        <hr />
+
                         <Container gap="large" className="sd-border--medium text-md p-0 radius-lg mb-3">
                             <ResizablePanels direction="horizontal" secondarySize={{default: 20}}>
                                 <div className="left-panel p-2">
