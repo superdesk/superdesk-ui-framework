@@ -103,6 +103,7 @@
         background-image: url('~../../images/avatar_dummy.svg');
         background-repeat: no-repeat;
         background-size: cover;
+        pointer-events: none;
     }
 
     &.sd-avatar--empty-light {
