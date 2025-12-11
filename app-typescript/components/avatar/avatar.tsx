@@ -1,9 +1,9 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {AvatarContentImage} from './avatar-image';
-import {AvatarWrapper} from './avatar-wrapper';
 import {AvatarContentText} from './avatar-text';
 import {Tooltip} from '../Tooltip';
+import {Icon} from '../Icon';
 
 export interface IPropsAvatar {
     imageUrl: string | null; // nullable, but mandatory to communicate importance
@@ -23,7 +23,12 @@ export interface IPropsAvatar {
     statusDot?: {
         color?: string;
     };
-    noAvatarPlaceholderColor?: 'subtle' | 'strong'; // defaults to strong; only applies to placeholder image
+
+    /**
+     * Color scheme for placeholder when no image is available.
+     * Defaults to 'strong'.
+     */
+    noAvatarPlaceholderColor?: 'subtle' | 'strong';
 
     /**
      * displayName is shown as tooltip by default
@@ -41,15 +46,14 @@ export interface IPropsAvatar {
     /**
      * Controls how the name is displayed:
      * - 'tooltip': Shows name in a tooltip (default)
-     * - 'title': Shows name in native HTML title attribute
+     * - 'none': No name is displayed at all
      * - 'inline': Shows name inline next to avatar (like Material Design Chip)
      * Defaults to 'tooltip' if not provided
      */
-    nameDisplay?: 'tooltip' | 'title' | 'inline';
+    nameDisplay?: 'tooltip' | 'inline' | 'none';
 
     /**
      * Controls the position of the tooltip.
-     * Only applies when nameDisplay is 'tooltip'.
      * Defaults to 'top' if not provided
      */
     tooltipFlow?: 'top' | 'left' | 'right' | 'down';
@@ -79,96 +83,105 @@ function flowToPlacement(
     return flow;
 }
 
-class TooltipWrapper extends React.PureComponent<ITooltipWrapperProps> {
-    render() {
-        const {tooltipText, tooltipFlow, children} = this.props;
+const TooltipWrapper = React.memo<ITooltipWrapperProps>(({tooltipText, tooltipFlow, children}) => {
+    const hasTooltip = tooltipText != null && (tooltipText ?? '').length > 0;
 
-        return tooltipText != null && (tooltipText ?? '').length > 0 ? (
-            <Tooltip content={tooltipText} placement={flowToPlacement(tooltipFlow)}>
-                {children}
-            </Tooltip>
-        ) : (
-            <>{children({attributes: {}})}</>
-        );
-    }
-}
+    return hasTooltip ? (
+        <Tooltip content={tooltipText} placement={flowToPlacement(tooltipFlow)}>
+            {children}
+        </Tooltip>
+    ) : (
+        <>{children({attributes: {}})}</>
+    );
+});
 
-export class Avatar extends React.PureComponent<IPropsAvatar> {
-    render() {
-        const {
-            imageUrl,
-            initials,
-            size,
-            statusIndicator,
-            administratorIndicator,
-            icon,
-            noAvatarPlaceholderColor,
-            displayName,
-            customContent,
-            statusDot,
-        } = this.props;
+export const Avatar = React.memo<IPropsAvatar>((props) => {
+    const {
+        imageUrl,
+        initials,
+        size,
+        statusIndicator,
+        administratorIndicator,
+        icon,
+        noAvatarPlaceholderColor,
+        displayName,
+        customContent,
+        statusDot,
+        nameDisplay = 'tooltip',
+        tooltip,
+        tooltipFlow,
+        textPosition = 'end',
+    } = props;
 
-        // Determine the name display mode (defaults to 'tooltip')
-        const nameDisplay = this.props.nameDisplay ?? 'tooltip';
+    // For tooltip mode, use tooltip prop first, fallback to displayName
+    const tooltipText = tooltip ?? displayName;
 
-        // For tooltip mode, use tooltip prop first, fallback to displayName
-        const tooltipText = this.props.tooltip ?? displayName;
-
-        // For title mode (legacy behavior), combine displayName and tooltip
-        const titleText = [displayName, this.props.tooltip].filter((str) => (str ?? '').trim().length > 0).join('\n');
-
-        const avatarContent = (() => {
-            if (customContent != null) {
-                return customContent;
-            } else if (imageUrl != null || initials == null) {
-                return (
-                    <AvatarContentImage imageUrl={imageUrl} tooltipText={nameDisplay === 'title' ? titleText : ''} />
-                );
-            } else {
-                return <AvatarContentText text={initials} tooltipText={nameDisplay === 'title' ? titleText : ''} />;
-            }
-        })();
-
-        const avatarElement = (
-            <AvatarWrapper
-                size={size}
-                statusIndicator={statusIndicator ? {status: statusIndicator, tooltipText: ''} : undefined}
-                administratorIndicator={administratorIndicator ? {enabled: true, tooltipText: ''} : undefined}
-                icon={icon}
-                statusDot={statusDot}
-                noAvatarPlaceholderColor={noAvatarPlaceholderColor}
-            >
-                {avatarContent}
-            </AvatarWrapper>
-        );
-
-        // Render based on nameDisplay mode
-        if (nameDisplay === 'inline') {
-            const textPosition = this.props.textPosition ?? 'end';
-
-            return (
-                <span
-                    className={classNames('sd-avatar--inline', {
-                        'sd-avatar--inline--text-start': textPosition === 'start',
-                    })}
-                >
-                    {avatarElement}
-                    <span className="sd-avatar--inline__text">{displayName}</span>
-                </span>
-            );
-        } else if (nameDisplay === 'tooltip') {
-            return (
-                <TooltipWrapper tooltipText={tooltipText} tooltipFlow={this.props.tooltipFlow}>
-                    {({attributes}) => (
-                        <span className="d-contents" {...attributes}>
-                            {avatarElement}
-                        </span>
-                    )}
-                </TooltipWrapper>
-            );
+    const avatarContent = React.useMemo(() => {
+        if (customContent != null) {
+            return customContent;
+        } else if (imageUrl != null || initials == null) {
+            return <AvatarContentImage imageUrl={imageUrl} tooltipText={''} />;
         } else {
-            // title mode - current behavior with title attribute
-            return avatarElement;
+            return <AvatarContentText text={initials} tooltipText={''} />;
         }
+    }, [customContent, imageUrl, initials]);
+
+    const avatarClassName = React.useMemo(
+        () =>
+            classNames('sd-avatar', {
+                'sd-avatar--x-small': size === 'x-small',
+                'sd-avatar--small': size === 'small',
+                'sd-avatar--medium': size === 'medium',
+                'sd-avatar--large': size === 'large',
+                'sd-avatar--x-large': size === 'x-large',
+                'sd-avatar--xx-large': size === 'xx-large',
+                'sd-avatar--indicator-status--online': statusIndicator === 'online',
+                'sd-avatar--indicator-status--offline': statusIndicator === 'offline',
+                'sd-avatar--empty-light': noAvatarPlaceholderColor === 'subtle',
+            }),
+        [size, statusIndicator, noAvatarPlaceholderColor],
+    );
+
+    const avatarElement = (
+        <span className={avatarClassName}>
+            {avatarContent}
+
+            {administratorIndicator === true && <i className="icon-settings sd-avatar--indicator-admin" />}
+
+            {icon != null && (
+                <span className="sd-avatar__icon">
+                    <Icon name={icon.name} color={icon.color} />
+                </span>
+            )}
+
+            {statusDot != null && (
+                <span style={{backgroundColor: statusDot.color}} className="sd-avatar__coverage-state" />
+            )}
+        </span>
+    );
+
+    if (nameDisplay === 'inline') {
+        return (
+            <span
+                className={classNames('sd-avatar--inline', {
+                    'sd-avatar--inline--text-start': textPosition === 'start',
+                })}
+            >
+                {avatarElement}
+                <span className="sd-avatar--inline__text">{displayName}</span>
+            </span>
+        );
+    } else if (nameDisplay === 'tooltip') {
+        return (
+            <TooltipWrapper tooltipText={tooltipText} tooltipFlow={tooltipFlow}>
+                {({attributes}) => (
+                    <span className="d-contents" {...attributes}>
+                        {avatarElement}
+                    </span>
+                )}
+            </TooltipWrapper>
+        );
+    } else {
+        return avatarElement;
     }
-}
+});

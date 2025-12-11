@@ -402,7 +402,9 @@ export default class AvatarDoc extends React.PureComponent {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Name Display Modes</h3>
-                <p className="docs-page__paragraph">Avatar supports three different ways to display the user's name:</p>
+                <p className="docs-page__paragraph">
+                    Avatar supports different ways to display (or hide) the user's name:
+                </p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className="docs-page__content-row">
@@ -432,21 +434,21 @@ export default class AvatarDoc extends React.PureComponent {
                                 />
                             </Container>
 
-                            <p className="docs-page__paragraph">// Title Mode (native HTML title)</p>
+                            <p className="docs-page__paragraph">// None Mode (no name displayed)</p>
                             <Container gap="medium" className="sd-margin-b--3">
                                 <Avatar
                                     size="large"
                                     imageUrl="/avatar.jpg"
                                     initials="JL"
                                     displayName="Jeffrey Lebowski"
-                                    nameDisplay="title"
+                                    nameDisplay="none"
                                 />
                                 <Avatar
                                     size="large"
                                     imageUrl={null}
                                     initials="WS"
                                     displayName="Walter Sobchak"
-                                    nameDisplay="title"
+                                    nameDisplay="none"
                                 />
                             </Container>
 
@@ -518,13 +520,13 @@ export default class AvatarDoc extends React.PureComponent {
                             tooltip="JJB - Professional Boxer"
                         />
 
-                        // Title Mode - uses native HTML title attribute
+                        // None Mode - no name is displayed at all
                         <Avatar
                             size="large"
                             imageUrl="/avatar.jpg"
                             initials="JL"
                             displayName="Jeffrey Lebowski"
-                            nameDisplay="title"
+                            nameDisplay="none"
                         />
 
                         // Inline Mode - displays name beside avatar
@@ -766,7 +768,7 @@ export default class AvatarDoc extends React.PureComponent {
                         {`
                         // Example: Reading from external config in your application
                         const appConfig = {
-                            avatarNameDisplay: 'inline' // or 'tooltip' or 'title'
+                            avatarNameDisplay: 'inline' // or 'tooltip' or 'none'
                             textPosition: 'start' // or 'end'
                         };
 
@@ -1105,9 +1107,9 @@ export default class AvatarDoc extends React.PureComponent {
                     <Prop
                         name="nameDisplay"
                         isRequired={false}
-                        type="'tooltip' | 'title' | 'inline'"
+                        type="'tooltip' | 'none' | 'inline'"
                         default="'tooltip'"
-                        description="Controls how the name is displayed: 'tooltip' (shows in tooltip component), 'title' (uses HTML title attribute), 'inline' (displays beside avatar)."
+                        description="Controls how the name is displayed: 'tooltip' (shows in tooltip component), 'none' (no name displayed at all), 'inline' (displays beside avatar)."
                     />
                     <Prop
                         name="tooltipFlow"

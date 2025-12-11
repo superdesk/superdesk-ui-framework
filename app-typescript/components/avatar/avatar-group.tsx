@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {Avatar, IPropsAvatar} from './avatar';
-import {AvatarWrapper} from './avatar-wrapper';
 import {AvatarContentNumber} from './avatar-number';
 import {AvatarPlaceholder, IPropsAvatarPlaceholder} from './avatar-placeholder';
 import {WithPopover} from '../WithPopover';
@@ -89,7 +88,7 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
                                             displayName={item.displayName}
                                             icon={item.icon}
                                             statusDot={item.statusDot}
-                                            nameDisplay="title"
+                                            nameDisplay="none"
                                         />
                                     ) : (
                                         <AvatarPlaceholder
@@ -138,9 +137,13 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
 
                         {itemsOverLimit > 0 && (
                             <PlusButtonWrapper onToggle={onToggle}>
-                                <AvatarWrapper size={size}>
-                                    <AvatarContentNumber number={`${itemsOverLimit}`} />
-                                </AvatarWrapper>
+                                <Avatar
+                                    size={size}
+                                    imageUrl={null}
+                                    displayName=""
+                                    initials={null}
+                                    customContent={<AvatarContentNumber number={`${itemsOverLimit}`} />}
+                                />
                             </PlusButtonWrapper>
                         )}
                     </div>
