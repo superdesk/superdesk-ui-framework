@@ -228,8 +228,7 @@ export class TestGround extends React.Component<{}, IState> {
                                 imageUrl="/avatar.jpg"
                                 initials="JL"
                                 displayName="Jeffrey Lebowski"
-                                nameDisplay="inline"
-                                textPosition="start"
+                                nameDisplay={{kind: 'inline', placement: 'start'}}
                                 administratorIndicator={true}
                                 icon={{name: 'print', color: 'var(--sd-colour-state--done)'}}
                                 statusDot={{color: 'var(--sd-colour-coverage-state--on-merit)'}}
@@ -239,8 +238,7 @@ export class TestGround extends React.Component<{}, IState> {
                                 imageUrl="/avatar.jpg"
                                 initials="JL"
                                 displayName="Jeffrey Lebowski"
-                                nameDisplay="inline"
-                                textPosition="end"
+                                nameDisplay={{kind: 'inline', placement: 'end'}}
                                 icon={{name: 'print', color: 'var(--sd-colour-state--done)'}}
                                 statusDot={{color: 'var(--sd-colour-coverage-state--on-merit)'}}
                             />
@@ -249,8 +247,7 @@ export class TestGround extends React.Component<{}, IState> {
                                 imageUrl="/avatar.jpg"
                                 initials="JL"
                                 displayName="Jeffrey Lebowski"
-                                nameDisplay="inline"
-                                textPosition="end"
+                                nameDisplay={{kind: 'inline', placement: 'end'}}
                                 icon={{name: 'print', color: 'var(--sd-colour-state--done)'}}
                                 statusDot={{color: 'var(--sd-colour-coverage-state--on-merit)'}}
                             />
@@ -259,8 +256,7 @@ export class TestGround extends React.Component<{}, IState> {
                                 imageUrl={null}
                                 initials="PH"
                                 displayName="Peter Hook"
-                                nameDisplay="inline"
-                                textPosition="end"
+                                nameDisplay={{kind: 'inline', placement: 'end'}}
                             />
                             <Avatar size="large" imageUrl={null} initials="WS" displayName="Walter Sobchak" />
                         </Container>
