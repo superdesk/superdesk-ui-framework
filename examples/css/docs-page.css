@@ -21,6 +21,8 @@
         hsla(191, 53%, 86%, 1) 96%
     );
 
+    --docs-page-color-fg-highlight: oklch(0.64 0.07 220.04);
+
     --docs-page-border__window-bar--top: hsla(0, 0%, 100%, 0.9);
     --docs-page-border__window-bar--bottom: hsla(0, 0%, 88%, 1);
     --docs-page-border__table: hsla(0, 0%, 0%, 0.16);
@@ -198,7 +200,7 @@ hr {
     margin-top: -10px;
 }
 .docs-page__code-example p.docs-page__paragraph {
-    color: #7abcd1;
+    color: var(--docs-page-color-fg-highlight);
 }
 
 .docs-page__paragraph--topMarginL {
@@ -215,7 +217,7 @@ hr {
     font-weight: 600;
 }
 .docs-page .link {
-    color: #5eadc8;
+    color: var(--docs-page-color-fg-highlight);
     text-decoration: none;
 }
 .docs-page .link:hover {
@@ -626,7 +628,7 @@ hr {
     text-decoration: none;
 }
 .docs-page__window-bar > a.active {
-    color: #5eadc8;
+    color: var(--docs-page-color-fg-highlight);
 }
 .docs-page__code--large {
     font-size: 1.5rem;
@@ -751,7 +753,7 @@ pre.prettyprint {
     background-color: #fff;
 }
 .docs-page__code-example .grid .grid .grid__item {
-    border: 1px dotted #5eadc8;
+    border: 1px dotted var(--docs-page-color-fg-highlight);
 }
 .docs-page__code-example .flex-grid .flex-grid__item {
     padding: 20px;

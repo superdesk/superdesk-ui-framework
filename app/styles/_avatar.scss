@@ -92,6 +92,10 @@
 
     .sd-avatar-content--text {
         background-color: var(--sd-colour-avatar-bg);
+        cursor: default;
+        span {
+            pointer-events: none;
+        }
     }
 
     .sd-avatar-content--dummy-img {
@@ -99,6 +103,7 @@
         background-image: url('~../../images/avatar_dummy.svg');
         background-repeat: no-repeat;
         background-size: cover;
+        pointer-events: none;
     }
 
     &.sd-avatar--empty-light {
@@ -121,6 +126,7 @@
         inset-inline-end: -4px;
         opacity: 1;
         color: var(--color-text-subdued);
+        pointer-events: none;
         [class^="icon-"], [class*=" icon-"] {
             color: inherit;
             text-shadow: -1px 1px 0 var(--sd-item__main-Bg), 1px 1px 0 var(--sd-item__main-Bg), 1px -1px 0 var(--sd-item__main-Bg), -1px -1px 0 var(--sd-item__main-Bg);
@@ -139,6 +145,7 @@
         inset-block-end: -3px;
         inset-inline-end: 3px;
         box-shadow: 0 0 0 1px var(--sd-item__main-Bg);
+        pointer-events: none;
     }
 
     &.sd-avatar--x-small {
@@ -329,8 +336,9 @@
         gap: 0;
         margin-inline-end: 8px;
 
-        > .sd-avatar {
-            margin: 0 -0.8rem 0 0;
+        > .sd-avatar,
+        > .d-contents .sd-avatar {
+            margin: 0 calc(-1 * var(--space--1)) 0 0;
             .sd-avatar-content {
                 --avatar-shadow: var(--sd-item__main-Bg);
                 box-shadow: 0 0 0 2px var(--avatar-shadow);
@@ -340,29 +348,33 @@
             }
         }
 
-        > .sd-avatar--large {
-            margin: 0 -1.2rem 0 0;
+        > .sd-avatar--large,
+        > .d-contents .sd-avatar--large {
+            margin: 0 calc(-1 * var(--space--1-5)) 0 0;
         }
 
         &.sd-avatar-group--stacked--gap-small {
-            gap: $sd-base-increment * 0.5;
-            > .sd-avatar {
+            gap: var(--gap-0-5);
+            > .sd-avatar,
+            > .d-contents .sd-avatar {
                 margin: 0;
             }
             margin-inline-end: 0;
         }
 
         &.sd-avatar-group--stacked--gap-medium {
-            gap: $sd-base-increment * 1;
-            > .sd-avatar {
+            gap: var(--gap-1);
+            > .sd-avatar,
+            > .d-contents .sd-avatar {
                 margin: 0;
             }
             margin-inline-end: 0;
         }
 
         &.sd-avatar-group--stacked--gap-large {
-            gap: $sd-base-increment * 1.5;
-            > .sd-avatar {
+            gap: var(--gap-1-5);
+            > .sd-avatar,
+            > .d-contents .sd-avatar {
                 margin: 0;
             }
             margin-inline-end: 0;
@@ -371,18 +383,141 @@
     &.sd-avatar-group--grid {
         flex-wrap: wrap;
         justify-content: flex-start;
-        gap: $sd-base-increment * 1.5;
+        gap: var(--gap-1-5);
     }
 }
 
 .avatar-popup {
     background-color: var(--color-dropdown-menu-Bg);
     border-radius: var(--b-radius--large);
-    padding: var(--space--2);
+    padding-block: var(--space--2);
+    padding-inline-start: var(--space--1-5);
     padding-inline-end: var(--space--3);
     box-shadow: var(--sd-shadow__dropdown);
     display: flex;
     flex-direction: column;
     gap: var(--gap-1-5);
     overflow: auto;
+}
+
+// Inline avatar display mode (like Material Design Chip)
+.sd-avatar--inline {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap-1);
+    vertical-align: middle;
+    background-color: var(--color-surface-faded);
+    border-radius: var(--b-radius--full);
+    
+
+    .sd-avatar--inline__text {
+        color: var(--color-text);
+        font-size: var(--name-font-size);
+        line-height: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        // max-width: 200px;
+        
+    }
+    &:has(.sd-avatar--x-small) {
+        gap: var(--gap-0-5);
+        .sd-avatar--inline__text {
+            --name-font-size: var(--text-size-xx-small);
+            padding-inline-end: 1em;
+        }
+    }
+    &:has(.sd-avatar--small) {
+        gap: var(--gap-0-5);
+        .sd-avatar--inline__text {
+            --name-font-size: var(--text-size-x-small);
+            padding-inline-end: 1em;
+            
+        }
+    }
+    &:has(.sd-avatar--medium) {
+        gap: var(--gap-1);
+        .sd-avatar--inline__text {
+            --name-font-size: var(--text-size-small);
+            padding-inline-end: 1em;
+        }
+    }
+    &:has(.sd-avatar--large) {
+        gap: var(--gap-1);
+        .sd-avatar--inline__text {
+            --name-font-size: var(--text-size-small);
+            padding-inline-end: 1.5em;
+        }
+    }
+    &:has(.sd-avatar--x-large) {
+        gap: var(--gap-2);
+        .sd-avatar--inline__text {
+            --name-font-size: var(--text-size-medium);
+            padding-inline-end: 2.25em;
+        }
+    }
+    &:has(.sd-avatar--xx-large) {
+        gap: var(--gap-3);
+        .sd-avatar--inline__text {
+            --name-font-size: var(--text-size-large);
+            padding-inline-end: 2.25em;
+        }
+    }
+
+    // Modifier for text-start positioning (text before avatar)
+    &.sd-avatar--inline--text-start {
+        flex-direction: row-reverse;
+
+        .sd-avatar--inline__text {
+            padding-inline-end: 0;
+            padding-inline-start: 1em;
+        }
+
+        &:has(.sd-avatar--x-small) {
+            .sd-avatar--inline__text {
+                padding-inline-start: 1em;
+            }
+        }
+        &:has(.sd-avatar--small) {
+            .sd-avatar--inline__text {
+                padding-inline-start: 1em;
+            }
+        }
+        &:has(.sd-avatar--medium) {
+            .sd-avatar--inline__text {
+                padding-inline-start: 1em;
+            }
+        }
+        &:has(.sd-avatar--large) {
+            .sd-avatar--inline__text {
+                padding-inline-start: 1.5em;
+            }
+        }
+        &:has(.sd-avatar--x-large) {
+            .sd-avatar--inline__text {
+                padding-inline-start: 2.25em;
+            }
+        }
+        &:has(.sd-avatar--xx-large) {
+            .sd-avatar--inline__text {
+                padding-inline-start: 2.25em;
+            }
+        }
+    }
+    &:not(.sd-avatar--inline--text-start) {
+        &:has(.sd-avatar--x-small) {
+            &:has(.sd-avatar__icon) {
+                .sd-avatar--inline__text {
+                    padding-inline-start: 0.5em;
+                }
+            }
+        }
+        &:has(.sd-avatar--small) {
+            &:has(.sd-avatar__icon) {
+                .sd-avatar--inline__text {
+                    padding-inline-start: 0.25em;
+                }
+            }
+        }
+    }
 }
