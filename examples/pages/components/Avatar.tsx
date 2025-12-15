@@ -380,7 +380,7 @@ export default class AvatarDoc extends React.PureComponent {
                         />
 
                         // With icon and Coverage status indicator
-                        <Avatar 
+                        <Avatar
                             displayName="Unassigned"
                             imageUrl={null}
                             initials={null}
@@ -388,7 +388,7 @@ export default class AvatarDoc extends React.PureComponent {
                             icon={{name: 'text', color: 'var(--sd-colour-state--assigned)'}}
                             statusDot={{color: 'var(--sd-colour-coverage-state--on-merit)'}}
                         />
-                        <Avatar 
+                        <Avatar
                             displayName="Unassigned"
                             imageUrl={null}
                             initials={null}
@@ -415,22 +415,21 @@ export default class AvatarDoc extends React.PureComponent {
                                     imageUrl="/avatar.jpg"
                                     initials="JL"
                                     displayName="Jeffrey Lebowski"
-                                    nameDisplay="tooltip"
+                                    nameDisplay={{kind: 'tooltip'}}
                                 />
                                 <Avatar
                                     size="large"
                                     imageUrl={null}
                                     initials="WS"
                                     displayName="Walter Sobchak"
-                                    nameDisplay="tooltip"
+                                    nameDisplay={{kind: 'tooltip'}}
                                 />
                                 <Avatar
                                     size="large"
                                     imageUrl="/avatar-3.jpg"
                                     initials="TD"
                                     displayName="Theodore Donald Kerabatsos"
-                                    nameDisplay="tooltip"
-                                    tooltip="Donny - Professional Bowler"
+                                    nameDisplay={{kind: 'tooltip', content: 'Donny - Professional Bowler'}}
                                 />
                             </Container>
 
@@ -441,14 +440,14 @@ export default class AvatarDoc extends React.PureComponent {
                                     imageUrl="/avatar.jpg"
                                     initials="JL"
                                     displayName="Jeffrey Lebowski"
-                                    nameDisplay="none"
+                                    nameDisplay={{kind: 'none'}}
                                 />
                                 <Avatar
                                     size="large"
                                     imageUrl={null}
                                     initials="WS"
                                     displayName="Walter Sobchak"
-                                    nameDisplay="none"
+                                    nameDisplay={{kind: 'none'}}
                                 />
                             </Container>
 
@@ -459,42 +458,42 @@ export default class AvatarDoc extends React.PureComponent {
                                     imageUrl={null}
                                     initials="KL"
                                     displayName="Kurt Lebowski"
-                                    nameDisplay="inline"
+                                    nameDisplay={{kind: 'inline'}}
                                 />
                                 <Avatar
                                     size="small"
                                     imageUrl="/avatar.jpg"
                                     initials="JL"
                                     displayName="Jeffrey Lebowski"
-                                    nameDisplay="inline"
+                                    nameDisplay={{kind: 'inline'}}
                                 />
                                 <Avatar
                                     size="medium"
                                     imageUrl={null}
                                     initials="WS"
                                     displayName="Walter Sobchak"
-                                    nameDisplay="inline"
+                                    nameDisplay={{kind: 'inline'}}
                                 />
                                 <Avatar
                                     size="large"
                                     imageUrl="/avatar-3.jpg"
                                     initials="JJB"
                                     displayName="Jean-Jacques Burnel"
-                                    nameDisplay="inline"
+                                    nameDisplay={{kind: 'inline'}}
                                 />
                                 <Avatar
                                     size="x-large"
                                     imageUrl="/avatar-4.jpg"
                                     initials="DH"
                                     displayName="Deborah Ann Harry"
-                                    nameDisplay="inline"
+                                    nameDisplay={{kind: 'inline'}}
                                 />
                                 <Avatar
                                     size="xx-large"
                                     imageUrl="/avatar-5.jpg"
                                     initials="CW"
                                     displayName="Christopher George Latore Wallace"
-                                    nameDisplay="inline"
+                                    nameDisplay={{kind: 'inline'}}
                                 />
                             </Container>
                         </div>
@@ -555,76 +554,62 @@ export default class AvatarDoc extends React.PureComponent {
                                 imageUrl="/avatar.jpg"
                                 initials="JL"
                                 displayName="Jeffrey Lebowski"
-                                nameDisplay="tooltip"
-                                tooltipFlow="top"
+                                nameDisplay={{kind: 'tooltip', placement: 'top'}}
                             />
                             <Avatar
                                 size="large"
                                 imageUrl="/avatar-3.jpg"
                                 initials="JJB"
                                 displayName="Jean-Jacques Burnel"
-                                nameDisplay="tooltip"
-                                tooltipFlow="right"
+                                nameDisplay={{kind: 'tooltip', placement: 'right'}}
                             />
                             <Avatar
                                 size="large"
                                 imageUrl="/avatar-4.jpg"
                                 initials="DH"
                                 displayName="Deborah Ann Harry"
-                                nameDisplay="tooltip"
-                                tooltipFlow="down"
+                                nameDisplay={{kind: 'tooltip', placement: 'bottom'}}
                             />
                             <Avatar
                                 size="large"
                                 imageUrl="/avatar-5.jpg"
                                 initials="CW"
                                 displayName="Christopher George Latore Wallace"
-                                nameDisplay="tooltip"
-                                tooltipFlow="left"
+                                nameDisplay={{kind: 'tooltip', placement: 'left'}}
                             />
                         </Container>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                         {`
-                        // Top position (default)
-                        <Avatar
-                            size="large"
-                            imageUrl="/avatar.jpg"
-                            initials="JL"
-                            displayName="Jeffrey Lebowski"
-                            nameDisplay="tooltip"
-                            tooltipFlow="top"
-                        />
-
-                        // Right position
-                        <Avatar
-                            size="large"
-                            imageUrl="/avatar-3.jpg"
-                            initials="JJB"
-                            displayName="Jean-Jacques Burnel"
-                            nameDisplay="tooltip"
-                            tooltipFlow="right"
-                        />
-
-                        // Down position
-                        <Avatar
-                            size="large"
-                            imageUrl="/avatar-4.jpg"
-                            initials="DH"
-                            displayName="Deborah Ann Harry"
-                            nameDisplay="tooltip"
-                            tooltipFlow="down"
-                        />
-
-                        // Left position
-                        <Avatar
-                            size="large"
-                            imageUrl="/avatar-5.jpg"
-                            initials="CW"
-                            displayName="Christopher George Latore Wallace"
-                            nameDisplay="tooltip"
-                            tooltipFlow="left"
-                        />
+                            // Top position (default)
+                            <Avatar
+                                size="large"
+                                imageUrl="/avatar.jpg"
+                                initials="JL"
+                                displayName="Jeffrey Lebowski"
+                                nameDisplay={{kind: "tooltip", placement: 'top'}}
+                            />
+                            <Avatar
+                                size="large"
+                                imageUrl="/avatar-3.jpg"
+                                initials="JJB"
+                                displayName="Jean-Jacques Burnel"
+                                nameDisplay={{kind: "tooltip", placement: 'right'}}
+                            />
+                            <Avatar
+                                size="large"
+                                imageUrl="/avatar-4.jpg"
+                                initials="DH"
+                                displayName="Deborah Ann Harry"
+                                nameDisplay={{kind: "tooltip", placement: 'bottom'}}
+                            />
+                            <Avatar
+                                size="large"
+                                imageUrl="/avatar-5.jpg"
+                                initials="CW"
+                                displayName="Christopher George Latore Wallace"
+                                nameDisplay={{kind: "tooltip", placement: 'left'}}
+                            />
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -645,23 +630,21 @@ export default class AvatarDoc extends React.PureComponent {
                                     imageUrl="/avatar.jpg"
                                     initials="JL"
                                     displayName="Jeffrey Lebowski"
-                                    nameDisplay="inline"
-                                    textPosition="end"
+                                    nameDisplay={{kind: 'inline', placement: 'end'}}
                                 />
                                 <Avatar
                                     size="medium"
                                     imageUrl={null}
                                     initials="WS"
                                     displayName="Walter Sobchak"
-                                    nameDisplay="inline"
-                                    textPosition="end"
+                                    nameDisplay={{kind: 'inline', placement: 'end'}}
                                 />
                                 <Avatar
                                     size="large"
                                     imageUrl="/avatar-3.jpg"
                                     initials="JJB"
                                     displayName="Jean-Jacques Burnel"
-                                    nameDisplay="inline"
+                                    nameDisplay={{kind: 'inline'}}
                                 />
                             </Container>
 
@@ -672,24 +655,21 @@ export default class AvatarDoc extends React.PureComponent {
                                     imageUrl="/avatar.jpg"
                                     initials="JL"
                                     displayName="Jeffrey Lebowski"
-                                    nameDisplay="inline"
-                                    textPosition="start"
+                                    nameDisplay={{kind: 'inline', placement: 'start'}}
                                 />
                                 <Avatar
                                     size="medium"
                                     imageUrl={null}
                                     initials="WS"
                                     displayName="Walter Sobchak"
-                                    nameDisplay="inline"
-                                    textPosition="start"
+                                    nameDisplay={{kind: 'inline', placement: 'start'}}
                                 />
                                 <Avatar
                                     size="large"
                                     imageUrl="/avatar-3.jpg"
                                     initials="JJB"
                                     displayName="Jean-Jacques Burnel"
-                                    nameDisplay="inline"
-                                    textPosition="start"
+                                    nameDisplay={{kind: 'inline', placement: 'start'}}
                                 />
                             </Container>
                         </div>
@@ -702,17 +682,16 @@ export default class AvatarDoc extends React.PureComponent {
                             imageUrl="/avatar.jpg"
                             initials="JL"
                             displayName="Jeffrey Lebowski"
-                            nameDisplay="inline"
-                            textPosition="end"
+                            nameDisplay={{kind: "inline", placement: "end"}}
                         />
-                        
+
                         // Omitting textPosition defaults to "end" (text after avatar)
                         <Avatar
                             size="medium"
                             imageUrl="/avatar-3.jpg"
                             initials="JJB"
                             displayName="Jean-Jacques Burnel"
-                            nameDisplay="inline"
+                            nameDisplay={{kind: "inline"}}
                         />
 
                         // Text Position: Start (text before avatar)
@@ -721,72 +700,7 @@ export default class AvatarDoc extends React.PureComponent {
                             imageUrl={null}
                             initials="WS"
                             displayName="Walter Sobchak"
-                            nameDisplay="inline"
-                            textPosition="start"
-                        />
-                    `}
-                    </Markup.ReactMarkupCode>
-                </Markup.ReactMarkup>
-
-                <h3 className="docs-page__h3">Using with External Configuration</h3>
-                <p className="docs-page__paragraph">
-                    The <code>nameDisplay</code> and <code>textPosition</code> props can be controlled from the
-                    consuming application's external configuration. This allows different customers to have different
-                    default behaviors without modifying the framework.
-                </p>
-                <Markup.ReactMarkup>
-                    <Markup.ReactMarkupPreview>
-                        {(() => {
-                            // Simulate external config from consuming application
-                            const externalConfig = {
-                                avatarNameDisplay: 'inline' as const,
-                                textPosition: 'start' as const,
-                            };
-
-                            return (
-                                <Container gap="medium" className="sd-margin-b--3" direction="row">
-                                    <Avatar
-                                        size="medium"
-                                        imageUrl="/avatar.jpg"
-                                        initials="JL"
-                                        displayName="Jeffrey Lebowski"
-                                        nameDisplay={externalConfig.avatarNameDisplay}
-                                    />
-                                    <Avatar
-                                        size="medium"
-                                        imageUrl={null}
-                                        initials="WS"
-                                        displayName="Walter Sobchak"
-                                        textPosition={externalConfig.textPosition}
-                                        nameDisplay={externalConfig.avatarNameDisplay}
-                                    />
-                                </Container>
-                            );
-                        })()}
-                    </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>
-                        {`
-                        // Example: Reading from external config in your application
-                        const appConfig = {
-                            avatarNameDisplay: 'inline' // or 'tooltip' or 'none'
-                            textPosition: 'start' // or 'end'
-                        };
-
-                        // Pass config value to individual avatars
-                        <Avatar
-                            size="medium"
-                            imageUrl="/avatar.jpg"
-                            initials="JL"
-                            displayName="Jeffrey Lebowski"
-                            nameDisplay={appConfig.avatarNameDisplay}
-                            textPosition={appConfig.textPosition}
-                        />
-                        <Avatar
-                            size="medium"
-                            imageUrl={null}
-                            initials="WS"
-                            displayName="Walter Sobchak"
-                            nameDisplay={externalConfig.avatarNameDisplay}
+                            nameDisplay={{kind: "inline", placement: "start"}}
                         />
                     `}
                     </Markup.ReactMarkupCode>
