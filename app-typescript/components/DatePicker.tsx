@@ -337,6 +337,13 @@ export class DatePickerISO extends React.PureComponent<IDatePickerISO> {
     }
 }
 
+function getOptionLabel(options: Array<{id: string; label?: string}>, id: string | null | undefined): string {
+    if (id == null) {
+        return '';
+    }
+    return options.find((option) => option.id === id)?.label ?? id;
+}
+
 const MonthNavigator = ({
     value,
     options,
@@ -346,7 +353,7 @@ const MonthNavigator = ({
         kind="synchronous"
         value={[value]}
         getOptions={() => options.map((option) => ({value: option.id}))}
-        getLabel={(option) => options[parseInt(option, 10)].label}
+        getLabel={(optionId) => getOptionLabel(options, optionId)}
         getId={(option) => option}
         onChange={(selected) => {
             onChange(selected[0]);
@@ -355,7 +362,7 @@ const MonthNavigator = ({
         labelHidden
         valueTemplate={(item) => (
             <div className="sd-datepicker__navigator-value sd-datepicker__navigator-month">
-                <div>{options[parseInt(item, 10)].label}</div>
+                <div>{getOptionLabel(options, item)}</div>
                 <Icon name="chevron-down-thin" />
             </div>
         )}
