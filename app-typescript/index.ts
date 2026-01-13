@@ -5,6 +5,7 @@ export {HelloWorld} from './components/HelloWorld';
 export {Button} from './components/Button';
 export {HeadlessButton} from './components/HeadlessButton';
 export {Input} from './components/Input';
+export {CopyableTextBox} from './components/CopyableTextBox';
 export {Select, Option} from './components/Select';
 export {SelectWithTemplate} from './components/SelectWithTemplate';
 export {WithPagination} from './components/WithPagination';

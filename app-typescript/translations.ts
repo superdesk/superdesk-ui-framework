@@ -6,7 +6,10 @@
 export const translations = {
     Close: 'Close',
     Search: 'Search',
+    Copy: 'Copy',
+    'Copied to clipboard': 'Copied to clipboard',
     'No results found': 'No results found',
+    "Couldn't copy": "Couldn't copy",
 };
 
 export function setTranslations(_translations: typeof translations) {

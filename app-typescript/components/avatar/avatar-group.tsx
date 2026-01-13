@@ -1,13 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import {Avatar, IPropsAvatar} from './avatar';
-import {AvatarWrapper} from './avatar-wrapper';
+import {Avatar, IAvatarWithTooltip, IPropsAvatar} from './avatar';
 import {AvatarContentNumber} from './avatar-number';
 import {AvatarPlaceholder, IPropsAvatarPlaceholder} from './avatar-placeholder';
-import {Spacer} from '@sourcefabric/common';
 import {WithPopover} from '../WithPopover';
 
-export type IAvatarInGroup = Omit<IPropsAvatar, 'size'>;
+export type IAvatarInGroup = {nameDisplay?: IAvatarWithTooltip} & Omit<IPropsAvatar, 'size' | 'nameDisplay'>;
 export type IAvatarPlaceholderInGroup = Omit<IPropsAvatarPlaceholder, 'size'>;
 
 export type IAvatarGroupItem = IAvatarInGroup | IAvatarPlaceholderInGroup;
@@ -81,32 +79,32 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
                     <div className="avatar-popup">
                         {this.props.items.map((item, index) => {
                             return someHaveDisplayName ? (
-                                <Spacer h alignItems="center" gap="16" noGrow key={index}>
-                                    {isAvatar(item) && item.displayName}
-
+                                <div className="d-flex items-center gap-1" key={index}>
                                     {isAvatar(item) ? (
                                         <Avatar
-                                            size="small"
+                                            size="medium"
                                             imageUrl={item.imageUrl}
                                             initials={item.initials}
                                             displayName={item.displayName}
                                             icon={item.icon}
                                             statusDot={item.statusDot}
+                                            nameDisplay={{kind: 'none'}}
                                         />
                                     ) : (
                                         <AvatarPlaceholder
                                             kind="plus-button"
-                                            size="small"
+                                            size="medium"
                                             icon={item.icon}
                                             onClick={item.onClick}
                                         />
                                     )}
-                                </Spacer>
+                                    {isAvatar(item) && item.displayName}
+                                </div>
                             ) : (
                                 <div>
                                     <AvatarPlaceholder
                                         kind="plus-button"
-                                        size="small"
+                                        size="medium"
                                         icon={item.icon}
                                         onClick={isAvatar(item) ? undefined : item.onClick}
                                         key={index}
@@ -129,7 +127,14 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
                     >
                         {items.slice(0, max).map((item, index) => {
                             if (isAvatar(item)) {
-                                return <Avatar {...item} key={index} size={size} />;
+                                return (
+                                    <Avatar
+                                        {...item}
+                                        key={index}
+                                        size={size}
+                                        nameDisplay={item.nameDisplay ?? {kind: 'none'}}
+                                    />
+                                );
                             } else {
                                 return <AvatarPlaceholder {...item} key={index} size={this.props.size} />;
                             }
@@ -137,9 +142,14 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
 
                         {itemsOverLimit > 0 && (
                             <PlusButtonWrapper onToggle={onToggle}>
-                                <AvatarWrapper size={size}>
-                                    <AvatarContentNumber number={`${itemsOverLimit}`} />
-                                </AvatarWrapper>
+                                <Avatar
+                                    size={size}
+                                    imageUrl={null}
+                                    displayName=""
+                                    initials={null}
+                                    customContent={<AvatarContentNumber number={`${itemsOverLimit}`} />}
+                                    nameDisplay={{kind: 'none'}}
+                                />
                             </PlusButtonWrapper>
                         )}
                     </div>

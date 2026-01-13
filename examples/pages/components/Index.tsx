@@ -1,11 +1,12 @@
 import * as React from 'react';
 
 import {ReactNav, ReactDefault} from '../../js/react';
-import {ButtonGroup, Button, NavButton, Dropdown, IllustrationButton} from '../../../app-typescript/index';
+import {Dropdown} from '../../../app-typescript/index';
 
 import {Switch, Route} from 'react-router-dom';
 
 import InputsDoc from './Inputs';
+import CopyableTextBoxDoc from './CopyableTextBox';
 import AutocompleteDoc from './Autocomplete';
 import SelectsDoc from './Selects';
 import ButtonsDoc from './Buttons';
@@ -318,6 +319,10 @@ const pages: IPages = {
             inputs: {
                 name: 'Inputs',
                 component: InputsDoc,
+            },
+            'copyable-text-box': {
+                name: 'Copyable Text Box',
+                component: CopyableTextBoxDoc,
             },
             autocomplete: {
                 name: 'Autocomplete',

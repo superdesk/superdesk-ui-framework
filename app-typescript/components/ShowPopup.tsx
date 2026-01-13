@@ -186,6 +186,7 @@ export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> 
             <>
                 {ReactDOM.createPortal(
                     <div
+                        className="sd-popup-positioner"
                         ref={(el) => {
                             this.wrapperEl = el;
                         }}

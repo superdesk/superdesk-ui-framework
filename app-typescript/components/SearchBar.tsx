@@ -147,7 +147,7 @@ export const SearchBar = forwardRef<{focus: () => void; search: () => void}, IPr
                     <Icon name="remove-sign" />
                 </button>
             )}
-            {!props.hideSearchButton && (
+            {!props.hideSearchButton && value && !props.searchOptions?.searchOnType && (
                 <button
                     id="sd-searchbar__search-btn"
                     className={searchButtonClasses}

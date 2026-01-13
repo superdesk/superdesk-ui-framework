@@ -423,3 +423,9 @@
         }
     }
 }
+
+.sd-popup-positioner {
+	&:has(.tooltip) {
+		pointer-events: none;
+	}
+}
