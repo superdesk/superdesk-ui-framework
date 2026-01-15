@@ -1,10 +1,20 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const path = require('path');
+
+// Shared css-loader config - don't process absolute URLs since they reference files copied to dist
+const cssLoaderConfig = {
+    loader: 'css-loader',
+    options: {
+        url: {
+            filter: (url) => !url.startsWith('/'),
+        },
+    },
+};
 
 const config = {
     entry: {
@@ -53,23 +63,19 @@ const config = {
             },
             {
                 test: /\.scss$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader: 'css-loader',
-                    },
-                    {
-                        loader: 'sass-loader',
-                    },
-                ],
+                use: [MiniCssExtractPlugin.loader, cssLoaderConfig, 'sass-loader'],
             },
             {
                 test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader'],
+                use: [MiniCssExtractPlugin.loader, cssLoaderConfig],
             },
             {
                 test: /\.html$/,
-                loader: 'html-loader',
+                type: 'javascript/auto',
+                loader: 'raw-loader',
+                options: {
+                    esModule: false,
+                },
             },
             {
                 test: /\.(png|gif|jpeg|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
@@ -93,8 +99,8 @@ const config = {
 
         new CopyWebpackPlugin({
             patterns: [
-                { from: 'examples/img/', to: '' },
-                { from: 'examples/pages/', to: '' },
+                {from: 'examples/img/', to: ''},
+                {from: 'examples/pages/', to: ''},
             ],
         }),
 
@@ -110,19 +116,7 @@ const config = {
         }),
     ],
 
-    optimization: {
-        splitChunks: {
-            chunks: 'all',
-            cacheGroups: {
-                vendor: {
-                    test: /[\\/]node_modules[\\/]/,
-                    name: 'vendor',
-                    priority: 10,
-                },
-            },
-        },
-    },
-
+    // Webpack 5 filesystem cache for faster rebuilds
     cache: {
         type: 'filesystem',
         buildDependencies: {

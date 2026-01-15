@@ -1,5 +1,6 @@
 /* eslint-disable */
 
+import 'angular';
 import 'angular-route';
 import 'code-prettify/src/prettify';
 import 'code-prettify/styles/sons-of-obsidian.css';
