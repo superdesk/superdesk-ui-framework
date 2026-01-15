@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -8,7 +8,6 @@ const path = require('path');
 
 const config = {
     entry: {
-        vendor: './app/vendor.js',
         examples: './examples/index.js',
         'superdesk-ui': './app/index.js',
     },
@@ -74,25 +73,30 @@ const config = {
             },
             {
                 test: /\.(png|gif|jpeg|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-                loader: 'file-loader',
-                options: {
-                    name: '[name].[ext]',
-                    esModule: false,
+                type: 'asset/resource',
+                generator: {
+                    filename: '[name][ext]',
                 },
             },
         ],
     },
 
     plugins: [
-        new CleanWebpackPlugin(['dist', 'react']),
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: ['dist', 'react'],
+        }),
 
         new HtmlWebpackPlugin({
             template: 'examples/index.html',
-            chunks: ['vendor', 'examples', 'superdesk-ui'],
-            chunksSortMode: 'manual',
+            chunks: ['examples', 'superdesk-ui'],
         }),
 
-        new CopyWebpackPlugin([{from: 'examples/img/', flatten: true}, {from: 'examples/pages/'}]),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'examples/img/', to: '' },
+                { from: 'examples/pages/', to: '' },
+            ],
+        }),
 
         new MiniCssExtractPlugin({
             filename: '[name].bundle.css',
@@ -105,6 +109,26 @@ const config = {
             'window.jQuery': 'jquery',
         }),
     ],
+
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendor',
+                    priority: 10,
+                },
+            },
+        },
+    },
+
+    cache: {
+        type: 'filesystem',
+        buildDependencies: {
+            config: [__filename],
+        },
+    },
 };
 
 module.exports = config;
