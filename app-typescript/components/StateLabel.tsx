@@ -1,6 +1,24 @@
 import * as React from 'react';
 import {Label} from './Label';
 
+type StateType =
+    | 'draft'
+    | 'ingested'
+    | 'routed'
+    | 'fetched'
+    | 'submitted'
+    | 'in_progress'
+    | 'published'
+    | 'spiked'
+    | 'scheduled'
+    | 'corrected'
+    | 'killed'
+    | 'recalled'
+    | 'unpublished'
+    | 'correction'
+    | 'being_corrected'
+    | string;
+
 interface IStateColorConfig {
     type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'sd-green';
     color?: string;
@@ -8,13 +26,13 @@ interface IStateColorConfig {
 }
 
 interface IProps {
-    state: string;
+    state: StateType;
     text: string;
     onClick?: () => void;
     color?: string;
     noTransform?: boolean;
     size?: 'small' | 'normal' | 'large';
-    mappingOverride?: Record<string, IStateColorConfig>;
+    mappingOverride?: Partial<Record<StateType, IStateColorConfig>>;
 }
 
 export class StateLabel extends React.PureComponent<IProps> {
@@ -36,7 +54,7 @@ export class StateLabel extends React.PureComponent<IProps> {
         unpublished: {type: 'alert', style: 'hollow'},
     };
 
-    private getColorConfig(state: string): IStateColorConfig {
+    private getColorConfig(state: StateType): IStateColorConfig {
         const {mappingOverride} = this.props;
         const override = mappingOverride?.[state];
         const defaultConfig = this.defaultStateColorMap[state] || {type: 'default'};

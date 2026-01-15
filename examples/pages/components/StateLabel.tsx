@@ -104,7 +104,9 @@ export default class StateLabelDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Custom State Mapping</h3>
-                <p className="docs-page__paragraph">Override default state-to-color mapping for specific states.</p>
+                <p className="docs-page__paragraph">
+                    Override default state-to-color mapping or define custom states with their own colors and styles.
+                </p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className="docs-page__content-row">
@@ -118,10 +120,10 @@ export default class StateLabelDoc extends React.Component {
                                     }}
                                 />
                                 <StateLabel
-                                    state="published"
-                                    text="Published (Custom Highlight)"
+                                    state="archived"
+                                    text="Archived"
                                     mappingOverride={{
-                                        published: {type: 'highlight', style: 'filled'},
+                                        archived: {color: 'gray--500', style: 'hollow'},
                                     }}
                                 />
                             </div>
@@ -129,7 +131,10 @@ export default class StateLabelDoc extends React.Component {
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                         {`
-                        {/* Override single state mapping */}
+                        {/* Predefined state with default mapping */}
+                        <StateLabel state="draft" text="Draft (Default)" />
+
+                        {/* Override predefined state mapping */}
                         <StateLabel
                             state="draft"
                             text="Draft (Custom Alert)"
@@ -138,73 +143,7 @@ export default class StateLabelDoc extends React.Component {
                             }}
                         />
 
-                        {/* Override multiple state mappings */}
-                        <StateLabel
-                            state="published"
-                            text="Published (Custom)"
-                            mappingOverride={{
-                                draft: {type: 'alert'},
-                                published: {type: 'highlight', style: 'filled'}
-                            }}
-                        />
-
-                        {/* Override with custom color */}
-                        <StateLabel
-                            state="in_progress"
-                            text="In Progress (Custom Color)"
-                            mappingOverride={{
-                                in_progress: {color: 'blue--500', style: 'filled'}
-                            }}
-                        />
-                    `}
-                    </Markup.ReactMarkupCode>
-                </Markup.ReactMarkup>
-
-                <h3 className="docs-page__h3">Custom States</h3>
-                <p className="docs-page__paragraph">
-                    Support any custom state string with full mapping control. Define custom states with their own
-                    colors and styles.
-                </p>
-                <Markup.ReactMarkup>
-                    <Markup.ReactMarkupPreview>
-                        <div className="docs-page__content-row">
-                            <div style={{display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center'}}>
-                                <StateLabel
-                                    state="overthink"
-                                    text="Overthink"
-                                    mappingOverride={{
-                                        overthink: {type: 'highlight', style: 'filled'},
-                                    }}
-                                />
-                                <StateLabel
-                                    state="archived"
-                                    text="Archived"
-                                    mappingOverride={{
-                                        archived: {color: 'gray--500', style: 'hollow'},
-                                    }}
-                                />
-                                <StateLabel
-                                    state="custom_state"
-                                    text="Custom State"
-                                    mappingOverride={{
-                                        custom_state: {type: 'primary', style: 'filled'},
-                                    }}
-                                />
-                            </div>
-                        </div>
-                    </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>
-                        {`
-                        {/* Custom state with semantic type */}
-                        <StateLabel
-                            state="overthink"
-                            text="Overthink"
-                            mappingOverride={{
-                                overthink: {type: 'highlight', style: 'filled'}
-                            }}
-                        />
-
-                        {/* Custom state with custom color */}
+                        {/* Custom state with mapping */}
                         <StateLabel
                             state="archived"
                             text="Archived"
@@ -221,9 +160,9 @@ export default class StateLabelDoc extends React.Component {
                     <Prop
                         name="state"
                         isRequired={true}
-                        type="string"
+                        type="StateType"
                         default="/"
-                        description="The item state value. Supports predefined states (draft, published, etc.) or any custom state string"
+                        description="The item state value. One of 15 predefined states (draft, published, etc.) or any custom state string"
                     />
                     <Prop name="text" isRequired={true} type="string" default="/" description="Label text to display" />
                     <Prop name="onClick" isRequired={false} type="() => void" default="/" description="Click handler" />
@@ -251,9 +190,9 @@ export default class StateLabelDoc extends React.Component {
                     <Prop
                         name="mappingOverride"
                         isRequired={false}
-                        type="Record<string, IStateColorConfig>"
+                        type="Partial<Record<StateType, IStateColorConfig>>"
                         default="undefined"
-                        description="Override or define state-to-color mapping. Works with both predefined and custom states"
+                        description="Override or define state-to-color mapping. Works with predefined and custom states"
                     />
                 </PropsList>
             </section>
