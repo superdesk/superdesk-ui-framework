@@ -1,23 +1,6 @@
 import * as React from 'react';
 import {Label} from './Label';
 
-type StateType =
-    | 'draft'
-    | 'ingested'
-    | 'routed'
-    | 'fetched'
-    | 'submitted'
-    | 'in_progress'
-    | 'published'
-    | 'spiked'
-    | 'scheduled'
-    | 'corrected'
-    | 'killed'
-    | 'recalled'
-    | 'unpublished'
-    | 'correction'
-    | 'being_corrected';
-
 interface IStateColorConfig {
     type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'sd-green';
     color?: string;
@@ -25,17 +8,17 @@ interface IStateColorConfig {
 }
 
 interface IProps {
-    state: StateType;
+    state: string;
     text: string;
     onClick?: () => void;
     color?: string;
     noTransform?: boolean;
     size?: 'small' | 'normal' | 'large';
-    mappingOverride?: Partial<Record<StateType, IStateColorConfig>>;
+    mappingOverride?: Record<string, IStateColorConfig>;
 }
 
 export class StateLabel extends React.PureComponent<IProps> {
-    private stateColorMap: Record<StateType, IStateColorConfig> = {
+    private defaultStateColorMap: Record<string, IStateColorConfig> = {
         draft: {type: 'default', style: 'hollow'},
         ingested: {type: 'primary', style: 'hollow'},
         routed: {type: 'primary', style: 'hollow'},
@@ -53,10 +36,10 @@ export class StateLabel extends React.PureComponent<IProps> {
         unpublished: {type: 'alert', style: 'hollow'},
     };
 
-    private getColorConfig(state: StateType): IStateColorConfig {
+    private getColorConfig(state: string): IStateColorConfig {
         const {mappingOverride} = this.props;
         const override = mappingOverride?.[state];
-        const defaultConfig = this.stateColorMap[state] || {type: 'default'};
+        const defaultConfig = this.defaultStateColorMap[state] || {type: 'default'};
 
         return override ? {...defaultConfig, ...override} : defaultConfig;
     }
