@@ -31,6 +31,7 @@ interface IProps {
     color?: string;
     noTransform?: boolean;
     size?: 'small' | 'normal' | 'large';
+    mappingOverride?: Partial<Record<StateType, IStateColorConfig>>;
 }
 
 export class StateLabel extends React.PureComponent<IProps> {
@@ -53,7 +54,11 @@ export class StateLabel extends React.PureComponent<IProps> {
     };
 
     private getColorConfig(state: StateType): IStateColorConfig {
-        return this.stateColorMap[state] || {type: 'default'};
+        const {mappingOverride} = this.props;
+        const override = mappingOverride?.[state];
+        const defaultConfig = this.stateColorMap[state] || {type: 'default'};
+
+        return override ? {...defaultConfig, ...override} : defaultConfig;
     }
 
     render() {
