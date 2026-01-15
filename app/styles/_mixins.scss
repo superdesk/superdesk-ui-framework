@@ -1,7 +1,12 @@
 @use "sass:math";
-@use 'variables';
+@use "variables";
 @use "variables/colors";
 @use "variables/dimensions";
+
+// Re-export variables for global availability when this file is imported
+@forward "variables";
+@forward "variables/colors";
+@forward "variables/dimensions";
 
 @mixin clearfix {
     *zoom: 1;

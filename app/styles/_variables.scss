@@ -1,4 +1,4 @@
-@use 'variables/dimensions';
-@use 'variables/typography';
-@use 'variables/colors';
-@use 'variables/form-elements';
+@forward 'variables/dimensions';
+@forward 'variables/typography';
+@forward 'variables/colors';
+@forward 'variables/form-elements';
