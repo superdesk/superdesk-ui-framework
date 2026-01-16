@@ -1,6 +1,9 @@
 import type {Meta, StoryObj} from '@storybook/react';
 import {Button} from './Button';
 
+// No-op function for story examples
+const noop = () => undefined;
+
 const meta = {
     title: 'Components/Button',
     component: Button,
@@ -139,7 +142,7 @@ export const Playground: Story = {
     args: {
         text: 'Button Text',
         type: 'primary',
-        onClick: () => console.info('Button clicked'),
+        onClick: noop,
     },
 };
 
@@ -147,9 +150,9 @@ export const Playground: Story = {
 export const RecommendedTypes: Story = {
     render: () => (
         <div style={{display: 'flex', gap: '12px', flexWrap: 'wrap'}}>
-            <Button text="Primary" type="primary" onClick={() => {}} />
-            <Button text="Secondary" type="secondary" onClick={() => {}} />
-            <Button text="Tertiary" type="tertiary" onClick={() => {}} />
+            <Button text="Primary" type="primary" onClick={noop} />
+            <Button text="Secondary" type="secondary" onClick={noop} />
+            <Button text="Tertiary" type="tertiary" onClick={noop} />
         </div>
     ),
     parameters: {
@@ -167,14 +170,14 @@ export const Sizes: Story = {
     render: () => (
         <div style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
             <div style={{display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap'}}>
-                <Button text="Small" type="primary" size="small" onClick={() => {}} />
-                <Button text="Normal" type="primary" onClick={() => {}} />
-                <Button text="Large" type="primary" size="large" onClick={() => {}} />
+                <Button text="Small" type="primary" size="small" onClick={noop} />
+                <Button text="Normal" type="primary" onClick={noop} />
+                <Button text="Large" type="primary" size="large" onClick={noop} />
             </div>
             <div style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
-                <Button text="Large expanded button" expand={true} size="large" type="primary" onClick={() => {}} />
-                <Button text="Normal expanded button" expand={true} type="primary" onClick={() => {}} />
-                <Button text="Small expanded button" expand={true} size="small" type="primary" onClick={() => {}} />
+                <Button text="Large expanded button" expand={true} size="large" type="primary" onClick={noop} />
+                <Button text="Normal expanded button" expand={true} type="primary" onClick={noop} />
+                <Button text="Small expanded button" expand={true} size="small" type="primary" onClick={noop} />
             </div>
         </div>
     ),
@@ -192,9 +195,9 @@ export const Sizes: Story = {
 export const States: Story = {
     render: () => (
         <div style={{display: 'flex', gap: '12px', flexWrap: 'wrap'}}>
-            <Button text="Normal" type="primary" onClick={() => {}} />
-            <Button text="Disabled" type="primary" disabled onClick={() => {}} />
-            <Button text="Loading" type="primary" isLoading onClick={() => {}} />
+            <Button text="Normal" type="primary" onClick={noop} />
+            <Button text="Disabled" type="primary" disabled onClick={noop} />
+            <Button text="Loading" type="primary" isLoading onClick={noop} />
         </div>
     ),
     parameters: {
@@ -214,18 +217,18 @@ export const WithIcons: Story = {
             <div>
                 <div style={{marginBottom: '8px', fontSize: '14px', fontWeight: 600}}>Default size</div>
                 <div style={{display: 'flex', gap: '12px', flexWrap: 'wrap'}}>
-                    <Button text="Primary" type="primary" icon="plus-sign" onClick={() => {}} />
-                    <Button text="Secondary" type="secondary" icon="info-sign" onClick={() => {}} />
-                    <Button text="Tertiary" type="tertiary" icon="info-sign" onClick={() => {}} />
+                    <Button text="Primary" type="primary" icon="plus-sign" onClick={noop} />
+                    <Button text="Secondary" type="secondary" icon="info-sign" onClick={noop} />
+                    <Button text="Tertiary" type="tertiary" icon="info-sign" onClick={noop} />
                 </div>
             </div>
             <div>
                 <div style={{marginBottom: '8px', fontSize: '14px', fontWeight: 600}}>Large and small</div>
                 <div style={{display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center'}}>
-                    <Button text="Primary large" type="primary" icon="plus-sign" size="large" onClick={() => {}} />
-                    <Button text="Secondary large" type="secondary" icon="info-sign" size="large" onClick={() => {}} />
-                    <Button text="Primary small" type="primary" icon="plus-sign" size="small" onClick={() => {}} />
-                    <Button text="Tertiary small" type="tertiary" icon="info-sign" size="small" onClick={() => {}} />
+                    <Button text="Primary large" type="primary" icon="plus-sign" size="large" onClick={noop} />
+                    <Button text="Secondary large" type="secondary" icon="info-sign" size="large" onClick={noop} />
+                    <Button text="Primary small" type="primary" icon="plus-sign" size="small" onClick={noop} />
+                    <Button text="Tertiary small" type="tertiary" icon="info-sign" size="small" onClick={noop} />
                 </div>
             </div>
         </div>
@@ -249,22 +252,22 @@ export const IconOnly: Story = {
                     Square (large, default, small)
                 </div>
                 <div style={{display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center'}}>
-                    <Button type="primary" icon="plus-sign" text="plus-sign" size="large" iconOnly onClick={() => {}} />
+                    <Button type="primary" icon="plus-sign" text="plus-sign" size="large" iconOnly onClick={noop} />
                     <Button
                         type="secondary"
                         icon="exclamation-sign"
                         text="exclamation-sign"
                         size="large"
                         iconOnly
-                        onClick={() => {}}
+                        onClick={noop}
                     />
-                    <Button type="tertiary" icon="bell" text="bell" size="large" iconOnly onClick={() => {}} />
-                    <Button type="primary" icon="plus-sign" text="plus-sign" iconOnly onClick={() => {}} />
-                    <Button type="secondary" icon="info-sign" text="info-sign" iconOnly onClick={() => {}} />
-                    <Button type="tertiary" icon="ok" text="ok" iconOnly onClick={() => {}} />
-                    <Button type="primary" icon="plus-sign" text="plus-sign" size="small" iconOnly onClick={() => {}} />
-                    <Button type="secondary" icon="calendar" text="calendar" size="small" iconOnly onClick={() => {}} />
-                    <Button type="tertiary" icon="refresh" text="refresh" size="small" iconOnly onClick={() => {}} />
+                    <Button type="tertiary" icon="bell" text="bell" size="large" iconOnly onClick={noop} />
+                    <Button type="primary" icon="plus-sign" text="plus-sign" iconOnly onClick={noop} />
+                    <Button type="secondary" icon="info-sign" text="info-sign" iconOnly onClick={noop} />
+                    <Button type="tertiary" icon="ok" text="ok" iconOnly onClick={noop} />
+                    <Button type="primary" icon="plus-sign" text="plus-sign" size="small" iconOnly onClick={noop} />
+                    <Button type="secondary" icon="calendar" text="calendar" size="small" iconOnly onClick={noop} />
+                    <Button type="tertiary" icon="refresh" text="refresh" size="small" iconOnly onClick={noop} />
                 </div>
             </div>
             <div>
@@ -279,7 +282,7 @@ export const IconOnly: Story = {
                         size="large"
                         shape="round"
                         iconOnly
-                        onClick={() => {}}
+                        onClick={noop}
                     />
                     <Button
                         type="secondary"
@@ -288,7 +291,7 @@ export const IconOnly: Story = {
                         size="large"
                         shape="round"
                         iconOnly
-                        onClick={() => {}}
+                        onClick={noop}
                     />
                     <Button
                         type="tertiary"
@@ -297,25 +300,11 @@ export const IconOnly: Story = {
                         size="large"
                         shape="round"
                         iconOnly
-                        onClick={() => {}}
+                        onClick={noop}
                     />
-                    <Button
-                        type="primary"
-                        icon="plus-large"
-                        text="plus-large"
-                        shape="round"
-                        iconOnly
-                        onClick={() => {}}
-                    />
-                    <Button
-                        type="secondary"
-                        icon="info-sign"
-                        text="info-sign"
-                        shape="round"
-                        iconOnly
-                        onClick={() => {}}
-                    />
-                    <Button type="tertiary" icon="ok" text="ok" shape="round" iconOnly onClick={() => {}} />
+                    <Button type="primary" icon="plus-large" text="plus-large" shape="round" iconOnly onClick={noop} />
+                    <Button type="secondary" icon="info-sign" text="info-sign" shape="round" iconOnly onClick={noop} />
+                    <Button type="tertiary" icon="ok" text="ok" shape="round" iconOnly onClick={noop} />
                     <Button
                         type="primary"
                         icon="plus-large"
@@ -323,7 +312,7 @@ export const IconOnly: Story = {
                         size="small"
                         shape="round"
                         iconOnly
-                        onClick={() => {}}
+                        onClick={noop}
                     />
                     <Button
                         type="secondary"
@@ -332,7 +321,7 @@ export const IconOnly: Story = {
                         size="small"
                         shape="round"
                         iconOnly
-                        onClick={() => {}}
+                        onClick={noop}
                     />
                     <Button
                         type="tertiary"
@@ -341,7 +330,7 @@ export const IconOnly: Story = {
                         size="small"
                         shape="round"
                         iconOnly
-                        onClick={() => {}}
+                        onClick={noop}
                     />
                 </div>
             </div>

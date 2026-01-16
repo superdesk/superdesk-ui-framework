@@ -57,16 +57,19 @@ npm run copy-storybook
 #### Accessing Storybook
 
 **Development mode** (npm start):
+
 - Main docs: http://localhost:9100/
 - Navigate to Storybook section in the main navigation
 - Or access directly: http://localhost:9100/storybook/index.html
 
 **Standalone mode** (npm run storybook):
+
 - http://localhost:6006/
 
 #### Integrated Deployment
 
 Storybook is fully integrated with the main documentation site:
+
 - `npm run build` automatically builds and copies Storybook to `dist/storybook/`
 - Accessible as a 5th section in the main navigation
 - Opens in a new tab, keeping main docs accessible
