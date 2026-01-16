@@ -166,7 +166,7 @@ export const RecommendedTypes = {
                 story: 'These are the recommended button types for Superdesk applications.',
             },
         },
-    }
+    },
 } satisfies RenderStory;
 
 // 3. Sizes
