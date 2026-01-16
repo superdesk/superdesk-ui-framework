@@ -21,7 +21,7 @@
     "scripts": {
         "start": "webpack-dev-server --config tasks/webpack.dev.js",
         "watch": "webpack --watch --config tasks/webpack.prod.js & tsc --watch",
-        "build": "tsc -p tsconfig.json --noEmit && webpack --config tasks/webpack.prod.js && tsc",
+        "build": "tsc -p tsconfig.json --noEmit && webpack --config tasks/webpack.prod.js && tsc && npm run build-storybook && npm run copy-storybook",
         "build-ui": "webpack && tsc && npm run lint",
         "playground-lint": "tsc -p examples/pages/playgrounds/react-playgrounds --noEmit",
         "format-code": "npx prettier . --write",
@@ -31,7 +31,8 @@
         "unit-test": "mocha",
         "debug-unit-tests": "mocha --inspect-brk",
         "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build",
+        "copy-storybook": "mkdir -p dist/storybook && cp -r storybook-static/* dist/storybook/"
     },
     "devDependencies": {
         "@storybook/addon-a11y": "^10.1.11",

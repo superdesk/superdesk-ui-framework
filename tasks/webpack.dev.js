@@ -20,6 +20,10 @@ module.exports = merge(webpackConfig, {
                 directory: require('path').join(__dirname, '../examples/img/guidelines'),
                 publicPath: '/',
             },
+            {
+                directory: require('path').join(__dirname, '../storybook-static'),
+                publicPath: '/storybook',
+            },
         ],
     },
 });
