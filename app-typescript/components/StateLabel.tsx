@@ -25,6 +25,24 @@ interface IStateColorConfig {
     style?: 'filled' | 'hollow';
 }
 
+const DEFAULT_STATE_COLOR_MAP: Record<string, IStateColorConfig> = {
+    draft: {type: 'default', style: 'hollow'},
+    ingested: {type: 'primary', style: 'hollow'},
+    routed: {type: 'primary', style: 'hollow'},
+    fetched: {type: 'primary', style: 'hollow'},
+    submitted: {type: 'warning', style: 'hollow'},
+    in_progress: {type: 'warning', style: 'hollow'},
+    published: {type: 'success', style: 'hollow'},
+    spiked: {type: 'alert', style: 'hollow'},
+    recalled: {type: 'alert', style: 'hollow'},
+    killed: {type: 'alert', style: 'hollow'},
+    scheduled: {type: 'highlight', style: 'hollow'},
+    corrected: {type: 'sd-green', style: 'hollow'},
+    correction: {color: 'pink--500', style: 'filled'},
+    being_corrected: {color: 'pink--500', style: 'hollow'},
+    unpublished: {type: 'alert', style: 'hollow'},
+};
+
 interface IProps {
     state: StateType;
     text: string;
@@ -36,28 +54,10 @@ interface IProps {
 }
 
 export class StateLabel extends React.PureComponent<IProps> {
-    private defaultStateColorMap: Record<string, IStateColorConfig> = {
-        draft: {type: 'default', style: 'hollow'},
-        ingested: {type: 'primary', style: 'hollow'},
-        routed: {type: 'primary', style: 'hollow'},
-        fetched: {type: 'primary', style: 'hollow'},
-        submitted: {type: 'warning', style: 'hollow'},
-        in_progress: {type: 'warning', style: 'hollow'},
-        published: {type: 'success', style: 'hollow'},
-        spiked: {type: 'alert', style: 'hollow'},
-        recalled: {type: 'alert', style: 'hollow'},
-        killed: {type: 'alert', style: 'hollow'},
-        scheduled: {type: 'highlight', style: 'hollow'},
-        corrected: {type: 'sd-green', style: 'hollow'},
-        correction: {color: 'pink--500', style: 'filled'},
-        being_corrected: {color: 'pink--500', style: 'hollow'},
-        unpublished: {type: 'alert', style: 'hollow'},
-    };
-
     private getColorConfig(state: StateType): IStateColorConfig {
         const {mappingOverride} = this.props;
         const override = mappingOverride?.[state];
-        const defaultConfig = this.defaultStateColorMap[state] || {type: 'default'};
+        const defaultConfig = DEFAULT_STATE_COLOR_MAP[state] || {type: 'default'};
 
         return override ? {...defaultConfig, ...override} : defaultConfig;
     }
