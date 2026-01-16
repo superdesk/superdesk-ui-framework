@@ -30,8 +30,9 @@ Storybook 10.1.11 is fully integrated with the main documentation site (Angular-
 
 ### Storybook Configuration
 
-- `.storybook/main.ts` - Main config, stories pattern, addons, webpack customization for SCSS
+- `.storybook/main.ts` - Main config, stories pattern, addons (uses Babel compiler), webpack customization for SCSS
 - `.storybook/preview.ts` - Global parameters, imports app.scss for styling
+- `.babelrc` - Babel configuration with TypeScript, React, and env presets (required for Babel compiler addon)
 - `app-typescript/components/*.stories.tsx` - Component stories (CSF 3.0 format)
 
 ### Integration Files
@@ -61,8 +62,15 @@ Storybook 10.1.11 is fully integrated with the main documentation site (Angular-
     - Simpler CI/CD: One build, one deploy
 
 3. **Why Not manager-api/theming packages?**
+
     - Incompatible: These are for Storybook 8.x, project uses 10.x
     - Not needed: New tab approach doesn't require customization
+
+4. **Why Babel Compiler Instead of SWC?**
+    - CI Compatibility: SWC native bindings fail in GitHub Actions and other CI environments
+    - Stability: Babel doesn't require platform-specific native bindings
+    - Compatibility: Works reliably across different platforms (macOS, Linux, Windows)
+    - Trade-off: Slightly slower build times, but more reliable deployments
 
 ## Component Story Pattern
 
@@ -108,6 +116,7 @@ npm start  # Main docs at :9100
 ## Technology Stack
 
 - **Storybook**: 10.1.11 with React webpack5 framework
+- **Compiler**: Babel (via @storybook/addon-webpack5-compiler-babel) with TypeScript, React, and env presets
 - **React**: 16.14.0 (legacy version, some React 18 hooks unavailable)
 - **TypeScript**: 5.9.3 with react-docgen-typescript
 - **Build**: webpack 5 with custom SCSS support
@@ -148,6 +157,15 @@ npm start  # Main docs at :9100
 - Ensure `npm run build-storybook` was run after changes
 - Verify `storybook-static/` directory exists
 - Check webpack-dev-server config serves /storybook path
+
+### SWC native binding errors in CI
+
+If you see "Failed to load native binding" errors:
+
+- This is why we use Babel compiler instead of SWC
+- Verify `.storybook/main.ts` uses `@storybook/addon-webpack5-compiler-babel` (not swc)
+- Ensure `.babelrc` exists with correct presets
+- Required packages: `@babel/preset-env`, `@babel/preset-react`, `@babel/preset-typescript`
 
 ## Future Considerations
 

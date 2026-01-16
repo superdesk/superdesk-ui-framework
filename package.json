@@ -35,9 +35,12 @@
         "copy-storybook": "mkdir -p dist/storybook && cp -r storybook-static/* dist/storybook/"
     },
     "devDependencies": {
+        "@babel/preset-env": "^7.28.6",
+        "@babel/preset-react": "^7.28.5",
+        "@babel/preset-typescript": "^7.28.5",
         "@storybook/addon-a11y": "^10.1.11",
         "@storybook/addon-docs": "^10.1.11",
-        "@storybook/addon-webpack5-compiler-swc": "^4.0.2",
+        "@storybook/addon-webpack5-compiler-babel": "^4.0.0",
         "@storybook/react-webpack5": "^10.1.11",
         "@types/assert": "^1.5.6",
         "@types/chart.js": "^2.9.24",
