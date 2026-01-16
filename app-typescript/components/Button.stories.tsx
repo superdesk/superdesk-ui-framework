@@ -1,3 +1,4 @@
+import React from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 import {Button} from './Button';
 
@@ -5,7 +6,7 @@ import {Button} from './Button';
 const noop = () => undefined;
 
 const meta = {
-    title: 'Components/Button',
+    title: 'Basic Components/Button',
     component: Button,
     parameters: {
         layout: 'centered',
@@ -137,6 +138,9 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// Helper type for stories that may or may not use args
+type RenderStory = Omit<Story, 'args'> & Partial<Pick<Story, 'args'>>;
+
 // 1. PLAYGROUND - Interactive exploration
 export const Playground: Story = {
     args: {
@@ -147,7 +151,7 @@ export const Playground: Story = {
 };
 
 // 2. Recommended Types
-export const RecommendedTypes: Story = {
+export const RecommendedTypes = {
     render: () => (
         <div style={{display: 'flex', gap: '12px', flexWrap: 'wrap'}}>
             <Button text="Primary" type="primary" onClick={noop} />
@@ -162,11 +166,11 @@ export const RecommendedTypes: Story = {
                 story: 'These are the recommended button types for Superdesk applications.',
             },
         },
-    },
-};
+    }
+} satisfies RenderStory;
 
 // 3. Sizes
-export const Sizes: Story = {
+export const Sizes = {
     render: () => (
         <div style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
             <div style={{display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap'}}>
@@ -189,10 +193,10 @@ export const Sizes: Story = {
             },
         },
     },
-};
+} satisfies RenderStory;
 
 // 4. States
-export const States: Story = {
+export const States = {
     render: () => (
         <div style={{display: 'flex', gap: '12px', flexWrap: 'wrap'}}>
             <Button text="Normal" type="primary" onClick={noop} />
@@ -208,10 +212,10 @@ export const States: Story = {
             },
         },
     },
-};
+} satisfies RenderStory;
 
 // 5. With Icons
-export const WithIcons: Story = {
+export const WithIcons = {
     render: () => (
         <div style={{display: 'flex', flexDirection: 'column', gap: '16px'}}>
             <div>
@@ -241,10 +245,10 @@ export const WithIcons: Story = {
             },
         },
     },
-};
+} satisfies RenderStory;
 
 // 6. Icon Only
-export const IconOnly: Story = {
+export const IconOnly = {
     render: () => (
         <div style={{display: 'flex', flexDirection: 'column', gap: '16px'}}>
             <div>
@@ -344,4 +348,4 @@ export const IconOnly: Story = {
             },
         },
     },
-};
+} satisfies RenderStory;

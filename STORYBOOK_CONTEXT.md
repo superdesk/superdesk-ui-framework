@@ -76,6 +76,13 @@ Storybook 10.1.11 is fully integrated with the main documentation site (Angular-
 
 Reference implementation: `app-typescript/components/Button.stories.tsx`
 
+**IMPORTANT**: With Babel compiler and React 16, you MUST import React in every story file that uses JSX:
+
+```typescript
+import React from 'react';
+import type {Meta, StoryObj} from '@storybook/react';
+```
+
 Required structure:
 
 1. Meta object with title, component, parameters, tags, argTypes
@@ -157,6 +164,15 @@ npm start  # Main docs at :9100
 - Ensure `npm run build-storybook` was run after changes
 - Verify `storybook-static/` directory exists
 - Check webpack-dev-server config serves /storybook path
+
+### "React is not defined" error
+
+If you see "ReferenceError: React is not defined" in stories:
+
+- **Cause**: Story files using JSX without importing React
+- **Fix**: Add `import React from 'react';` at the top of the story file
+- **Why**: React 16 requires explicit React import for JSX (unlike React 17+ with automatic runtime)
+- **Example**: See `app-typescript/components/Button.stories.tsx`
 
 ### SWC native binding errors in CI
 

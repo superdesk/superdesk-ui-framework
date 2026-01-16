@@ -36,7 +36,10 @@ app-typescript/components/
 
 Here's a template for creating component stories using CSF 3.0 (Component Story Format):
 
+**⚠️ IMPORTANT**: Always import React when using JSX in story files (required for React 16):
+
 ```typescript
+import React from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 import {YourComponent} from './YourComponent';
 
@@ -289,6 +292,21 @@ See `app-typescript/components/Button.stories.tsx` for a complete reference impl
 
 ## Common Issues
 
+### "React is not defined" Error
+
+If you see `ReferenceError: React is not defined` in Storybook:
+
+**Cause**: Story file uses JSX but doesn't import React.
+
+**Fix**: Add `import React from 'react';` at the top of your story file:
+
+```typescript
+import React from 'react';
+import type {Meta, StoryObj} from '@storybook/react';
+```
+
+**Why**: React 16 requires explicit React import for JSX (unlike React 17+ with automatic JSX runtime).
+
 ### Styles Not Loading
 
 Ensure SCSS files are imported in `.storybook/preview.ts`:
@@ -319,6 +337,7 @@ Verify:
 When migrating a component to Storybook:
 
 - [ ] Create `.stories.tsx` file alongside component
+- [ ] **Import React**: Add `import React from 'react';` at the top (required for JSX)
 - [ ] Import component and Storybook types
 - [ ] Define meta object with title, component, and parameters
 - [ ] Add comprehensive argTypes for all props
