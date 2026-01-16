@@ -1,14 +1,23 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const path = require('path');
 
+// Shared css-loader config - don't process absolute URLs since they reference files copied to dist
+const cssLoaderConfig = {
+    loader: 'css-loader',
+    options: {
+        url: {
+            filter: (url) => !url.startsWith('/'),
+        },
+    },
+};
+
 const config = {
     entry: {
-        vendor: './app/vendor.js',
         examples: './examples/index.js',
         'superdesk-ui': './app/index.js',
     },
@@ -54,45 +63,46 @@ const config = {
             },
             {
                 test: /\.scss$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader: 'css-loader',
-                    },
-                    {
-                        loader: 'sass-loader',
-                    },
-                ],
+                use: [MiniCssExtractPlugin.loader, cssLoaderConfig, 'sass-loader'],
             },
             {
                 test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader'],
+                use: [MiniCssExtractPlugin.loader, cssLoaderConfig],
             },
             {
                 test: /\.html$/,
-                loader: 'html-loader',
+                type: 'javascript/auto',
+                loader: 'raw-loader',
+                options: {
+                    esModule: false,
+                },
             },
             {
                 test: /\.(png|gif|jpeg|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-                loader: 'file-loader',
-                options: {
-                    name: '[name].[ext]',
-                    esModule: false,
+                type: 'asset/resource',
+                generator: {
+                    filename: '[name][ext]',
                 },
             },
         ],
     },
 
     plugins: [
-        new CleanWebpackPlugin(['dist', 'react']),
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: ['dist', 'react'],
+        }),
 
         new HtmlWebpackPlugin({
             template: 'examples/index.html',
-            chunks: ['vendor', 'examples', 'superdesk-ui'],
-            chunksSortMode: 'manual',
+            chunks: ['examples', 'superdesk-ui'],
         }),
 
-        new CopyWebpackPlugin([{from: 'examples/img/', flatten: true}, {from: 'examples/pages/'}]),
+        new CopyWebpackPlugin({
+            patterns: [
+                {from: 'examples/img/', to: ''},
+                {from: 'examples/pages/', to: ''},
+            ],
+        }),
 
         new MiniCssExtractPlugin({
             filename: '[name].bundle.css',
@@ -105,6 +115,14 @@ const config = {
             'window.jQuery': 'jquery',
         }),
     ],
+
+    // Webpack 5 filesystem cache for faster rebuilds
+    cache: {
+        type: 'filesystem',
+        buildDependencies: {
+            config: [__filename],
+        },
+    },
 };
 
 module.exports = config;
