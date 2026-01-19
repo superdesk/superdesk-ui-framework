@@ -15,7 +15,7 @@ interface ICopyableTextBoxProps extends IInputCommon {
      */
     size?: 'medium' | 'large';
 
-    disableCopyButton?: boolean;
+    disableCopyAndInfo?: boolean;
     toastMessagePosition?: Position;
     'data-test-id'?: string;
 }
@@ -69,7 +69,7 @@ export const CopyableTextBox: React.FC<ICopyableTextBoxProps> = (props) => {
             value={props.value}
             error={props.error}
             invalid={props.error != null}
-            info={props.info}
+            info={props.disableCopyAndInfo ? undefined : props.info}
             size={props.size ?? 'medium'}
             fullWidth={true}
             htmlId={htmlId}
@@ -94,7 +94,7 @@ export const CopyableTextBox: React.FC<ICopyableTextBoxProps> = (props) => {
                     icon={copied ? 'ok' : 'copy'}
                     iconOnly={true}
                     onClick={handleCopy}
-                    disabled={props.disableCopyButton}
+                    disabled={props.disableCopyAndInfo}
                     type="default"
                     style="hollow"
                     size={props.size === 'medium' ? 'normal' : (props.size ?? 'normal')}
