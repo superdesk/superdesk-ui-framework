@@ -1,10 +1,12 @@
+@use "../variables/dimensions";
+
 .comment-box__reply-item {
     border-block-end: 1px solid var(--sd-colour-line--light);
 }
 
 .comment-box__input {
     padding: 0.4rem;
-    border-radius: $border-radius__base--small;
+    border-radius: dimensions.$border-radius__base--small;
     border: 1px solid var(--sd-colour-line--light);
     height: 2.8rem;
     resize: none;

@@ -1,11 +1,14 @@
+@use "../variables/colors";
+@use "../variables/dimensions";
+
 .p-tieredmenu {
     min-width: 200px;
     &, .p-submenu-list {
-        padding-block-start: $sd-base-increment;
-        padding-block-end: $sd-base-increment;
+        padding-block-start: dimensions.$sd-base-increment;
+        padding-block-end: dimensions.$sd-base-increment;
         background-color: var(--color-dropdown-menu-Bg);
-        box-shadow: $shadow__dropdown--default;
-        border-radius: $border-radius__base--small;
+        box-shadow: dimensions.$shadow__dropdown--default;
+        border-radius: dimensions.$border-radius__base--small;
     }
     .p-menuitem-link {
         width: 100%;
@@ -35,7 +38,7 @@
 .p-menu-separator {
     width: 100%;
     height: 1px;
-    margin: $sd-base-increment 0;
+    margin: dimensions.$sd-base-increment 0;
     background: var(--sd-colour-line--light);
 }
 
@@ -47,7 +50,7 @@
     width: 100%;
 
     &:hover, &:focus-visible {
-        background: $sd-colour-background__menu-item--hover;
+        background: colors.$sd-colour-background__menu-item--hover;
     }
 
     .p-menuitem-icon {

@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "../variables/colors";
+@use "../variables/dimensions";
+
 // LIST ITEMS : components/list-items.scss
 
 //background color
@@ -11,7 +15,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
 .sd-list-item {
     display: flex;
     position: relative;
-    min-height: $sd-base-increment * 5;
+    min-height: dimensions.$sd-base-increment * 5;
     flex-direction: row;
     background-color: $sd-ListItem-background;
     transition: background-color 0.2s linear;
@@ -56,7 +60,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
 
     &.locked {
         .sd-list-item__border {
-            background: $red;
+            background: colors.$red;
         }
     }
 
@@ -133,15 +137,15 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
 }
 
 .sd-list-item__border--locked, .sd-list-item__border--error {
-    background: $red;
+    background: colors.$red;
 }
 
 .sd-list-item__border--success, .sd-list-item__border--active {
-    background: $green;
+    background: colors.$green;
 }
 
 .sd-list-item__border--idle {
-    background: $orange;
+    background: colors.$orange;
 }
 
 .sd-list-item__border--dark-blue {
@@ -155,20 +159,20 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     inset-inline-start: 6px;
     width: 6px;
     height: 6px;
-    border-radius: $border-radius__base--full;
+    border-radius: dimensions.$border-radius__base--full;
     background-color: transparent;
 }
 
 .sd-list-item__dot--locked, .sd-list-item__dot--error {
-    background: $red;
+    background: colors.$red;
 }
 
 .sd-list-item__dot--success, .sd-list-item__dot--active {
-    background: $green;
+    background: colors.$green;
 }
 
 .sd-list-item__dot--idle {
-    background: $orange;
+    background: colors.$orange;
 }
 
 .sd-list-item__dot--dark-blue {
@@ -180,7 +184,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     flex-direction: column;
     justify-content: center;
     border-inline-end: 1px solid $sd-ListItem-column-border;
-    padding: 0 $sd-base-increment * 1.5;
+    padding: 0 dimensions.$sd-base-increment * 1.5;
     overflow: hidden;
     flex-shrink: 0;
 
@@ -341,7 +345,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
 .sd-list-item__serial-number {
     font-size: 2rem;
     font-weight: 300;
-    color: $grayLight;
+    color: colors.$grayLight;
 }
 
 .sd-list-item:hover, .sd-list-item--activated {
@@ -377,7 +381,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     }
 
     .sd-list-item__slugline {
-        color: $sd-slugline;
+        color: colors.$sd-slugline;
         font-weight: 500;
         font-size: 1.2rem;
         text-transform: uppercase;
@@ -385,18 +389,18 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     }
 
     .sd-list-item__headline {
-        color: $sd-text;
+        color: colors.$sd-text;
         font-weight: 500;
         font-size: 1.3rem;
     }
 
     .sd-list-item__normal {
-        color: $sd-text;
+        color: colors.$sd-text;
         font-weight: 300;
     }
 
     .sd-list-item__strong {
-        color: $sd-text;
+        color: colors.$sd-text;
         font-weight: 500;
     }
 
@@ -435,7 +439,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
 
     .sd-list-item__text-strong {
         font-weight: 500;
-        color: $sd-text;
+        color: colors.$sd-text;
     }
 
     .sd-list-item__element-rm-10 {
@@ -465,7 +469,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
             font-weight: normal;
             font-variant: normal;
             text-transform: none;
-            color: scale-color($grayLight, $alpha: -20%);
+            color: color.scale(colors.$grayLight, $alpha: -20%);
         }
     }
 }
@@ -475,10 +479,10 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     display: inline-block;
     height: 3rem;
     width: 3rem;
-    background-color: $avatarBG;
-    border-radius: $border-radius__base--full;
+    background-color: colors.$avatarBG;
+    border-radius: dimensions.$border-radius__base--full;
     margin-inline-end: 0.6rem;
-    color: $white;
+    color: colors.$white;
     text-align: center;
     text-transform: uppercase;
     font-size: 1.2rem;
@@ -528,7 +532,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
         [class^="icon-"],
         [class*=" icon-"] {
             opacity: 1;
-            color: $sd-colour-interactive;
+            color: colors.$sd-colour-interactive;
         }
     }
 }
@@ -538,7 +542,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
         [class^="icon-"],
         [class*=" icon-"] {
             opacity: 1;
-            color: $sd-colour-interactive;
+            color: colors.$sd-colour-interactive;
         }
     }
 }
@@ -649,7 +653,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
 .sd-list-header {
     display: flex;
     height: 2.4rem;
-    margin-block-end: $sd-base-increment;
+    margin-block-end: dimensions.$sd-base-increment;
     align-items: center;
 
     .sd-list-header__name {
@@ -660,7 +664,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
         color: var(--color-text-muted);
 
         a {
-            color: $sd-colour-interactive;
+            color: colors.$sd-colour-interactive;
             text-decoration: none;
             display: inline-block;
             line-height: 1;

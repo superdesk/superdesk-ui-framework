@@ -1,4 +1,6 @@
-$background-main: $sd-background;
+@use "../variables/colors";
+
+$background-main: colors.$sd-background;
 
 .sd-kanban-list {
     display: flex;

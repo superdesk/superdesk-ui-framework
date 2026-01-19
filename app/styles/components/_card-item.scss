@@ -1,3 +1,7 @@
+@use "../mixins";
+@use "../variables/colors";
+@use "../variables/dimensions";
+
 // Default sd-card  styling
 
 //color variables
@@ -22,7 +26,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
     border-radius: $card-item-default-radius;
     box-shadow: $card-item-shadow;
     background-color: var(--sd-item__main-Bg);
-    color: $sd-text;
+    color: colors.$sd-text;
     min-height: 12rem;
     display: flex;
     flex-direction: column;
@@ -53,8 +57,8 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         align-items: center;        
         background-color: $card-item-header-bg-normal;
         padding: 0;
-        min-height: $sd-base-increment * 5 + $card-item-top-border-height;
-        color: $white;
+        min-height: dimensions.$sd-base-increment * 5 + $card-item-top-border-height;
+        color: colors.$white;
         border-radius: $card-item-default-radius $card-item-default-radius 0 0;
 
         &::before {
@@ -77,7 +81,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
     .sd-card__header--light,
     .sd-card__header--white  {
         background-color: var(--sd-item__main-Bg);
-        color: $sd-text;
+        color: colors.$sd-text;
         box-shadow: 0 1px 0 var(--sd-colour-line--light);
 
         &::before {
@@ -176,17 +180,17 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         background-color: hsl(201, 15%, 67%);
         display: flex;
         align-items: center;
-        color: $white;
+        color: colors.$white;
         font-size: 1.1rem;
         font-weight: 400;
         line-height: 100%;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        min-height: $sd-base-increment * 3;
+        min-height: dimensions.$sd-base-increment * 3;
     }
 
     .sd-card__sub-header--success {
-        background-color: $green;
+        background-color: colors.$green;
     }
 
     .sd-card__btn-group {
@@ -195,7 +199,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         .btn {
             background: transparent;
             padding: 10px 2px;
-            color: $white;
+            color: colors.$white;
             opacity: 0.4;
 
             &:focus, &:hover {
@@ -205,7 +209,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
 
             [class^="icon-"], 
             [class*=" icon-"] {
-                color: $white;
+                color: colors.$white;
             }
         }
     }
@@ -223,7 +227,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
             background-color: var(--sd-item__main-Bg);
             font-weight: 500;
             text-align: center;
-            color: $sd-text;
+            color: colors.$sd-text;
             padding: 1rem 1.6rem;
             width: 100%;
             box-shadow: 0 1px 0 var(--sd-colour-line--light);
@@ -288,7 +292,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         color: inherit;
         font-size: 1.6rem;
         letter-spacing: initial;
-        padding-block-end: $sd-base-increment;
+        padding-block-end: dimensions.$sd-base-increment;
     }
 
     .sd-card__placeholder {
@@ -298,7 +302,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         display: flex;
         align-items: center;
         justify-content: center;
-        color: $grayLight;
+        color: colors.$grayLight;
         font-weight: 300;
         font-size: 1.2rem;
     }
@@ -423,11 +427,11 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         display: flex;
         flex-direction: row;
         align-items: center;
-        min-height: $sd-base-increment * 6;
+        min-height: dimensions.$sd-base-increment * 6;
         background-color: var(--sd-item__main-Bg);
         border-radius: 0 0 $card-item-default-radius $card-item-default-radius;
         box-shadow: 0 -1px 0 0 var(--sd-colour-line--light);
-        gap: $sd-base-increment;
+        gap: dimensions.$sd-base-increment;
     }
 
     .sd-card__footer--right-align {
@@ -493,7 +497,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
     }
 
     .sd-card__file-type-icn {
-        color: $white;
+        color: colors.$white;
         font-size: 5.2rem;
         height: 5.2rem;
         width: 5.2rem;
@@ -511,7 +515,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         font-size: 2.1rem; 
         z-index: 2;
         text-align: center;
-        color: $white;
+        color: colors.$white;
         position: absolute;
         inset-block-start: 0;
         inset-inline-start: 0;
@@ -527,7 +531,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
 }
 
 .sd-card--with-click {
-    @include transition(all, 100ms, ease-in);
+    @include mixins.transition(all, 100ms, ease-in);
     cursor: pointer;
     text-decoration: none;
 

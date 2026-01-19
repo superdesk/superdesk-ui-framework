@@ -1,7 +1,15 @@
+@use "sass:math";
+@use "../buttons";
+@use "../icon-font";
+@use "../mixins";
+@use "../variables/colors";
+@use "../variables/dimensions";
+@use "../variables/typography";
+
 // FORM ELEMENTS : Input and select : form-elements/inputs.scss
 
 @mixin Line-input-base {
-    @include appearance-reset();
+    @include mixins.appearance-reset();
     width: 100%;
     color: var(--color-text);
     border: 0;
@@ -11,7 +19,7 @@
     transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
     padding: 0 0.8rem;
     height: var(--form-element-height-default);
-    border-radius: $border-radius__base--x-small $border-radius__base--x-small 0 0;
+    border-radius: dimensions.$border-radius__base--x-small dimensions.$border-radius__base--x-small 0 0;
     display: block;
     position: relative;
 
@@ -59,7 +67,7 @@
     justify-content: center;
     padding: 2px 8px;
     font-size: 1.1rem;
-    font-family: $baseFontFamily;
+    font-family: typography.$baseFontFamily;
     font-weight: 400;
     line-height: 2rem;
     text-transform: uppercase;
@@ -69,7 +77,7 @@
     transition: opacity ease 0.2s;
     justify-self: start;
     position: relative;
-    margin-block-end: $sd-base-increment;
+    margin-block-end: dimensions.$sd-base-increment;
     transition: background-color ease 0.2s;
 }
 
@@ -97,7 +105,7 @@
     position: relative;
 
     &::after {
-        color: $red;
+        color: colors.$red;
         content: "*";
         vertical-align: top;
         font-size: 1.2rem;
@@ -107,14 +115,14 @@
 }
 
 .form-label--invalid {
-    color: $red;
+    color: colors.$red;
 }
 
 .form-label--focused {
     color: var(--sd-colour-interactive);
 
     &.form-label--invalid {
-        color: $red;
+        color: colors.$red;
     }
 }
 
@@ -137,7 +145,7 @@
 
     &.form-label--invalid,
     &.form-label--invalid.form-label--focused {
-        background-color: $red;
+        background-color: colors.$red;
         color: hsl(214, 13%, 96%);
     }
 
@@ -309,7 +317,7 @@
     }
 
     .sd-line-input__label--required::after {
-        color: $red;
+        color: colors.$red;
         content: "*";
         vertical-align: top;
         font-size: 1.2rem;
@@ -352,24 +360,24 @@
     &.sd-line-input--invalid {
         .sd-line-input__label,
         .sd-line-input__message {
-            color: $red;
+            color: colors.$red;
         }
 
         input,
         textarea {
             &.sd-line-input__input {
                 background-color: hsla(357, 79%, 50%, 0.075);
-                border-color: $red;
+                border-color: colors.$red;
 
                 &:hover {
                     background-color: hsla(357, 79%, 50%, 0.12);
-                    border-color: $red;
+                    border-color: colors.$red;
                 }
 
                 &:focus {
                     background-color: hsla(357, 79%, 50%, 0.16);
-                    border-color: $red;
-                    box-shadow: 0 1px 0 0 $red;
+                    border-color: colors.$red;
+                    box-shadow: 0 1px 0 0 colors.$red;
                 }
             }
         }
@@ -377,17 +385,17 @@
         select {
             &.sd-line-input__select {
                 background-color: hsla(357, 79%, 50%, 0.075);
-                border-color: $red;
+                border-color: colors.$red;
 
                 &:hover {
                     background-color: hsla(357, 79%, 50%, 0.12);
-                    border-color: $red;
+                    border-color: colors.$red;
                 }
 
                 &:focus {
                     background-color: hsla(357, 79%, 50%, 0.16);
-                    border-color: $red;
-                    box-shadow: 0 1px 0 0 $red;
+                    border-color: colors.$red;
+                    box-shadow: 0 1px 0 0 colors.$red;
                 }
             }
         }
@@ -431,7 +439,7 @@
             vertical-align: middle;
             border-inline-start: 0.4rem solid transparent;
             border-inline-end: 0.4rem solid transparent;
-            border-block-start: 0.4rem solid $sd-text;
+            border-block-start: 0.4rem solid colors.$sd-text;
             opacity: 0.3;
             content: "";
             z-index: 0;
@@ -472,7 +480,7 @@
 
     &.sd-line-input--required {
         .sd-line-input__label::after {
-            color: $red;
+            color: colors.$red;
             content: "*";
             vertical-align: top;
             font-size: 1.2rem;
@@ -495,22 +503,22 @@
         height: 2.2rem;
         width: 2.2rem;
         background-color: var(--sd-colour-interactive--alpha-70);
-        transition: $button-transition;
-        border-radius: $border-radius__base--x-small;
+        transition: buttons.$button-transition;
+        border-radius: dimensions.$border-radius__base--x-small;
         cursor: pointer;
         text-align: center;
 
         &::before {
-            @include icon-base;
+            @include icon-font.icon-base;
             margin-block-start: 0.2rem;
             content: "\e629";
-            color: $white;
+            color: colors.$white;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
         &:hover {
-            background-color: $sd-colour-interactive;
+            background-color: colors.$sd-colour-interactive;
         }
     }
 
@@ -607,18 +615,18 @@
 }
 
 .sd-input__input--invalid {
-    border-block-end: 1px solid $red;
+    border-block-end: 1px solid colors.$red;
     background-color: hsla(357, 79%, 50%, 0.075);
 
     &:hover {
         background-color: hsla(357, 79%, 50%, 0.12);
-        border-bottom-color: $red;
+        border-bottom-color: colors.$red;
     }
 
     &:focus {
         background-color: hsla(357, 79%, 50%, 0.16);
-        border-bottom-color: $red;
-        box-shadow: 0 1px 0 0 $red;
+        border-bottom-color: colors.$red;
+        box-shadow: 0 1px 0 0 colors.$red;
     }
 }
 
@@ -668,7 +676,7 @@
 
     &.sd-input__input--invalid {
         background-color: hsla(357, 79%, 50%, 0.075);
-        border-color: $red;
+        border-color: colors.$red;
 
         &:hover,
         &:focus {
@@ -736,7 +744,7 @@
 }
 
 .sd-input__char-count--error {
-    color: $red;
+    color: colors.$red;
 }
 
 input[type="color"].sd-input__color-input {
@@ -781,7 +789,7 @@ input[type="color" i].sd-input__color-input::-webkit-color-swatch {
     margin: 0;
     display: grid;
     grid-template-columns: auto 1fr auto;
-    grid-template-rows: $form-label-height auto 1fr;
+    grid-template-rows: dimensions.$form-label-height auto 1fr;
     grid-gap: 0;
     position: relative;
     align-self: stretch;
@@ -949,7 +957,7 @@ input[type="color" i].sd-input__color-input::-webkit-color-swatch {
     }
 
     .sd-input__label--required::after {
-        color: $red;
+        color: colors.$red;
         content: "*";
         vertical-align: top;
         font-size: 1.2rem;
@@ -1002,30 +1010,30 @@ input[type="color" i].sd-input__color-input::-webkit-color-swatch {
     .p-multiselect,
     .p-calendar {
         background-color: hsla(357, 79%, 50%, 0.075);
-        border-color: $red;
+        border-color: colors.$red;
 
         &:hover {
             background-color: hsla(357, 79%, 50%, 0.12);
-            border-color: $red;
+            border-color: colors.$red;
         }
 
         &:focus {
             background-color: hsla(357, 79%, 50%, 0.16);
-            border-color: $red;
-            box-shadow: 0 1px 0 0 $red;
+            border-color: colors.$red;
+            box-shadow: 0 1px 0 0 colors.$red;
         }
     }
 
     .sd-input__label,
     .sd-input__message,
     .sd-input__message-box {
-        color: $red;
+        color: colors.$red;
     }
 }
 
 .sd-input--required {
     .sd-input__label::after {
-        color: $red;
+        color: colors.$red;
         content: "*";
         vertical-align: top;
         font-size: 1.2rem;
@@ -1066,7 +1074,7 @@ input[type="color" i].sd-input__color-input::-webkit-color-swatch {
 
         &.sd-input__select:hover {
             &::after {
-                @include opacity(30);
+                @include mixins.opacity(30);
             }
         }
     }
@@ -1264,7 +1272,7 @@ input[type="color" i].sd-input__color-input::-webkit-color-swatch {
 
         .sd-input__label,
         .sd-input__message {
-            color: $red;
+            color: colors.$red;
         }
     }
 }
@@ -1291,7 +1299,7 @@ input[type="color" i].sd-input__color-input::-webkit-color-swatch {
 
     &.sd-input--invalid {
         .sd-input__label--boxed {
-            background-color: $red !important;
+            background-color: colors.$red !important;
             color: hsla(214, 13%, 100%, 1);
         }
     }

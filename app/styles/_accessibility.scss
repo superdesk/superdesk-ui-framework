@@ -1,3 +1,5 @@
+@use "variables/colors";
+
 .a11y-only {
 	position: absolute;
 	inset-block-start: 0;
@@ -76,7 +78,7 @@
 
 	.navbtn.navbtn--active {
 		background-color: hsla(0, 0%, 27%, 1);
-		color: $white;
+		color: colors.$white;
 	}
 
 	.btn {
@@ -86,11 +88,11 @@
 
 		&.btn--primary {
 			background-color: var(--color-accessible-primary);
-			color: $white;
+			color: colors.$white;
 		}
 
 		&.btn--hollow {
-			background-color: $white;
+			background-color: colors.$white;
 		}
 	}
 
@@ -114,11 +116,11 @@
 	}
 
 	.side-panel {
-		background-color: $white;
+		background-color: colors.$white;
 		color: var(--color-accessible-text);
 
 		.side-panel__header {
-			background-color: $white;
+			background-color: colors.$white;
 		}
 
 		.side-panel__heading {
@@ -143,18 +145,18 @@
 
 		&.side-panel--dark-ui {
 			background-color: var(--color-bg-800);
-			color: $white;
+			color: colors.$white;
 
 			i[class^="icon-"] {
-				color: $white;
+				color: colors.$white;
 			}
 
 			.side-panel__header {
 				background-color: var(--color-bg-800);
-				color: $white !important;
+				color: colors.$white !important;
 
 				i[class^="icon-"] {
-					color: $white !important;
+					color: colors.$white !important;
 				}
 
 			}
@@ -229,10 +231,10 @@
 	.dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):not(.toggle-button):hover,
 	.dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):not(.toggle-button):focus {
 		background: var(--color-accessible-primary);
-		color: $white;
+		color: colors.$white;
 
 		>i[class^="icon-"] {
-			color: $white;
+			color: colors.$white;
 		}
 	}
 
@@ -294,7 +296,7 @@
 		.nav-tabs__tab {
 			.nav-tabs__link {
 				border-bottom-color: transparent;
-				color: $white;
+				color: colors.$white;
 				opacity: 0.6;
 			}
 
@@ -309,23 +311,23 @@
 			&.nav-tabs__tab--active:hover {
 				.nav-tabs__link {
 					border-bottom-color: hsla(240, 100%, 65%, 1);
-					color: $white;
+					color: colors.$white;
 					opacity: 1;
 				}
 			}
 		}
 
 		.toggle-box__label {
-			color: $white;
+			color: colors.$white;
 		}
 
 		.sd-line-input .sd-line-input__label {
-			color: $white;
+			color: colors.$white;
 			opacity: 0.7;
 		}
 
 		a.text-link.text-link--white {
-			color: $white;
+			color: colors.$white;
 			opacity: 0.75;
 
 			&:hover {

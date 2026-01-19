@@ -1,3 +1,7 @@
+@use "../mixins";
+@use "../variables/dimensions";
+@use "../variables/typography";
+
 .form__row {
 	width: 100%;
 	padding-block-end: 2rem;
@@ -91,7 +95,7 @@
 		vertical-align: middle;
 		line-height: 1;
 		margin-inline-end: 0.6rem;
-		@include transition(color, 0.15s, ease-in);
+		@include mixins.transition(color, 0.15s, ease-in);
 
 		&.form__row-label.form-label {
 			display: block;
@@ -110,7 +114,7 @@
 	display: block;
 	margin-block-end: 1rem;
 	padding: 2rem;
-	border-radius: $border-radius__base--x-small;
+	border-radius: dimensions.$border-radius__base--x-small;
 	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -129,19 +133,19 @@
 	flex-direction: row;
 	width: 100%;
 	align-items: flex-start;
-	gap: $sd-base-increment * 2;
+	gap: dimensions.$sd-base-increment * 2;
 
 	.form__item {
-		margin-block-end: $sd-base-increment * 2;
+		margin-block-end: dimensions.$sd-base-increment * 2;
 	}
 }
 
 .form__group--condensed {
-	gap: $sd-base-increment;
+	gap: dimensions.$sd-base-increment;
 }
 
 .form__group--relaxed {
-	gap: $sd-base-increment * 3;
+	gap: dimensions.$sd-base-increment * 3;
 }
 
 .form__group--mb-0 {
@@ -152,25 +156,25 @@
 
 .form__group--mb-1 {
 	.form__item {
-		margin-block-end: $sd-base-increment;
+		margin-block-end: dimensions.$sd-base-increment;
 	}
 }
 
 .form__group--mb-2 {
 	.form__item {
-		margin-block-end: $sd-base-increment * 2;
+		margin-block-end: dimensions.$sd-base-increment * 2;
 	}
 }
 
 .form__group--mb-3 {
 	.form__item {
-		margin-block-end: $sd-base-increment * 3;
+		margin-block-end: dimensions.$sd-base-increment * 3;
 	}
 }
 
 .form__group--mb-4 {
 	.form__item {
-		margin-block-end: $sd-base-increment * 4;
+		margin-block-end: dimensions.$sd-base-increment * 4;
 	}
 }
 
@@ -189,22 +193,22 @@
 	}
 
 	&.form__group--mb-1 {
-		margin-block-end: $sd-base-increment;
+		margin-block-end: dimensions.$sd-base-increment;
 
 	}
 
 	&.form__group--mb-2 {
-		margin-block-end: $sd-base-increment * 2;
+		margin-block-end: dimensions.$sd-base-increment * 2;
 
 	}
 
 	&.form__group--mb-3 {
-		margin-block-end: $sd-base-increment * 3;
+		margin-block-end: dimensions.$sd-base-increment * 3;
 
 	}
 
 	&.form__group--mb-4 {
-		margin-block-end: $sd-base-increment * 4;
+		margin-block-end: dimensions.$sd-base-increment * 4;
 	}
 }
 
@@ -231,7 +235,7 @@
 
 .form__text-block {
 	min-height: var(--form-element-height-default);
-	margin-block-start: $form-label-height;
+	margin-block-start: dimensions.$form-label-height;
 	color: inherit;
 	font-size: 1.3rem;
 	display: inline-flex;
@@ -242,7 +246,7 @@
 
 	.btn,
 	.icn-btn {
-		margin-block-start: $form-label-height;
+		margin-block-start: dimensions.$form-label-height;
 	}
 }
 
@@ -306,7 +310,7 @@
 	flex-direction: row;
 	width: 100%;
 	align-items: flex-start;
-	gap: $sd-base-increment * 2;
+	gap: dimensions.$sd-base-increment * 2;
 
 	.sd-input {
 		flex: 1 1 0;
@@ -318,22 +322,22 @@
 	.btn,
 	.icn-btn {
 		flex: 0 0 auto;
-		margin-block-start: $form-label-height;
+		margin-block-start: dimensions.$form-label-height;
 	}
 
 	.sd-text {
 		min-height: var(--form-element-height-default);
-		margin-block-start: $form-label-height;
+		margin-block-start: dimensions.$form-label-height;
 		line-height: var(--form-element-height-default);
 	}
 }
 
 .form__group-new--condensed {
-	gap: $sd-base-increment;
+	gap: dimensions.$sd-base-increment;
 }
 
 .form__group-new--relaxed {
-	gap: $sd-base-increment * 3;
+	gap: dimensions.$sd-base-increment * 3;
 }
 
 .form__group-new--mb-0 {
@@ -341,19 +345,19 @@
 }
 
 .form__group-new--mb-1 {
-	margin-block-end: $sd-base-increment;
+	margin-block-end: dimensions.$sd-base-increment;
 }
 
 .form__group-new--mb-2 {
-	margin-block-end: $sd-base-increment * 2;
+	margin-block-end: dimensions.$sd-base-increment * 2;
 }
 
 .form__group-new--mb-3 {
-	margin-block-end: $sd-base-increment * 3;
+	margin-block-end: dimensions.$sd-base-increment * 3;
 }
 
 .form__group-new--mb-4 {
-	margin-block-end: $sd-base-increment * 4;
+	margin-block-end: dimensions.$sd-base-increment * 4;
 }
 
 .form__group-new--inline-labels {
@@ -381,11 +385,11 @@
 
 	.form__group-new__label {
 		flex: 0 0 auto;
-		min-height: $form-label-height + 0.4rem;
+		min-height: dimensions.$form-label-height + 0.4rem;
 		display: inline-block;
 		font-size: 1.6rem;
 		margin: 0;
-		margin-block-end: $sd-base-increment * 1.5;
+		margin-block-end: dimensions.$sd-base-increment * 1.5;
 		line-height: 1;
 		color: var(--color-label-text);
 		font-weight: 500;
@@ -411,7 +415,7 @@
     row-gap: var(--form-layout-row-gap);
 	width: 100%;
     .form-heading-new {
-        font-family: $baseFontFamilySerif;
+        font-family: typography.$baseFontFamilySerif;
         font-weight: 900;
         font-size: var(--form-heading-font-size);
         line-height: 1.1;

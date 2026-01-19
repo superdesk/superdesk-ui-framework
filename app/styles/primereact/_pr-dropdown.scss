@@ -1,20 +1,23 @@
-@import './../tag-labels';
-@import './../form-elements/checkbox';
+@use '../tag-labels';
+@use '../form-elements/checkbox';
+@use "../variables/colors";
+@use "../variables/dimensions";
+@use "pr-general";
 
 .p-dropdown {
-    @include pr-input-item-base;
+    @include pr-general.pr-input-item-base;
     padding-block-start: 6px;
     padding-block-end: 6px;
     padding-inline-start: 8px;
     padding-inline-end: 8px;
-    color: $sd-text;
+    color: colors.$sd-text;
 }
 
 .p-multiselect {
-    @include pr-input-item-base;
+    @include pr-general.pr-input-item-base;
     height: auto !important;
     min-height: 3.2rem !important;
-    color: $sd-text;
+    color: colors.$sd-text;
     padding: 0.4rem;
 }
 
@@ -32,17 +35,17 @@
 }
 
 .p-dropdown-item {
-    @include pr-menu-item-base;
+    @include pr-general.pr-menu-item-base;
 }
 
 .p-dropdown-panel,
 .p-multiselect-panel {
-    @include pr-dropdown-panel-base;
+    @include pr-general.pr-dropdown-panel-base;
 }
 
 .p-dropdown-filter-container,
 .p-multiselect-filter-container {
-    border-radius: $border-radius__base--small $border-radius__base--small 0 0;
+    border-radius: dimensions.$border-radius__base--small dimensions.$border-radius__base--small 0 0;
     padding: 8px;
     box-shadow: 0 1px 0 var(--sd-colour-line--light);
 }
@@ -51,16 +54,16 @@
 .p-multiselect-filter {
     border: 1px solid var(--sd-colour-line--strong);
     box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.12);
-    border-radius: $border-radius__base--small;
+    border-radius: dimensions.$border-radius__base--small;
     padding-inline-end: 20px;
     padding: 4px;
     height: 28px;
     transition: all ease 0.2s;
     background-color: var(--sd-colour-bg__searchbar);
-    color: $sd-text;
+    color: colors.$sd-text;
 
     &:focus {
-        border: 1px solid $sd-colour-interactive;
+        border: 1px solid colors.$sd-colour-interactive;
         box-shadow: inset var(--sd-colour-interactive--alpha-20) 0px 0px 0px 0.2rem;
     }
 }
@@ -160,14 +163,14 @@
     }
 
     &:hover {
-        border-color: $checkBoxBorderColorHover;
+        border-color: checkbox.$checkBoxBorderColorHover;
         cursor: pointer;
     }
 
     .p-highlight {
         background-color: var(--sd-colour-interactive--hover);
         border: 2px solid var(--sd-colour-interactive--hover);
-        border-radius: $border-radius__base--x-small;
+        border-radius: dimensions.$border-radius__base--x-small;
         width: 1.6rem;
         height: 1.6rem;
     }

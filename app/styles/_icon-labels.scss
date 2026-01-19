@@ -1,3 +1,7 @@
+@use "sass:color";
+@use "variables/colors";
+@use "variables/dimensions";
+
 /// Icon labels
 
 /// Default background color for icon labels.
@@ -8,10 +12,10 @@ $label-icon-background-translucent: hsla(0, 0%, 48%, 0.16);
 $label-icon-color: var(--color-label-text);
 
 /// Alternate text color for icon labels.
-$label-icon-color-alt: $white !default;
+$label-icon-color-alt: colors.$white !default;
 
 /// Coloring classes. A map of classes to output in the CSS.
-$label-icon-palette: $sd-basic-palette;
+$label-icon-palette: colors.$sd-basic-palette;
 
 /// Default padding inside labels.
 $label-icon-padding: 0.6rem !default;
@@ -47,7 +51,7 @@ $icon-size--small: 1.2rem;
 @mixin label-icon-translucent {
     font-size: 12px;
     height: $label-height--default;
-    border-radius: $border-radius__base--full;
+    border-radius: dimensions.$border-radius__base--full;
     padding-inline: 1.2rem;
     gap: 4px;
 
@@ -80,7 +84,7 @@ $icon-size--small: 1.2rem;
 
         @each $name, $color in $label-icon-palette {
             &.label-icon--#{$name} {
-                background-color: scale-color($color, $alpha: -88%);
+                background-color: color.scale($color, $alpha: -88%);
             }
         }
 
@@ -106,16 +110,16 @@ $icon-size--small: 1.2rem;
     }
 
     &.label-icon--large {
-        height: $sd-base-increment * 4;
-        padding: 0 $sd-base-increment * 2;
+        height: dimensions.$sd-base-increment * 4;
+        padding: 0 dimensions.$sd-base-increment * 2;
         font-size: 1.4rem;
         font-weight: 500;
         line-height: inherit;
     }
 
     &.label-icon--small{
-        height: $sd-base-increment * 2;
-        padding: 0 $sd-base-increment * 1;
+        height: dimensions.$sd-base-increment * 2;
+        padding: 0 dimensions.$sd-base-increment * 1;
         font-size: 1rem;
         font-weight: 600;
         line-height: inherit;

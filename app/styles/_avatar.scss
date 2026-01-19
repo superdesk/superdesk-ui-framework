@@ -1,3 +1,6 @@
+@use "variables/colors";
+@use "variables/dimensions";
+
 .sd-avatar {
     display: block;
     position: relative; // required for absolutely positioned indicators
@@ -36,8 +39,8 @@
         height: 100%;
         align-items: center;
         justify-content: center;
-        border-radius: $border-radius__base--full;
-        color: $white;
+        border-radius: dimensions.$border-radius__base--full;
+        color: colors.$white;
         text-transform: uppercase;
         letter-spacing: -0.03em;
         overflow: hidden;
@@ -200,7 +203,7 @@
 }
 
 .sd-avatar--indicator-admin {
-    border-radius: $border-radius__base--full;
+    border-radius: dimensions.$border-radius__base--full;
     position: absolute;
     inset-block-start: -4px;
     inset-inline-start: -4px;
@@ -218,7 +221,7 @@
         width: 8px;
         height: 8px;
         z-index: -1;
-        border-radius: $border-radius__base--full;
+        border-radius: dimensions.$border-radius__base--full;
     }
 }
 
@@ -408,7 +411,7 @@
     vertical-align: middle;
     background-color: var(--color-surface-faded);
     border-radius: var(--b-radius--full);
-    
+
 
     .sd-avatar--inline__text {
         color: var(--color-text);
@@ -418,7 +421,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         // max-width: 200px;
-        
+
     }
     &:has(.sd-avatar--x-small) {
         gap: var(--gap-0-5);
@@ -432,7 +435,7 @@
         .sd-avatar--inline__text {
             --name-font-size: var(--text-size-x-small);
             padding-inline-end: 1em;
-            
+
         }
     }
     &:has(.sd-avatar--medium) {

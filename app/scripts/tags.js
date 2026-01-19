@@ -1,5 +1,3 @@
-/* global _ */
-
 TagInputDirective.$inject = ['$q'];
 function TagInputDirective($q) {
     return {

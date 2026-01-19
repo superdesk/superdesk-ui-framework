@@ -1,3 +1,5 @@
+@use "variables/colors";
+
 /// Default background color for badges.
 $tag-label-BG-default:      var(--sd-colour__tag-label-Bg--1);
 $tag-label-BG-darker:       var(--sd-colour__tag-label-Bg--2);
@@ -106,7 +108,7 @@ $tag-label-palette: $tag-bg-colors !default;
             background-color: var(--sd-colour__tag-label-remove-Bg--hover);
 
             [class^="icon-"], [class*=" icon-"] {
-                color: $sd-colour-interactive;
+                color: colors.$sd-colour-interactive;
                 opacity: 1;
             }
         }

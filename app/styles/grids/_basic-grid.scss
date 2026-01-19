@@ -1,8 +1,11 @@
+@use "sass:math";
+@use "../variables/dimensions";
+
 // Flex grid
 // Grid has equal columns, default setup is 'no wrap'
 
-$flex-grid-gap:          $sd-base-increment * 2; // space between items is $flex-grid-gap*2
-$flex-grid-gap-small:    $sd-base-increment; // alternative small gap
+$flex-grid-gap:          dimensions.$sd-base-increment * 2; // space between items is $flex-grid-gap*2
+$flex-grid-gap-small:    dimensions.$sd-base-increment; // alternative small gap
 $flex-grid-columns:      6; // max number of columns supported
 
 // map for media breakpoints, 'small' is mandatory and reserved as mobile first
@@ -17,8 +20,8 @@ $flex-grid-media: (
     @for $i from $flex-grid-columns through 1 {
         &-#{$i} {
             .flex-grid__item {
-               flex: 0 0 100% / $i;
-                max-width: 100% / $i;
+               flex: 0 0 math.div(100%, $i);
+                max-width: math.div(100%, $i);
             }
         }
     }
@@ -27,17 +30,17 @@ $flex-grid-media: (
 @mixin basic-grid-boxed {
     @for $i from $flex-grid-columns through 1 {
         &-#{$i} {
-            .flex-grid__item, 
-            & > .sd-check__wrapper, 
+            .flex-grid__item,
+            & > .sd-check__wrapper,
             & > .btn,
             & > .icn-btn,
             & > .toggle-button  {
-                flex: 0 0 calc(#{100% / $i} - #{$flex-grid-gap / $i * ($i - 1)});
-                max-width: calc(#{100% / $i} - #{$flex-grid-gap / $i * ($i - 1)});
+                flex: 0 0 calc(#{math.div(100%, $i)} - #{math.div($flex-grid-gap, $i) * ($i - 1)});
+                max-width: calc(#{math.div(100%, $i)} - #{math.div($flex-grid-gap, $i) * ($i - 1)});
             }
 
             & > .btn,
-            & > .icn-btn, 
+            & > .icn-btn,
             & > .toggle-button {
                 flex-shrink: 0;
             }
@@ -61,17 +64,17 @@ $flex-grid-media: (
 @mixin basic-grid-boxed-small {
     @for $i from $flex-grid-columns through 1 {
         &-#{$i} {
-            .flex-grid__item, 
-            & > .sd-check__wrapper, 
+            .flex-grid__item,
+            & > .sd-check__wrapper,
             & > .btn,
-            & > .icn-btn, 
+            & > .icn-btn,
             & > .toggle-button {
-                flex: 0 0 calc(#{100% / $i} - #{$flex-grid-gap-small / $i * ($i - 1)});
-                max-width: calc(#{100% / $i} - #{$flex-grid-gap-small / $i * ($i - 1)});
+                flex: 0 0 calc(#{math.div(100%, $i)} - #{math.div($flex-grid-gap-small, $i) * ($i - 1)});
+                max-width: calc(#{math.div(100%, $i)} - #{math.div($flex-grid-gap-small, $i) * ($i - 1)});
             }
 
             & > .btn,
-            & > .icn-btn, 
+            & > .icn-btn,
             & > .toggle-button {
                 flex-shrink: 0;
             }
@@ -98,7 +101,7 @@ $flex-grid-media: (
     flex-direction: row;
     // overflow: hidden;
     // overflow-x: auto;
-    
+
     .flex-grid__item {
         position: relative;
     }
