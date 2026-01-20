@@ -1,10 +1,13 @@
+@use "variables/colors";
+@use "variables/dimensions";
+
 // Simple lists
 
 //colors
-$simple-list-border-color: $neutral-border-color;
+$simple-list-border-color: colors.$neutral-border-color;
 
 .simple-list {
-    padding: 0 0 $sd-base-increment * 3;
+    padding: 0 0 dimensions.$sd-base-increment * 3;
     align-self: stretch;
 
     .simple-list__item {

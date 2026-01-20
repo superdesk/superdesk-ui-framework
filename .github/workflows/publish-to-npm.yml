@@ -15,16 +15,16 @@ jobs:
         permissions:
             contents: write
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v6
               with:
                   fetch-depth: 0
-            - uses: actions/setup-node@v3
+            - uses: actions/setup-node@v6
               with:
-                  node-version: '14'
+                  node-version: '22'
             - run: npm ci
             - run: npm run lint
             - run: npm run build
-            - uses: JS-DevTools/npm-publish@v3
+            - uses: JS-DevTools/npm-publish@v4
               id: publish
               continue-on-error: true
               with:

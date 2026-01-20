@@ -1,3 +1,6 @@
+@use "../variables/colors";
+@use "../variables/dimensions";
+
 // Large Searchbar
 // Large searchbar is usualy used inside the 'subnav' component, hence the flex-grow property;
 
@@ -9,8 +12,8 @@
     background-color: transparent;
     transition: all 0.2s ease-out;
     height: 100%; // adapts to the height of the parent element, usually .subnav.
-    min-height: $height-input--default;
-    max-height: $subnav-height;
+    min-height: dimensions.$height-input--default;
+    max-height: dimensions.$subnav-height;
 }
 
 .sd-searchbar--focused {
@@ -43,7 +46,7 @@
 
 .sd-searchbar--boxed {
     height: 4rem;
-    border-radius: $border-radius__base--medium;
+    border-radius: dimensions.$border-radius__base--medium;
     border: 1px solid var(--color-border-line--medium);
     background-color: var(--sd-colour-bg__searchbar);
     box-shadow: inset 0 1px 3px hsla(0, 0%, 0%, 0.14);
@@ -144,7 +147,7 @@ input[type="search"].sd-searchbar__input {
     flex-grow: 0;
     flex-shrink: 1;
     align-self: auto;
-    width: $subnav-height;
+    width: dimensions.$subnav-height;
     position: relative;
     opacity: 0.4;
     margin: 0;
@@ -163,7 +166,7 @@ input[type="search"].sd-searchbar__input {
         font-weight: normal;
         font-variant: normal;
         text-transform: none;
-        color: $sd-text;
+        color: colors.$sd-text;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }

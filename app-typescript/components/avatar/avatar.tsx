@@ -2,18 +2,36 @@ import * as React from 'react';
 import classNames from 'classnames';
 import {AvatarContentImage} from './avatar-image';
 import {AvatarContentText} from './avatar-text';
-import {Tooltip} from '../Tooltip';
 import {Icon} from '../Icon';
+import {TooltipV2} from '../TooltipV2';
+import {AvatarWithInlineTextWrapper} from './avatar-with-inline-text-wrapper';
+import {assertNever} from '../../helpers';
+
+export type IAvatarWithTooltip = {
+    kind: 'tooltip';
+
+    /** Defaults to `top` */
+    placement?: 'top' | 'left' | 'right' | 'bottom';
+
+    /** `displayName` used if not provided */
+    content?: string;
+};
+
+export type IAvatarWithInlineText = {
+    kind: 'inline';
+
+    /** Defaults to `end` */
+    placement?: 'start' | 'end';
+};
 
 export interface IPropsAvatar {
-    imageUrl: string | null; // nullable, but mandatory to communicate importance
-    displayName: string;
+    imageUrl: string | null;
 
     /** 3 letters max */
-    initials: string | null; // nullable, but mandatory to communicate importance
+    initials: string | null;
 
+    displayName: string;
     size: 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | 'xx-large';
-
     statusIndicator?: 'online' | 'offline';
     administratorIndicator?: boolean;
     icon?: {
@@ -25,16 +43,10 @@ export interface IPropsAvatar {
     };
 
     /**
+     * Defaults to `strong`.
      * Color scheme for placeholder when no image is available.
-     * Defaults to 'strong'.
      */
     noAvatarPlaceholderColor?: 'subtle' | 'strong';
-
-    /**
-     * displayName is shown as tooltip by default
-     * use this if you need to add additional information (it will be added on a new line)
-     */
-    tooltip?: string;
 
     /**
      * JSX resulting from rendering of one of the following components:
@@ -44,56 +56,15 @@ export interface IPropsAvatar {
     customContent?: JSX.Element;
 
     /**
-     * Controls how the name is displayed:
-     * - 'tooltip': Shows name in a tooltip (default)
-     * - 'none': No name is displayed at all
-     * - 'inline': Shows name inline next to avatar (like Material Design Chip)
-     * Defaults to 'tooltip' if not provided
+     * Defaults to `tooltip`.
+     *
+     * Controls how `tooltip` is displayed:
+     * - `tooltip`: Shows name in a tooltip
+     * - `none`: No name is displayed at all
+     * - `inline`: Shows name inline next to avatar (like Material Design Chip)
      */
-    nameDisplay?: 'tooltip' | 'inline' | 'none';
-
-    /**
-     * Controls the position of the tooltip.
-     * Defaults to 'top' if not provided
-     */
-    tooltipFlow?: 'top' | 'left' | 'right' | 'down';
-
-    /**
-     * Controls the position of the text relative to the avatar in inline mode.
-     * Only applies when nameDisplay is 'inline'.
-     * - 'start': Text appears before the avatar
-     * - 'end': Text appears after the avatar (default)
-     * Defaults to 'end' if not provided
-     */
-    textPosition?: 'start' | 'end';
+    nameDisplay?: IAvatarWithInlineText | IAvatarWithTooltip | {kind: 'none'};
 }
-
-interface ITooltipWrapperProps {
-    tooltipText: string | null | undefined;
-    tooltipFlow?: 'top' | 'left' | 'right' | 'down';
-    children: (options: {attributes: React.HTMLAttributes<HTMLElement>}) => React.ReactNode;
-}
-
-function flowToPlacement(
-    flow: 'top' | 'left' | 'right' | 'down' | undefined,
-): 'top' | 'left' | 'right' | 'bottom' | undefined {
-    if (flow === 'down') {
-        return 'bottom';
-    }
-    return flow;
-}
-
-const TooltipWrapper = React.memo<ITooltipWrapperProps>(({tooltipText, tooltipFlow, children}) => {
-    const hasTooltip = tooltipText != null && (tooltipText ?? '').length > 0;
-
-    return hasTooltip ? (
-        <Tooltip content={tooltipText} placement={flowToPlacement(tooltipFlow)}>
-            {children}
-        </Tooltip>
-    ) : (
-        <>{children({attributes: {}})}</>
-    );
-});
 
 export const Avatar = React.memo<IPropsAvatar>((props) => {
     const {
@@ -107,14 +78,8 @@ export const Avatar = React.memo<IPropsAvatar>((props) => {
         displayName,
         customContent,
         statusDot,
-        nameDisplay = 'tooltip',
-        tooltip,
-        tooltipFlow,
-        textPosition = 'end',
+        nameDisplay = {kind: 'tooltip'},
     } = props;
-
-    // For tooltip mode, use tooltip prop first, fallback to displayName
-    const tooltipText = tooltip ?? displayName;
 
     const avatarContent = React.useMemo(() => {
         if (customContent != null) {
@@ -160,28 +125,29 @@ export const Avatar = React.memo<IPropsAvatar>((props) => {
         </span>
     );
 
-    if (nameDisplay === 'inline') {
+    const kind = nameDisplay.kind;
+
+    if (kind === 'inline') {
         return (
-            <span
-                className={classNames('sd-avatar--inline', {
-                    'sd-avatar--inline--text-start': textPosition === 'start',
-                })}
-            >
-                {avatarElement}
-                <span className="sd-avatar--inline__text">{displayName}</span>
-            </span>
+            <AvatarWithInlineTextWrapper
+                avatarElement={avatarElement}
+                displayName={displayName}
+                placement={nameDisplay.placement}
+            />
         );
-    } else if (nameDisplay === 'tooltip') {
+    } else if (kind === 'tooltip') {
         return (
-            <TooltipWrapper tooltipText={tooltipText} tooltipFlow={tooltipFlow}>
+            <TooltipV2 content={nameDisplay.content ?? displayName} placement={nameDisplay.placement}>
                 {({attributes}) => (
                     <span className="d-contents" {...attributes}>
                         {avatarElement}
                     </span>
                 )}
-            </TooltipWrapper>
+            </TooltipV2>
         );
-    } else {
+    } else if (kind === 'none') {
         return avatarElement;
+    } else {
+        assertNever(kind);
     }
 });

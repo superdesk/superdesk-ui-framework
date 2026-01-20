@@ -11,6 +11,7 @@ import AutocompleteDoc from './Autocomplete';
 import SelectsDoc from './Selects';
 import ButtonsDoc from './Buttons';
 import LabelsDoc from './Labels';
+import StateLabelDoc from './StateLabel';
 import ButtonGroupsDoc from './ButtonGroups';
 import BadgesDoc from './Badges';
 import AlertDoc from './Alerts';
@@ -125,6 +126,10 @@ const pages: IPages = {
             labels: {
                 name: 'Labels',
                 component: LabelsDoc,
+            },
+            'state-label': {
+                name: 'State Labels',
+                component: StateLabelDoc,
             },
             'icon-labels': {
                 name: 'Icon Labels',

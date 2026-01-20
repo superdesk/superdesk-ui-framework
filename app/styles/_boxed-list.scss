@@ -1,3 +1,5 @@
+@use "variables/dimensions";
+
 // Boxed lists
 // Simpler version of the list item.
 .boxed-list {
@@ -121,7 +123,7 @@
 .boxed-list__item--clickable {
     &:hover {
         cursor: pointer;
-        box-shadow: $shadow__base--z2;
+        box-shadow: dimensions.$shadow__base--z2;
     }
     &:active {
         box-shadow: 0 0 2px 1px hsla(0, 0%, 0%, 0.12);
@@ -145,7 +147,7 @@
 
 .boxed-list__item--compact {
     min-height: none;
-    padding: $sd-base-increment $sd-base-increment $sd-base-increment $sd-base-increment * 0.5;
+    padding: dimensions.$sd-base-increment dimensions.$sd-base-increment dimensions.$sd-base-increment dimensions.$sd-base-increment * 0.5;
 }
 
 .boxed-list__item--loose {

@@ -11,6 +11,7 @@ export {SelectWithTemplate} from './components/SelectWithTemplate';
 export {WithPagination} from './components/WithPagination';
 export {Popover} from './components/Popover';
 export {Label} from './components/Label';
+export {StateLabel} from './components/StateLabel';
 export {Card} from './components/Card';
 export {Badge} from './components/Badge';
 export {Alert} from './components/Alert';

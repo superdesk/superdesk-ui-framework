@@ -1,3 +1,7 @@
+@use "../buttons";
+@use "../variables/colors";
+@use "../variables/dimensions";
+
 .p-dialog-mask.p-component-overlay {
     background-color: hsla(214, 13%, 16%, 0.5) !important;
     backdrop-filter: blur(1px);
@@ -50,7 +54,7 @@
     align-items: center;
     justify-content: space-between;
     flex-shrink: 0;
-    height: $height__modal-header;
+    height: dimensions.$height__modal-header;
 }
 
 .p-dialog-footer {
@@ -58,7 +62,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    min-height: $height__modal-footer;
+    min-height: dimensions.$height__modal-footer;
 }
 
 .p-dialog .p-dialog-header-icons {
@@ -209,7 +213,7 @@
 
 
 .p-dialog {
-    border-radius: $border-radius__base--large;
+    border-radius: dimensions.$border-radius__base--large;
     box-shadow: var(--sd-shadow__modal);
     border: 0 none;
     background-color: var(--color-modal-Bg);
@@ -221,8 +225,8 @@
     position: relative;
     z-index: 1012;
     padding: 0.8rem 0.8rem 0.8rem 1.6rem;
-    border-top-right-radius: $border-radius__base--large;
-    border-top-left-radius: $border-radius__base--large;
+    border-top-right-radius: dimensions.$border-radius__base--large;
+    border-top-left-radius: dimensions.$border-radius__base--large;
     box-shadow: 0 1px 0 var(--sd-colour-line--x-light);
 }
 
@@ -239,7 +243,7 @@
     height: 2.4rem;
     border: 0 none;
     background: transparent;
-    border-radius: $border-radius__base--full;
+    border-radius: dimensions.$border-radius__base--full;
     transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
     margin-inline-end: 0;
 }
@@ -252,7 +256,7 @@
 .p-dialog .p-dialog-header .p-dialog-header-icon:focus-visible {
     outline: 0 none;
     outline-offset: 0;
-    box-shadow: $icn-button-focus-box-shadow;
+    box-shadow: buttons.$icn-button-focus-box-shadow;
 }
 
 .p-dialog .p-dialog-header .p-dialog-header-icon:last-child {
@@ -272,14 +276,14 @@
     background-color: transparent;
     padding: 0.8rem 1.6rem;
     text-align: end;
-    border-bottom-right-radius: $border-radius__base--full;
-    border-bottom-left-radius: $border-radius__base--full;
+    border-bottom-right-radius: dimensions.$border-radius__base--full;
+    border-bottom-left-radius: dimensions.$border-radius__base--full;
     box-shadow: 0 -1px 0 var(--sd-colour-line--x-light);
     position: relative;
     z-index: 2;
 }
 
-.p-dialog .p-dialog-footer button {
+.p-dialog .p-dialog-footer > button {
     margin: 0 0.5rem 0 0;
     width: auto;
 }
@@ -315,7 +319,7 @@
 
     &:active {
         .p-dialog-header-close-icon {
-            color: $sd-colour-interactive !important;
+            color: colors.$sd-colour-interactive !important;
             opacity: 1;
         }
     }

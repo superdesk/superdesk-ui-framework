@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "mixins";
+@use "variables/colors";
+@use "variables/dimensions";
+
 // MODALS
 
 // Recalculate z-index where appropriate
@@ -23,7 +28,7 @@ $modal-x-large-width : 1000px;
 $modal-fill-width: 100%;
 $modal-fullscreen-width: 100%;
 
-$modal-border-radius: $border-radius__base--large;
+$modal-border-radius: dimensions.$border-radius__base--large;
 $modal-line-color: var(--sd-colour-line--x-light);
 $modal-bg-color: var(--color-modal-Bg);
 
@@ -31,7 +36,7 @@ $modal-header-height : $nav-height;
 $modal-footer-height : 48px;
 $modal-subnav-height : $nav-height;
 
-$modal-padding : $sd-base-increment * 2;
+$modal-padding : dimensions.$sd-base-increment * 2;
 $modal-box-shadow: var(--sd-shadow__modal);
 
 // Map with all modal sizes
@@ -44,7 +49,7 @@ $modal-sizes: (
 ) !default;
 
 @mixin modal-base(
-    $align-items: flex-start, 
+    $align-items: flex-start,
     $space-around: 40px
 ) {
     position: fixed;
@@ -76,11 +81,11 @@ $modal-sizes: (
 }
 
 @mixin modal-header() {
-    padding: $modal-padding - $sd-base-increment $modal-padding;
+    padding: $modal-padding - dimensions.$sd-base-increment $modal-padding;
     border-block-end: 1px solid $modal-line-color;
     min-height: $modal-header-height;
     background-color: $modal-bg-color;
-    border-radius: $border-radius__base--large $border-radius__base--large 0 0;
+    border-radius: dimensions.$border-radius__base--large dimensions.$border-radius__base--large 0 0;
 }
 
 @mixin modal-body() {
@@ -91,8 +96,8 @@ $modal-sizes: (
 }
 
 @mixin modal-footer() {
-    @include clearfix(); // clear it in case folks use .pull-* classes on buttons
-    padding: $modal-padding - $sd-base-increment $modal-padding;
+    @include mixins.clearfix(); // clear it in case folks use .pull-* classes on buttons
+    padding: $modal-padding - dimensions.$sd-base-increment $modal-padding;
     text-align: end; // right align buttons
     border-block-start: 1px solid $modal-line-color;
     min-height: $modal-footer-height;
@@ -112,7 +117,7 @@ $modal-sizes: (
     // default size, no class needed
     .modal__dialog {
         @include modal-dialog();
-        max-width: map-get($modal-sizes, default);
+        max-width: map.get($modal-sizes, default);
         width: 100%;
     }
 
@@ -147,7 +152,7 @@ $modal-sizes: (
                 }
 
                 .modal__content {
-                    @include border-radius(0);
+                    @include mixins.border-radius(0);
                     flex: 0 0 100%;
                     margin: 0;
                 }
@@ -165,7 +170,7 @@ $modal-sizes: (
         @if $name != default {
             &--#{$name} {
                 .modal__dialog {
-                   max-width: $value; 
+                   max-width: $value;
                 }
 
                 .modal__body {
@@ -175,7 +180,7 @@ $modal-sizes: (
         }
     }
 
-    // modifier, change body to white background 
+    // modifier, change body to white background
     // &.modal--white {
     //     .modal__body {
     //         background: $white !important;
@@ -254,12 +259,12 @@ $modal-sizes: (
 
     .modal__header, .modal__footer {
         flex: 0 0 auto;
-        width: 100%;            
+        width: 100%;
     }
 
     .modal__footer {
         &> .btn + .btn {
-            margin-inline-start: $sd-base-increment;
+            margin-inline-start: dimensions.$sd-base-increment;
         }
     }
 
@@ -287,7 +292,7 @@ $modal-sizes: (
     }
 
     .modal__sliding-toolbar {
-        @include sliding-toolbar;
+        @include mixins.sliding-toolbar;
         max-height: 5.4rem;
     }
 
@@ -323,13 +328,13 @@ $modal-sizes: (
     .modal__body {
         @include modal-body();
         flex: 0 1 auto;
-        width: 100%; 
+        width: 100%;
         max-width: $modal-base-width;
-        // modifier to add min height, if needed          
+        // modifier to add min height, if needed
     }
 
     .modal__body--add-min-height {
-        min-height: 300px; 
+        min-height: 300px;
 
         // we reset this value if the screen height is lower than 500px
         @media (max-height: 500px) {
@@ -339,11 +344,11 @@ $modal-sizes: (
 
     .modal__body--no-padding {
         padding: 0 !important;
-    } 
+    }
 
     .modal__body-heading {
         font-size: 1.8rem;
-        color: $sd-text;
+        color: colors.$sd-text;
         font-weight: 400;
         margin-block-end: 2rem;
         line-height: 100%;
@@ -355,7 +360,7 @@ $modal-sizes: (
     }
 
     .modal__body-heading--inactive {
-        color: $sd-text-light;
+        color: colors.$sd-text-light;
     }
 }
 
@@ -380,7 +385,7 @@ $modal-sizes: (
 
 .modal__header--flex {
     .icn-btn {
-        margin-inline-end: - $sd-base-increment;
+        margin-inline-end: - dimensions.$sd-base-increment;
     }
 }
 
@@ -431,7 +436,7 @@ $modal-sizes: (
     .modal__header, .modal__body {
         padding-inline-start: var(--space--3);
     }
-    
+
     .modal__heading {
         min-width: 12rem;
     }

@@ -1,3 +1,7 @@
+@use "sass:math";
+@use "../tag-labels";
+@use "../variables/dimensions";
+
 .p-chips {
     font-size: 14px;
     font-weight: normal;
@@ -5,9 +9,9 @@
 }
 
 .p-chips-token	{
-    @include tag-label;
+    @include tag-labels.tag-label;
     transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
-    background: $tag-label-BG-default;
+    background: tag-labels.$tag-label-BG-default;
     color: currentColor;
     padding: 5px;
     border-inline-start: 20px;
@@ -21,7 +25,7 @@
 .p-chips-token-icon {
     color: var(--color-text-subdued);
     font-size: 20px;
-    
+
     &:hover {
         cursor: pointer;
         color: var(--color-text-muted);
@@ -42,7 +46,7 @@
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-    gap: $sd-base-increment / 2;
+    gap: math.div(dimensions.$sd-base-increment, 2);
     width: 100%;
     transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
     border-radius: 2px 2px 0 0;

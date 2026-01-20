@@ -37,6 +37,80 @@ To import react modules in your application, just use
 import {LineInput} from 'superdesk-ui-framework'
 ```
 
+### Storybook
+
+The project includes Storybook 10 for interactive component development and documentation, integrated with the main documentation site.
+
+#### Running Storybook
+
+```bash
+# Start Storybook in standalone development mode (with hot reload)
+npm run storybook
+
+# Build static Storybook for deployment
+npm run build-storybook
+
+# Copy Storybook to dist directory (included in main build)
+npm run copy-storybook
+```
+
+#### Accessing Storybook
+
+**Development mode** (npm start):
+
+- Main docs: http://localhost:9100/
+- Navigate to Storybook section in the main navigation
+- Or access directly: http://localhost:9100/storybook/index.html
+
+**Standalone mode** (npm run storybook):
+
+- http://localhost:6006/
+
+#### Integrated Deployment
+
+Storybook is fully integrated with the main documentation site:
+
+- `npm run build` automatically builds and copies Storybook to `dist/storybook/`
+- Accessible as a 5th section in the main navigation
+- Opens in a new tab, keeping main docs accessible
+- Single deployment artifact includes both docs and Storybook
+
+#### Features
+
+- Interactive component playground with live prop editing
+- Automatic documentation generation from TypeScript types
+- Accessibility testing with built-in a11y addon
+- Responsive design testing with viewport controls
+- Full SCSS styling support
+
+#### Creating Stories
+
+For guidance on migrating components to Storybook, see [STORYBOOK_MIGRATION.md](./STORYBOOK_MIGRATION.md).
+
+Example story structure:
+
+```typescript
+import type {Meta, StoryObj} from '@storybook/react';
+import {YourComponent} from './YourComponent';
+
+const meta = {
+    title: 'Components/YourComponent',
+    component: YourComponent,
+    tags: ['autodocs'],
+} satisfies Meta<typeof YourComponent>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Playground: Story = {
+    args: {
+        // Your component props
+    },
+};
+```
+
+See `app-typescript/components/Button.stories.tsx` for a complete reference implementation.
+
 ### Contributing
 
 1. Fork repo https://github.com/superdesk/superdesk-ui-framework

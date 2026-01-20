@@ -1,7 +1,9 @@
+@use "../variables/dimensions";
+
 // LAYOUT : General : layout/general.scss
 
 .button-stack {
-	height: $subnav-height !important;
+	height: dimensions.$subnav-height !important;
 	position: relative;
 	margin: 0 20px 0 0;
 	float: inline-start;

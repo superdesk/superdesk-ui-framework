@@ -1,3 +1,5 @@
+@use "variables/dimensions";
+
 // Information box with big circle icon
 .panel-info {
     background-color: transparent;
@@ -14,7 +16,7 @@
     align-items: center;
     justify-content: center;
     background-color: var(--sd-item__main-Bg);
-    border-radius: $border-radius__base--full;
+    border-radius: dimensions.$border-radius__base--full;
     margin: 0 auto;
     box-shadow: 0 0 6px 1px hsla(0, 0%, 0%, 0.08);
 

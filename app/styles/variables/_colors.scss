@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "sass:color";
+@use "sass:math";
+
 // variables/colors.scss
 
 // Refernce Colours
@@ -129,7 +133,7 @@ $sd-slugline: var(--sd-slugline-color);
 $sd-slugline-darkUI: hsl(196, 19%, 50%);
 
 // Light border color that works well on white and dark backgrounds
-$neutral-border-color: scale-color($grayNeutral, $alpha: -50%);
+$neutral-border-color: color.scale($grayNeutral, $alpha: -50%);
 
 // Misc
 $avatarBG: hsla(168, 31%, 55%, 1);
@@ -193,9 +197,9 @@ $sd-basic-palette-ui-dark: (
 // Dark UI
 
 // Internal variables used for colors
-$primary-color: map-get($sd-basic-palette, primary);
-$default-color: map-get($sd-basic-palette, default);
-$default-color-ui-dark: map-get($sd-basic-palette-ui-dark, default);
+$primary-color: map.get($sd-basic-palette, primary);
+$default-color: map.get($sd-basic-palette, default);
+$default-color-ui-dark: map.get($sd-basic-palette-ui-dark, default);
 
 // Additional colors with shades -- Material design based
 $baseColors: (
@@ -226,9 +230,9 @@ $baseColors: (
 	@each $color,
 	$value in $baseColors {
 		$maxVar: 36;
-		$mid: $variations / 2;
+		$mid: math.div($variations, 2);
 		$dist: $mid - 1;
-		$step: $maxVar / $dist;
+		$step: math.div($maxVar, $dist);
 
 		// lighten and darken
 		@for $i from 1 through $dist {
@@ -236,15 +240,15 @@ $baseColors: (
 			$darken: ($variations - $i) * 100;
 			$lighten: $i * 100;
 
-			$colors: map-merge($colors, (
-				#{$color}--#{$lighten}: lighten($value, $percent),
-				#{$color}--#{$darken}: darken($value, $percent))
+			$colors: map.merge($colors, (
+				#{$color}--#{$lighten}: color.adjust($value, $lightness: $percent * 1%),
+				#{$color}--#{$darken}: color.adjust($value, $lightness: -$percent * 1%))
 			);
 		}
 
 		// middle eg 500
-		$colors: map-merge($colors, (#{$color}--50: lighten($value, 38.7)));
-		$colors: map-merge($colors, (#{$color}--#{$variations/2*100}: $value));
+		$colors: map.merge($colors, (#{$color}--50: color.adjust($value, $lightness: 38.7%)));
+		$colors: map.merge($colors, (#{$color}--#{math.div($variations, 2)*100}: $value));
 	}
 
 	@return $colors;

@@ -1,3 +1,7 @@
+@use "sass:math";
+@use "../tag-labels";
+@use "../variables/dimensions";
+
 .tags-preview {
     display: flex;
     align-items: flex-start;
@@ -12,16 +16,16 @@
         justify-content: flex-start;
         align-items: center;
         flex-wrap: wrap;
-        gap: $sd-base-increment / 2;
+        gap: math.div(dimensions.$sd-base-increment, 2);
         margin: 0;
         padding: 0;
         list-style-type: none;
     }
 
     .tags-preview__tag-item {
-        @include tag-label;
+        @include tag-labels.tag-label;
         color: currentColor;
-        background: $tag-label-BG-default;
+        background: tag-labels.$tag-label-BG-default;
     }
 
     .tags-preview__tag-item--single-select {
@@ -62,7 +66,7 @@
         font-size: 1.4rem;
         line-height: 3.2rem;
     }
-    
+
     .sd-input__suffix {
         height: 3.2rem;
         line-height: 3.2rem;

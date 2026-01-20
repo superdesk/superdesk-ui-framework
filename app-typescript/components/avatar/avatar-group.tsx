@@ -1,11 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import {Avatar, IPropsAvatar} from './avatar';
+import {Avatar, IAvatarWithTooltip, IPropsAvatar} from './avatar';
 import {AvatarContentNumber} from './avatar-number';
 import {AvatarPlaceholder, IPropsAvatarPlaceholder} from './avatar-placeholder';
 import {WithPopover} from '../WithPopover';
 
-export type IAvatarInGroup = Omit<IPropsAvatar, 'size'>;
+export type IAvatarInGroup = {nameDisplay?: IAvatarWithTooltip} & Omit<IPropsAvatar, 'size' | 'nameDisplay'>;
 export type IAvatarPlaceholderInGroup = Omit<IPropsAvatarPlaceholder, 'size'>;
 
 export type IAvatarGroupItem = IAvatarInGroup | IAvatarPlaceholderInGroup;
@@ -88,7 +88,7 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
                                             displayName={item.displayName}
                                             icon={item.icon}
                                             statusDot={item.statusDot}
-                                            nameDisplay="none"
+                                            nameDisplay={{kind: 'none'}}
                                         />
                                     ) : (
                                         <AvatarPlaceholder
@@ -127,9 +127,14 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
                     >
                         {items.slice(0, max).map((item, index) => {
                             if (isAvatar(item)) {
-                                // Override inline mode in group context - force tooltip or title mode
-                                const nameDisplay = item.nameDisplay === 'inline' ? 'tooltip' : item.nameDisplay;
-                                return <Avatar {...item} key={index} size={size} nameDisplay={nameDisplay} />;
+                                return (
+                                    <Avatar
+                                        {...item}
+                                        key={index}
+                                        size={size}
+                                        nameDisplay={item.nameDisplay ?? {kind: 'none'}}
+                                    />
+                                );
                             } else {
                                 return <AvatarPlaceholder {...item} key={index} size={this.props.size} />;
                             }
@@ -143,6 +148,7 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
                                     displayName=""
                                     initials={null}
                                     customContent={<AvatarContentNumber number={`${itemsOverLimit}`} />}
+                                    nameDisplay={{kind: 'none'}}
                                 />
                             </PlusButtonWrapper>
                         )}

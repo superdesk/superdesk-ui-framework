@@ -5,15 +5,18 @@ import {InputWrapper} from './Form';
 import nextId from 'react-id-generator';
 import {IInputCommon} from './Form/InputWrapper';
 import {toasted} from './Toast';
+import {Position} from './ToastMessage';
 
 interface ICopyableTextBoxProps extends IInputCommon {
     value: string;
 
     /**
-     * Defaults to medium
+     * Defaults to `medium`
      */
     size?: 'medium' | 'large';
 
+    disableCopyAndInfo?: boolean;
+    toastMessagePosition?: Position;
     'data-test-id'?: string;
 }
 
@@ -37,6 +40,7 @@ export const CopyableTextBox: React.FC<ICopyableTextBoxProps> = (props) => {
                 toasted.notify(gettext('Copied to clipboard'), {
                     type: 'success',
                     duration: 500,
+                    position: props.toastMessagePosition,
                 });
 
                 setCopied(true);
@@ -52,6 +56,8 @@ export const CopyableTextBox: React.FC<ICopyableTextBoxProps> = (props) => {
             .catch(() => {
                 toasted.notify(gettext("Couldn't copy"), {
                     type: 'warning',
+                    duration: 500,
+                    position: props.toastMessagePosition,
                 });
             });
     };
@@ -63,7 +69,7 @@ export const CopyableTextBox: React.FC<ICopyableTextBoxProps> = (props) => {
             value={props.value}
             error={props.error}
             invalid={props.error != null}
-            info={props.info}
+            info={props.disableCopyAndInfo ? undefined : props.info}
             size={props.size ?? 'medium'}
             fullWidth={true}
             htmlId={htmlId}
@@ -88,6 +94,7 @@ export const CopyableTextBox: React.FC<ICopyableTextBoxProps> = (props) => {
                     icon={copied ? 'ok' : 'copy'}
                     iconOnly={true}
                     onClick={handleCopy}
+                    disabled={props.disableCopyAndInfo}
                     type="default"
                     style="hollow"
                     size={props.size === 'medium' ? 'normal' : (props.size ?? 'normal')}
