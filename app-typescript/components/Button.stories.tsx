@@ -40,7 +40,7 @@ const meta = {
                 'highlight',
                 'sd-green',
             ],
-            description: 'Button variant type. **Recommended:** primary, secondary, tertiary',
+            description: 'Button variant type. **Recommended:** primary, secondary, tertiary. **Note:** Other variants should be avoided, as they will likely be deprecated in future versions.',
             table: {
                 defaultValue: {summary: 'default'},
             },
