@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Icon} from '../Icon';
+import {Icon, IconProps} from '../Icon';
 import {Badge} from '../Badge';
 import classNames from 'classnames';
 
@@ -15,6 +15,7 @@ interface IProps {
 export interface ISideBarTab {
     id: string;
     icon: string;
+    type: IconProps['type'];
     size: 'small' | 'big'; // defaults to 'small'
     tooltip?: string;
     badgeValue?: string;
@@ -68,7 +69,7 @@ export class SideBarTabs extends React.PureComponent<IProps> {
                                         {item.badgeValue != null && <Badge text={item['badgeValue']} type="primary" />}
 
                                         <span className="sd-sidetab-menu__main-icon ">
-                                            <Icon size={item['size']} name={item['icon']} />
+                                            <Icon size={item.size} name={item.icon} type={item.type} />
                                         </span>
 
                                         <i className="sd-sidetab-menu__helper-icon icon-close-small"></i>

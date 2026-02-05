@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
-interface IProps {
+
+export interface IconProps {
     name?: string;
     size?: 'small' | 'big'; // defaults to 'small'
     type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'light' | 'white';
@@ -10,7 +11,7 @@ interface IProps {
     color?: string;
 }
 
-export class Icon extends React.PureComponent<IProps> {
+export class Icon extends React.PureComponent<IconProps> {
     render() {
         let classes = classNames(this.props.className, {
             [`icon-${this.props.name}`]:
