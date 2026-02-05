@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Icon, IconProps} from '../Icon';
+import {Icon, IIconProps} from '../Icon';
 import {Badge} from '../Badge';
 import classNames from 'classnames';
 
@@ -15,7 +15,7 @@ interface IProps {
 export interface ISideBarTab {
     id: string;
     icon: string;
-    type: IconProps['type'];
+    type?: IIconProps['type'];
     size: 'small' | 'big'; // defaults to 'small'
     tooltip?: string;
     badgeValue?: string;
