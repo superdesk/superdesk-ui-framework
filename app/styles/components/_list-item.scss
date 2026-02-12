@@ -233,6 +233,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         z-index: 2;
         opacity: 0;
         transition: opacity 0.2s linear;

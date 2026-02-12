@@ -1,0 +1,14 @@
+:root,
+[data-theme="dark-ui"] {
+    --checkbox-button-color-text-default: var(--color-text-default);
+    --checkbox-button-color-text-checked: var(--color-text-ondark);
+    --checkbox-button-color-border-default: var(--color-line-medium);
+    --checkbox-button-color-border-hover: var(--color-line-strong);
+    --checkbox-button-color-border-checked: lch(0% 0 0 / 0.2);
+    --checkbox-button-color-bg-default: transparent;
+    --checkbox-button-color-bg-hover: transparent;
+    --checkbox-button-color-bg-checked: var(--sd-colour-interactive--active);
+    --checkbox-button-radius: var(--radius-sm);
+    --checkbox-button-height: var(--form-element-height-default);
+    --checkbox-button-color-shadow-focus: var(--sd-colour-interactive-translucent-25);
+}

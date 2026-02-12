@@ -3,6 +3,21 @@
 :root {
     // GENERAL
     --base-increment: 0.8rem; // 8px
+
+    // SPACE
+    // NEW NAMES
+    --space-0: 0; // 0px
+    --space-0-5: calc(0.5 * var(--base-increment)); // 4px
+    --space-1: calc(1 * var(--base-increment)); // 8px
+    --space-1-5: calc(1.5 * var(--base-increment)); // 12px
+    --space-2: calc(2 * var(--base-increment)); // 16px
+    --space-3: calc(3 * var(--base-increment)); // 24px
+    --space-4: calc(4 * var(--base-increment)); // 32px
+    --space-5: calc(5 * var(--base-increment)); // 40px;
+    --space-6: calc(6 * var(--base-increment)); // 48px;
+    --space-7: calc(7 * var(--base-increment)); // 56px;
+    --space-8: calc(8 * var(--base-increment)); // 64px;
+    // BACKUP FOR OLD NAMES (keep for backwards compatibility)
     --space--0: 0; // 0px
     --space--0-5: calc(0.5 * var(--base-increment)); // 4px
     --space--1: calc(1 * var(--base-increment)); // 8px
@@ -15,26 +30,36 @@
     --space--7: calc(7 * var(--base-increment)); // 56px;
     --space--8: calc(8 * var(--base-increment)); // 64px;
 
-    --gap--none: 0; // 0px
+    // GAP
+    // NEW NAMES
     --gap-0: 0;
-    --gap--x-small: calc(0.5 * var(--base-increment)); // 4px
     --gap-0-5: calc(0.5 * var(--base-increment)); // 4px
-    --gap--small: calc(1 * var(--base-increment)); // 8px
     --gap-1: calc(1 * var(--base-increment)); // 8px
-    --gap--medium-small: calc(1.5 * var(--base-increment)); // 12px
     --gap-1-5: calc(1.5 * var(--base-increment)); // 12px
-    --gap--medium: calc(2 * var(--base-increment)); // 16px
     --gap-2: calc(2 * var(--base-increment)); // 16px
-    --gap--large: calc(3 * var(--base-increment)); // 24px;
-    --gap-3: calc(3 * var(--base-increment)); // 24px;
-    --gap--x-large: calc(4 * var(--base-increment)); // 32px;
-    --gap-4: calc(4 * var(--base-increment)); // 32px;
-    --gap--xx-large: calc(5 * var(--base-increment)); // 40px;
+    --gap-3: calc(3 * var(--base-increment)); // 24px
+    --gap-4: calc(4 * var(--base-increment)); // 32px
     --gap-5: calc(5 * var(--base-increment)); // 40px;
-
+    // BACKUP FOR OLD NAMES (keep for backwards compatibility)
+    --gap--none: 0; // 0px
+    --gap--x-small: calc(0.5 * var(--base-increment)); // 4px
+    --gap--small: calc(1 * var(--base-increment)); // 8px
+    --gap--medium-small: calc(1.5 * var(--base-increment)); // 12px
+    --gap--medium: calc(2 * var(--base-increment)); // 16px
+    --gap--large: calc(3 * var(--base-increment)); // 24px;
+    --gap--x-large: calc(4 * var(--base-increment)); // 32px;
+    --gap--xx-large: calc(5 * var(--base-increment)); // 40px;
     --gap--auto: auto;
 
     // BORDER RADIUS
+    // NEW NAMES
+    --radius-xs: 2px;
+    --radius-sm: 3px;
+    --radius-md: 4px;
+    --radius-lg: 6px;
+    --radius-xl: 8px;
+    --radius-full: 9999px;
+    // BACKUP FOR OLD NAMES (keep for backwards compatibility)
     --b-radius--x-small: 2px;
     --b-radius--small: 3px;
     --b-radius--medium: 4px;
@@ -61,6 +86,16 @@
     --width__modal--x-large: 80vw;
 
     // TEXT SIZE
+    // NEW NAMES
+    --text-size-base: 1rem;
+    --text-size-xxs: calc(var(--text-size-base) * 1); // 10px;
+    --text-size-xs: calc(var(--text-size-base) * 1.2); // 12px;
+    --text-size-sm: calc(var(--text-size-base) * 1.4); // 14px;
+    --text-size-md: calc(var(--text-size-base) * 1.6); // 16px;
+    --text-size-lg: calc(var(--text-size-base) * 2); // 20px;
+    --text-size-xl: calc(var(--text-size-base) * 2.4); // 24px;
+    --text-size-xxl: calc(var(--text-size-base) * 3.2); // 32px;
+    // BACKUP FOR OLD NAMES (keep for backwards compatibility)    
     --text-size--base: 1rem;
     --text-size-xx-small: calc(var(--text-size--base) * 1); // 10px;
     --text-size-x-small: calc(var(--text-size--base) * 1.2); // 12px;
@@ -92,9 +127,12 @@
 
     // FORM ELEMENTS
     // Size
-    --form-element-height-default: var(--space--4);
-    --form-element-height-small: var(--space--3);
-    --form-element-height-large: var(--space--5);
+    --form-element-height-sm: var(--space--3);
+    --form-element-height-md: var(--space--4);
+    --form-element-height-lg: var(--space--5);
+    
+    --form-element-height-medium: var(--space--4);
+    --form-element-height-default: var(--form-element-height-medium);
 
     // TRANSITIONS
     --transition__menu-item: background-color ease 0.1s
