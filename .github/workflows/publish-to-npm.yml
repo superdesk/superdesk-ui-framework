@@ -3,10 +3,8 @@ name: Publish to npm and Create Release
 on:
     push:
         branches:
-            - 'develop'
             - 'v3'
             - 'v4'
-            - 'v5.1'
             - 'v5'
             - 'v6*'
 
