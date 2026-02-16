@@ -8,6 +8,7 @@ on:
             - 'v4'
             - 'v5.1'
             - 'v5'
+            - 'v6**'
 
 jobs:
     publish:
