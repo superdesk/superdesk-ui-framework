@@ -7,6 +7,12 @@ on:
             - 'v4'
             - 'v5'
             - 'v6*'
+    workflow_dispatch:
+        inputs:
+            branch:
+                description: 'Branch to publish from'
+                required: true
+                type: string
 
 jobs:
     publish:
@@ -16,6 +22,7 @@ jobs:
         steps:
             - uses: actions/checkout@v6
               with:
+                  ref: ${{ github.event.inputs.branch || github.ref }}
                   fetch-depth: 0
             - uses: actions/setup-node@v6
               with:
