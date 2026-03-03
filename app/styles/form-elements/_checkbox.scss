@@ -6,12 +6,6 @@
 
 // CHECKBOX & RADIO BUTTONS
 
-$checkBoxBorderColor: var(--color-checkbox-border);
-$checkBoxBorderColorHover: var(--color-checkbox-border-hover);
-$checkButtonTextColor: var(--color-text-muted);
-$checkButtonBorderColor: var(--sd-colour-line--light);
-$checkButtonBorderColorHover: var(--sd-colour-line--strong);
-$checkButtonBorderRadius: dimensions.$border-radius__base--small;
 
 @mixin check-base {
     --check-size: 1.6rem;
@@ -19,21 +13,21 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
     height: var(--check-size);
     display: inline-block;
     position: relative;
-    background: transparent;
-    border: 2px solid $checkBoxBorderColor;
+    background: var(--checkbox-color-bg-default);
+    border: 2px solid var(--checkbox-color-border-default);
     vertical-align: middle;
-    font-family: typography.$baseFontFamily;
+    font-family: inherit;
     transition: all 0.2s ease-out;
     flex: 0 0 var(--check-size);
 }
 
 .sd-checkbox {
     @include check-base;
-    border-radius: dimensions.$border-radius__base--x-small;
+    border-radius: var(--checkbox-radius);
 
     &::after {
-        @include mixins.opacity(0);
-        @include mixins.transition(all, 0.2s, ease-in);
+        opacity: 0;
+        transition: all 0.2s ease-in;
         font-family: 'sd_icons';
         content:'\e61d';
         font-weight: 400;
@@ -43,7 +37,7 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
         width: 1.2rem;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        color: #fff;
+        color: lch(100 0 0);
         position: absolute;
         inset-block-start: 0;
         inset-inline-start: 0;
@@ -51,13 +45,13 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
     }
 
     &:hover {
-        border-color: $checkBoxBorderColorHover;
+        border-color: var(--checkbox-color-border-hover);
         cursor: pointer;
     }
 
     &.checked, &[checked="checked"] {
-        border-color: colors.$sd-colour-interactive;
-        background: colors.$sd-colour-interactive;
+        border-color: var(--checkbox-color-border-checked);
+        background: var(--checkbox-color-bg-checked);
 
         &::after {
             opacity: 1;
@@ -65,24 +59,23 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
         }
 
         &:hover {
-            border-color: var(--sd-colour-interactive--hover);
-            background-color: var(--sd-colour-interactive--hover);
+            border-color: var(--checkbox-color-border-checked);
+            background-color: var(--checkbox-color-bg-checked);
         }
     }
-
 }
 
 // Modifier for .sd-checkbox to create a radio button
 .sd-checkbox--radio {
-    border-radius: dimensions.$border-radius__base--full;
+    border-radius: var(--radius-full);
 
     &::after {
         height: 0.8rem;
         width: 0.8rem;
-        border-radius: dimensions.$border-radius__base--full;
+        border-radius: var(--radius-full);
         content:' ';
         position: absolute;
-        background-color: colors.$sd-colour-interactive;
+        background-color: var(--checkbox-color-bg-checked);
         inset-block-start: 0.2rem;
         inset-inline-start: 0.2rem;
         opacity: 0;
@@ -91,7 +84,7 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
     }
 
     &.checked, &[checked="checked"] {
-        border-color: colors.$sd-colour-interactive;
+        border-color: var(--checkbox-color-border-checked);
         background: transparent;
 
         &::after {
@@ -107,28 +100,32 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
 
 // This modifier creates button styled checkboxes or radio buttons
 .sd-checkbox--button-style {
-    @include mixins.transition(all, 0.2s, ease-out);
-    @include mixins.text-overflow;
+    transition: all 0.2s ease-out;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     width: auto;
     padding: 0 1.2rem;
     line-height: 1;
-    color: $checkButtonTextColor;
-    border: 1px solid $checkButtonBorderColor;
-    border-radius: $checkButtonBorderRadius;
+    color: var(--checkbox-button-color-text-default);
+    border: 1px solid var(--checkbox-button-color-border-default);
+    border-radius: var(--checkbox-button-radius);
     display: inline-flex;
     align-items: center;
     text-align: center;
-    height: dimensions.$sd-base-increment * 4;
+    height:var(--checkbox-button-height);
 
     label {
-        @include mixins.text-overflow;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         margin:0;
         display: inline;
         cursor: pointer;
         transition: none;
         text-align: center;
         line-height: 16px;
-        font-family: typography.$baseFontFamily;
+        font-family: inherit;
 
         [class^="icon-"], [class*=" icon-"] {
             vertical-align: middle;
@@ -151,26 +148,26 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
 
     &:hover {
         color: var(--color-text);
-        border-color: $checkButtonBorderColorHover;
+        border-color: var(--checkbox-button-color-border-hover);
         box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.2);
     }
 
     &.checked, &[checked="checked"] {
-        background-color: var(--sd-colour-interactive--active);
-        border-color: var(--sd-colour-interactive--active);
+        background-color: var(--checkbox-button-color-bg-checked);
+        border-color: var(--checkbox-button-color-border-checked);
         border-top-color: var(--sd-colour-interactive--darken-20);
         box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.2);
-        color: colors.$white;
+        color: var(--checkbox-button-color-text-checked);
 
         &:hover {
-            color: colors.$white;
-            border-color: var(--sd-colour-interactive--hover);
-            background-color: var(--sd-colour-interactive--active);
+            color: var(--checkbox-button-color-text-checked);
+            border-color: var(--checkbox-button-color-border-checked);
+            background-color: var(--checkbox-button-color-bg-checked);
             box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.2);
         }
 
         label {
-            color: colors.$white;
+            color: var(--checkbox-button-color-text-checked);
         }
     }
 
@@ -185,8 +182,8 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
     cursor: not-allowed !important;
 
     &:hover {
-        color: $checkButtonTextColor;
-        border-color: $checkButtonBorderColor;
+        color: var(--checkbox-button-color-text-default);
+        border-color: var(--checkbox-button-color-border-default);
         box-shadow: none;
     }
 }
@@ -220,13 +217,13 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
 .sd-check__group {
     padding: 0;
     display: flex;
-    gap: dimensions.$sd-base-increment;
+    gap: var(--space-1);
 }
 
 .sd-check__group--grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-    grid-gap: dimensions.$sd-base-increment;
+    grid-gap: var(--space-1);
 
     .sd-check__wrapper {
         display: block;
@@ -259,19 +256,20 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
 
 .sd-check-new {
     @include check-base;
-    border-radius: dimensions.$border-radius__base--x-small;
+    border-radius: var(--checkbox-radius);
 
     &::after {
+        --checkmark-size: 1.2rem;
         font-family: 'sd_icons';
         content:'\e61d';
         font-weight: 400;
-        font-size: 1.2rem;
-        line-height: 1.2rem;
-        height: 1.2rem;
-        width: 1.2rem;
+        font-size: var(--checkmark-size);
+        line-height: var(--checkmark-size);
+        height: var(--checkmark-size);
+        width: var(--checkmark-size);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        color: #fff;
+        color: var(--color-text-ondark);
         position: absolute;
         inset-block-start: 0;
         inset-inline-start: 0;
@@ -281,13 +279,13 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
     }
 
     &:hover {
-        border-color: $checkBoxBorderColorHover;
+        border-color: var(--checkbox-color-border-hover);
         cursor: pointer;
     }
 
     &.checked, &[checked="checked"] {
-        border-color: colors.$sd-colour-interactive;
-        background: colors.$sd-colour-interactive;
+        border-color: var(--checkbox-color-border-checked);
+        background: var(--checkbox-color-bg-checked);
 
         &::after {
             opacity: 1;
@@ -295,39 +293,40 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
         }
 
         &:hover {
-            border-color: var(--sd-colour-interactive--hover);
-            background-color: var(--sd-colour-interactive--hover);
+            border-color: var(--checkbox-color-border-checked);
+            background: var(--checkbox-color-bg-checked);
         }
     }
 }
 
-.sd-check-new--disabled, .sd-check-new[disabled="disabled"] {
+.sd-check-new--disabled,
+.sd-check-new[disabled="disabled"] {
     opacity: 0.40;
     cursor: not-allowed !important;
 
     &:hover {
-        color: $checkButtonTextColor;
-        border-color: $checkButtonBorderColor;
+        color: var(--checkbox-color-text-default);
+        border-color: var(--checkbox-color-border-default);
         box-shadow: none;
     }
 }
 
 .sd-radio-new {
     @include check-base;
-    border-radius: dimensions.$border-radius__base--full;
+    border-radius: var(--radius-full);
 
     &:hover {
-        border-color: $checkBoxBorderColorHover;
+        border-color: var(--checkbox-color-border-hover);
         cursor: pointer;
     }
 
     &::after {
         height: 0.8rem;
         width: 0.8rem;
-        border-radius: dimensions.$border-radius__base--full;
+        border-radius: var(--radius-full);
         content:' ';
         position: absolute;
-        background-color: colors.$sd-colour-interactive;
+        background-color: var(--checkbox-color-bg-checked);
         inset-block-start: 0.2rem;
         inset-inline-start: 0.2rem;
         opacity: 0;
@@ -336,7 +335,7 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
     }
 
     &.checked, &[checked="checked"] {
-        border-color: colors.$sd-colour-interactive;
+        border-color: var(--checkbox-color-border-checked);
         background: transparent;
 
         &::after {
@@ -356,8 +355,8 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
     cursor: not-allowed !important;
 
     &:hover {
-        color: $checkButtonTextColor;
-        border-color: $checkButtonBorderColor;
+        color: var(--checkbox-color-text-default);
+        border-color: var(--checkbox-color-border-default);
         box-shadow: none;
     }
 }
@@ -365,14 +364,14 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
 .sd-check-button {
     padding-inline: var(--space--1-5);
     line-height: 1;
-    border: 1px solid $checkButtonBorderColor;
-    border-radius: $checkButtonBorderRadius;
+    border: 1px solid var(--checkbox-button-color-border-default);
+    border-radius: var(--checkbox-button-radius);
     transition: all 0.2s ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: dimensions.$sd-base-increment * 4;
-    color: var(--color-text);
+    height: var(--checkbox-button-height);
+    color: var(--checkbox-button-color-text-default);
     cursor: pointer;
 
     .sd-check-button__text-label {
@@ -398,28 +397,28 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
     &:hover {
         .sd-check-button__text-label {
             opacity: 1;
-            border-color: $checkButtonBorderColorHover;
-            box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.16);
-            color: var(--color-text);
+            border-color: var(--checkbox-button-color-border-hover);
+            box-shadow: 0 1px 4px 0 lch(0% 0 0 / 0.2);
+            color: var(--checkbox-button-color-text-default);
         }
     }
 
     &.checked, &[checked="checked"] {
-        background-color: var(--sd-colour-interactive--active);
-        border-color: var(--sd-colour-interactive--active);
+        background-color: var(--checkbox-button-color-bg-checked);
+        border-color: var(--checkbox-button-color-border-checked);
         border-top-color: var(--sd-colour-interactive--darken-20);
-        box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.2);
-        color: colors.$white;
+        box-shadow: inset 0 2px 0 0 lch(0% 0 0 / 0.2);
+        color: var(--checkbox-button-color-text-checked);
 
         .sd-check-button__text-label {
             opacity: 1;
         }
 
         &:hover {
-            color: colors.$white;
-            border-color: var(--sd-colour-interactive--active);
-            background-color: var(--sd-colour-interactive--hover);
-            box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.2);
+            color: var(--checkbox-button-color-text-checked);
+            border-color: var(--checkbox-button-color-border-checked);
+            background-color: var(--checkbox-button-color-bg-checked);
+            box-shadow: inset 0 2px 0 0 lch(0% 0 0 / 0.2);
         }
     }
 
@@ -434,16 +433,16 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    gap: dimensions.$sd-base-increment * 1;
+    gap: var(--space-1);
     flex: 1 0;
 
     &.sd-check-button__group--padded {
-        margin-inline-start: dimensions.$sd-base-increment * 1.5;
-        margin-inline-end: dimensions.$sd-base-increment * 1.5;
+        margin-inline-start: var(--space-1-5);
+        margin-inline-end: var(--space-1-5);
     }
 
     &.sd-check-button__group--compact {
-        gap: dimensions.$sd-base-increment * 0.5;
+        gap: var(--space-0-5);
     }
 
     &.sd-check-button__group--no-wrap {
@@ -488,11 +487,11 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
     flex: 1 1 0;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-    grid-gap: dimensions.$sd-base-increment;
+    grid-gap: var(--space-1);
     align-self: stretch;
 
     &.sd-check-button__group--compact {
-        grid-gap: math.div(dimensions.$sd-base-increment, 2);
+        grid-gap: var(--space-0-5);
     }
 }
 
@@ -525,7 +524,7 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
 
     &[label-position="left"], &[label-position="start"] {
         label {
-            margin-inline-end: dimensions.$sd-base-increment;
+            margin-inline-end: var(--space-1);
             margin-inline-start: 0;
 
             &:empty {
@@ -553,8 +552,8 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
     input:checked {
         & ~ .sd-check-new,
         & ~ .sd-radio-new  {
-            border-color: colors.$sd-colour-interactive;
-            background: colors.$sd-colour-interactive;
+            border-color: var(--checkbox-color-border-checked);
+            background: var(--checkbox-color-bg-checked);
 
             &::after {
                 opacity: 1;
@@ -567,14 +566,14 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
         }
 
         & ~ label {
-            color: colors.$sd-colour-interactive;
+            color: var(--checkbox-color-text-checked);
         }
     }
 
     input:focus {
         & ~ .sd-check-new,
         & ~ .sd-radio-new  {
-            box-shadow: 0 0 0 3px colors.$sd-colour--focus-shadow;
+            box-shadow: 0 0 0 3px var(--checkbox-color-shadow-focus);
         }
     }
 
@@ -621,11 +620,11 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: dimensions.$sd-base-increment * 3;
+    gap: var(--space-3);
 }
 
 .sd-check__group-new--vertical {
-    gap: dimensions.$sd-base-increment * 2;
+    gap: var(--space-2);
     flex-direction: column;
     align-items: flex-start;
 }
@@ -643,13 +642,13 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
             padding-inline-start: 1.2rem;
             padding-inline-end: 1.2rem;
             line-height: 1;
-            border: 1px solid rgba(140, 140, 140, 0.5);
-            border-radius: $checkButtonBorderRadius;
+            border: 1px solid var(--checkbox-button-color-border-default);
+            border-radius: var(--checkbox-button-radius);
             transition: all 0.2s ease-in-out;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 3.2rem;
+            height: var(--checkbox-button-height);
             color: inherit;
             cursor: pointer;
             width: 100%;
@@ -661,7 +660,7 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
             }
 
             i + .sd-check-button__text-label-inner {
-                margin-inline-start: dimensions.$sd-base-increment;
+                margin-inline-start: var(--space-1);
             }
         }
     }
@@ -684,11 +683,11 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
     .sd-check-button__input:checked {
         & ~ label {
             opacity: 1;
-            color: colors.$white;
-            background-color: var(--sd-colour-interactive);
-            border-color: var(--sd-colour-interactive);
-            border-top-color: var(--sd-colour-interactive--darken-20);
-            box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.2);
+            color: var(--checkbox-button-color-text-checked);
+            background-color: var(--checkbox-button-color-bg-checked);
+            border-color: var(--checkbox-button-color-border-checked);
+            border-top-color: var(--checkbox-button-color-border-checked);
+            box-shadow: inset 0 3px 0 0 lch(0% 0 0 / 0.25);
         }
     }
     .sd-check-button__input:disabled {
@@ -700,12 +699,12 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
     }
     &:focus-within {
         .sd-check-button__text-label {
-            box-shadow: 0 0 0 3px colors.$sd-colour--focus-shadow;
+            box-shadow: 0 0 0 3px var(--checkbox-button-color-shadow-focus);
         }
 
         .sd-check-button__input:checked {
             & ~ label {
-                box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.2), 0 0 0 3px colors.$sd-colour--focus-shadow;
+                box-shadow: inset 0 3px 0 0 lch(0% 0 0 / 0.2), 0 0 0 3px var(--checkbox-button-color-shadow-focus);
             }
         }
 
@@ -724,8 +723,8 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
     padding-inline: var(--space--1-5);
     @include mixins.text-overflow;
     line-height: 1;
-    border: 1px solid $checkButtonBorderColor;
-    border-radius: $checkButtonBorderRadius;
+    border: 1px solid var(--checkbox-button-color-border-default);
+    border-radius: var(--checkbox-button-radius);
     transition: all 0.2s ease-in-out;
     display: inline-flex;
     align-items: center;
@@ -746,7 +745,7 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
     }
 
     &:hover {
-        border-color: $checkButtonBorderColorHover;
+        border-color: var(--checkbox-button-color-border-hover);
         box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.16);
         color: var(--color-text);
         text-decoration: none !important;
@@ -767,4 +766,3 @@ $checkButtonBorderRadius: dimensions.$border-radius__base--small;
         }
     }
 }
-

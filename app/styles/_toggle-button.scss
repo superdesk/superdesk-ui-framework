@@ -2,8 +2,8 @@
     padding-inline: var(--space--1-5);
     @include text-overflow;
     line-height: 1;
-    border: 1px solid $checkButtonBorderColor;
-    border-radius: $checkButtonBorderRadius;
+    border: 1px solid var(--checkbox-button-color-border-default);
+    border-radius: var(--checkbox-button-radius);
     transition: all 0.2s ease-in-out;
     display: inline-flex;
     align-items: center;
@@ -24,7 +24,7 @@
     }
 
     &:hover {
-        border-color: $checkButtonBorderColorHover;
+        border-color: var(--checkbox-button-color-border-hover);
         box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.16);
         color: var(--color-text);
     }

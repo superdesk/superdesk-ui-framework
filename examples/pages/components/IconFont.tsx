@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
 import {Icon, Prop, PropsList} from '../../../app-typescript';
-import iconFont from '../../../app/styles/_icon-font.scss';
+import * as iconFont from '../../../app/styles/_icon-font.scss';
 
 export default class IconFontDoc extends React.PureComponent {
     render() {

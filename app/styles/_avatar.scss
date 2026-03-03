@@ -412,7 +412,6 @@
     background-color: var(--color-surface-faded);
     border-radius: var(--b-radius--full);
 
-
     .sd-avatar--inline__text {
         color: var(--color-text);
         font-size: var(--name-font-size);
@@ -421,7 +420,6 @@
         overflow: hidden;
         text-overflow: ellipsis;
         // max-width: 200px;
-
     }
     &:has(.sd-avatar--x-small) {
         gap: var(--gap-0-5);
@@ -435,7 +433,6 @@
         .sd-avatar--inline__text {
             --name-font-size: var(--text-size-x-small);
             padding-inline-end: 1em;
-
         }
     }
     &:has(.sd-avatar--medium) {
