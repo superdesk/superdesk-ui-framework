@@ -16,3 +16,4 @@ package-lock.json
 *storybook.log
 storybook-static
 actionlint
+.claude/worktrees/
