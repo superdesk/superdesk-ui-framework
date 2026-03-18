@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import {DragDropContext, Droppable, Draggable, DropResult} from 'react-beautiful-dnd';
+import {DragDropContext, Droppable, Draggable, DropResult} from '@hello-pangea/dnd';
 import {Tooltip} from '../Tooltip';
 import {Button} from '../Button';
 import {Dropdown, IMenuItem, ISubmenu, IMenuGroup} from '../Dropdown';
