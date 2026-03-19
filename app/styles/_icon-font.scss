@@ -300,6 +300,10 @@ $sd-icon-font: (
     thumb-up: "\e6bd",
     thumb-down: "\e6be",
     open-ai: "\e6bf",
+    n-dash: "\e6c0",
+    m-dash: "\e6c1",
+    thin_space: "\e6c2",
+    thin_space_alt: "\e6c3",
 );
 
 @each $name, $value in $sd-icon-font {
