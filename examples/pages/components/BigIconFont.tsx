@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
 import {Icon, Prop, PropsList} from '../../../app-typescript';
-import bigIconFont from '../../../app/styles/_big-icon-font.scss';
+import * as bigIconFont from '../../../app/styles/_big-icon-font.scss';
 
 export default class BigIconFontDoc extends React.PureComponent {
     render() {

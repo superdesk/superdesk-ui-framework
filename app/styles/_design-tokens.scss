@@ -1,6 +1,5 @@
-@use 'design-tokens/primitives';
-@use 'design-tokens/brand-colors';
-@use 'design-tokens/semantic-colors';
+@use 'design-tokens/primitives/primitives';
+@use 'design-tokens/semantic/semantics';
+@use 'design-tokens/components/components';
 @use 'design-tokens/design-tokens-general';
-@use 'design-tokens/new-colors';
-@use 'design-tokens/component-tokens';
+@use 'deprecate/new-colors';

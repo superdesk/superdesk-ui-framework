@@ -13,7 +13,7 @@ import {TreeSelectPill} from './TreeSelectPill';
 import {getPrefixedItemId, TreeSelectItem} from './TreeSelectItem';
 import {keyboardNavigation} from './KeyboardNavigation';
 import {WithPortal} from '../WithPortal';
-import {DragDropContext, Droppable, Draggable, DropResult} from 'react-beautiful-dnd';
+import {DragDropContext, Droppable, Draggable, DropResult} from '@hello-pangea/dnd';
 import {getNextZIndex} from '../../zIndex';
 import {arrayMove} from '@sourcefabric/common';
 import {gettext} from '../../translations';

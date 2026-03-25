@@ -13,6 +13,7 @@ const cssLoaderConfig = {
         url: {
             filter: (url) => !url.startsWith('/'),
         },
+        modules: 'icss',
     },
 };
 
