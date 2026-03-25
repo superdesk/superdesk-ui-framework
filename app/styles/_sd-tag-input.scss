@@ -1,3 +1,9 @@
+@use "sass:color";
+@use "sass:math";
+@use "tag-labels";
+@use "variables/colors";
+@use "variables/dimensions";
+
 sd-tag-input {
     display: block;
     padding-block-end: 3rem;
@@ -67,14 +73,14 @@ tags-input,
             justify-content: flex-start;
             align-items: center;
             flex-wrap: wrap;
-            padding-inline-start: $sd-base-increment / 2;
-            gap: $sd-base-increment / 2;
+            padding-inline-start: math.div(dimensions.$sd-base-increment, 2);
+            gap: math.div(dimensions.$sd-base-increment, 2);
         }
 
         .tags-input__tag-item {
-            @include tag-label;
+            @include tag-labels.tag-label;
             transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
-            background: $tag-label-BG-default;
+            background: tag-labels.$tag-label-BG-default;
             color: currentColor;
 
             &.selected {
@@ -96,7 +102,7 @@ tags-input,
                 text-decoration: none;
                 text-align: center;
                 vertical-align: middle;
-                border-radius: $border-radius__base--full;
+                border-radius: dimensions.$border-radius__base--full;
                 background-color: var(--sd-colour__tag-label-remove-Bg);
                 color: var(--color-text);
                 cursor: pointer;
@@ -126,7 +132,7 @@ tags-input,
                     background-color: var(--sd-colour__tag-label-remove-Bg--hover);
 
                     [class^="icon-"], [class*=" icon-"] {
-                        color: $sd-colour-interactive;
+                        color: colors.$sd-colour-interactive;
                         opacity: 1;
                     }
                 }
@@ -149,7 +155,7 @@ tags-input,
                 }
             }
             &.tags-input__tag-item--draggable {
-                border-radius: $border-radius__base--small;
+                border-radius: dimensions.$border-radius__base--small;
                 padding-inline-start: 6px;
                 .drag-handle-wrapper {
                     margin-inline-end: 6px;
@@ -172,7 +178,7 @@ tags-input,
             background-color: transparent;
 
             &.invalid-tag {
-                color: $red;
+                color: colors.$red;
             }
 
             &::-ms-clear {
@@ -200,7 +206,7 @@ tags-input,
     .tags-input__tags--boxed {
         background-color: rgba(0, 0, 0, 0.05);
         padding-inline-start: 0.4rem;
-        border-radius: $border-radius__base--x-small;
+        border-radius: dimensions.$border-radius__base--x-small;
 
         &:hover {
             background-color: rgba(0, 0, 0, 0.1);
@@ -209,8 +215,8 @@ tags-input,
 
     &.ng-invalid {
         .tags-input__tags {
-            border-block-end: 1px solid $red !important;
-            box-shadow: 0 1px 0 $red !important;
+            border-block-end: 1px solid colors.$red !important;
+            box-shadow: 0 1px 0 colors.$red !important;
         }
     }
 
@@ -243,15 +249,15 @@ tags-input,
     }
 
     .tags-input__add-button {
-        height: $sd-base-increment * 3;
-        width: $sd-base-increment * 3;
-        background-color: $sd-colour-interactive;
-        color: $white;
+        height: dimensions.$sd-base-increment * 3;
+        width: dimensions.$sd-base-increment * 3;
+        background-color: colors.$sd-colour-interactive;
+        color: colors.$white;
         display: flex;
         align-items: center;
         text-align: center;
         transition: all 0.3s;
-        border-radius: $border-radius__base--x-small;
+        border-radius: dimensions.$border-radius__base--x-small;
         opacity: 0.5;
         padding: 0;
         justify-content: center;
@@ -274,7 +280,7 @@ tags-input,
             background-color: rgba(123, 123, 123, 0.4);
             cursor: default;
             cursor: not-allowed;
-            color: scale-color($white, $alpha: -20%);
+            color: color.scale(colors.$white, $alpha: -20%);
         }
     }
 
@@ -300,7 +306,7 @@ tags-input,
     z-index: 999;
     width: 100%;
     background-color: var(--color-dropdown-menu-Bg);
-    box-shadow: $shadow__dropdown--default;
+    box-shadow: dimensions.$shadow__dropdown--default;
 
     .suggestion-list {
         margin: 0;
@@ -322,7 +328,7 @@ tags-input,
         min-height: 3.2rem;
         >div {
             padding: 0.5rem 1rem;
-            min-height: $sd-base-increment * 4;
+            min-height: dimensions.$sd-base-increment * 4;
             position: relative;
         }
     }
@@ -332,16 +338,16 @@ tags-input,
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        color: $sd-text;
+        color: colors.$sd-text;
         transition: all ease 0.2s;
-        min-height: $sd-base-increment * 4;
+        min-height: dimensions.$sd-base-increment * 4;
 
         &.selected {
             background-color: var(--sd-colour-interactive--alpha-30);
 
             &:active {
                 background-color: var(--sd-colour-interactive--alpha-70);
-                color: $white;
+                color: colors.$white;
             }
         }
 
@@ -374,7 +380,7 @@ tags-input,
         padding: 0.5rem 1rem;
 
         &:focus {
-            background-color: $sd-colour-background__menu-item;
+            background-color: colors.$sd-colour-background__menu-item;
             box-shadow: var(--sd-shadow__menu-item--focus-inner);
             text-decoration: none;
             outline: none;
@@ -415,9 +421,9 @@ tags-input,
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        color: $sd-text-light;
+        color: colors.$sd-text-light;
         transition: all ease 0.2s;
-        min-height: $sd-base-increment * 4;
+        min-height: dimensions.$sd-base-increment * 4;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -442,7 +448,7 @@ tags-input,
             background-color: transparent;
 
             &.invalid-tag {
-                color: $red;
+                color: colors.$red;
             }
 
             &::-ms-clear {
@@ -466,7 +472,7 @@ tags-input,
     .tags-input__tags--boxed {
         background-color: rgba(0, 0, 0, 0.05);
         padding-inline-start: 0.4rem;
-        border-radius: $border-radius__base--x-small;
+        border-radius: dimensions.$border-radius__base--x-small;
 
         &:hover {
             background-color: rgba(0, 0, 0, 0.1);
@@ -487,9 +493,9 @@ tags-input,
     padding-block-end: 0.5rem;
     z-index: 999;
     width: 100%;
-    border-radius: $border-radius__base--small;
+    border-radius: dimensions.$border-radius__base--small;
     background-color: var(--color-dropdown-menu-Bg);
-    box-shadow: $shadow__dropdown--default;
+    box-shadow: dimensions.$shadow__dropdown--default;
 
     .autocomplete__header {
         display: flex;
@@ -576,7 +582,7 @@ tags-input,
         transition: all ease 0.2s;
         font-size: 1.3rem;
         font-weight: 400;
-        margin-inline-end: $sd-base-increment;
+        margin-inline-end: dimensions.$sd-base-increment;
         height: 2.8rem;
 
         &:hover {
@@ -664,8 +670,8 @@ tags-input,
     align-items: center;
     width: 100%;
     justify-content: stretch;
-    padding-inline-start: $sd-base-increment;
-    padding-inline-end: $sd-base-increment * 3;
+    padding-inline-start: dimensions.$sd-base-increment;
+    padding-inline-end: dimensions.$sd-base-increment * 3;
 
     .tags-input__helper-box {
         display: flex;

@@ -36,7 +36,7 @@ const DEFAULT_STATE_COLOR_MAP: Record<string, IStateColorConfig> = {
     spiked: {type: 'alert', style: 'hollow'},
     recalled: {type: 'alert', style: 'hollow'},
     killed: {type: 'alert', style: 'hollow'},
-    scheduled: {type: 'highlight', style: 'hollow'},
+    scheduled: {type: 'warning', style: 'hollow'},
     corrected: {type: 'sd-green', style: 'hollow'},
     correction: {color: 'pink--500', style: 'filled'},
     being_corrected: {color: 'pink--500', style: 'hollow'},

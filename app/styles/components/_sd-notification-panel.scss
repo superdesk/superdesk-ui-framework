@@ -1,10 +1,12 @@
+@use "../variables/dimensions";
+
 .sd-notification-panel {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
     position: fixed;
     color: var(--color-text);
-    inset-block-start: $nav-height;
+    inset-block-start: dimensions.$nav-height;
     inset-block-end: 3.2rem;
     inset-inline-end: -336px;
     width: 32rem;
@@ -24,9 +26,9 @@
 .sd-notification-panel__header {
     grid-row: 1 / 2;
     grid-column: 1 / 2;
-    height: $nav-height;
+    height: dimensions.$nav-height;
     border-block-end: 1px solid var(--sd-colour-line--light);
-    padding-inline: $sd-base-increment * 2 $sd-base-increment;
+    padding-inline: dimensions.$sd-base-increment * 2 dimensions.$sd-base-increment;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -37,7 +39,7 @@
     color: var(--color-text);
     font-weight: 300;
     margin-inline-end: auto;
-    padding-inline-end: $sd-base-increment;
+    padding-inline-end: dimensions.$sd-base-increment;
 }
 
 .sd-notification-panel__content {
@@ -45,5 +47,5 @@
     grid-column: 1 / 2;
     overflow-y: auto;
     position: relative;
-    padding: $sd-base-increment * 2;
+    padding: dimensions.$sd-base-increment * 2;
 }

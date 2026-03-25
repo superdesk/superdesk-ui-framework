@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {ImperativePanelHandle, Panel, PanelGroup, PanelResizeHandle} from '@superdesk/react-resizable-panels';
+import {ImperativePanelHandle, Panel, PanelGroup, PanelResizeHandle} from 'react-resizable-panels';
 
 interface IPanelSize {
     min?: number; // percent

@@ -1,3 +1,5 @@
+@use "../variables/colors";
+
 // LEFT NAVIGATION
 
 $sd-leftNav-bgColor: var(--sd-colour-background__left-nav);
@@ -6,7 +8,7 @@ $sd-leftNav-width: 24rem;
 $sd-leftNav-width-large: 32rem;
 
 $sd-leftNavBtn-bgColor: transparent;
-$sd-leftNavBtn-bgHoverColor: $sd-colour-background__menu-item--hover;
+$sd-leftNavBtn-bgHoverColor: colors.$sd-colour-background__menu-item--hover;
 $sd-leftNavBtn-bgActiveColor: var(--sd-colour-interactive--alpha-10);
 $sd-leftNavBtn-transition: background-color 0.2s ease-out, color 0.1s ease-out;
 
@@ -95,7 +97,7 @@ $sd-leftNavBtn-borderActive: 4px solid var(--sd-colour-interactive--active);
 .sd-left-nav__btn:active,
 .sd-left-nav__btn--active {
     background-color: $sd-leftNavBtn-bgActiveColor;
-    color: $sd-colour-interactive;
+    color: colors.$sd-colour-interactive;
 }
 
 .sd-left-nav__btn--active {

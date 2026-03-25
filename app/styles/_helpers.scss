@@ -1,3 +1,8 @@
+@use "mixins";
+@use "variables/colors";
+@use "variables/dimensions";
+@use "variables/typography";
+
 .pull-left {
     float: inline-start;
 }
@@ -7,7 +12,7 @@
 }
 
 .clearfix {
-    @include clearfix();
+    @include mixins.clearfix();
 }
 
 .no-padding {
@@ -66,7 +71,7 @@ p strong {
 }
 
 time {
-    color: $sd-text-light;
+    color: colors.$sd-text-light;
     font-weight: 400;
     letter-spacing: .025em;
 
@@ -139,7 +144,7 @@ h6 {
 
 // Superdesk specific text helpers
 .sd-text__slugline {
-    color: $sd-slugline;
+    color: colors.$sd-slugline;
     font-weight: 500;
     font-size: 1.2rem;
     text-transform: uppercase;
@@ -200,23 +205,23 @@ h6 {
 }
 
 .sd-padding-all--0-5 {
-    padding: $sd-base-increment * 0.5 !important;
+    padding: dimensions.$sd-base-increment * 0.5 !important;
 }
 
 .sd-padding-all--1 {
-    padding: $sd-base-increment !important;
+    padding: dimensions.$sd-base-increment !important;
 }
 
 .sd-padding-all--1-5 {
-    padding: $sd-base-increment * 1.5 !important;
+    padding: dimensions.$sd-base-increment * 1.5 !important;
 }
 
 .sd-padding-all--2 {
-    padding: $sd-base-increment * 2 !important;
+    padding: dimensions.$sd-base-increment * 2 !important;
 }
 
 .sd-padding-all--3 {
-    padding: $sd-base-increment * 3 !important;
+    padding: dimensions.$sd-base-increment * 3 !important;
 }
 
 // margin all (KILL THIS AFTER REFACTORING)
@@ -225,23 +230,23 @@ h6 {
 }
 
 .sd-margin-all--0-5 {
-    margin: $sd-base-increment * 0.5 !important;
+    margin: dimensions.$sd-base-increment * 0.5 !important;
 }
 
 .sd-margin-all--1 {
-    margin: $sd-base-increment * 1 !important;
+    margin: dimensions.$sd-base-increment * 1 !important;
 }
 
 .sd-margin-all--1-5 {
-    margin: $sd-base-increment * 1.5 !important;
+    margin: dimensions.$sd-base-increment * 1.5 !important;
 }
 
 .sd-margin-all--2 {
-    margin: $sd-base-increment * 2 !important;
+    margin: dimensions.$sd-base-increment * 2 !important;
 }
 
 .sd-margin-all--3 {
-    margin: $sd-base-increment * 3 !important;
+    margin: dimensions.$sd-base-increment * 3 !important;
 }
 
 
@@ -349,13 +354,13 @@ h6 {
 // FONT FAMILY (DEPRECATED)
 .sd-text__serif,
 .sd-text--serif {
-    font-family: $baseFontFamilySerif;
+    font-family: typography.$baseFontFamilySerif;
 }
 .sd-text--sans {
-    font-family: $baseFontFamily;
+    font-family: typography.$baseFontFamily;
 }
 .sd-text--mono {
-    font-family: $baseFontFamilyMono;
+    font-family: typography.$baseFontFamilyMono;
 }
 
 // FONT FAMILY VARIABLES -------------------------------------------------------------------------

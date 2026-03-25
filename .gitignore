@@ -13,3 +13,5 @@ debug.log
 yarn-error.log
 .history/
 package-lock.json
+*storybook.log
+storybook-static

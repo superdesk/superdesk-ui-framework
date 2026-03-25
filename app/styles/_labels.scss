@@ -1,3 +1,5 @@
+@use "variables/colors";
+@use "variables/dimensions";
 
 
 $font-size__label--default: 0.9rem;
@@ -11,12 +13,12 @@ $font-size__label--large: 1.2rem;
     justify-content: center;
     padding-block-start: 0;
     padding-block-end: 0;
-    padding-inline: $padding-x__label--default;
+    padding-inline: dimensions.$padding-x__label--default;
     vertical-align: middle;
     border-radius: var(--b-radius--full);
     text-transform: uppercase;
-    line-height: $height__label--default;
-    height: $height__label--default;
+    line-height: dimensions.$height__label--default;
+    height: dimensions.$height__label--default;
     letter-spacing: 0.125em;
     font-size: $font-size__label--default;
     white-space: nowrap;
@@ -26,12 +28,12 @@ $font-size__label--large: 1.2rem;
     background-color: var(--sd-lbl-bg);
 
     &--large {
-        padding-block-start: $padding-y__label--large;
-        padding-block-end: $padding-y__label--large;
-        padding-inline: $padding-x__label--large;
+        padding-block-start: dimensions.$padding-y__label--large;
+        padding-block-end: dimensions.$padding-y__label--large;
+        padding-inline: dimensions.$padding-x__label--large;
         font-size: $font-size__label--large;
-        height: $height__label--large;
-        line-height: $height__label--large;
+        height: dimensions.$height__label--large;
+        line-height: dimensions.$height__label--large;
     }
 }
 
@@ -122,13 +124,13 @@ $font-size__label--large: 1.2rem;
 }
 
 .label--annotation {
-    background-color: $annotation-color;
-    color: $grayMedium;
+    background-color: colors.$annotation-color;
+    color: colors.$grayMedium;
 }
 
 .label--comment {
-    background-color: $comment-color;
-    color: $grayMedium;
+    background-color: colors.$comment-color;
+    color: colors.$grayMedium;
 }
 
 .label--no-transform {

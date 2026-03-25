@@ -1,3 +1,7 @@
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:map';
+
 // ICON FONT
 // Glyphs and icons for buttons, nav, and more
 
@@ -10,7 +14,9 @@
 // <i class="icon-ok icon--white"></i>
 
 /// Default color for icons.
-@import 'variables';
+@use 'variables';
+@use "variables/colors";
+@use "variables/dimensions";
 
 $icon-color: var(--color-icon-default) !default;
 
@@ -63,11 +69,11 @@ $icon-base-size: 16px;
 }
 
 .icon--blue {
-    color: $sd-colour-interactive !important;
+    color: colors.$sd-colour-interactive !important;
 }
 
 .icon--white {
-    color: $white !important;
+    color: colors.$white !important;
 }
 
 .icon--light-blue {
@@ -82,15 +88,15 @@ $icon-base-size: 16px;
 
 [class*=icon-].red,
 .icon--red {
-    color: $fireBrick !important;
+    color: colors.$fireBrick !important;
 }
 
 .icon--orange {
-    color: $orange !important;
+    color: colors.$orange !important;
 }
 
 .icon--green {
-    color: $green !important;
+    color: colors.$green !important;
 }
 
 .icon--full-opacity {
@@ -349,9 +355,9 @@ $sd-icon-font: (
         }
 
         &.color--white {
-            color: hsla(214, 13%, 90, 1) !important;
+            color: hsla(214, 13%, 90%, 1) !important;
         }
-        
+
         &.scale--1\.5x {
             --icon-base-size: 24px
         }
@@ -371,7 +377,7 @@ $sd-icon-font: (
 }
 
 :export {
-    icon: map-keys($sd-icon-font);
+    icon: map.keys($sd-icon-font);
 }
 
 // Combining 2 icons
@@ -390,13 +396,13 @@ $sd-icon-font: (
         font-size: 1.1rem;
         box-sizing: content-box;
         line-height: 100%;
-        color: $purple;
+        color: colors.$purple;
         inset-inline-end: -0.4rem;
         inset-block-end: -0.6rem;
         height: 1em;
         width: 1em;
         background-color: var(--sd-item__main-Bg) !important;
-        border-radius: $border-radius__base--full;
+        border-radius: dimensions.$border-radius__base--full;
         padding: 1px;
         z-index: 1;
         opacity: 1 !important;
@@ -414,7 +420,7 @@ $sd-icon-font: (
         line-height: $icon-base-size *2;
         font-size: $icon-base-size *2;
     }
-    
+
     .icn-mix__sub-icn {
         font-size: 1.6rem;
         inset-inline-end: -0.6rem;
@@ -445,20 +451,20 @@ $sd-icon-font: (
 
 .subnav {
     .icn-mix__sub-icn {
-        background-color: $subnav-background !important;
+        background-color: colors.$subnav-background !important;
     }
 }
 
 .subnav--darker {
     .icn-mix__sub-icn {
-        background-color: $subnav-background-darker !important;
+        background-color: colors.$subnav-background-darker !important;
     }
 }
 
 .subnav--dark-blue-grey {
     .icn-mix__sub-icn {
-        background-color: $subnav-background-dark-blue-grey !important;
-        color: scale-color($purple, $lightness: 50%);
+        background-color: colors.$subnav-background-dark-blue-grey !important;
+        color: color.scale(colors.$purple, $lightness: 50%);
     }
 
     .icn-mix__icn {
@@ -469,14 +475,14 @@ $sd-icon-font: (
 
 .side-panel__top-tools {
     .icn-mix__sub-icn {
-        background-color: #f0f0f0;  
+        background-color: #f0f0f0;
     }
 }
 
 .side-panel__top-tools--dark-blue-grey {
     .icn-mix__sub-icn {
-        background-color: $subnav-background-dark-blue-grey;
-        color: scale-color($purple, $lightness: 50%);
+        background-color: colors.$subnav-background-dark-blue-grey;
+        color: color.scale(colors.$purple, $lightness: 50%);
     }
 
     .icn-mix__icn {

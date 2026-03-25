@@ -132,13 +132,18 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
         const pageElements = getPagination(this.state.currentPage, this.pageCount).map((el, i) => {
             if (el === 'dots') {
                 return (
-                    <span data-test-id="more-pages" className="sd-pagination__item sd-pagination__item--more">
+                    <span
+                        key={`dots-${i}`}
+                        data-test-id="more-pages"
+                        className="sd-pagination__item sd-pagination__item--more"
+                    >
                         ...
                     </span>
                 );
             } else {
                 return (
                     <button
+                        key={`page-${el}`}
                         data-test-id={`page-button-${i}`}
                         className={
                             this.state.currentPage === el
@@ -154,7 +159,7 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
         });
 
         pageElements.unshift(
-            <>
+            <React.Fragment key="nav-start">
                 <button
                     data-test-id="btn-1"
                     className="sd-pagination__item sd-pagination__item--start"
@@ -171,11 +176,11 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
                 >
                     <Icon name="chevron-left-thin" />
                 </button>
-            </>,
+            </React.Fragment>,
         );
 
         pageElements.push(
-            <>
+            <React.Fragment key="nav-end">
                 <button
                     data-test-id="btn-3"
                     className="sd-pagination__item sd-pagination__item--forward"
@@ -192,7 +197,7 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
                 >
                     <Icon name="forward-thin" />
                 </button>
-            </>,
+            </React.Fragment>,
         );
 
         const StyledPagination: React.ComponentType = () => (

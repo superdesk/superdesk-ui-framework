@@ -1,12 +1,18 @@
+@use "sass:color";
+@use "../mixins";
+@use "../variables/colors";
+@use "../variables/dimensions";
+@use "../variables/typography";
+
 // DROPDOWN MENUS : Basic : dropdowns/basic-dropdowns.scss
 
 $dropdownBackground:            var(--color-dropdown-menu-Bg);
 $dropdownLinkColor:             var(--color-dropdown-menu-text);
-$dropdownLinkColorHover:        $sd-text;
-$dropdownLinkBackgroundHover:   $sd-hover;
+$dropdownLinkColorHover:        colors.$sd-text;
+$dropdownLinkBackgroundHover:   colors.$sd-hover;
 
-$dropdownMenuBorderRadius:      $border-radius__base--small;
-$focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
+$dropdownMenuBorderRadius:      dimensions.$border-radius__base--small;
+$focus-box-shadow:              0 0 0 3px colors.$sd-colour--focus-shadow;
 
 // Use the .menu class on any <li> element within the topbar or ul.tabs and you'll get some superfancy dropdowns
 .dropdown {
@@ -50,11 +56,11 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 .dropdown__toggle:active,
 .dropdown.open .dropdown__toggle {
     outline: 0;
-    color: $sd-colour-interactive;
+    color: colors.$sd-colour-interactive;
 }
 
 .dropdown.open .dropdown .dropdown__toggle {
-    color: $grayDark;
+    color: colors.$grayDark;
 }
 
 .dropdown__more-actions .dropdown__toggle > i {
@@ -78,14 +84,14 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
     margin-inline-start: 6px;
     border-inline-start:  4px solid transparent;
     border-inline-end: 4px solid transparent;
-    border-block-start:   4px solid $sd-text;
+    border-block-start:   4px solid colors.$sd-text;
     opacity: .3;
     content: "";
     transition: all 0.1s ease-in;
 
     &.dropdown__caret--white, 
     &.white {
-        border-top-color: $white;
+        border-top-color: colors.$white;
     }
 }
 
@@ -95,7 +101,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 }
 
 .dropdown.open .dropdown__caret {
-    border-top-color: $sd-colour-interactive;
+    border-top-color: colors.$sd-colour-interactive;
 }
 
 // The dropdown menu
@@ -104,14 +110,14 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
     position: absolute;
     inset-block-start: 100%;
     inset-inline-start: 0;
-    z-index: $zindexDropdown;
+    z-index: dimensions.$zindexDropdown;
     display: none; // none by default, but block on "open" of the menu
     min-width: 200px;
     padding: 1rem 0;
     margin: 0; // override default ul
     list-style: none;
     background-color: $dropdownBackground;
-    box-shadow: $shadow__dropdown--default;
+    box-shadow: dimensions.$shadow__dropdown--default;
     border-radius: $dropdownMenuBorderRadius;
     text-align: start;
 
@@ -124,19 +130,19 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
         a:not(.btn), button:not(.btn):not(.dropdown__menu-close):not(.toggle-button) {
             display: block;
             font-weight: normal;
-            line-height: $baseLineHeight;
+            line-height: typography.$baseLineHeight;
             white-space: nowrap;
             width: 100%;
             min-width: 200px;
             position: relative;
             color: $dropdownLinkColor;
-            background-color: $sd-colour-background__menu-item;
+            background-color: colors.$sd-colour-background__menu-item;
             padding: .6rem 1.6rem;
             margin-block-end: .2rem;
             font-size: 1.3rem;
             text-decoration: none;
             text-align: start;
-            transition: $sd-transition__menu-item;
+            transition: dimensions.$sd-transition__menu-item;
 
             > i[class^="icon-"], i[class*=" icon-"], i[class^="filetype-icon-"] {
                 margin-inline-end: 1rem;
@@ -161,20 +167,20 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 
         a:not(.btn), button:not(.btn):not(.dropdown__menu-close):not(.toggle-button) {
             &:hover {
-                background-color: $sd-colour-background__menu-item--hover;
+                background-color: colors.$sd-colour-background__menu-item--hover;
                 text-decoration: none;
                 cursor: pointer;
             }
 
             &:focus {
-                background-color: $sd-colour-background__menu-item;
+                background-color: colors.$sd-colour-background__menu-item;
                 box-shadow: var(--sd-shadow__menu-item--focus-inner);
                 text-decoration: none;
                 outline: none;
             }
 
             &:active {
-                background-color: $sd-colour-background__menu-item--active;
+                background-color: colors.$sd-colour-background__menu-item--active;
             }
 
             &.disabled:hover, &[disabled]:hover {
@@ -200,7 +206,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
     }
 
     .dropdown-filter, .dropdown__filter {
-        height: $sd-base-increment * 4;
+        height: dimensions.$sd-base-increment * 4;
         border: 1px solid var(--sd-colour-line--light);
         border-radius: var(--b-radius--small);
         padding-inline-end: 5px;
@@ -291,12 +297,12 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
         }
 
         button:hover {
-            background-color: $sd-colour-interactive !important;
+            background-color: colors.$sd-colour-interactive !important;
         }
     }
 
     .dropdown__menu-item--highlighted {
-        background-color: lighten($darkViolet, 30%);
+        background-color: color.adjust(colors.$darkViolet, $lightness: 30%);
     }
 
     .dropdown__menu-item--no-link {
@@ -372,7 +378,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 }
 
 .dropdown__menu-info {
-    color: $grayLight;
+    color: colors.$grayLight;
     font-style: italic;
     vertical-align: middle;
 }
@@ -414,7 +420,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
         }
 
         button:hover {
-            background-color: $sd-colour-interactive;
+            background-color: colors.$sd-colour-interactive;
         }
     }
 }
@@ -453,9 +459,9 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 .dropdown--dropup {
     // Reverse the caret
     .dropdown__caret {
-        @include transition(all, 0.2s, eas-in);
+        @include mixins.transition(all, 0.2s, eas-in);
         border-block-start: 0;
-        border-block-end: 4px solid $black;
+        border-block-end: 4px solid colors.$black;
         content: "\2191";
     }
 
@@ -468,7 +474,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 
     &.open {
         .dropdown__caret {
-            border-bottom-color: $sd-colour-interactive !important;
+            border-bottom-color: colors.$sd-colour-interactive !important;
         }
     }
 }
@@ -636,7 +642,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
         background: transparent;
         height: var(--form-element-height-default);
         padding: 0.7rem 1.5rem;
-        border-radius: $border-radius__base--small;
+        border-radius: dimensions.$border-radius__base--small;
         color: var(--color-text);
         transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
 
@@ -660,7 +666,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
     }
 
     .dropdown__toggle--line {
-        border-radius: $border-radius__base--x-small $border-radius__base--x-small 0 0;
+        border-radius: dimensions.$border-radius__base--x-small dimensions.$border-radius__base--x-small 0 0;
         background-color: var(--color-input-bg);
         border-block-end: 1px solid var(--color-input-border);
 
@@ -744,11 +750,11 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 
 .dark-ui {
     .dropdown__caret {
-        border-top-color: $white;
+        border-top-color: colors.$white;
     }
     
     .dropdown.open .dropdown__caret {
-        border-top-color: $sd-colour-interactive;
+        border-top-color: colors.$sd-colour-interactive;
     }
 }
 

@@ -1,3 +1,7 @@
+@use "../mixins";
+@use "../variables/colors";
+@use "../variables/dimensions";
+
 $side-panel-Bg: var(--sd-colour-panel-bg--000);
 $side-panel-Bg-000: var(--sd-colour-panel-bg--000);
 $side-panel-Bg-100: var(--sd-colour-panel-bg--100);
@@ -36,8 +40,8 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
 
     .side-panel__header--dark-blue-grey,
     .side-panel__header--blueGreyDarker {
-        background-color: $subnav-background-dark-blue-grey;
-        color: $white;
+        background-color: colors.$subnav-background-dark-blue-grey;
+        color: colors.$white;
     }
 
     .side-panel__header--light {
@@ -61,21 +65,21 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
     }
 
     .side-panel__sliding-toolbar {
-        @include sliding-toolbar; // See mixins.scss for details
+        @include mixins.sliding-toolbar; // See mixins.scss for details
 
         &.side-panel__sliding-toolbar {
             text-align: end;
             justify-content: flex-end;
 
             &>.btn {
-                margin-inline-start: $sd-base-increment;
+                margin-inline-start: dimensions.$sd-base-increment;
             }
         }
     }
 
     .side-panel__heading {
-        padding-inline-start: $sd-base-increment * 2;
-        padding-inline-end: $sd-base-increment * 2;
+        padding-inline-start: dimensions.$sd-base-increment * 2;
+        padding-inline-end: dimensions.$sd-base-increment * 2;
         margin: 0;
         font-size: 1.5rem;
         color: inherit;
@@ -85,7 +89,7 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
     }
 
     .side-panel__heading--big {
-        color: $sd-text;
+        color: colors.$sd-text;
         font-weight: 400;
         font-size: 1.8rem;
         letter-spacing: 0.01em;
@@ -100,8 +104,8 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
 
     .side-panel__tools {
         position: absolute;
-        inset-inline-end: $sd-base-increment;
-        inset-block-start: $sd-base-increment;
+        inset-inline-end: dimensions.$sd-base-increment;
+        inset-block-start: dimensions.$sd-base-increment;
         z-index: 2;
         color: inherit;
 
@@ -174,7 +178,7 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
 
     .side-panel__content-block--boxed {
         padding: 1.6rem;
-        border-radius: $border-radius__base--medium;
+        border-radius: dimensions.$border-radius__base--medium;
         margin-block-end: 1rem;
     }
 
@@ -297,7 +301,7 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
         background-color: #fff;
         z-index: 3;
         line-height: 0;
-        border-radius: $border-radius__base--full;
+        border-radius: dimensions.$border-radius__base--full;
         box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.4);
         transition: transform 0.5s;
 
@@ -422,8 +426,8 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
     }
 
     .side-panel__top-tools--dark-blue-grey {
-        background: $subnav-background-dark-blue-grey;
-        color: $white;
+        background: colors.$subnav-background-dark-blue-grey;
+        color: colors.$white;
     }
 
     .side-panel__footer {
@@ -442,11 +446,11 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
 
     .side-panel__footer--button-box,
     .side-panel__footer--button-box-large {
-        padding: $sd-base-increment * 1.5 $sd-base-increment * 2;
+        padding: dimensions.$sd-base-increment * 1.5 dimensions.$sd-base-increment * 2;
         position: relative;
         box-shadow: 0 -1px 0 hsla(0, 0%, 0%, 0.08);
         display: flex;
-        gap: $sd-base-increment;
+        gap: dimensions.$sd-base-increment;
         align-items: center;
 
         &::before {
@@ -470,8 +474,8 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
     }
 
     .side-panel__footer--button-box-large {
-        padding: $sd-base-increment * 2 $sd-base-increment * 3;
-        gap: $sd-base-increment * 1.5;
+        padding: dimensions.$sd-base-increment * 2 dimensions.$sd-base-increment * 3;
+        gap: dimensions.$sd-base-increment * 1.5;
     }
 
     &.side-panel--shadow-left::after,
@@ -526,7 +530,7 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
     }
 
     .side-panel__heading {
-        padding-inline-end: $sd-base-increment * 5;
+        padding-inline-end: dimensions.$sd-base-increment * 5;
     }
 }
 

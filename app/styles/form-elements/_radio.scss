@@ -1,28 +1,32 @@
+@use "../mixins";
+@use "../variables/colors";
+@use "../variables/dimensions";
+
 // RADIO BUTTON : form-elements/radio.scss
 
 // SD radio button 
 
 .sd-radio {
-    @include transition(all, 0.2s, ease-out);
+    @include mixins.transition(all, 0.2s, ease-out);
     width: 1.6rem;
     height: 1.6rem;
     display: inline-block;
     position: relative;
     background: transparent;
     border: 2px solid rgba(0, 0, 0, 0.2);
-    border-radius: $border-radius__base--full;
+    border-radius: dimensions.$border-radius__base--full;
     vertical-align: middle;
     margin-inline-end: 0.8rem;
 
     &::after {
-        @include opacity(0);
-        @include transition(all, 0.2s, ease-in);
+        @include mixins.opacity(0);
+        @include mixins.transition(all, 0.2s, ease-in);
         height: 0.8rem;
         width: 0.8rem;
-        border-radius: $border-radius__base--full;
+        border-radius: dimensions.$border-radius__base--full;
         content:' ';
         position: absolute;
-        background-color: $sd-colour-interactive;
+        background-color: colors.$sd-colour-interactive;
         inset-block-start: 0.2rem;
         inset-inline-start: 0.2rem;
         transform: scale(0.25, 0.25);
@@ -34,10 +38,10 @@
     }
 
     &.checked, &[checked="checked"] {
-        border-color: $sd-colour-interactive;
+        border-color: colors.$sd-colour-interactive;
 
         &::after {
-            @include opacity(100);
+            @include mixins.opacity(100);
             transform: scale(1, 1);
         }
 
