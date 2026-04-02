@@ -24,7 +24,7 @@ describe('DateTimePicker', () => {
     it('keeps seconds when changing time values', () => {
         let nextValue: Date | null = null;
         const picker = makePicker({
-            onChange: (value) => {
+            onChange: (value: Date | null) => {
                 nextValue = value;
             },
         });
@@ -32,15 +32,17 @@ describe('DateTimePicker', () => {
         picker.handleTimeChange('09:05:12');
 
         assert.notStrictEqual(nextValue, null);
-        assert.strictEqual(nextValue?.getHours(), 9);
-        assert.strictEqual(nextValue?.getMinutes(), 5);
-        assert.strictEqual(nextValue?.getSeconds(), 12);
+        const timeValue = nextValue as unknown as Date;
+
+        assert.strictEqual(timeValue.getHours(), 9);
+        assert.strictEqual(timeValue.getMinutes(), 5);
+        assert.strictEqual(timeValue.getSeconds(), 12);
     });
 
     it('keeps seconds when changing the date', () => {
         let nextValue: Date | null = null;
         const picker = makePicker({
-            onChange: (value) => {
+            onChange: (value: Date | null) => {
                 nextValue = value;
             },
         });
@@ -48,8 +50,10 @@ describe('DateTimePicker', () => {
         picker.handleDateChange(new Date(2024, 0, 2));
 
         assert.notStrictEqual(nextValue, null);
-        assert.strictEqual(nextValue?.getHours(), 13);
-        assert.strictEqual(nextValue?.getMinutes(), 30);
-        assert.strictEqual(nextValue?.getSeconds(), 45);
+        const dateValue = nextValue as unknown as Date;
+
+        assert.strictEqual(dateValue.getHours(), 13);
+        assert.strictEqual(dateValue.getMinutes(), 30);
+        assert.strictEqual(dateValue.getSeconds(), 45);
     });
 });
