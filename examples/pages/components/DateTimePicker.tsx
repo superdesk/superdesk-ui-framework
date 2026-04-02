@@ -21,6 +21,7 @@ class DateTimePickerExample extends React.PureComponent<{}, {dateTime: Date | nu
                 valueType="date"
                 value={this.state.dateTime}
                 dateFormat="YYYY-MM-DD"
+                allowSeconds
                 onChange={(val) => {
                     const parsedVal = val != null ? new Date(val) : null;
 
@@ -56,6 +57,7 @@ export default class DateTimePickerDoc extends React.Component<{}, IState> {
                         value={this.state.dateTime}
                         dateFormat="YYYY-MM-DD"
                         fullWidth
+                        allowSeconds
                         onChange={(val) => {
                             const parsedVal = val != null ? new Date(val) : null;
 
@@ -75,6 +77,7 @@ export default class DateTimePickerDoc extends React.Component<{}, IState> {
                             value={this.state.dateTime}
                             dateFormat="YYYY-MM-DD"
                             fullWidth
+                            allowSeconds
                             onChange={(val) => {
                                 const parsedVal = val != null ? new Date(val) : null;
 
@@ -99,6 +102,13 @@ export default class DateTimePickerDoc extends React.Component<{}, IState> {
                         type="string"
                         default="/"
                         description='Date format to use, i.e. "MM/DD/YYYY".'
+                    />
+                    <Prop
+                        name="allowSeconds"
+                        isRequired={false}
+                        type="boolean"
+                        default="false"
+                        description="Allow seconds in the time picker."
                     />
                     <Prop
                         name="onChange"

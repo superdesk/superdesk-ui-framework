@@ -46,10 +46,10 @@ export class DateTimePicker extends React.PureComponent<IProps> {
 
     handleTimeChange = (time: string) => {
         if (this.props.valueType === 'date') {
-            const [hours, minutes] = time.split(':').map((x) => defaultTo(parseInt(x, 10), 0));
+            const [hours, minutes, seconds] = time.split(':').map((x) => defaultTo(parseInt(x, 10), 0));
             const origDate = this.props.value ?? new Date();
 
-            origDate.setHours(hours, minutes);
+            origDate.setHours(hours, minutes, this.props.allowSeconds ? seconds : 0);
 
             this.props.onChange(origDate);
         } else if (this.props.valueType === 'object') {
@@ -72,7 +72,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
             const origDate = this.props.value ?? new Date();
             const selectedDate = new Date(date);
 
-            selectedDate.setHours(origDate.getHours(), origDate.getMinutes());
+            selectedDate.setHours(origDate.getHours(), origDate.getMinutes(), this.props.allowSeconds ? origDate.getSeconds() : 0);
 
             this.props.onChange(selectedDate);
         } else if (this.props.valueType === 'object') {
@@ -92,7 +92,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
     getTimeValue(): string | null {
         if (this.props.valueType === 'date') {
             return this.props.value != null
-                ? `${this.prepareFormat(this.props.value.getHours())}:${this.prepareFormat(this.props.value.getMinutes())}`
+                ? `${this.prepareFormat(this.props.value.getHours())}:${this.prepareFormat(this.props.value.getMinutes())}${this.props.allowSeconds ? `:${this.prepareFormat(this.props.value.getSeconds())}` : ''}`
                 : null;
         } else if (this.props.valueType === 'object') {
             return this.props.value.time ?? null;
