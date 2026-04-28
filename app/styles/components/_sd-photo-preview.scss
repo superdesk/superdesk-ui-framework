@@ -439,12 +439,21 @@ $photo-nav-transition: all 0.2s ease-out;
 }
 
 .upload__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0 auto;
     max-width: 40rem;
     position: relative;
     inset-block-start: 50%;
     margin-block-start: -10.6rem;
     z-index: 1;
+    .upload__info-button {
+        display: flex;
+        margin: 0 auto;
+        text-align: center;
+        opacity: 0.75;
+    }
 }
 
 .upload__info-icon {
@@ -491,13 +500,6 @@ $photo-nav-transition: all 0.2s ease-out;
         margin-inline-start: -7.8rem;
     }
 }
-.upload__info-button {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-    opacity: 0.75;
-}
-
 
 .sd-photo-preview__thumb-strip {
     &:hover {
