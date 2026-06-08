@@ -7,7 +7,7 @@ $button-opacity-disabled: 0.60 !default;
 $icn-button-opacity-disabled: 0.40 !default;
 
 // /// transitions for buttons.
-$button-transition: all 0.2s ease-out, color 0.1s ease-out !default;
+$button-transition: all 0.2s ease, color 0.1s ease !default;
 $button-focus-box-shadow: 0 0 0 3px colors.$sd-colour--focus-shadow;
 $icn-button-focus-box-shadow: 0 0 0 2px colors.$sd-colour--focus-shadow;
 
@@ -59,9 +59,11 @@ $icn-button-focus-box-shadow: 0 0 0 2px colors.$sd-colour--focus-shadow;
         box-shadow: var(--new-button-active-shadow);
     }
 
-    &:focus-visible {
-        outline: $button-focus-box-shadow;
-        outline-offset: 1px;
+    &:not(:disabled) {
+        &:focus-visible {
+            outline: 2px solid var(--color-interactive-highlight);
+            outline-offset: 1px;
+        }
     }
 
     [class^="icon-"], [class*=" icon-"] {

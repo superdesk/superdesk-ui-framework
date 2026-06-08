@@ -192,6 +192,19 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     element.focus();
                 }
             }
+        } else if (
+            e.key === 'Delete' &&
+            !this.state.openDropdown &&
+            !this.props.readOnly &&
+            !this.props.disabled &&
+            this.props.clearable !== false &&
+            this.treeSelectRef.current?.contains(document.activeElement) === true
+        ) {
+            if (e.ctrlKey) {
+                this.setState({value: []});
+            } else if (this.state.value.length > 0) {
+                this.setState({value: this.state.value.slice(0, -1)});
+            }
         }
     };
 
