@@ -27,7 +27,7 @@ jobs:
             - uses: actions/setup-node@v6
               with:
                   node-version: '22'
-            - run: npm install -g npm@latest
+            - run: npm install -g npm@11
             - run: npm ci
 
             - name: Bump version
@@ -55,15 +55,17 @@ jobs:
 
             - uses: JS-DevTools/npm-publish@v4
               id: publish
+              with:
+                  provenance: true
 
             - name: Push version bump and tag
               if: inputs.bump != 'none'
               run: |
-                  git push origin HEAD
+                  git push origin "HEAD:${{ github.ref_name }}"
                   git push origin "v${{ steps.package-version.outputs.version }}"
 
             - name: Create GitHub Release
-              uses: softprops/action-gh-release@v1
+              uses: softprops/action-gh-release@v3
               with:
                   tag_name: v${{ steps.package-version.outputs.version }}
                   name: v${{ steps.package-version.outputs.version }}
