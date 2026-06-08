@@ -1,63 +1,68 @@
 name: Publish to npm and Create Release
 
 on:
-    push:
-        branches:
-            - 'v3'
-            - 'v4'
-            - 'v5'
-            - 'v6*'
     workflow_dispatch:
         inputs:
-            branch:
-                description: 'Branch to publish from (leave empty to use current branch)'
-                required: false
-                type: string
-                default: ''
+            bump:
+                description: 'Version bump before publishing (none = publish current package.json version)'
+                required: true
+                type: choice
+                default: 'none'
+                options:
+                    - none
+                    - patch
+                    - minor
+                    - major
 
 jobs:
     publish:
         runs-on: ubuntu-latest
         permissions:
             contents: write
+            id-token: write
         steps:
             - uses: actions/checkout@v6
               with:
-                  ref: ${{ github.event.inputs.branch || github.ref }}
                   fetch-depth: 0
             - uses: actions/setup-node@v6
               with:
                   node-version: '22'
+            - run: npm install -g npm@latest
             - run: npm ci
-            - run: npm run lint
-            - run: npm run build
-            - uses: JS-DevTools/npm-publish@v4
-              id: publish
-              continue-on-error: true
-              with:
-                  token: ${{ secrets.NPM_TOKEN }}
 
-            - name: Check publish result
-              if: steps.publish.outcome == 'failure'
-              run: |
-                  echo "::notice::Package was not published. Version may already exist on npm."
-                  exit 0
-
-            - name: Get package version
-              if: steps.publish.outputs.type != 'none' && steps.publish.outcome == 'success'
-              id: package-version
-              run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
-
-            - name: Create Git tag
-              if: steps.publish.outputs.type != 'none' && steps.publish.outcome == 'success'
+            - name: Bump version
+              if: inputs.bump != 'none'
               run: |
                   git config user.name "github-actions[bot]"
                   git config user.email "github-actions[bot]@users.noreply.github.com"
-                  git tag -a "v${{ steps.package-version.outputs.version }}" -m "Release v${{ steps.package-version.outputs.version }}"
+                  npm version ${{ inputs.bump }} -m "Bump version to %s and release"
+
+            - name: Resolve target version
+              id: package-version
+              run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
+            - name: Ensure version is not already published
+              run: |
+                  VERSION="${{ steps.package-version.outputs.version }}"
+                  if [ -n "$(npm view superdesk-ui-framework@"$VERSION" version 2>/dev/null)" ]; then
+                      echo "::error::superdesk-ui-framework@$VERSION is already published to npm. Choose a version bump (patch/minor/major) and re-run."
+                      exit 1
+                  fi
+                  echo "::notice::superdesk-ui-framework@$VERSION is available; proceeding to publish."
+
+            - run: npm run lint
+            - run: npm run build
+
+            - uses: JS-DevTools/npm-publish@v4
+              id: publish
+
+            - name: Push version bump and tag
+              if: inputs.bump != 'none'
+              run: |
+                  git push origin HEAD
                   git push origin "v${{ steps.package-version.outputs.version }}"
 
             - name: Create GitHub Release
-              if: steps.publish.outputs.type != 'none' && steps.publish.outcome == 'success'
               uses: softprops/action-gh-release@v1
               with:
                   tag_name: v${{ steps.package-version.outputs.version }}
