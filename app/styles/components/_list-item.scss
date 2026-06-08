@@ -85,16 +85,21 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     }
 }
 
-.sd-list-item--active, .sd-list-item.active {
+.sd-list-item--active,
+.sd-list-item.active {
     background-color: $sd-ListItem-background-activated;
 }
 
-.sd-list-item--selected, .sd-list-item--selected:hover, .sd-list-item.selected, .sd-list-item.selected:hover  {
+.sd-list-item--selected,
+.sd-list-item--selected:hover,
+.sd-list-item.selected,
+.sd-list-item.selected:hover  {
     background-color: $sd-ListItem-background-selected;
     outline: 1px solid var(--sd-colour-interactive--alpha-50);
 }
 
-.sd-list-item--activated, .sd-list-item--activated:hover {
+.sd-list-item--activated,
+.sd-list-item--activated:hover {
     background-color: $sd-ListItem-background-activated;
 }
 
@@ -106,6 +111,11 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     &:hover {
         background-color: transparent;
         cursor: default;
+    }
+}
+.sd-list-item--focusable {
+    &:focus-within {
+        outline: 1px solid var(--color-interactive-highlight);
     }
 }
 
@@ -136,11 +146,13 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     background: transparent;
 }
 
-.sd-list-item__border--locked, .sd-list-item__border--error {
+.sd-list-item__border--locked,
+.sd-list-item__border--error {
     background: colors.$red;
 }
 
-.sd-list-item__border--success, .sd-list-item__border--active {
+.sd-list-item__border--success,
+.sd-list-item__border--active {
     background: colors.$green;
 }
 
