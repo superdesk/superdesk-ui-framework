@@ -34,7 +34,8 @@
         background-color: var(--color-input-bg--hover);
     }
 
-    &:focus {
+    &:focus,
+    &:focus-within {
         box-shadow: 0 1px 0 0 var(--sd-colour-interactive);
         border-color: var(--sd-colour-interactive);
         background-color: var(--sd-colour-interactive--alpha-20);
