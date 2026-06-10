@@ -24,10 +24,11 @@ jobs:
             - uses: actions/checkout@v6
               with:
                   fetch-depth: 0
+                  ssh-key: ${{ secrets.PUBLISH_KEY }}
+                  persist-credentials: true
             - uses: actions/setup-node@v6
               with:
                   node-version: '22'
-            - run: npm install -g npm@11
             - run: npm ci
 
             - name: Bump version
@@ -53,16 +54,21 @@ jobs:
             - run: npm run lint
             - run: npm run build
 
-            - uses: JS-DevTools/npm-publish@v4
-              id: publish
-              with:
-                  provenance: true
-
+            # Push the bump commit and tag BEFORE publishing, so a push failure
+            # aborts the run before the irreversible npm publish.
             - name: Push version bump and tag
               if: inputs.bump != 'none'
               run: |
                   git push origin "HEAD:${{ github.ref_name }}"
                   git push origin "v${{ steps.package-version.outputs.version }}"
+
+            - name: Upgrade npm for OIDC trusted publishing
+              run: npm install -g npm@11
+
+            - uses: JS-DevTools/npm-publish@v4
+              id: publish
+              with:
+                  provenance: true
 
             - name: Create GitHub Release
               uses: softprops/action-gh-release@v3
