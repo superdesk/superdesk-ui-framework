@@ -30,7 +30,7 @@ import {getNextZIndex} from '../zIndex';
  * * ENTER/ESC or arrow keys work for entering/leaving submenus
  */
 
-export type IMenuItem = IMenuBranch | IMenuLeaf | ISeparator;
+export type IMenuItem = IMenuBranch | IMenuLeaf | IMenuGroup | IMenuSwitch | ISeparator;
 
 /**
  * Available icons are listed here:
@@ -47,12 +47,28 @@ interface IMenuLeaf {
     icon?: IIconName;
     onClick(): void;
     disabled?: boolean;
+    shortcut?: string;
+    closeOnSelect?: boolean; // defaults to true
 }
 
 interface IMenuBranch {
     label: string | JSX.Element;
     icon?: IIconName;
     children: Array<IMenuItem>;
+}
+
+interface IMenuGroup {
+    type: 'group';
+    label: string | JSX.Element;
+    children: Array<IMenuItem>;
+}
+
+interface IMenuSwitch {
+    type: 'switch';
+    label: string | JSX.Element;
+    value: boolean;
+    disabled?: boolean;
+    onChange(value: boolean): void;
 }
 
 interface IProps {
@@ -62,15 +78,41 @@ interface IProps {
 }
 
 function isSeparator(item: IMenuItem): item is ISeparator {
-    return (item as any)['separator'] === true;
+    return 'separator' in item && item.separator === true;
 }
 
 function isMenuLeaf(item: IMenuItem): item is IMenuLeaf {
-    return (item as any)['onClick'] != null;
+    return 'onClick' in item;
+}
+
+function isMenuGroup(item: IMenuItem): item is IMenuGroup {
+    return 'type' in item && item.type === 'group';
+}
+
+function isMenuSwitch(item: IMenuItem): item is IMenuSwitch {
+    return 'type' in item && item.type === 'switch';
 }
 
 function isMenuBranch(item: IMenuItem): item is IMenuBranch {
-    return isSeparator(item) !== true && isMenuLeaf(item) !== true;
+    return (
+        isSeparator(item) !== true &&
+        isMenuLeaf(item) !== true &&
+        isMenuGroup(item) !== true &&
+        isMenuSwitch(item) !== true
+    );
+}
+
+function getMenuRowLabel(label: string | JSX.Element, endAdornment?: string | JSX.Element): string | JSX.Element {
+    if (endAdornment == null) {
+        return label;
+    }
+
+    return (
+        <span className="sd-menuitem__content">
+            <span className="sd-menuitem__label">{label}</span>
+            <span className="sd-menuitem__end-adornment">{endAdornment}</span>
+        </span>
+    );
 }
 
 export class Menu extends React.Component<IProps, {}> {
@@ -90,31 +132,73 @@ export class Menu extends React.Component<IProps, {}> {
     }
 
     private toPrimeReactInterface(items: Array<IMenuItem>): Array<IPrimeMenuItem> {
-        return items.map((item) => {
+        return items.flatMap((item) => {
             if (isSeparator(item)) {
-                return {separator: true};
-            } else if (isMenuBranch(item)) {
-                return {
-                    label: item.label as string,
-                    icon: item.icon,
-                    items: this.toPrimeReactInterface(item.children),
-                };
-            } else if (isMenuLeaf(item)) {
-                return {
-                    label: item.label as string,
-                    icon: item.icon,
-                    command: (event) => {
-                        /**
-                         * a click on menu item should not trigger other click handlers
-                         * above in the DOM tree. e.g. if menu is inside a clickable list item
-                         */
-                        event.originalEvent.stopPropagation();
-
-                        this.close(event.originalEvent as unknown as SyntheticEvent);
-                        item.onClick();
+                return [{separator: true}];
+            } else if (isMenuGroup(item)) {
+                return [
+                    {
+                        label: item.label as string,
+                        disabled: true,
+                        className: 'p-menuitem--group-label',
                     },
-                    disabled: item.disabled,
-                };
+                    ...this.toPrimeReactInterface(item.children),
+                ];
+            } else if (isMenuSwitch(item)) {
+                return [
+                    {
+                        label: getMenuRowLabel(
+                            item.label,
+                            <span className={`sd-switch ${item.value ? 'checked' : ''}`}>
+                                <span className="inner" />
+                            </span>,
+                        ) as string,
+                        className: 'p-menuitem--switch',
+                        command: (event) => {
+                            event.originalEvent.stopPropagation();
+
+                            if (item.disabled !== true) {
+                                item.onChange(!item.value);
+                            }
+                        },
+                        disabled: item.disabled,
+                    },
+                ];
+            } else if (isMenuBranch(item)) {
+                return [
+                    {
+                        label: item.label as string,
+                        icon: item.icon,
+                        items: this.toPrimeReactInterface(item.children),
+                    },
+                ];
+            } else if (isMenuLeaf(item)) {
+                return [
+                    {
+                        label: getMenuRowLabel(
+                            item.label,
+                            item.shortcut == null ? undefined : (
+                                <span className="sd-menuitem__shortcut">{item.shortcut}</span>
+                            ),
+                        ) as string,
+                        icon: item.icon,
+                        className: item.closeOnSelect === false ? 'p-menuitem--keep-open' : undefined,
+                        command: (event) => {
+                            /**
+                             * a click on menu item should not trigger other click handlers
+                             * above in the DOM tree. e.g. if menu is inside a clickable list item
+                             */
+                            event.originalEvent.stopPropagation();
+
+                            if (item.closeOnSelect !== false) {
+                                this.close(event.originalEvent as unknown as SyntheticEvent);
+                            }
+
+                            item.onClick();
+                        },
+                        disabled: item.disabled,
+                    },
+                ];
             } else {
                 return assertNever(item);
             }
