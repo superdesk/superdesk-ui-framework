@@ -16,7 +16,8 @@
         "Tomas Kikutis",
         "Dragana Zivkovic",
         "Konstantin Markov",
-        "Helmy Giacoman"
+        "Helmy Giacoman",
+        "Brian Mwangi"
     ],
     "scripts": {
         "start": "webpack-dev-server --config tasks/webpack.dev.js",
