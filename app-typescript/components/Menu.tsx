@@ -78,19 +78,19 @@ interface IProps {
 }
 
 function isSeparator(item: IMenuItem): item is ISeparator {
-    return (item as any)['separator'] === true;
+    return 'separator' in item && item.separator === true;
 }
 
 function isMenuLeaf(item: IMenuItem): item is IMenuLeaf {
-    return (item as any)['onClick'] != null;
+    return 'onClick' in item;
 }
 
 function isMenuGroup(item: IMenuItem): item is IMenuGroup {
-    return (item as any)['type'] === 'group';
+    return 'type' in item && item.type === 'group';
 }
 
 function isMenuSwitch(item: IMenuItem): item is IMenuSwitch {
-    return (item as any)['type'] === 'switch';
+    return 'type' in item && item.type === 'switch';
 }
 
 function isMenuBranch(item: IMenuItem): item is IMenuBranch {
