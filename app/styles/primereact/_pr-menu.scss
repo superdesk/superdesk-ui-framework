@@ -14,10 +14,61 @@
         width: 100%;
         max-width: 36ch;
     }
+    .p-menuitem--group-label {
+        .p-menuitem-link {
+            padding-block: .4rem;
+            cursor: default;
+            opacity: 1;
+
+            &:hover, &:focus-visible {
+                background: transparent;
+            }
+        }
+
+        .p-menuitem-text {
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            color: var(--color-text-subdued);
+            font-weight: 500;
+        }
+    }
+
+    .p-menuitem--switch {
+        .p-menuitem-link {
+            cursor: pointer;
+        }
+    }
+
+    .sd-menuitem__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+        width: 100%;
+    }
+
+    .sd-menuitem__label {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .sd-menuitem__end-adornment {
+        flex-shrink: 0;
+        margin-inline-start: auto;
+    }
+
+    .sd-menuitem__shortcut {
+        color: var(--color-text-subdued);
+        font-size: 1.2rem;
+        font-style: italic;
+    }
+
     .p-menuitem-text {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        width: 100%;
     }
     .p-submenu-list {
         .p-menuitem-text {
