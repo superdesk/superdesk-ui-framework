@@ -91,9 +91,7 @@ export default class DropdownDoc extends React.Component {
                                                     type: 'submenu',
                                                     label: 'Show 1',
                                                     icon: 'plus-sign',
-                                                    items: [
-                                                        {label: 'Show 3', icon: 'plus-sign', onSelect: () => 1},
-                                                    ],
+                                                    items: [{label: 'Show 3', icon: 'plus-sign', onSelect: () => 1}],
                                                 },
                                                 {
                                                     type: 'submenu',
@@ -219,8 +217,8 @@ export default class DropdownDoc extends React.Component {
 
                 <h3 className="docs-page__h3">Scrollable dropdown with submenu</h3>
                 <p className="docs-page__paragraph">
-                    Set <code>maxHeight</code> to make a long menu scrollable. Submenus are rendered outside the
-                    scroll container so they remain fully visible.
+                    Set <code>maxHeight</code> to make a long menu scrollable. Submenus are rendered outside the scroll
+                    container so they remain fully visible.
                 </p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
