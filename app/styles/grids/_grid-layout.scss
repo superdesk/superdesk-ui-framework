@@ -817,10 +817,12 @@ $planningEditor-width: 53rem;
 
         &.side-panel__container--xx-large {
             width: var(--width__container--xx-large);
+            max-width: 50vw;
         }
 
         &.side-panel__container--xxx-large {
             width: var(--width__container--xxx-large);
+            max-width: 60vw;
         }
 
         &.side-panel__container--full {

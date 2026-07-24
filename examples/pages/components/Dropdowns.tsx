@@ -92,31 +92,20 @@ export default class DropdownDoc extends React.Component {
                                                     label: 'Show 1',
                                                     icon: 'plus-sign',
                                                     items: [
-                                                        {
-                                                            type: 'submenu',
-                                                            label: 'Show 3',
-                                                            icon: 'plus-sign',
-                                                            items: [],
-                                                        },
+                                                        {label: 'Show 3', icon: 'plus-sign', onSelect: () => 1},
                                                     ],
                                                 },
                                                 {
                                                     type: 'submenu',
                                                     label: 'Show 2',
                                                     icon: 'plus-sign',
-
                                                     items: [
                                                         {
                                                             type: 'submenu',
                                                             label: 'Show 4',
                                                             icon: 'plus-sign',
                                                             items: [
-                                                                {
-                                                                    type: 'submenu',
-                                                                    label: 'Show 5',
-                                                                    icon: 'plus-sign',
-                                                                    items: [],
-                                                                },
+                                                                {label: 'Show 5', icon: 'plus-sign', onSelect: () => 1},
                                                             ],
                                                         },
                                                     ],
@@ -223,6 +212,75 @@ export default class DropdownDoc extends React.Component {
                                     ]
                                 }]}>
                             Submenu on the left
+                        </Dropdown>
+                    `}
+                    </Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
+
+                <h3 className="docs-page__h3">Scrollable dropdown with submenu</h3>
+                <p className="docs-page__paragraph">
+                    Set <code>maxHeight</code> to make a long menu scrollable. Submenus are rendered outside the
+                    scroll container so they remain fully visible.
+                </p>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                        <Dropdown
+                            maxHeight={180}
+                            items={[
+                                {label: 'Action 1', onSelect: () => 1},
+                                {label: 'Action 2', onSelect: () => 1},
+                                {label: 'Action 3', onSelect: () => 1},
+                                {label: 'Action 4', onSelect: () => 1},
+                                {label: 'Action 5', onSelect: () => 1},
+                                {label: 'Action 6', onSelect: () => 1},
+                                {
+                                    type: 'submenu',
+                                    label: 'Second level actions',
+                                    icon: 'star',
+                                    items: [
+                                        {label: 'Sub action 1', onSelect: () => 1},
+                                        {label: 'Sub action 2', onSelect: () => 1},
+                                        {label: 'Sub action 3', onSelect: () => 1},
+                                        {label: 'Sub action 4', onSelect: () => 1},
+                                    ],
+                                },
+                                {label: 'Action 7', onSelect: () => 1},
+                                {label: 'Action 8', onSelect: () => 1},
+                                {label: 'Action 9', onSelect: () => 1},
+                                {label: 'Action 10', onSelect: () => 1},
+                            ]}
+                        >
+                            maxHeight + submenu
+                        </Dropdown>
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>
+                        {`
+                        <Dropdown
+                            maxHeight={180}
+                            items={[
+                                { label: 'Action 1', onSelect: () => 1 },
+                                { label: 'Action 2', onSelect: () => 1 },
+                                { label: 'Action 3', onSelect: () => 1 },
+                                { label: 'Action 4', onSelect: () => 1 },
+                                { label: 'Action 5', onSelect: () => 1 },
+                                { label: 'Action 6', onSelect: () => 1 },
+                                {
+                                    type: 'submenu',
+                                    label: 'Second level actions',
+                                    icon: 'star',
+                                    items: [
+                                        { label: 'Sub action 1', onSelect: () => 1 },
+                                        { label: 'Sub action 2', onSelect: () => 1 },
+                                        { label: 'Sub action 3', onSelect: () => 1 },
+                                        { label: 'Sub action 4', onSelect: () => 1 },
+                                    ],
+                                },
+                                { label: 'Action 7', onSelect: () => 1 },
+                                { label: 'Action 8', onSelect: () => 1 },
+                                { label: 'Action 9', onSelect: () => 1 },
+                                { label: 'Action 10', onSelect: () => 1 },
+                            ]}>
+                            maxHeight + submenu
                         </Dropdown>
                     `}
                     </Markup.ReactMarkupCode>
@@ -507,6 +565,13 @@ export default class DropdownDoc extends React.Component {
                         type="left | right"
                         default="left"
                         description="Position of dropdown menu based on button"
+                    />
+                    <Prop
+                        name="maxHeight"
+                        isRequired={false}
+                        type="number"
+                        default="/"
+                        description="Max height of the menu in pixels. Enables vertical scrolling when content overflows. Submenus stay visible outside the scroll area."
                     />
                     <Prop
                         name="items"

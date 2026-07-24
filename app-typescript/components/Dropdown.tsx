@@ -15,25 +15,27 @@ interface IMenuItemRes extends IMenuItem {
     onChange?(event?: any): void;
 }
 
+export type IMenuElement = IMenuItem | ISubmenu | IMenuGroup | 'divider';
+
 export interface ISubmenu {
     type: 'submenu';
     label: string | React.ReactNode;
     icon?: string;
-    items: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
+    items: Array<IMenuElement>;
 }
 
 export interface IMenuGroup {
     type: 'group';
     label?: string | React.ReactNode;
-    items: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
+    items: Array<IMenuElement>;
 }
 
 interface IMenu {
     label?: string | React.ReactNode;
     align?: 'left' | 'right';
-    items: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
-    header?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
-    footer?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
+    items: Array<IMenuElement>;
+    header?: Array<IMenuElement>;
+    footer?: Array<IMenuElement>;
     children: React.ReactNode;
     onChange?(event?: any): void;
     maxHeight?: number;
@@ -41,240 +43,194 @@ interface IMenu {
 
 const DROPDOWN_ID_CONTAINER = 'sd-dropdown-constainer';
 
-export const Dropdown = ({items, header, footer, children, align, onChange, maxHeight}: IMenu) => {
-    const [zIndex, setZIndex] = React.useState<number>(-1);
+function ensureDropdownContainer(): HTMLElement {
+    let placeholder = document.getElementById(DROPDOWN_ID_CONTAINER);
 
-    if (zIndex === -1) {
-        setZIndex(getNextZIndex());
+    if (!placeholder) {
+        placeholder = document.createElement('div');
+        placeholder.id = DROPDOWN_ID_CONTAINER;
+        placeholder.style.position = 'absolute';
+        placeholder.style.top = '0';
+        placeholder.style.left = '0';
+        placeholder.style.width = '1px';
+        placeholder.style.height = '1px';
+        placeholder.setAttribute('data-test-id', 'dropdown-overlay');
+        document.body.appendChild(placeholder);
     }
 
+    return placeholder;
+}
+
+export const Dropdown = ({items, header, footer, children, align, onChange, maxHeight}: IMenu) => {
+    const [zIndex] = React.useState(getNextZIndex);
     const [open, setOpen] = React.useState(false);
-    const [change, setChange] = React.useState(false);
     const [menuID] = useId();
-    const ref = React.useRef(null);
-    const buttonRef = React.useRef(null);
-    const headerElements = header?.map((el, index) => {
-        return each(el, index);
-    });
-    const maxHeightStyle = maxHeight ? {maxHeight} : {};
+    const menuRef = React.useRef<HTMLElement | null>(null);
+    const buttonRef = React.useRef<HTMLElement | null>(null);
 
-    const dropdownElements = items.map((el, index) => {
-        return each(el, index);
-    });
+    // Callback refs so the same ref can be attached to either element type
+    // rendered by each branch below (ul/div for the menu, div/button for the toggle).
+    const setMenuRef = React.useCallback((element: HTMLElement | null) => {
+        menuRef.current = element;
+    }, []);
+    const setButtonRef = React.useCallback((element: HTMLElement | null) => {
+        buttonRef.current = element;
+    }, []);
 
-    const footerElements = footer?.map((el, index) => {
-        return each(el, index);
-    });
-
+    // Any click closes the menu — including clicks on menu items, which defer
+    // their `onSelect` so the menu is gone by the time it runs.
     React.useEffect(() => {
-        const existingElement = document.getElementById(DROPDOWN_ID_CONTAINER);
-        if (!existingElement) {
-            const el = document.createElement('div');
-            el.id = DROPDOWN_ID_CONTAINER;
-            el.style.position = 'absolute';
-            el.style.top = '0';
-            el.style.left = '0';
-            el.style.width = '1px';
-            el.style.height = '1px';
-            el.setAttribute('data-test-id', 'dropdown-overlay');
-
-            document.body.appendChild(el);
+        if (!open) {
+            return;
         }
-    }, [change]);
 
-    React.useLayoutEffect(() => {
-        if (change) {
-            addInPlaceholder();
-        }
-        setChange(true);
+        const closeMenu = () => setOpen(false);
+
+        document.addEventListener('click', closeMenu);
+
+        return () => document.removeEventListener('click', closeMenu);
     }, [open]);
 
-    function createAppendMenu() {
-        if (header && footer) {
-            return (
-                <div
-                    className="dropdown__menu dropdown__menu--has-head-foot"
-                    id={menuID}
-                    role="menu"
-                    ref={ref}
-                    style={{zIndex}}
-                >
-                    <ul className="dropdown__menu-header">{headerElements}</ul>
-                    <ul className="dropdown__menu-body">{dropdownElements}</ul>
-                    <ul className="dropdown__menu-footer dropdown__menu-footer--has-list ">{footerElements}</ul>
-                </div>
-            );
-        } else if (header) {
-            return (
-                <div
-                    className="dropdown__menu dropdown__menu--has-head-foot"
-                    id={menuID}
-                    role="menu"
-                    ref={ref}
-                    style={{zIndex}}
-                >
-                    <ul className="dropdown__menu-header">{headerElements}</ul>
-                    <ul className="dropdown__menu-body">{dropdownElements}</ul>
-                </div>
-            );
-        } else if (footer) {
-            return (
-                <div
-                    className="dropdown__menu dropdown__menu--has-head-foot"
-                    id={menuID}
-                    role="menu"
-                    ref={ref}
-                    style={{zIndex}}
-                >
-                    <ul className="dropdown__menu-body">{dropdownElements}</ul>
-                    <ul className="dropdown__menu-footer dropdown__menu-footer--has-list ">{footerElements}</ul>
-                </div>
-            );
-        } else {
-            return (
-                <ul
-                    className="dropdown__menu "
-                    id={menuID}
-                    role="menu"
-                    ref={ref}
-                    style={{...{zIndex, overflowY: 'auto'}, ...maxHeightStyle}}
-                >
-                    {dropdownElements}
-                </ul>
-            );
+    React.useLayoutEffect(() => {
+        const toggle = buttonRef.current;
+        const menu = menuRef.current;
+
+        if (!open || toggle == null || menu == null) {
+            return;
         }
-    }
 
-    function toggleDisplay() {
-        if (!open) {
-            let menuRef: any;
-            setOpen(true);
-            setTimeout(() => {
-                menuRef = ref.current;
-                let toggleRef = buttonRef.current;
-                if (toggleRef && menuRef) {
-                    createPopper(toggleRef, menuRef, {
-                        placement: checkAlign() ? 'bottom-end' : 'bottom-start',
-                        strategy: 'fixed',
-                    });
-                    menuRef.style.display = 'block';
-                }
-            }, 0);
-            document.addEventListener('click', closeMenu);
-            setTimeout(() => {
-                menuRef.getElementsByTagName('button')[0].focus();
-            });
-        } else {
-            setOpen(false);
+        const popper = createPopper(toggle, menu, {
+            placement: align === 'right' ? 'bottom-end' : 'bottom-start',
+            strategy: 'fixed',
+        });
+
+        menu.getElementsByTagName('button')[0]?.focus();
+
+        return () => popper.destroy();
+    }, [open, align]);
+
+    function each(item: IMenuElement, index: number): React.ReactNode {
+        if (item === 'divider') {
+            return <li className="dropdown__menu-divider" key={index} />;
         }
-    }
 
-    function closeMenu() {
-        document.removeEventListener('click', closeMenu);
-        setOpen(false);
-    }
+        if ('type' in item && item.type === 'submenu') {
+            // Empty submenu definitions are treated as plain items so we never
+            // portal an empty menu panel.
+            if (item.items.length === 0) {
+                const asItem = item as Partial<IMenuItem>;
 
-    function checkAlign() {
-        if (align === 'right') {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    function addInPlaceholder() {
-        const placeholder = document.getElementById(DROPDOWN_ID_CONTAINER);
-        let menu = createAppendMenu();
-        if (open) {
-            return ReactDOM.render(menu, placeholder);
-        } else {
-            if (placeholder) {
-                ReactDOM.unmountComponentAtNode(placeholder);
+                return (
+                    <DropdownItem
+                        key={index}
+                        label={item.label}
+                        icon={item.icon}
+                        active={asItem.active}
+                        onSelect={asItem.onSelect ?? (() => undefined)}
+                        onChange={onChange}
+                    />
+                );
             }
-        }
-    }
-
-    function each(item: any, index: number) {
-        if (item['type'] === 'submenu') {
-            let submenuItems: any = [];
-            item['items'].forEach((el: any, key: number) => {
-                submenuItems.push(each(el, key));
-            });
 
             return (
                 <DropdownItemWithSubmenu
                     key={index}
-                    index={index}
                     item={item}
-                    menuID={menuID}
-                    subMenuItems={submenuItems}
-                    onChange={onChange}
-                />
-            );
-        } else if (item['type'] === 'group') {
-            let groupItems: any = [];
-            item['items'].forEach((el: any, key: number) => {
-                groupItems.push(each(el, key));
-            });
-
-            return (
-                <React.Fragment key={index}>
-                    <li>
-                        <div className="dropdown__menu-label">{item['label']}</div>
-                    </li>
-                    {groupItems}
-                </React.Fragment>
-            );
-        } else if (item === 'divider') {
-            return <li className="dropdown__menu-divider" key={index}></li>;
-        } else {
-            return (
-                <DropdownItem
-                    key={index}
-                    label={item['label']}
-                    icon={item['icon']}
-                    active={item['active']}
-                    onSelect={item['onSelect']}
+                    zIndex={zIndex}
+                    subMenuItems={item.items.map(each)}
                     onChange={onChange}
                 />
             );
         }
+
+        if ('type' in item && item.type === 'group') {
+            return (
+                <React.Fragment key={index}>
+                    <li>
+                        <div className="dropdown__menu-label">{item.label}</div>
+                    </li>
+                    {item.items.map(each)}
+                </React.Fragment>
+            );
+        }
+
+        return (
+            <DropdownItem
+                key={index}
+                label={item.label}
+                icon={item.icon}
+                active={item.active}
+                onSelect={item.onSelect}
+                onChange={onChange}
+            />
+        );
     }
 
-    return (
-        <div className={'dropdown ' + (open ? 'open' : '')}>
-            {typeof children === 'object' ? (
-                React.isValidElement(children) ? (
-                    <div ref={buttonRef} style={{display: 'content'}}>
-                        {(() => {
-                            const attrs = {
-                                className: children.props.className
-                                    ? children.props.className + ' dropdown__toggle dropdown-toggle'
-                                    : 'dropdown__toggle dropdown-toggle',
-                                'aria-haspopup': 'menu',
-                                'aria-expanded': open,
-                                onClick: toggleDisplay,
-                                ref: buttonRef,
-                            };
+    function renderMenu() {
+        // Only constrain overflow when scrolling is requested. Submenus are portaled
+        // to document.body so they are not clipped by this overflow.
+        const menuStyle: React.CSSProperties = {
+            zIndex,
+            display: 'block',
+            ...(maxHeight != null ? {maxHeight, overflowY: 'auto' as const} : {}),
+        };
 
-                            return React.cloneElement(children, attrs);
-                        })()}
-                    </div>
-                ) : null
+        if (header == null && footer == null) {
+            return (
+                <ul className="dropdown__menu" id={menuID} role="menu" ref={setMenuRef} style={menuStyle}>
+                    {items.map(each)}
+                </ul>
+            );
+        }
+
+        return (
+            <div
+                className="dropdown__menu dropdown__menu--has-head-foot"
+                id={menuID}
+                role="menu"
+                ref={setMenuRef}
+                style={menuStyle}
+            >
+                {header != null && <ul className="dropdown__menu-header">{header.map(each)}</ul>}
+                <ul className="dropdown__menu-body">{items.map(each)}</ul>
+                {footer != null && (
+                    <ul className="dropdown__menu-footer dropdown__menu-footer--has-list">{footer.map(each)}</ul>
+                )}
+            </div>
+        );
+    }
+
+    const toggleProps = {
+        'aria-haspopup': 'menu' as const,
+        'aria-expanded': open,
+        onClick: () => setOpen((currentlyOpen) => !currentlyOpen),
+    };
+
+    return (
+        <div className={open ? 'dropdown open' : 'dropdown'}>
+            {React.isValidElement(children) ? (
+                // The wrapper (not the cloned child) is the popper anchor, so a plain
+                // function component can be used as the toggle without forwarding a ref.
+                <div ref={setButtonRef}>
+                    {React.cloneElement(children, {
+                        ...toggleProps,
+                        className: children.props.className
+                            ? children.props.className + ' dropdown__toggle dropdown-toggle'
+                            : 'dropdown__toggle dropdown-toggle',
+                    })}
+                </div>
             ) : (
                 <button
-                    style={{whiteSpace: 'nowrap'}}
-                    ref={buttonRef}
-                    className=" dropdown__toggle dropdown-toggle"
-                    aria-haspopup="menu"
+                    {...toggleProps}
+                    ref={setButtonRef}
+                    className="dropdown__toggle dropdown__toggle--default dropdown-toggle"
                     tabIndex={0}
-                    aria-expanded={open}
-                    onClick={toggleDisplay}
                 >
                     {children}
-                    <span className="dropdown__caret"></span>
+                    <span className="dropdown__caret" />
                 </button>
             )}
+            {open && ReactDOM.createPortal(renderMenu(), ensureDropdownContainer())}
         </div>
     );
 };
@@ -289,70 +245,143 @@ const DropdownItem = ({label, icon, active, onSelect, onChange}: IMenuItemRes) =
                     setTimeout(() => {
                         onSelect();
                     });
-                    if (onChange) {
-                        onChange();
-                    }
+
+                    onChange?.();
                 }}
             >
-                <i className={icon ? 'icon-' + icon : ''}></i>
+                <i className={icon ? 'icon-' + icon : ''} />
                 {label}
             </button>
         </li>
     );
 };
 
-const DropdownItemWithSubmenu = ({index, item, menuID, subMenuItems, onChange}: IMenuItem | any) => {
-    const [open, setOpen] = React.useState<undefined | boolean>(undefined);
+const SUBMENU_CLOSE_DELAY_MS = 150;
 
-    const refButtonSubMenu = React.useRef(null);
-    const refSubMenu = React.useRef(null);
-    const placeholder = document.getElementById(menuID);
+const SubmenuHoverContext = React.createContext<{
+    keepParentOpen: () => void;
+    scheduleParentClose: () => void;
+}>({
+    keepParentOpen: () => undefined,
+    scheduleParentClose: () => undefined,
+});
 
-    React.useEffect(() => {
-        let subMenuRef: any = refSubMenu.current;
-        let subToggleRef = refButtonSubMenu.current;
+function isMovingToDropdown(relatedTarget: EventTarget | null): boolean {
+    return relatedTarget instanceof Element ? relatedTarget.closest('.dropdown__menu, .dropdown') != null : false;
+}
 
-        if (open === true) {
-            placeholder?.appendChild(subMenuRef);
-            subMenuRef.style.display = 'block';
-        } else if (open === false) {
-            placeholder?.removeChild(subMenuRef);
-            subMenuRef.style.display = 'none';
+interface IDropdownItemWithSubmenu {
+    item: ISubmenu;
+    zIndex: number;
+    subMenuItems: Array<React.ReactNode>;
+    onChange?(event?: any): void;
+}
+
+const DropdownItemWithSubmenu = ({item, zIndex, subMenuItems, onChange}: IDropdownItemWithSubmenu) => {
+    const [open, setOpen] = React.useState(false);
+    const [submenuZIndex, setSubmenuZIndex] = React.useState(zIndex + 1);
+    const refButtonSubMenu = React.useRef<HTMLLIElement>(null);
+    const refSubMenu = React.useRef<HTMLUListElement>(null);
+    const closeTimeoutRef = React.useRef<number | null>(null);
+    const parentHover = React.useContext(SubmenuHoverContext);
+    const onSelect = (item as Partial<IMenuItem>).onSelect;
+
+    const clearCloseTimeout = React.useCallback(() => {
+        if (closeTimeoutRef.current != null) {
+            window.clearTimeout(closeTimeoutRef.current);
+            closeTimeoutRef.current = null;
+        }
+    }, []);
+
+    const openSubmenu = () => {
+        if (subMenuItems.length === 0) {
+            return;
         }
 
-        if (subMenuRef && subToggleRef) {
-            createPopper(subToggleRef, subMenuRef, {
-                placement: 'right-start',
-            });
+        clearCloseTimeout();
+        parentHover.keepParentOpen();
+
+        if (!open) {
+            setSubmenuZIndex(getNextZIndex());
         }
+
+        setOpen(true);
+    };
+
+    const scheduleClose = (closeAncestors: boolean) => {
+        clearCloseTimeout();
+        closeTimeoutRef.current = window.setTimeout(() => {
+            setOpen(false);
+            closeTimeoutRef.current = null;
+        }, SUBMENU_CLOSE_DELAY_MS);
+
+        if (closeAncestors) {
+            parentHover.scheduleParentClose();
+        }
+    };
+
+    const handleMouseLeave = (event: React.MouseEvent) => {
+        scheduleClose(!isMovingToDropdown(event.relatedTarget));
+    };
+
+    React.useEffect(() => clearCloseTimeout, [clearCloseTimeout]);
+
+    React.useLayoutEffect(() => {
+        if (!open || refButtonSubMenu.current == null || refSubMenu.current == null) {
+            return;
+        }
+
+        // Portal to body so parent overflow (e.g. maxHeight) cannot clip the submenu.
+        const popper = createPopper(refButtonSubMenu.current, refSubMenu.current, {
+            placement: 'right-start',
+            strategy: 'fixed',
+        });
+
+        return () => popper.destroy();
     }, [open]);
 
     return (
-        <li key={index} ref={refButtonSubMenu}>
-            <div className="dropdown" onMouseLeave={() => setOpen(false)}>
+        <li ref={refButtonSubMenu}>
+            <div className="dropdown" onMouseEnter={openSubmenu} onMouseLeave={handleMouseLeave}>
                 <button
                     className="dropdown__toggle dropdown-toggle"
                     aria-haspopup="menu"
+                    aria-expanded={open}
                     tabIndex={0}
                     onClick={() => {
-                        if (item.onSelect) {
-                            setTimeout(() => {
-                                item.onSelect();
-                            });
+                        if (onSelect != null) {
+                            setTimeout(() => onSelect());
                         }
-                        if (onChange) {
-                            onChange();
-                        }
+
+                        onChange?.();
                     }}
-                    onMouseOver={() => setOpen(true)}
+                    onMouseOver={openSubmenu}
                 >
-                    {item['icon'] ? <i className={'icon-' + item['icon']}></i> : null}
-                    {item['label']}
+                    {item.icon ? <i className={'icon-' + item.icon} /> : null}
+                    {item.label}
                 </button>
-                <ul role="menu" ref={refSubMenu} style={{display: 'none'}} className="dropdown__menu">
-                    {subMenuItems}
-                </ul>
             </div>
+            {open &&
+                ReactDOM.createPortal(
+                    <SubmenuHoverContext.Provider
+                        value={{
+                            keepParentOpen: openSubmenu,
+                            scheduleParentClose: () => scheduleClose(true),
+                        }}
+                    >
+                        <ul
+                            role="menu"
+                            ref={refSubMenu}
+                            className="dropdown__menu"
+                            style={{display: 'block', zIndex: submenuZIndex}}
+                            onMouseEnter={openSubmenu}
+                            onMouseLeave={handleMouseLeave}
+                        >
+                            {subMenuItems}
+                        </ul>
+                    </SubmenuHoverContext.Provider>,
+                    document.body,
+                )}
         </li>
     );
 };
