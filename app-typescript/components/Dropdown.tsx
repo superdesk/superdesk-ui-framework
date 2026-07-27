@@ -341,10 +341,11 @@ const DropdownItemWithSubmenu = ({item, zIndex, subMenuItems, onChange}: IDropdo
     }, [open]);
 
     return (
-        <li ref={refButtonSubMenu}>
+        <li ref={refButtonSubMenu} role="none">
             <div className="dropdown" onMouseEnter={openSubmenu} onMouseLeave={handleMouseLeave}>
                 <button
                     className="dropdown__toggle dropdown-toggle"
+                    role="menuitem"
                     aria-haspopup="menu"
                     aria-expanded={open}
                     tabIndex={0}
