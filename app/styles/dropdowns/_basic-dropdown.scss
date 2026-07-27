@@ -39,6 +39,12 @@ $focus-box-shadow:              0 0 0 3px colors.$sd-colour--focus-shadow;
 .dropdown__toggle {
     cursor: pointer;
 
+    // Scoped to the built-in toggle button the React Dropdown renders for text
+    // children — custom toggles keep whatever wrapping they already had.
+    &.dropdown__toggle--default {
+        white-space: nowrap;
+    }
+
     i {
         vertical-align: sub;
     }
