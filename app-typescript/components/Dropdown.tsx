@@ -64,6 +64,7 @@ function ensureDropdownContainer(): HTMLElement {
 export const Dropdown = ({items, header, footer, children, align, onChange, maxHeight}: IMenu) => {
     const [zIndex] = React.useState(getNextZIndex);
     const [open, setOpen] = React.useState(false);
+    const [container, setContainer] = React.useState<HTMLElement | null>(null);
     const [menuID] = useId();
     const menuRef = React.useRef<HTMLElement | null>(null);
     const buttonRef = React.useRef<HTMLElement | null>(null);
@@ -75,6 +76,12 @@ export const Dropdown = ({items, header, footer, children, align, onChange, maxH
     }, []);
     const setButtonRef = React.useCallback((element: HTMLElement | null) => {
         buttonRef.current = element;
+    }, []);
+
+    // Created after mount rather than during render, so render stays side-effect free.
+    // The menu only opens on user interaction, so the container is always ready by then.
+    React.useLayoutEffect(() => {
+        setContainer(ensureDropdownContainer());
     }, []);
 
     // Any click closes the menu — including clicks on menu items, which defer
@@ -230,7 +237,7 @@ export const Dropdown = ({items, header, footer, children, align, onChange, maxH
                     <span className="dropdown__caret" />
                 </button>
             )}
-            {open && ReactDOM.createPortal(renderMenu(), ensureDropdownContainer())}
+            {open && container != null && ReactDOM.createPortal(renderMenu(), container)}
         </div>
     );
 };
