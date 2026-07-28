@@ -215,7 +215,7 @@ export const Dropdown = ({items, header, footer, children, align, onChange, maxH
 
     return (
         <div className={open ? 'dropdown open' : 'dropdown'}>
-            {React.isValidElement(children) ? (
+            {React.isValidElement<React.HTMLAttributes<HTMLElement>>(children) ? (
                 // The wrapper (not the cloned child) is the popper anchor, so a plain
                 // function component can be used as the toggle without forwarding a ref.
                 <div ref={setButtonRef}>
