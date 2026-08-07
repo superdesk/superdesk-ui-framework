@@ -2,6 +2,7 @@ import type {Preview} from '@storybook/react-webpack5';
 
 // Import your existing styles
 import '../app/styles/app.scss';
+import '../app/styles/_stories.scss';
 
 const preview: Preview = {
     parameters: {
