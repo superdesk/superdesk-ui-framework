@@ -413,6 +413,10 @@
     display: flex;
     flex-direction: column;
     row-gap: var(--form-layout-row-gap);
+	// .form-layout renders as a <fieldset>, which carries a 2px groove border by
+	// default in every browser. Nothing else resets it — _normalize.scss is not
+	// compiled (it is commented out of app.scss).
+	border: none;
 	width: 100%;
     .form-heading-new {
         font-family: typography.$baseFontFamilySerif;
