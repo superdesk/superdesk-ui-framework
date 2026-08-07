@@ -413,10 +413,15 @@
     display: flex;
     flex-direction: column;
     row-gap: var(--form-layout-row-gap);
-	// .form-layout renders as a <fieldset>, which carries a 2px groove border by
-	// default in every browser. Nothing else resets it — _normalize.scss is not
-	// compiled (it is commented out of app.scss).
+	// .form-layout renders as a <fieldset>, so it needs the browser defaults reset.
+	// Nothing else does it — _normalize.scss is not compiled (it is commented out
+	// of app.scss). The 2px groove border and 2px inline margin were both visible.
+	// min-inline-size is defensive rather than a fix for anything observed: its
+	// min-content default can stop a fieldset shrinking below its widest field,
+	// though the fields currently in use all shrink small enough not to hit it.
 	border: none;
+	margin-inline: 0;
+	min-inline-size: 0;
 	width: 100%;
     .form-heading-new {
         font-family: typography.$baseFontFamilySerif;
