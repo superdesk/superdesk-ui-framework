@@ -1,0 +1,73 @@
+name: Consumer E2E
+
+# Runs the superdesk-client-core and superdesk-planning e2e suites against this branch's build,
+# to catch ui-framework changes that break its consumers.
+
+on:
+    pull_request:
+    workflow_dispatch:
+        inputs:
+            client-core-ref:
+                description: 'superdesk-client-core branch to test against'
+                default: 'develop'
+            planning-ref:
+                description: 'superdesk-planning branch to test against'
+                default: 'develop'
+
+permissions:
+    contents: read
+
+concurrency:
+    group: consumer-e2e-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    pack:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v6
+
+            - uses: actions/setup-node@v6
+              with:
+                  node-version: '22'
+                  cache: 'npm'
+
+            - run: npm ci
+
+            # The parts of `npm run build` that consumers use; Storybook is skipped.
+            - name: Build package
+              run: |
+                  export PATH="$PWD/node_modules/.bin:$PATH"
+                  tsc -p tsconfig.json --noEmit
+                  webpack --config tasks/webpack.prod.js
+                  tsc
+
+            - name: Pack
+              run: |
+                  out="$RUNNER_TEMP/ui-framework"
+                  mkdir -p "$out"
+                  npm pack --pack-destination "$out"
+                  sha256sum dist/superdesk-ui.bundle.js | cut -d' ' -f1 > "$out/bundle.sha256"
+                  cp .github/scripts/use-ui-framework-build.sh "$out/"
+                  ls -la "$out"
+                  cat "$out/bundle.sha256"
+
+            - uses: actions/upload-artifact@v7
+              with:
+                  name: ui-framework-package
+                  path: ${{ runner.temp }}/ui-framework
+                  retention-days: 1
+
+    client-core:
+        needs: pack
+        uses: superdesk/superdesk-client-core/.github/workflows/e2e.yml@develop
+        with:
+            ui-framework-artifact: ui-framework-package
+            ref: ${{ inputs.client-core-ref || 'develop' }}
+
+    planning:
+        needs: pack
+        uses: superdesk/superdesk-planning/.github/workflows/ci-e2e.yml@develop
+        with:
+            ui-framework-artifact: ui-framework-package
+            ref: ${{ inputs.planning-ref || 'develop' }}

@@ -150,3 +150,19 @@ Runing `e2e&unit` tests
 ```
 npm run lint
 ```
+
+#### Consumer e2e
+
+The `Consumer E2E` workflow (`.github/workflows/consumer-e2e.yml`) builds this branch and runs the Playwright e2e suites of [superdesk-client-core](https://github.com/superdesk/superdesk-client-core) and [superdesk-planning](https://github.com/superdesk/superdesk-planning) against that build instead of the npm release. It runs on every pull request.
+
+To run it manually, open Actions > Consumer E2E > Run workflow, pick the ui-framework branch to build, and optionally the client-core and planning branches to test against (both default to `develop`). From the command line:
+
+```
+gh workflow run consumer-e2e.yml --ref <ui-framework-branch> -f client-core-ref=develop -f planning-ref=develop
+```
+
+Things to know:
+
+- Manual runs only work once the workflow is on `develop`, since GitHub only offers "Run workflow" for workflows on the default branch.
+- The branch inputs pick which consumer code is tested, but the consumer workflows themselves always come from their `develop` (the `uses:` lines). To try a change to a consumer's e2e workflow, point the matching `uses:` line at that branch temporarily.
+- To check that a run used this build and not the npm one, look at the "Use superdesk-ui-framework build" step in the client-core and planning jobs. It prints the bundle hash before and after the swap, and fails if webpack would bundle anything other than this build.
