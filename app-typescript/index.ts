@@ -126,6 +126,15 @@ export {CalendarWeekDayItem, WeeklyCalendarGrid, WeeklyCalendarGridItem} from '.
 export {getTextColor} from './helpers';
 export {setupLocalization} from './localization';
 
+export {FormLayoutEditor, FLE_PHANTOM_ROW_ID} from './components/FormLayoutEditor';
+export type {
+    IFormLayoutEditorProps,
+    ILayoutItem,
+    ILayoutRow,
+    ILayoutValue,
+    IItemWidth,
+} from './components/FormLayoutEditor';
+
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;
 export declare const reactToAngular1: any;

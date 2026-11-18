@@ -1,0 +1,397 @@
+// FormLayoutEditor — BEM block: fle
+
+.form-layout-editor {
+    width: 100%;
+
+    &.form-layout-editor--is-inert {
+        pointer-events: none;
+        user-select: none;
+        .form-layout-editor__item:not(.form-layout-editor__item--is-active) {
+            opacity: 0.25;
+        }
+        .form-layout-editor__item--is-active {
+            .form-layout-editor__item-actions {
+                opacity: 0;
+                max-width: 0;
+                padding-inline-end: 0
+            }
+        }
+        .form-layout-editor__add-button-slot {
+            opacity: 0.25;
+        }
+        .form-layout-editor__row--phantom {
+            opacity: 0.25;
+        }
+    }
+}
+
+.form-layout-editor__rows {
+    display: flex;
+    flex-direction: column;
+}
+
+// ─── Row ────────────────────────────────────────────────────────────────────
+
+.form-layout-editor__row {
+    display: flex;
+    align-items: stretch;
+    border-radius: var(--radius-md);
+    margin-block-end: var(--space-1);
+    &.form-layout-editor__row--phantom {
+        .form-layout-editor__row-body {
+            border-radius: var(--radius-md);
+        }
+    }
+    &.form-layout-editor__row--is-dragging {
+        box-shadow: 0 4px 16px lch(0% 0 0 / 0.18);
+        opacity: 0.92;
+    }
+    &:not(.form-layout-editor__row--phantom) .form-layout-editor__row-body {
+        border-inline-start: none;
+    }
+}
+
+.form-layout-editor__row-handle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    // min-width: var(--space-3);
+    flex-shrink: 0;
+    background-color: var(--color-line-medium);
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+// .form-layout-editor__row-body holds the droppable area and the (+) add-item button.
+// The button sits OUTSIDE .form-layout-editor__droppable-area so DnD never measures it
+// as part of the item container.
+.form-layout-editor__row-body {
+    display: flex;
+    align-items: center;
+    padding-block: var(--space-0-5);
+    padding-inline: var(--space-0-5) var(--space-1);
+    background-color: var(--color-surface-muted);
+    border: 1px dashed var(--color-line-medium);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+// ─── Droppable area ─────────────────────────────────────────────────────────
+
+// position:relative anchors the resize-handle overlays.
+.form-layout-editor__droppable-area {
+    flex: 1;
+    position: relative;
+    min-width: 0;
+    border-radius: var(--radius-sm);
+    overflow: clip;
+}
+
+// The div that @hello-pangea/dnd manages.
+// MUST contain only Draggable wrappers + DnD placeholder — no other in-flow
+// siblings (resize handles, buttons) or DnD's position measurements break.
+.form-layout-editor__row-items {
+    display: flex;
+    gap: var(--space-0-5);
+    min-height: var(--space-4);
+    // min-width ensures clip() always sees a positive width for the horizontal
+    // droppable, as recommended in the hello-pangea/dnd docs for empty droppables.
+    min-width: 100%;
+    // Small right-padding creates a drop zone after the last item for end-of-row drops.
+    padding-right: 8px;
+
+    &--count-0 { --fle-row-gap-count: 0; }
+    &--count-1 { --fle-row-gap-count: 0; }
+    &--count-2 { --fle-row-gap-count: 1; }
+    &--count-3 { --fle-row-gap-count: 2; }
+    &--count-4 { --fle-row-gap-count: 3; }
+
+    --fle-row-gap-total: calc(var(--space-0-5) * var(--fle-row-gap-count, 0));
+
+    &.form-layout-editor__row-items--drag-over {
+        background-color: var(--color-interactive-translucent);
+        outline: 1px dashed var(--color-interactive-translucent-strong);
+        outline-offset: -1px;
+        border-radius: var(--radius-md);
+    }
+}
+
+// Style the DnD placeholder as a narrow insertion line rather than a full block.
+// This keeps row height stable during cross-row drags (issue 6).
+// Scoped to non-phantom rows only — the phantom row's placeholder must render at
+// its natural DnD-computed width so that clip() can reconcile the subject area
+// with the cursor position (scoping it to all rows caused the phantom-row flicker).
+.form-layout-editor__row:not(.form-layout-editor__row--phantom) .form-layout-editor__row-items {
+    > [data-rbd-placeholder-context-id] {
+        border-left: 3px solid var(--sd-colour-interactive) !important;
+        background: transparent !important;
+        min-width: 6px !important;
+        max-width: 6px !important;
+        flex: 0 0 6px !important;
+        opacity: 1 !important;
+    }
+}
+
+// ─── Phantom row ────────────────────────────────────────────────────────────
+
+// hello-pangea/dnd's collision detection (getDroppableOver) checks whether the
+// dragged item's center falls inside the Droppable's *physical* bounding rect.
+// For horizontal droppables wider than the dragged item the library never
+// grows the rect vertically, so the phantom's min-height IS the entire
+// vertical hit zone.  32px (--space-4) is too narrow — the cursor passes
+// through it in a few frames and the drop highlight vanishes.  56px gives a
+// comfortable target without over-sizing the row.
+.form-layout-editor__row--phantom .form-layout-editor__row-items {
+    min-height: var(--space-5); // 40px
+}
+
+.form-layout-editor__phantom-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: 0 0 0 var(--space-1-5);
+}
+
+.form-layout-editor__phantom-inner--drag-over {
+    display: none;
+}
+
+.form-layout-editor__empty-prompt {
+    flex: 1;
+    color: var(--color-text-subdued);
+    font-size: var(--text-size-xs);
+    font-style: italic;
+}
+
+// ─── Item slot (Draggable wrapper) ──────────────────────────────────────────
+
+// Width lives here, NOT on .form-layout-editor__item.
+// When not dragging: flex-basis sizes the slot in the row.
+// When dragging: @hello-pangea/dnd applies position:fixed + explicit px width
+// (from DraggingStyle), so flex-basis has no effect and there is no conflict.
+.form-layout-editor__item-slot {
+    display: flex;
+    min-width: 0;
+
+    &--width-full    { flex: 0 0 calc(100% - var(--fle-row-gap-total)); }
+    &--width-three-quarter { flex: 0 0 calc(75% - (var(--fle-row-gap-total) * 0.75)); }
+    &--width-half    { flex: 0 0 calc(50% - (var(--fle-row-gap-total) * 0.5)); }
+    &--width-third   { flex: 0 0 calc(33.333% - (var(--fle-row-gap-total) * 0.333333)); }
+    &--width-quarter { flex: 0 0 calc(25% - (var(--fle-row-gap-total) * 0.25)); }
+}
+.form-layout-editor__add-button-slot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 var(--space-3);
+}
+
+// ─── Item card ──────────────────────────────────────────────────────────────
+
+.form-layout-editor__item {
+    display: flex;
+    align-items: stretch;
+    min-height: var(--space-4);
+    flex: 1;
+    border: 1px solid var(--color-line-medium);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface-base);
+    overflow: hidden;
+    transition: box-shadow 0.1s;
+
+    &.form-layout-editor__item--is-dragging {
+        box-shadow: 0 4px 16px lch(0% 0 0 / 0.18);
+        opacity: 0.9;
+    }
+    &:focus-within,
+    &.form-layout-editor__item--is-active {
+        outline: 1px solid var(--color-interactive-highlight);
+        outline-offset: -1px;
+    }
+
+    &:hover .form-layout-editor__item-actions,
+    &:focus-within .form-layout-editor__item-actions {
+        opacity: 1;
+        max-width: 100%;
+        padding-inline-end: var(--space-1);
+        gap: var(--space-0-5);
+        pointer-events: auto;
+        visibility: visible;
+    }
+
+    // Suppress hover during any drag so items beneath the ghost don't show actions.
+    &.form-layout-editor__item--any-dragging:hover .form-layout-editor__item-actions,
+    &.form-layout-editor__item--any-dragging:focus-within .form-layout-editor__item-actions {
+        opacity: 0;
+        max-width: 0;
+        padding-inline-end: 0;
+        gap: 0;
+        pointer-events: none;
+        visibility: hidden;
+    }
+}
+
+.form-layout-editor__item-handle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: var(--space-1) var(--space-0-5);
+    flex-shrink: 0;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.form-layout-editor__item-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-inline: var(--space-0-5) var(--space-1);
+    min-width: 0;
+    overflow: hidden;
+    font-size: var(--text-size-sm);
+    min-height: var(--space-4);
+}
+
+// Content layout inside an item: field label + current width.
+.form-layout-editor__field {
+    display: flex;
+    align-items: center;
+    gap: var(--space-0-5);
+    min-width: 0;
+    width: 100%;
+}
+
+.form-layout-editor__field-label {
+    font-size: var(--text-size-sm);
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.form-layout-editor__field-width {
+    margin-inline-start: auto;
+    flex-shrink: 0;
+}
+
+.form-layout-editor__item-actions {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-shrink: 0;
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    visibility: hidden;
+    pointer-events: none;
+    padding-inline-end: 0;
+    transition: opacity 0.2s ease, max-width 0.2s ease, padding-inline-end 0.2s ease, gap 0.2s ease, visibility 0.2s;
+}
+
+// ─── Add-item popover ────────────────────────────────────────────────────────
+
+// Applied by renderAddItemContent implementations to give the popup the correct
+// background, shadow and shape (matching overflow-stack__popover).
+.form-layout-editor__add-item-popup {
+    background-color: var(--color-dropdown-menu-Bg);
+    border-radius: var(--b-radius--large);
+    padding: var(--space-1-5);
+    box-shadow: var(--sd-shadow__dropdown);
+    display: flex;
+    flex-direction: column;
+    min-width: max-content;
+    overflow-y: auto;
+}
+
+// ─── Add-item popup contents ─────────────────────────────────────────────────
+// Used by renderAddItemContent implementations in stories / consumers.
+
+.form-layout-editor__add-item-popup__title {
+    display: block;
+    font-size: var(--text-size-xs);
+    font-weight: 600;
+    margin-block-end: var(--space-1);
+}
+
+.form-layout-editor__add-item-popup__empty-state {
+    margin: 0;
+    font-size: var(--text-size-xs);
+    color: var(--color-text-subdued);
+}
+
+.form-layout-editor__add-item-popup__field-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-0-5);
+}
+
+.form-layout-editor__add-item-popup__field-btn {
+    display: block;
+    width: 100%;
+    text-align: start;
+    padding-block: var(--space-0-5);
+    padding-inline: var(--space-1-5);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-line-medium);
+    background-color: var(--color-item-bg-normal);
+    color: var(--color-text-default);
+    cursor: pointer;
+    font-size: var(--text-size-sm);
+
+    &:hover {
+        background-color: var(--color-item-bg-hover);
+    }
+}
+
+// ─── Resize handles ─────────────────────────────────────────────────────────
+
+// Overlay container covers .form-layout-editor__droppable-area exactly.
+// pointer-events:none lets clicks reach items; individual handles re-enable it.
+.form-layout-editor__resize-overlays {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 5;
+}
+
+// 12 px wide (6 px either side of boundary) so it's easy to grab.
+// Centred on the boundary with left:X% + margin-left:-6px.
+// Visual stripe shown via ::after to keep the clickable area wider than the stripe.
+.form-layout-editor__resize-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 12px;
+    margin-left: -6px;
+    cursor: col-resize;
+    pointer-events: auto;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: var(--space-0-5);
+        margin-left: -2px;
+        border-radius: 1px;
+        background-color: transparent;
+        transition: background-color 0.12s;
+    }
+
+    &:hover::after,
+    &--active::after {
+        background-color: var(--sd-colour-interactive);
+    }
+}
