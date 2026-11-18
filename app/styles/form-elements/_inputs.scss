@@ -815,6 +815,25 @@ input[type="color" i].sd-input__color-input::-webkit-color-swatch {
         &.sd-input__input {
             height: auto;
             min-height: var(--form-element-height-default);
+            // A single row is as tall as a single-line input: 0.6rem + 2rem + 0.6rem.
+            padding-block: 0.6rem;
+            line-height: 2rem;
+            resize: vertical;
+            // Height changes come from the resize handle or autoHeight and must follow instantly.
+            transition-property: background-color, border-color, box-shadow;
+        }
+
+        &.sd-input__input--auto-height {
+            resize: none;
+        }
+    }
+
+    &:not(.sd-input--boxed-style) textarea.sd-input__input[readonly] {
+        border-block-end-style: dotted;
+
+        &:hover {
+            background-color: var(--color-input-bg);
+            border-color: var(--color-input-border);
         }
     }
 

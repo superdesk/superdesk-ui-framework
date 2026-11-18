@@ -45,6 +45,11 @@
     }
 }
 
+.sd-input__textarea-preview {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
 .sd-input__duration-input-preview {
     display: flex;
     gap: 2px;

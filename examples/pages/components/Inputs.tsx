@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
-import {Input, CheckGroup, Checkbox, PropsList, Prop, InputNew} from '../../../app-typescript';
+import {Input, CheckGroup, Checkbox, PropsList, Prop, InputNew, TextArea} from '../../../app-typescript';
 
 interface IState {
     inlineLabel: boolean;
@@ -12,6 +12,8 @@ interface IState {
     value3: any;
     value4: any;
     value5: any;
+    textAreaValue: string;
+    textAreaAutoHeightValue: string;
 }
 
 export default class InputsDoc extends React.Component<{}, IState> {
@@ -27,6 +29,8 @@ export default class InputsDoc extends React.Component<{}, IState> {
             value3: '',
             value4: '',
             value5: '',
+            textAreaValue: '',
+            textAreaAutoHeightValue: '',
         };
     }
 
@@ -305,6 +309,143 @@ export default class InputsDoc extends React.Component<{}, IState> {
                         type="boolean"
                         default="false"
                         description="Mark field as disabled."
+                    />
+                </PropsList>
+
+                <h2 className="docs-page__h2">TextArea</h2>
+                <Markup.ReactMarkupCodePreview>
+                    {`
+                    <TextArea label='Notes' value={this.state.value} onChange={(value) => this.setState({value: value})} />
+                `}
+                </Markup.ReactMarkupCodePreview>
+                <p className="docs-page__paragraph">
+                    Multi-line counterpart of Input. It shares the label, hint, error, character counter and the
+                    required, disabled and inline label options above.
+                </p>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                        <div className="docs-page__content-row docs-page__content-row--no-margin">
+                            <div className="form__row">
+                                <TextArea
+                                    label="TextArea label"
+                                    value={this.state.textAreaValue}
+                                    info="This is some hint message"
+                                    placeholder="Placeholder"
+                                    inlineLabel={this.state.inlineLabel}
+                                    required={this.state.required}
+                                    disabled={this.state.disabled}
+                                    maxLength={300}
+                                    tabindex={0}
+                                    onChange={(value) => this.setState({textAreaValue: value})}
+                                />
+                            </div>
+
+                            <p className="docs-page__paragraph">// Auto height, from 2 up to 6 rows</p>
+                            <div className="form__row">
+                                <TextArea
+                                    label="TextArea label"
+                                    value={this.state.textAreaAutoHeightValue}
+                                    rows={2}
+                                    autoHeight={true}
+                                    maxRows={6}
+                                    tabindex={0}
+                                    onChange={(value) => this.setState({textAreaAutoHeightValue: value})}
+                                />
+                            </div>
+                        </div>
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                        <TextArea
+                            label='TextArea label'
+                            value={this.state.value}
+                            info='This is some hint message'
+                            placeholder='Placeholder'
+                            inlineLabel={this.state.inlineLabel}
+                            required={this.state.required}
+                            disabled={this.state.disabled}
+                            maxLength={300}
+                            tabindex={0}
+                            onChange={(value) => this.setState({value: value})}
+                        />
+
+                        // Auto height, from 2 up to 6 rows
+                        <TextArea
+                            label='TextArea label'
+                            value={this.state.value}
+                            rows={2}
+                            autoHeight={true}
+                            maxRows={6}
+                            tabindex={0}
+                            onChange={(value) => this.setState({value: value})}
+                        />
+                    `}</Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
+
+                <h3 className="docs-page__h3">Props</h3>
+                <PropsList>
+                    <Prop name="value" isRequired={false} type="string" default="/" description="TextArea value." />
+                    <Prop
+                        name="onChange"
+                        isRequired={true}
+                        type="(value: string) => void"
+                        default="/"
+                        description="Callback to invoke when value changes."
+                    />
+                    <Prop
+                        name="rows"
+                        isRequired={false}
+                        type="number"
+                        default="3"
+                        description="Number of visible text lines. With autoHeight it is the minimum height."
+                    />
+                    <Prop
+                        name="autoHeight"
+                        isRequired={false}
+                        type="boolean"
+                        default="false"
+                        description="Grows the field with its content instead of scrolling. The height follows the value prop."
+                    />
+                    <Prop
+                        name="maxRows"
+                        isRequired={false}
+                        type="number"
+                        default="/"
+                        description="With autoHeight, stops growing at this many lines and scrolls instead."
+                    />
+                    <Prop
+                        name="maxLength"
+                        isRequired={false}
+                        type="number"
+                        default="/"
+                        description="Shows a character counter and stops input at this length."
+                    />
+                    <Prop
+                        name="placeholder"
+                        isRequired={false}
+                        type="string"
+                        default="/"
+                        description="Defines the text for the placeholder pseudo-element."
+                    />
+                    <Prop
+                        name="readonly"
+                        isRequired={false}
+                        type="boolean"
+                        default="false"
+                        description="The text can be selected and copied but not changed."
+                    />
+                    <Prop
+                        name="preview"
+                        isRequired={false}
+                        type="boolean"
+                        default="false"
+                        description="Renders only the value, keeping its line breaks."
+                    />
+                    <Prop
+                        name="label, info, error, required, disabled, inlineLabel, labelHidden, fullWidth, boxedStyle, boxedLable, tabindex"
+                        isRequired={false}
+                        type="/"
+                        default="/"
+                        description="Same as Input."
                     />
                 </PropsList>
             </section>
