@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import nextId from 'react-id-generator';
+import {useId} from 'react-id-generator';
 import {IInputCommon, IInputWrapper, InputWrapper} from './Form/InputWrapper';
 
 interface IProps extends IInputCommon {
@@ -40,147 +40,118 @@ function toPixels(value: string): number {
     return isNaN(parsed) ? 0 : parsed;
 }
 
-export class TextArea extends React.Component<IProps> {
-    private htmlId = nextId();
-    private textareaRef = React.createRef<HTMLTextAreaElement>();
+function updateHeight(textarea: HTMLTextAreaElement, maxRows: number | undefined) {
+    // Shrinking first lets `scrollHeight` report the content height, with `rows` as the floor.
+    // The scrollbar is hidden while measuring because it narrows the text and adds wrapped lines.
+    const previousHeight = textarea.style.height;
+    const previousOverflowY = textarea.style.overflowY;
 
-    constructor(props: IProps) {
-        super(props);
+    textarea.style.height = 'auto';
+    textarea.style.overflowY = 'hidden';
 
-        this.handleChange = this.handleChange.bind(this);
+    // A hidden field (inactive tab, closed modal) measures 0. Keep the last height rather than
+    // collapsing it; it is measured again on the next `value` change.
+    if (textarea.scrollHeight === 0) {
+        textarea.style.height = previousHeight;
+        textarea.style.overflowY = previousOverflowY;
+        return;
     }
 
-    componentDidMount() {
-        if (this.props.autoHeight) {
-            this.updateHeight();
-        }
-    }
+    // `scrollHeight` excludes borders, while `height` includes them (border-box).
+    const borders = textarea.offsetHeight - textarea.clientHeight;
+    let height = textarea.scrollHeight + borders;
+    let overflowY = 'hidden';
 
-    componentDidUpdate(prevProps: IProps) {
-        if (this.props.autoHeight) {
-            if (
-                prevProps.value !== this.props.value ||
-                prevProps.rows !== this.props.rows ||
-                prevProps.maxRows !== this.props.maxRows ||
-                prevProps.autoHeight !== this.props.autoHeight
-            ) {
-                this.updateHeight();
+    if (maxRows != null) {
+        const style = window.getComputedStyle(textarea);
+        const lineHeight = toPixels(style.lineHeight);
+
+        if (lineHeight > 0) {
+            const maxHeight =
+                lineHeight * maxRows + toPixels(style.paddingTop) + toPixels(style.paddingBottom) + borders;
+
+            if (height > maxHeight) {
+                height = maxHeight;
+                overflowY = 'auto';
             }
-        } else if (prevProps.autoHeight) {
-            this.resetHeight();
         }
     }
 
-    handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
-        this.props.onChange(event.target.value);
-    }
+    textarea.style.height = `${height}px`;
+    textarea.style.overflowY = overflowY;
+}
 
-    updateHeight() {
-        const textarea = this.textareaRef.current;
+export const TextArea = (props: IProps) => {
+    const [htmlId] = useId();
+    const textareaRef = React.useRef<HTMLTextAreaElement>(null);
 
-        if (textarea == null) {
+    // Layout effects run before paint, so the measured height shows on the first frame without a jump.
+    React.useLayoutEffect(() => {
+        if (props.autoHeight && textareaRef.current != null) {
+            updateHeight(textareaRef.current, props.maxRows);
+        }
+    }, [props.value, props.rows, props.maxRows, props.autoHeight]);
+
+    React.useLayoutEffect(() => {
+        if (!props.autoHeight) {
             return;
         }
 
-        // Shrinking first lets `scrollHeight` report the content height, with `rows` as the floor.
-        // The scrollbar is hidden while measuring because it narrows the text and adds wrapped lines.
-        const previousHeight = textarea.style.height;
-        const previousOverflowY = textarea.style.overflowY;
+        return () => {
+            const textarea = textareaRef.current;
 
-        textarea.style.height = 'auto';
-        textarea.style.overflowY = 'hidden';
-
-        // A hidden field (inactive tab, closed modal) measures 0. Keep the last height rather than
-        // collapsing it; it is measured again on the next `value` change.
-        if (textarea.scrollHeight === 0) {
-            textarea.style.height = previousHeight;
-            textarea.style.overflowY = previousOverflowY;
-            return;
-        }
-
-        // `scrollHeight` excludes borders, while `height` includes them (border-box).
-        const borders = textarea.offsetHeight - textarea.clientHeight;
-        let height = textarea.scrollHeight + borders;
-        let overflowY = 'hidden';
-
-        if (this.props.maxRows != null) {
-            const style = window.getComputedStyle(textarea);
-            const lineHeight = toPixels(style.lineHeight);
-
-            if (lineHeight > 0) {
-                const maxHeight =
-                    lineHeight * this.props.maxRows +
-                    toPixels(style.paddingTop) +
-                    toPixels(style.paddingBottom) +
-                    borders;
-
-                if (height > maxHeight) {
-                    height = maxHeight;
-                    overflowY = 'auto';
-                }
+            if (textarea != null) {
+                textarea.style.height = '';
+                textarea.style.overflowY = '';
             }
-        }
+        };
+    }, [props.autoHeight]);
 
-        textarea.style.height = `${height}px`;
-        textarea.style.overflowY = overflowY;
-    }
-
-    resetHeight() {
-        const textarea = this.textareaRef.current;
-
-        if (textarea != null) {
-            textarea.style.height = '';
-            textarea.style.overflowY = '';
-        }
-    }
-
-    render() {
-        if (this.props.preview) {
-            return (
-                <div>
-                    <span className="sd-input__textarea-preview">{this.props.value}</span>
-                </div>
-            );
-        }
-
+    if (props.preview) {
         return (
-            <InputWrapper
-                label={this.props.label}
-                required={this.props.required}
-                disabled={this.props.disabled}
-                readonly={this.props.readonly}
-                value={this.props.value ?? ''}
-                error={this.props.error}
-                invalid={this.props.error != null}
-                info={this.props.info}
-                maxLength={this.props.maxLength}
-                inlineLabel={this.props.inlineLabel}
-                labelHidden={this.props.labelHidden}
-                fullWidth={this.props.fullWidth}
-                htmlId={this.htmlId}
-                boxedStyle={this.props.boxedStyle}
-                boxedLable={this.props.boxedLable}
-                tabindex={this.props.tabindex}
-                inputWrapper={this.props.inputWrapper}
-            >
-                <textarea
-                    ref={this.textareaRef}
-                    className={classNames('sd-input__input', {
-                        'sd-input__input--auto-height': this.props.autoHeight,
-                    })}
-                    id={this.htmlId}
-                    value={this.props.value}
-                    rows={this.props.rows ?? 3}
-                    maxLength={this.props.maxLength}
-                    aria-describedby={this.htmlId + 'label'}
-                    tabIndex={this.props.tabindex}
-                    onChange={this.handleChange}
-                    placeholder={this.props.placeholder}
-                    disabled={this.props.disabled}
-                    readOnly={this.props.readonly}
-                    data-test-id={this.props['data-test-id']}
-                />
-            </InputWrapper>
+            <div>
+                <span className="sd-input__textarea-preview">{props.value}</span>
+            </div>
         );
     }
-}
+
+    return (
+        <InputWrapper
+            label={props.label}
+            required={props.required}
+            disabled={props.disabled}
+            readonly={props.readonly}
+            value={props.value ?? ''}
+            error={props.error}
+            invalid={props.error != null}
+            info={props.info}
+            maxLength={props.maxLength}
+            inlineLabel={props.inlineLabel}
+            labelHidden={props.labelHidden}
+            fullWidth={props.fullWidth}
+            htmlId={htmlId}
+            boxedStyle={props.boxedStyle}
+            boxedLable={props.boxedLable}
+            tabindex={props.tabindex}
+            inputWrapper={props.inputWrapper}
+        >
+            <textarea
+                ref={textareaRef}
+                className={classNames('sd-input__input', {
+                    'sd-input__input--auto-height': props.autoHeight,
+                })}
+                id={htmlId}
+                value={props.value}
+                rows={props.rows ?? 3}
+                maxLength={props.maxLength}
+                aria-describedby={htmlId + 'label'}
+                tabIndex={props.tabindex}
+                onChange={(event) => props.onChange(event.target.value)}
+                placeholder={props.placeholder}
+                disabled={props.disabled}
+                readOnly={props.readonly}
+                data-test-id={props['data-test-id']}
+            />
+        </InputWrapper>
+    );
+};
