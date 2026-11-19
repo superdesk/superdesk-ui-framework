@@ -7,27 +7,17 @@ interface IProps extends IInputCommon {
     value?: string;
     onChange(newValue: string): void;
 
-    /**
-     * Shows a character counter and stops input at this length.
-     */
+    /** Shows a character counter and stops input at this length */
     maxLength?: number;
     placeholder?: string;
 
-    /**
-     * Number of visible text lines. Defaults to 3.
-     * With `autoHeight` it is the minimum height.
-     */
+    /** Visible lines, 3 by default. The minimum height with `autoHeight` */
     rows?: number;
 
-    /**
-     * Grows the field with its content instead of scrolling.
-     * The height follows the `value` prop.
-     */
+    /** Grows with the content instead of scrolling */
     autoHeight?: boolean;
 
-    /**
-     * With `autoHeight`, stops growing at this many lines and scrolls instead.
-     */
+    /** With `autoHeight`, the line count after which it scrolls */
     maxRows?: number;
 
     'data-test-id'?: string;
@@ -41,23 +31,21 @@ function toPixels(value: string): number {
 }
 
 function updateHeight(textarea: HTMLTextAreaElement, maxRows: number | undefined) {
-    // Shrinking first lets `scrollHeight` report the content height, with `rows` as the floor.
-    // The scrollbar is hidden while measuring because it narrows the text and adds wrapped lines.
+    // Shrink first so `scrollHeight` is the content height. A scrollbar would wrap more lines.
     const previousHeight = textarea.style.height;
     const previousOverflowY = textarea.style.overflowY;
 
     textarea.style.height = 'auto';
     textarea.style.overflowY = 'hidden';
 
-    // A hidden field (inactive tab, closed modal) measures 0. Keep the last height rather than
-    // collapsing it; it is measured again on the next `value` change.
+    // A hidden field measures 0, so keep its last height
     if (textarea.scrollHeight === 0) {
         textarea.style.height = previousHeight;
         textarea.style.overflowY = previousOverflowY;
         return;
     }
 
-    // `scrollHeight` excludes borders, while `height` includes them (border-box).
+    // `height` includes the borders, `scrollHeight` does not
     const borders = textarea.offsetHeight - textarea.clientHeight;
     let height = textarea.scrollHeight + borders;
     let overflowY = 'hidden';
@@ -85,7 +73,7 @@ export const TextArea = (props: IProps) => {
     const [htmlId] = useId();
     const textareaRef = React.useRef<HTMLTextAreaElement>(null);
 
-    // Layout effects run before paint, so the measured height shows on the first frame without a jump.
+    // A layout effect, so the first frame already has the measured height
     React.useLayoutEffect(() => {
         if (props.autoHeight && textareaRef.current != null) {
             updateHeight(textareaRef.current, props.maxRows);
