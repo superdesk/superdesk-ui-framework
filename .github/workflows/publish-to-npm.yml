@@ -13,6 +13,20 @@ on:
                     - patch
                     - minor
                     - major
+                    - prepatch
+                    - preminor
+                    - premajor
+                    - prerelease
+            preid:
+                description: 'Prerelease id for the pre* bumps, e.g. alpha, beta, rc (6.1.6 + preminor + beta = 6.2.0-beta.0)'
+                required: false
+                type: string
+                default: ''
+            version:
+                description: 'Exact version to publish instead of a bump, e.g. 7.0.0-dev4'
+                required: false
+                type: string
+                default: ''
 
 jobs:
     publish:
@@ -20,6 +34,10 @@ jobs:
         permissions:
             contents: write
             id-token: write
+        env:
+            BUMP: ${{ inputs.bump }}
+            PREID: ${{ inputs.preid }}
+            EXACT_VERSION: ${{ inputs.version }}
         steps:
             - uses: actions/checkout@v6
               with:
@@ -32,24 +50,51 @@ jobs:
             - run: npm ci
 
             - name: Bump version
-              if: inputs.bump != 'none'
+              id: bump
               run: |
+                  if [ -n "$EXACT_VERSION" ] && [ "$BUMP" != "none" ]; then
+                      echo "::error::Set either a bump or an exact version, not both."
+                      exit 1
+                  fi
+
+                  if [ -n "$EXACT_VERSION" ]; then
+                      NEW_VERSION="$EXACT_VERSION"
+                  elif [ "$BUMP" != "none" ]; then
+                      NEW_VERSION="$BUMP"
+                  else
+                      echo "bumped=false" >> $GITHUB_OUTPUT
+                      exit 0
+                  fi
+
                   git config user.name "github-actions[bot]"
                   git config user.email "github-actions[bot]@users.noreply.github.com"
-                  npm version ${{ inputs.bump }} -m "Bump version to %s and release"
+                  npm version "$NEW_VERSION" ${PREID:+--preid "$PREID"} -m "Bump version to %s and release"
+                  echo "bumped=true" >> $GITHUB_OUTPUT
 
-            - name: Resolve target version
+            # A prerelease goes out under its id without the trailing number (7.0.0-dev4 under "dev",
+            # 6.2.0-beta.0 under "beta"), so `npm install superdesk-ui-framework` keeps the stable one.
+            - name: Resolve target version and dist-tag
               id: package-version
-              run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+              run: |
+                  node -e '
+                      const version = require("./package.json").version;
+                      const prerelease = version.split("+")[0].split("-").slice(1).join("-");
+                      const tag = prerelease === "" ? "latest" : prerelease.split(".")[0].replace(/\d+$/, "") || "next";
+                      require("fs").appendFileSync(process.env.GITHUB_OUTPUT, [
+                          `version=${version}`,
+                          `tag=${tag}`,
+                          `prerelease=${prerelease !== ""}`,
+                      ].join("\n") + "\n");
+                  '
 
             - name: Ensure version is not already published
               run: |
                   VERSION="${{ steps.package-version.outputs.version }}"
                   if [ -n "$(npm view superdesk-ui-framework@"$VERSION" version 2>/dev/null)" ]; then
-                      echo "::error::superdesk-ui-framework@$VERSION is already published to npm. Choose a version bump (patch/minor/major) and re-run."
+                      echo "::error::superdesk-ui-framework@$VERSION is already published to npm. Choose a version bump or an exact version and re-run."
                       exit 1
                   fi
-                  echo "::notice::superdesk-ui-framework@$VERSION is available; proceeding to publish."
+                  echo "::notice::superdesk-ui-framework@$VERSION is available; publishing under the '${{ steps.package-version.outputs.tag }}' dist-tag."
 
             - run: npm run lint
             - run: npm run build
@@ -57,7 +102,7 @@ jobs:
             # Push the bump commit and tag BEFORE publishing, so a push failure
             # aborts the run before the irreversible npm publish.
             - name: Push version bump and tag
-              if: inputs.bump != 'none'
+              if: steps.bump.outputs.bumped == 'true'
               run: |
                   git push origin "HEAD:${{ github.ref_name }}"
                   git push origin "v${{ steps.package-version.outputs.version }}"
@@ -69,6 +114,7 @@ jobs:
               id: publish
               with:
                   provenance: true
+                  tag: ${{ steps.package-version.outputs.tag }}
 
             - name: Create GitHub Release
               uses: softprops/action-gh-release@v3
@@ -77,6 +123,6 @@ jobs:
                   name: v${{ steps.package-version.outputs.version }}
                   generate_release_notes: true
                   body: |
-                      Published to npm: https://www.npmjs.com/package/superdesk-ui-framework/v/${{ steps.package-version.outputs.version }}
+                      Published to npm under the `${{ steps.package-version.outputs.tag }}` tag: https://www.npmjs.com/package/superdesk-ui-framework/v/${{ steps.package-version.outputs.version }}
                   draft: false
-                  prerelease: false
+                  prerelease: ${{ steps.package-version.outputs.prerelease == 'true' }}
