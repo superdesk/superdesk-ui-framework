@@ -3,10 +3,14 @@ import classNames from 'classnames';
 interface ITabs {
     size?: 'normal' | 'large' | 'small'; // defaults to 'normal'
     theme?: 'light' | 'dark'; // defaults to 'light'
+    style?: 'default' | 'segmented'; // defaults to 'default'
     ariaLabel?: string;
     children: Array<any>;
     onClick(i: number): void;
     initiallySelectedIndex?: number;
+
+    /** Makes the selection controlled: the selected tab follows this prop, `onClick` reports clicks */
+    selectedIndex?: number;
     'data-test-id'?: string;
 }
 
@@ -31,8 +35,9 @@ export const TabLabel = ({label}: ITabLabel) => {
 };
 
 export const Tabs = (props: ITabs) => {
-    const {initiallySelectedIndex, size, theme, ariaLabel, children, onClick} = props;
-    const [index, setIndex] = React.useState(initiallySelectedIndex ?? 0);
+    const {initiallySelectedIndex, selectedIndex, size, theme, style, ariaLabel, children, onClick} = props;
+    const [uncontrolledIndex, setIndex] = React.useState(initiallySelectedIndex ?? 0);
+    const index = selectedIndex ?? uncontrolledIndex;
 
     function handleSelected(i: number) {
         setIndex(i);
@@ -46,6 +51,7 @@ export const Tabs = (props: ITabs) => {
     let classes = classNames('sd-nav-tabs', {
         [`sd-nav-tabs--${size}`]: size && size !== undefined,
         'sd-nav-tabs--ui-dark': theme === 'dark',
+        'sd-nav-tabs--segmented': style === 'segmented',
     });
 
     return (
