@@ -139,7 +139,7 @@ export default class TabsDoc extends React.Component<{}, IState> {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className="docs-page__content-row">
-                            <Tabs selectedIndex={this.state.indexValue} onClick={this.handleClick}>
+                            <Tabs onClick={this.handleClick}>
                                 <TabLabel label="Content" indexValue={0} />
                                 <TabLabel label="Metadata" indexValue={1} />
                                 <TabLabel label="Duplicates" indexValue={2} />
@@ -158,7 +158,7 @@ export default class TabsDoc extends React.Component<{}, IState> {
                         setActiveIndex(index);
                     }
 
-                       <Tabs selectedIndex={activeIndex} onClick={handleClick}>
+                       <Tabs onClick={handleClick}>
                             <TabLabel label='Content' indexValue={0}/>
                             <TabLabel label='Metadata' indexValue={1}/>
                             <TabLabel label='Duplicates' indexValue={2}/>
@@ -174,38 +174,6 @@ export default class TabsDoc extends React.Component<{}, IState> {
                                 Duplicates here.
                             </TabPanel>
                         </TabContent>
-                    `}
-                    </Markup.ReactMarkupCode>
-                </Markup.ReactMarkup>
-
-                <p className="docs-page__paragraph">
-                    Pass <code>selectedIndex</code> to control the selected tab, for example to switch to a tab from
-                    code. Without it, <code>Tabs</code> keeps the selection itself and{' '}
-                    <code>initiallySelectedIndex</code> only sets the first one.
-                </p>
-
-                <h3 className="docs-page__h3">Segmented</h3>
-                <p className="docs-page__paragraph">
-                    Add prop <code>style='segmented'</code> for a segmented control look, for switching between views of
-                    the same content, such as the sections of a form in a side panel.
-                </p>
-                <Markup.ReactMarkup>
-                    <Markup.ReactMarkupPreview>
-                        <div className="docs-page__content-row">
-                            <Tabs style="segmented" selectedIndex={this.state.indexValue} onClick={this.handleClick}>
-                                <TabLabel label="Content" indexValue={0} />
-                                <TabLabel label="Metadata" indexValue={1} />
-                                <TabLabel label="Duplicates" indexValue={2} />
-                            </Tabs>
-                        </div>
-                    </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>
-                        {`
-                        <Tabs style='segmented' selectedIndex={activeIndex} onClick={setActiveIndex}>
-                            <TabLabel label='Content' indexValue={0}/>
-                            <TabLabel label='Metadata' indexValue={1}/>
-                            <TabLabel label='Duplicates' indexValue={2}/>
-                        </Tabs>
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -250,27 +218,6 @@ export default class TabsDoc extends React.Component<{}, IState> {
                         type="light | dark"
                         default="light"
                         description="Styles tablist for diffrent background."
-                    />
-                    <Prop
-                        name="tabs style"
-                        isRequired={false}
-                        type="default | segmented"
-                        default="default"
-                        description="Segmented shows the tabs as a segmented control."
-                    />
-                    <Prop
-                        name="tabs selectedIndex"
-                        isRequired={false}
-                        type="number"
-                        default="/"
-                        description="Index of the selected tab. When set, the selection follows this prop and onClick only reports clicks."
-                    />
-                    <Prop
-                        name="tabs initiallySelectedIndex"
-                        isRequired={false}
-                        type="number"
-                        default="0"
-                        description="Index of the tab selected on mount, when selectedIndex is not set."
                     />
                     <Prop
                         name="tabs ariaLabel"
