@@ -195,6 +195,40 @@ $nav-tab-active-link-border-color: colors.$sd-colour-interactive;  // active sta
             font-size: $nav-tabs-font-size-big;
         }
     }
+
+    // Segmented control look, for switching between views of the same content
+    &.sd-nav-tabs--segmented {
+        display: inline-flex;
+        flex-grow: 0;
+        height: auto;
+        padding: var(--space--0-5);
+        gap: var(--space--0-5);
+        box-shadow: none;
+        border-radius: var(--b-radius--small);
+        background-color: var(--color-surface-dimmed);
+
+        .sd-nav-tabs__tab {
+            height: 3.2rem;
+            padding-inline: var(--space--1-5);
+            border: 0;
+            border-radius: var(--b-radius--small);
+
+            span {
+                margin: 0;
+            }
+
+            &:hover {
+                color: colors.$sd-text;
+            }
+        }
+
+        .sd-nav-tabs__tab--active,
+        .sd-nav-tabs__tab--active:hover {
+            background-color: var(--color-surface-base);
+            color: var(--color-primary-text);
+            box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.16);
+        }
+    }
 }
 
 // single tab
