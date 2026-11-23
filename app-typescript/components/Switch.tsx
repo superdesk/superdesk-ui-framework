@@ -16,6 +16,8 @@ interface IProps {
     toolTipFlow?: 'top' | 'left' | 'right' | 'down';
     toolTipAppend?: boolean;
     onChange(nextValue: boolean): void;
+    'data-test-id'?: string;
+    'data-test-value'?: string;
 }
 
 export class Switch extends React.PureComponent<IProps> {
@@ -59,7 +61,12 @@ export class Switch extends React.PureComponent<IProps> {
         if (this.props.label.hidden && typeof this.props.label.content === 'string') {
             return (
                 <Tooltip text={this.props.label.content} flow={this.props.toolTipFlow}>
-                    <span className="sd-switch__wrapper" tabIndex={-1}>
+                    <span
+                        className="sd-switch__wrapper"
+                        tabIndex={-1}
+                        data-test-id={this.props['data-test-id']}
+                        data-test-value={this.props['data-test-value']}
+                    >
                         {checkboxInput}
                         <label className="a11y-only" htmlFor={this.htmlId}>
                             {this.props.label.content}
@@ -76,7 +83,12 @@ export class Switch extends React.PureComponent<IProps> {
                 );
 
             return (
-                <span className="sd-switch__wrapper" tabIndex={-1}>
+                <span
+                    className="sd-switch__wrapper"
+                    tabIndex={-1}
+                    data-test-id={this.props['data-test-id']}
+                    data-test-value={this.props['data-test-value']}
+                >
                     {this.props.label.side === 'left' ? labelContent : null}
                     {checkboxInput}
                     {this.props.label.side !== 'left' ? labelContent : null}

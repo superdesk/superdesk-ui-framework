@@ -11,6 +11,8 @@ interface IProps {
     banner?: boolean;
     margin?: 'none' | 'small' | 'normal' | 'large';
     fullWidth?: boolean;
+    'data-test-id'?: string;
+    'data-test-value'?: string;
 }
 
 interface IState {
@@ -55,7 +57,12 @@ export class Alert extends React.PureComponent<IProps, IState> {
         }
 
         return (
-            <div className="sd-alert__container" style={styles}>
+            <div
+                className="sd-alert__container"
+                style={styles}
+                data-test-id={this.props['data-test-id']}
+                data-test-value={this.props['data-test-value']}
+            >
                 <div className={classesAlert}>
                     {this.props.icon ? (
                         <span className="sd-alert__icon">

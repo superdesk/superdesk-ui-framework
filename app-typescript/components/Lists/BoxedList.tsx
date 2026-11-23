@@ -65,6 +65,8 @@ interface IPropsItem {
     selected?: boolean;
     unread?: boolean;
     onClick?(): void;
+    'data-test-id'?: string;
+    'data-test-value'?: string;
 }
 
 class BoxedListItem extends React.PureComponent<IPropsItem> {
@@ -97,7 +99,12 @@ class BoxedListItem extends React.PureComponent<IPropsItem> {
             [`boxed-list__item--align-${this.props.alignVertical}`]: this.props.alignVertical,
         });
         return (
-            <li className={classes} onClick={this.handleClick}>
+            <li
+                className={classes}
+                onClick={this.handleClick}
+                data-test-id={this.props['data-test-id']}
+                data-test-value={this.props['data-test-value']}
+            >
                 {this.props.media && <BoxedListMedia>{this.props.media}</BoxedListMedia>}
 
                 <BoxedListContent>{this.props.children}</BoxedListContent>
@@ -124,6 +131,8 @@ interface IProps {
     density?: 'compact' | 'comfortable'; // defaults to 'compact'
     className?: string;
     style?: React.CSSProperties;
+    'data-test-id'?: string;
+    'data-test-value'?: string;
 }
 
 class BoxedList extends React.PureComponent<IProps> {
@@ -137,7 +146,12 @@ class BoxedList extends React.PureComponent<IProps> {
             this.props.className,
         );
         return (
-            <ul className={classes} style={this.props.style}>
+            <ul
+                className={classes}
+                style={this.props.style}
+                data-test-id={this.props['data-test-id']}
+                data-test-value={this.props['data-test-value']}
+            >
                 {this.props.children}
             </ul>
         );
