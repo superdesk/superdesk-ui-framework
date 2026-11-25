@@ -39,6 +39,8 @@ interface IMenu {
     children: React.ReactNode;
     onChange?(event?: any): void;
     maxHeight?: number;
+    'data-test-id'?: string;
+    'data-test-value'?: string;
 }
 
 const DROPDOWN_ID_CONTAINER = 'sd-dropdown-constainer';
@@ -61,7 +63,8 @@ function ensureDropdownContainer(): HTMLElement {
     return placeholder;
 }
 
-export const Dropdown = ({items, header, footer, children, align, onChange, maxHeight}: IMenu) => {
+export const Dropdown = (props: IMenu) => {
+    const {items, header, footer, children, align, onChange, maxHeight} = props;
     const [zIndex] = React.useState(getNextZIndex);
     const [open, setOpen] = React.useState(false);
     const [container, setContainer] = React.useState<HTMLElement | null>(null);
@@ -214,7 +217,11 @@ export const Dropdown = ({items, header, footer, children, align, onChange, maxH
     };
 
     return (
-        <div className={open ? 'dropdown open' : 'dropdown'}>
+        <div
+            className={open ? 'dropdown open' : 'dropdown'}
+            data-test-id={props['data-test-id']}
+            data-test-value={props['data-test-value']}
+        >
             {React.isValidElement<React.HTMLAttributes<HTMLElement>>(children) ? (
                 // The wrapper (not the cloned child) is the popper anchor, so a plain
                 // function component can be used as the toggle without forwarding a ref.
